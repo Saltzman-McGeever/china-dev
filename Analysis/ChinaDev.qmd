@@ -5,6 +5,10 @@ format:
   html:
     code-fold: true
     code-tools: true
+    page-layout: full
+    grid:
+      body-width: 1400px
+      margin-width: 100px
 jupyter: python3
 ---
 
@@ -13,10 +17,13 @@ jupyter: python3
 This analysis visualizes Chinese development projects around the world using data from AidData's China's Global Loans and Grants Dataset, Version 1.0.
 
 ## Geographic Distribution of Projects
+
+:::panel-tabset
+### Flat Map View
 ```{python}
-import pandas as pd
-import plotly.express as px
-from ChinaDev import clg, fig
-# Count projects by country
+from CLG import clg, create_flat_map_visualization
+
+fig = create_flat_map_visualization(clg)
 fig.show()
 ```
+:::

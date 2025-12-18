@@ -9,37 +9,45 @@ clg
 # %%
 import plotly.express as px
 
-# Count projects by country
-country_counts = clg.groupby('Country_of_Activity').size().reset_index(name='Project_Count')
+def create_flat_map_visualization(df, country_col='Country_of_Activity', color_scale='Greens'):
 
-# Create a choropleth map showing project counts by country
-fig = px.choropleth(country_counts,
-                    locations='Country_of_Activity',
-                    locationmode='country names',
-                    color='Project_Count',
-                    hover_name='Country_of_Activity',
-                    hover_data={'Project_Count': True, 'Country_of_Activity': True},
-                    color_continuous_scale='Greens',
-                    title='Chinese Development Projects by Country',
-                    labels={'Project_Count': 'Number of Projects'})
+    # Count projects by country
+    country_counts = df.groupby(country_col).size().reset_index(name='Project_Count')
 
-fig.update_layout(
-    geo=dict(
-        showframe=False,
-        showcoastlines=True,
-        coastlinecolor='rgb(150, 150, 150)',
-        projection_type='orthographic',
-        projection_rotation=dict(lon=0, lat=20, roll=0),
-        showland=True,
-        landcolor='rgb(243, 243, 243)',
-        showcountries=True,
-        countrycolor='rgb(204, 204, 204)',
-        showocean=True,
-        oceancolor='rgb(230, 245, 255)',
-        showlakes=True,
-        lakecolor='rgb(230, 245, 255)'
-    ),
-    height=700,
-    title_x=0.5
-)
-# %%
+    # Create a choropleth map showing project counts by country
+    fig = px.choropleth(
+        country_counts,
+        locations=country_col,
+        locationmode='country names',
+        color='Project_Count',
+        hover_name=country_col,
+        hover_data={'Project_Count': True, country_col: True},
+        color_continuous_scale=color_scale,
+        labels={'Project_Count': 'Number of Projects'}
+    )
+
+    # Update layout with flat projection
+    fig.update_layout(
+        geo=dict(
+            showframe=False,
+            showcoastlines=True,
+            coastlinecolor='rgb(150, 150, 150)',
+            coastlinewidth=0.5,
+            projection_type='natural earth',
+            showland=True,
+            landcolor='rgb(217, 204, 178)',
+            showcountries=True,
+            countrycolor='rgb(255, 255, 255)',
+            countrywidth=0.5,
+            showocean=True,
+            oceancolor='rgb(166, 206, 227)',
+            showlakes=True,
+            lakecolor='rgb(166, 206, 227)'
+        ),
+        width=1400,
+        height=900,
+        showlegend=False,
+        margin=dict(l=0, r=0, t=0, b=0)
+    )
+
+    return fig
