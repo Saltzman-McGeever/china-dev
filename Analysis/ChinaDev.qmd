@@ -1,0 +1,22 @@
+---
+title: "Chinese Development Projects Analysis"
+author: ""
+format:
+  html:
+    code-fold: true
+    code-tools: true
+jupyter: python3
+---
+
+## Overview
+
+This analysis visualizes Chinese development projects around the world using data from AidData's China's Global Loans and Grants Dataset, Version 1.0.
+
+## Geographic Distribution of Projects
+```{python}
+import pandas as pd
+import plotly.express as px
+from ChinaDev import clg, fig
+# Count projects by country
+fig.show()
+```
