@@ -2,6 +2,18 @@
 title: "Analysis"
 ---
 
+```{python}
+#| echo: false
+import sys
+from pathlib import Path
+
+# Add the python directory to the path
+# When running from quarto/, go up to Analysis/, then into python/
+python_dir = Path('../python').resolve()
+if str(python_dir) not in sys.path:
+    sys.path.insert(0, str(python_dir))
+```
+
 ## Overview
 
 This page contains statistical analysis of Chinese development projects.

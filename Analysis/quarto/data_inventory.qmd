@@ -2,6 +2,18 @@
 title: "Data Inventory"
 ---
 
+```{python}
+#| echo: false
+import sys
+from pathlib import Path
+
+# Add the python directory to the path
+# When running from quarto/, go up to Analysis/, then into python/
+python_dir = Path('../python').resolve()
+if str(python_dir) not in sys.path:
+    sys.path.insert(0, str(python_dir))
+```
+
 ## Overview
 
 This analysis visualizes Chinese development projects around the world using data from AidData's China's Global Loans and Grants Dataset, Version 1.0.
