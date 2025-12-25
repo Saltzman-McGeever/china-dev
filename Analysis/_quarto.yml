@@ -1,0 +1,26 @@
+project:
+  type: website
+  output-dir: _output
+
+website:
+  title: "Chinese Development Projects"
+  navbar:
+    left:
+      - text: "Data Inventory"
+        file: data_inventory.qmd
+      - text: "Analysis"
+        file: analysis.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    code-fold: true
+    code-tools: true
+    page-layout: full
+    grid:
+      body-width: 1400px
+      margin-width: 100px
+
+jupyter: python3

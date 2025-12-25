@@ -1,0 +1,61 @@
+---
+title: "Data Inventory"
+---
+
+## Overview
+
+This analysis visualizes Chinese development projects around the world using data from AidData's China's Global Loans and Grants Dataset, Version 1.0.
+
+## Temporal Trends (2000-2023)
+
+```{python}
+from CLG import clg
+from Plots import create_temporal_trends
+
+# Create time series visualization
+fig = create_temporal_trends(clg)
+fig.show()
+```
+
+## Geographic Distribution of Projects
+
+:::panel-tabset
+
+### Total Projects
+```{python}
+from Plots import create_flat_map_visualization
+
+# Count unique projects by country
+fig = create_flat_map_visualization(
+    clg,
+    agg_col='AidData_Record_ID',
+    agg_func='nunique',
+    value_label='Number of Projects',
+    color_scale='YlOrRd'
+)
+fig.show()
+```
+
+### Total Funding (USD)
+```{python}
+# Sum of project amounts by country
+fig = create_flat_map_visualization(
+    clg,
+    agg_col='Amount_Constant_USD_2023',
+    agg_func='sum',
+    value_label='Total USD (2023)',
+    color_scale='Greens'
+)
+fig.show()
+```
+
+### Average Project Size
+```{python}
+from Plots import create_average_project_size_map
+
+# Calculate average project size by country
+fig = create_average_project_size_map(clg)
+fig.show()
+```
+
+:::
