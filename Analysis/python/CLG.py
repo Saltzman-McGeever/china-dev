@@ -9,3 +9,6 @@ excel_path = script_dir.parent / "AidDatas_CLG_Global_Dataset_v1.0.xlsx"
 clg = pd.read_excel(excel_path, sheet_name="CLG-Global 1.0_Records")
 
 clg = clg[clg['Recommended_for_Aggregates'] == 'Yes']
+
+clg_dev = clg[clg['Intent'] == 'Development']
+# %%
