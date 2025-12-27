@@ -3,7 +3,9 @@
     "allow": [
       "Bash(python3:*)",
       "Bash(ls:*)",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "Bash(find:*)",
+      "Bash(rm:*)"
     ]
   }
 }
