@@ -21,8 +21,8 @@ This analysis visualizes Chinese development projects around the world using dat
 ## Temporal Trends (2000-2023)
 
 ```{python}
-from CLG import clg_dev
-from Plots import create_temporal_trends
+from load_data import clg_dev
+from plots import create_temporal_trends
 
 # Create time series visualization
 fig = create_temporal_trends(clg_dev)
@@ -35,7 +35,7 @@ fig.show()
 
 ### Total Projects
 ```{python}
-from Plots import create_flat_map_visualization
+from plots import create_flat_map_visualization
 
 # Count unique projects by country
 fig = create_flat_map_visualization(

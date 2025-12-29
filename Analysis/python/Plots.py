@@ -6,24 +6,7 @@ def create_temporal_trends(df,
                           year_col='Commitment_Year',
                           amount_col='Amount_Constant_USD_2023',
                           project_col='AidData_Record_ID'):
-    """
-    Create dual-axis time series showing project counts and total spending over time.
 
-    Parameters:
-    -----------
-    df : pandas.DataFrame
-        Input dataframe
-    year_col : str
-        Column containing commitment year (default: 'Commitment_Year')
-    amount_col : str
-        Column containing project amounts (default: 'Amount_Constant_USD_2023')
-    project_col : str
-        Column containing project IDs (default: 'AidData_Record_ID')
-
-    Returns:
-    --------
-    plotly.graph_objects.Figure
-    """
 
     # Aggregate by year
     yearly_projects = df.groupby(year_col)[project_col].nunique().reset_index()
@@ -122,30 +105,6 @@ def create_flat_map_visualization(df,
                                    value_label='Projects',
                                    country_col='Country_of_Activity',
                                    color_scale='Greens'):
-    """
-    Create a flat map visualization with flexible aggregation.
-
-    Parameters:
-    -----------
-    df : pandas.DataFrame
-        Input dataframe
-    agg_col : str
-        Column to aggregate (default: 'AidData_Record_ID' for counting projects)
-    agg_func : str or callable
-        Aggregation function: 'count', 'sum', 'mean', 'median', 'nunique', etc.
-        (default: 'count')
-    value_label : str
-        Label for the aggregated value in hover and legend (default: 'Projects')
-    country_col : str
-        Column containing country names (default: 'Country_of_Activity')
-    color_scale : str
-        Plotly color scale (default: 'Greens')
-
-    Returns:
-    --------
-    plotly.graph_objects.Figure
-    """
-
     # Perform aggregation by country
     if agg_func == 'count':
         country_agg = df.groupby(country_col).size().reset_index(name='Value')

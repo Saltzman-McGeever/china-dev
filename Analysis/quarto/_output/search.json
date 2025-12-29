@@ -18,14 +18,14 @@
     "href": "data_inventory.html#temporal-trends-2000-2023",
     "title": "Data Inventory",
     "section": "Temporal Trends (2000-2023)",
-    "text": "Temporal Trends (2000-2023)\n\n\nCode\nfrom CLG import clg_dev\nfrom Plots import create_temporal_trends\n\n# Create time series visualization\nfig = create_temporal_trends(clg_dev)\nfig.show()"
+    "text": "Temporal Trends (2000-2023)\n\n\nCode\nfrom load_data import clg_dev\nfrom plots import create_temporal_trends\n\n# Create time series visualization\nfig = create_temporal_trends(clg_dev)\nfig.show()"
   },
   {
     "objectID": "data_inventory.html#geographic-distribution-of-projects",
     "href": "data_inventory.html#geographic-distribution-of-projects",
     "title": "Data Inventory",
     "section": "Geographic Distribution of Projects",
-    "text": "Geographic Distribution of Projects\n\nTotal ProjectsTotal Funding (USD)\n\n\n\n\nCode\nfrom Plots import create_flat_map_visualization\n\n# Count unique projects by country\nfig = create_flat_map_visualization(\n    clg_dev,\n    agg_col='AidData_Record_ID',\n    agg_func='nunique',\n    value_label='Number of Projects',\n    color_scale='YlOrRd'\n)\nfig.show()\n\n\n                            \n                                            \n\n\n\n\n\n\nCode\n# Sum of project amounts by country\nfig = create_flat_map_visualization(\n    clg_dev,\n    agg_col='Amount_Constant_USD_2023',\n    agg_func='sum',\n    value_label='Total USD (2023)',\n    color_scale='Greens'\n)\nfig.show()"
+    "text": "Geographic Distribution of Projects\n\nTotal ProjectsTotal Funding (USD)\n\n\n\n\nCode\nfrom plots import create_flat_map_visualization\n\n# Count unique projects by country\nfig = create_flat_map_visualization(\n    clg_dev,\n    agg_col='AidData_Record_ID',\n    agg_func='nunique',\n    value_label='Number of Projects',\n    color_scale='YlOrRd'\n)\nfig.show()\n\n\n                            \n                                            \n\n\n\n\n\n\nCode\n# Sum of project amounts by country\nfig = create_flat_map_visualization(\n    clg_dev,\n    agg_col='Amount_Constant_USD_2023',\n    agg_func='sum',\n    value_label='Total USD (2023)',\n    color_scale='Greens'\n)\nfig.show()"
   },
   {
     "objectID": "analysis.html",
