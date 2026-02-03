@@ -18,14 +18,14 @@
     "href": "data_inventory.html#temporal-trends-2000-2023",
     "title": "Data Inventory",
     "section": "Temporal Trends (2000-2023)",
-    "text": "Temporal Trends (2000-2023)\n\n\nCode\nfrom load_data import clg_dev\nfrom plots import create_temporal_trends\n\n# Create time series visualization\nfig = create_temporal_trends(clg_dev)\nfig.show()"
+    "text": "Temporal Trends (2000-2023)\n\n\nCode\nfrom load_data import clg_dev\nfrom plots import create_temporal_trends\n\n# Create time series visualization\nfig = create_temporal_trends(clg_dev)\nfig.show(config={'modeBarButtonsToRemove': ['zoom2d', 'pan2d', 'select2d', 'lasso2d', 'zoomIn2d', 'zoomOut2d', 'autoScale2d', 'resetScale2d', 'toImage'], 'displaylogo': False, 'scrollZoom': False})"
   },
   {
     "objectID": "data_inventory.html#geographic-distribution-of-projects",
     "href": "data_inventory.html#geographic-distribution-of-projects",
     "title": "Data Inventory",
     "section": "Geographic Distribution of Projects",
-    "text": "Geographic Distribution of Projects\n\nTotal ProjectsTotal Funding (USD)\n\n\n\n\nCode\nfrom plots import create_flat_map_visualization\n\n# Count unique projects by country\nfig = create_flat_map_visualization(\n    clg_dev,\n    agg_col='AidData_Record_ID',\n    agg_func='nunique',\n    value_label='Number of Projects',\n    color_scale='YlOrRd'\n)\nfig.show()\n\n\n                            \n                                            \n\n\n\n\n\n\nCode\n# Sum of project amounts by country\nfig = create_flat_map_visualization(\n    clg_dev,\n    agg_col='Amount_Constant_USD_2023',\n    agg_func='sum',\n    value_label='Total USD (2023)',\n    color_scale='Greens'\n)\nfig.show()"
+    "text": "Geographic Distribution of Projects\n\nTotal ProjectsTotal Funding (USD)\n\n\n\n\nCode\nfrom plots import create_flat_map_visualization\n\n# Count unique projects by country\nfig = create_flat_map_visualization(\n    clg_dev,\n    agg_col='AidData_Record_ID',\n    agg_func='nunique',\n    value_label='Number of Projects',\n    color_scale='YlOrRd'\n)\nfig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False})\n\n\n                                                \n\n\n\n\n\n\nCode\n# Sum of project amounts by country\nfig = create_flat_map_visualization(\n    clg_dev,\n    agg_col='Amount_Constant_USD_2023',\n    agg_func='sum',\n    value_label='Total USD (2023)',\n    color_scale='Greens'\n)\nfig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False})"
   },
   {
     "objectID": "analysis.html",
@@ -40,5 +40,12 @@
     "title": "Analysis",
     "section": "",
     "text": "This page contains statistical analysis of Chinese development projects."
+  },
+  {
+    "objectID": "data_inventory.html#public-opinion-of-china-by-country",
+    "href": "data_inventory.html#public-opinion-of-china-by-country",
+    "title": "Data Inventory",
+    "section": "Public Opinion of China by Country",
+    "text": "Public Opinion of China by Country\n\n\nCode\nfrom load_data import gpoc\nfrom plots import create_public_opinion_map\n\nfig = create_public_opinion_map(gpoc)\nfig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False})"
   }
 ]

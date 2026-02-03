@@ -26,7 +26,7 @@ from plots import create_temporal_trends
 
 # Create time series visualization
 fig = create_temporal_trends(clg_dev)
-fig.show()
+fig.show(config={'modeBarButtonsToRemove': ['zoom2d', 'pan2d', 'select2d', 'lasso2d', 'zoomIn2d', 'zoomOut2d', 'autoScale2d', 'resetScale2d', 'toImage'], 'displaylogo': False, 'scrollZoom': False})
 ```
 
 ## Geographic Distribution of Projects
@@ -45,7 +45,7 @@ fig = create_flat_map_visualization(
     value_label='Number of Projects',
     color_scale='YlOrRd'
 )
-fig.show()
+fig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False})
 ```
 
 ### Total Funding (USD)
@@ -58,7 +58,17 @@ fig = create_flat_map_visualization(
     value_label='Total USD (2023)',
     color_scale='Greens'
 )
-fig.show()
+fig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False})
 ```
 
 :::
+
+## Public Opinion of China by Country
+
+```{python}
+from load_data import gpoc
+from plots import create_public_opinion_map
+
+fig = create_public_opinion_map(gpoc)
+fig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False})
+```
