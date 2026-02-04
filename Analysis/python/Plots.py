@@ -33,15 +33,15 @@ def create_temporal_trends(df,
         secondary_y=False,
     )
 
-    # Add spending trace (Greens color scheme to match map)
+    # Add spending trace (Steel Blue)
     fig.add_trace(
         go.Scatter(
             x=yearly_spending['Year'],
             y=yearly_spending['Total_Spending_Billions'],
             name='Total Spending (Billions USD)',
-            line=dict(color='rgb(49, 163, 84)', width=3),
+            line=dict(color='rgb(70, 130, 180)', width=3),
             mode='lines+markers',
-            marker=dict(size=8, color='rgb(35, 139, 69)')
+            marker=dict(size=8, color='rgb(54, 100, 139)')
         ),
         secondary_y=True,
     )
@@ -74,8 +74,7 @@ def create_temporal_trends(df,
 
     fig.update_layout(
         hovermode='x unified',
-        height=700,
-        width=1400,
+        autosize=True,
         showlegend=True,
         legend=dict(
             orientation="h",
@@ -85,14 +84,15 @@ def create_temporal_trends(df,
             x=0,
             bgcolor='rgba(255, 255, 255, 0)',
             bordercolor='rgba(0, 0, 0, 0)',
-            borderwidth=0
+            borderwidth=0,
+            font=dict(size=10)
         ),
         plot_bgcolor='white',
         paper_bgcolor='white',
-        margin=dict(l=60, r=60, t=40, b=60),
+        margin=dict(l=50, r=50, t=30, b=50),
         font=dict(
             family="Arial, sans-serif",
-            size=12,
+            size=11,
             color="rgb(80, 80, 80)"
         )
     )
@@ -132,7 +132,12 @@ def create_flat_map_visualization(df,
         labels={'Value': value_label}
     )
 
-    # Update layout with flat projection
+    # Customize hover template to use ": " instead of "="
+    fig.update_traces(
+        hovertemplate='<b>%{hovertext}</b><br>' + value_label + ': %{z}<extra></extra>'
+    )
+
+    # Update layout with flat projection (transparent backgrounds, centered on China)
     fig.update_layout(
         geo=dict(
             showframe=False,
@@ -140,20 +145,112 @@ def create_flat_map_visualization(df,
             coastlinecolor='rgb(150, 150, 150)',
             coastlinewidth=0.5,
             projection_type='natural earth',
+            center=dict(lon=53),
             showland=True,
-            landcolor='rgb(217, 204, 178)',
+            landcolor='rgb(230, 230, 230)',
             showcountries=True,
             countrycolor='rgb(255, 255, 255)',
             countrywidth=0.5,
             showocean=True,
-            oceancolor='rgb(166, 206, 227)',
+            oceancolor='rgba(255, 255, 255, 0)',
             showlakes=True,
-            lakecolor='rgb(166, 206, 227)'
+            lakecolor='rgba(255, 255, 255, 0)',
+            bgcolor='rgba(255, 255, 255, 0)'
         ),
-        width=1400,
-        height=900,
+        width=1000,
+        height=600,
         showlegend=False,
-        margin=dict(l=0, r=0, t=0, b=0)
+        margin=dict(l=0, r=0, t=0, b=0),
+        paper_bgcolor='rgba(255, 255, 255, 0)',
+        plot_bgcolor='rgba(255, 255, 255, 0)',
+        coloraxis_colorbar=dict(
+            len=0.9,
+            thickness=15,
+            tickfont=dict(size=10),
+            y=0.5,
+            yanchor='middle'
+        )
+    )
+
+    return fig
+
+
+def create_public_opinion_map(df,
+                               value_col='net_positive_adj',
+                               country_col='country',
+                               value_label='Net Positive Opinion'):
+    """
+    Create a choropleth map for GPOC public opinion data.
+    Uses a diverging color scale: blue for negative, green for positive.
+    """
+    # Get unique country-level data (take mean if multiple entries per country)
+    country_data = df.groupby(country_col)[value_col].mean().reset_index()
+    country_data.columns = [country_col, 'Value']
+
+    # Define custom diverging colorscale: blue (negative) -> white (neutral) -> green (positive)
+    diverging_colorscale = [
+        [0.0, 'rgb(33, 102, 172)'],      # Dark blue (most negative)
+        [0.25, 'rgb(103, 169, 207)'],    # Light blue
+        [0.5, 'rgb(247, 247, 247)'],     # White/neutral (zero)
+        [0.75, 'rgb(120, 198, 121)'],    # Light green
+        [1.0, 'rgb(35, 139, 69)']        # Dark green (most positive)
+    ]
+
+    # Create choropleth map with diverging color scale centered at 0
+    fig = px.choropleth(
+        country_data,
+        locations=country_col,
+        locationmode='country names',
+        color='Value',
+        hover_name=country_col,
+        hover_data={'Value': ':.1f', country_col: False},
+        color_continuous_scale=diverging_colorscale,
+        color_continuous_midpoint=0,
+        labels={'Value': value_label}
+    )
+
+    # Customize hover template
+    fig.update_traces(
+        hovertemplate='<b>%{hovertext}</b><br>' + value_label + ': %{z:.1f}<extra></extra>'
+    )
+
+    # Update layout with flat projection (transparent ocean, centered on Middle East)
+    fig.update_layout(
+        geo=dict(
+            showframe=False,
+            showcoastlines=True,
+            coastlinecolor='rgb(150, 150, 150)',
+            coastlinewidth=0.5,
+            projection_type='natural earth',
+            center=dict(lon=53),
+            showland=True,
+            landcolor='rgb(230, 230, 230)',
+            showcountries=True,
+            countrycolor='rgb(255, 255, 255)',
+            countrywidth=0.5,
+            showocean=True,
+            oceancolor='rgba(255, 255, 255, 0)',
+            showlakes=True,
+            lakecolor='rgba(255, 255, 255, 0)',
+            bgcolor='rgba(255, 255, 255, 0)'
+        ),
+        coloraxis_colorbar=dict(
+            title=value_label,
+            tickvals=[-50, -25, 0, 25, 50],
+            ticktext=['-50 (Negative)', '-25', '0 (Neutral)', '+25', '+50 (Positive)'],
+            len=0.9,
+            thickness=15,
+            tickfont=dict(size=10),
+            title_font=dict(size=11),
+            y=0.5,
+            yanchor='middle'
+        ),
+        width=1000,
+        height=600,
+        showlegend=False,
+        margin=dict(l=0, r=0, t=0, b=0),
+        paper_bgcolor='rgba(255, 255, 255, 0)',
+        plot_bgcolor='rgba(255, 255, 255, 0)'
     )
 
     return fig
