@@ -22,7 +22,7 @@ This analysis visualizes Chinese development projects around the world using dat
 
 ```{python}
 from load_data import clg_dev
-from plots import create_temporal_trends
+from Plots import create_temporal_trends
 
 # Create time series visualization
 fig = create_temporal_trends(clg_dev)
@@ -35,7 +35,7 @@ fig.show(config={'modeBarButtonsToRemove': ['zoom2d', 'pan2d', 'select2d', 'lass
 
 ### Total Projects
 ```{python}
-from plots import create_flat_map_visualization
+from Plots import create_flat_map_visualization
 
 # Count unique projects by country
 fig = create_flat_map_visualization(
@@ -45,7 +45,7 @@ fig = create_flat_map_visualization(
     value_label='Number of Projects',
     color_scale='YlOrRd'
 )
-fig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False})
+fig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False, 'responsive': True})
 ```
 
 ### Total Funding (USD)
@@ -58,17 +58,30 @@ fig = create_flat_map_visualization(
     value_label='Total USD (2023)',
     color_scale='Greens'
 )
-fig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False})
+fig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False, 'responsive': True})
 ```
 
 :::
 
 ## Public Opinion of China by Country
 
+:::panel-tabset
+
+### Opinion (2023)
 ```{python}
 from load_data import gpoc
-from plots import create_public_opinion_map
+from Plots import create_public_opinion_map
 
-fig = create_public_opinion_map(gpoc)
-fig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False})
+fig = create_public_opinion_map(gpoc, year=2023)
+fig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False, 'responsive': True})
 ```
+
+### Change (2000-2023)
+```{python}
+from Plots import create_public_opinion_change_map
+
+fig = create_public_opinion_change_map(gpoc, start_year=2000, end_year=2023)
+fig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False, 'responsive': True})
+```
+
+:::

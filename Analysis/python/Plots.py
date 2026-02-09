@@ -1,3 +1,4 @@
+import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -137,38 +138,41 @@ def create_flat_map_visualization(df,
         hovertemplate='<b>%{hovertext}</b><br>' + value_label + ': %{z}<extra></extra>'
     )
 
-    # Update layout with flat projection (transparent backgrounds, centered on China)
+    # Update layout with enhanced visual styling
     fig.update_layout(
         geo=dict(
-            showframe=False,
+            showframe=True,
+            framecolor='rgb(100, 100, 100)',
+            framewidth=1.5,
             showcoastlines=True,
-            coastlinecolor='rgb(150, 150, 150)',
-            coastlinewidth=0.5,
+            coastlinecolor='rgb(120, 120, 120)',
+            coastlinewidth=0.8,
             projection_type='natural earth',
-            center=dict(lon=53),
             showland=True,
-            landcolor='rgb(230, 230, 230)',
+            landcolor='rgb(242, 242, 242)',
             showcountries=True,
             countrycolor='rgb(255, 255, 255)',
-            countrywidth=0.5,
+            countrywidth=1,
             showocean=True,
-            oceancolor='rgba(255, 255, 255, 0)',
+            oceancolor='rgb(230, 245, 255)',
             showlakes=True,
-            lakecolor='rgba(255, 255, 255, 0)',
+            lakecolor='rgb(230, 245, 255)',
             bgcolor='rgba(255, 255, 255, 0)'
         ),
-        width=1000,
-        height=600,
+        autosize=True,
+        height=500,
         showlegend=False,
-        margin=dict(l=0, r=0, t=0, b=0),
+        margin=dict(l=0, r=100, t=10, b=10),
         paper_bgcolor='rgba(255, 255, 255, 0)',
         plot_bgcolor='rgba(255, 255, 255, 0)',
         coloraxis_colorbar=dict(
-            len=0.9,
+            len=0.8,
             thickness=15,
             tickfont=dict(size=10),
             y=0.5,
-            yanchor='middle'
+            yanchor='middle',
+            x=1.0,
+            xanchor='left'
         )
     )
 
@@ -178,19 +182,55 @@ def create_flat_map_visualization(df,
 def create_public_opinion_map(df,
                                value_col='net_positive_adj',
                                country_col='country',
-                               value_label='Net Positive Opinion'):
+                               year_col='year',
+                               year=None,
+                               value_label=None):
     """
     Create a choropleth map for GPOC public opinion data.
-    Uses a diverging color scale: blue for negative, green for positive.
-    """
-    # Get unique country-level data (take mean if multiple entries per country)
-    country_data = df.groupby(country_col)[value_col].mean().reset_index()
-    country_data.columns = [country_col, 'Value']
+    Uses a diverging color scale: red for negative, green for positive.
 
-    # Define custom diverging colorscale: blue (negative) -> white (neutral) -> green (positive)
+    Parameters:
+    - year: Optional year to filter data. If None, averages across all years.
+    """
+    # Filter by year if specified
+    if year is not None:
+        # For each country, use its latest available year up to the requested year
+        def get_latest_opinion(country_df):
+            # Filter to years <= requested year
+            country_df = country_df[country_df[year_col] <= year]
+
+            if len(country_df) == 0:
+                return None
+
+            # Find latest year for this country
+            latest_year = country_df[year_col].max()
+            latest_opinion = country_df[country_df[year_col] == latest_year][value_col].mean()
+
+            return latest_opinion
+
+        # Apply to each country
+        country_data = df.groupby(country_col).apply(get_latest_opinion).reset_index()
+        country_data.columns = [country_col, 'Value']
+
+        # Remove countries with no data
+        country_data = country_data[country_data['Value'].notna()]
+
+        print(f"Showing public opinion (using latest year ≤ {year} for each country)")
+        if value_label is None:
+            value_label = f'Net Positive Opinion (≤ {year})'
+    else:
+        # Get country-level data (take mean if multiple entries per country)
+        country_data = df.groupby(country_col)[value_col].mean().reset_index()
+        country_data.columns = [country_col, 'Value']
+
+        print("Showing average public opinion across all years")
+        if value_label is None:
+            value_label = 'Net Positive Opinion (Average)'
+
+    # Define custom diverging colorscale: red (negative) -> white (neutral) -> green (positive)
     diverging_colorscale = [
-        [0.0, 'rgb(33, 102, 172)'],      # Dark blue (most negative)
-        [0.25, 'rgb(103, 169, 207)'],    # Light blue
+        [0.0, 'rgb(178, 34, 34)'],       # Dark red (most negative)
+        [0.25, 'rgb(220, 130, 130)'],    # Light red
         [0.5, 'rgb(247, 247, 247)'],     # White/neutral (zero)
         [0.75, 'rgb(120, 198, 121)'],    # Light green
         [1.0, 'rgb(35, 139, 69)']        # Dark green (most positive)
@@ -211,44 +251,205 @@ def create_public_opinion_map(df,
 
     # Customize hover template
     fig.update_traces(
-        hovertemplate='<b>%{hovertext}</b><br>' + value_label + ': %{z:.1f}<extra></extra>'
+        hovertemplate='<b>%{hovertext}</b><br>' +
+                      value_label + ': %{z:.1f}<extra></extra>'
     )
 
-    # Update layout with flat projection (transparent ocean, centered on Middle East)
+    # Update layout with enhanced visual styling and title
     fig.update_layout(
+        title=dict(
+            text=value_label,
+            font=dict(size=14, color='rgb(80, 80, 80)'),
+            x=0.5,
+            xanchor='center',
+            y=0.98,
+            yanchor='top'
+        ),
         geo=dict(
-            showframe=False,
+            showframe=True,
+            framecolor='rgb(100, 100, 100)',
+            framewidth=1.5,
             showcoastlines=True,
-            coastlinecolor='rgb(150, 150, 150)',
-            coastlinewidth=0.5,
+            coastlinecolor='rgb(120, 120, 120)',
+            coastlinewidth=0.8,
             projection_type='natural earth',
-            center=dict(lon=53),
             showland=True,
-            landcolor='rgb(230, 230, 230)',
+            landcolor='rgb(242, 242, 242)',
             showcountries=True,
             countrycolor='rgb(255, 255, 255)',
-            countrywidth=0.5,
+            countrywidth=1,
             showocean=True,
-            oceancolor='rgba(255, 255, 255, 0)',
+            oceancolor='rgb(230, 245, 255)',
             showlakes=True,
-            lakecolor='rgba(255, 255, 255, 0)',
+            lakecolor='rgb(230, 245, 255)',
             bgcolor='rgba(255, 255, 255, 0)'
         ),
         coloraxis_colorbar=dict(
             title=value_label,
             tickvals=[-50, -25, 0, 25, 50],
             ticktext=['-50 (Negative)', '-25', '0 (Neutral)', '+25', '+50 (Positive)'],
-            len=0.9,
+            len=0.8,
             thickness=15,
             tickfont=dict(size=10),
             title_font=dict(size=11),
             y=0.5,
-            yanchor='middle'
+            yanchor='middle',
+            x=1.0,
+            xanchor='left'
         ),
-        width=1000,
-        height=600,
+        autosize=True,
+        height=500,
         showlegend=False,
-        margin=dict(l=0, r=0, t=0, b=0),
+        margin=dict(l=0, r=100, t=40, b=10),
+        paper_bgcolor='rgba(255, 255, 255, 0)',
+        plot_bgcolor='rgba(255, 255, 255, 0)'
+    )
+
+    return fig
+
+
+def create_public_opinion_change_map(df,
+                                      start_year=None,
+                                      end_year=None,
+                                      value_col='net_positive_adj',
+                                      country_col='country',
+                                      year_col='year',
+                                      value_label=None):
+    """
+    Create a choropleth map showing the change in public opinion over time.
+    Uses a diverging color scale: red for negative change, green for positive change.
+    Each country shows change from its earliest to latest available year.
+    Optional start_year and end_year parameters can constrain the time window.
+    """
+    # Filter to specified year range if provided
+    if start_year is not None:
+        df = df[df[year_col] >= start_year]
+    if end_year is not None:
+        df = df[df[year_col] <= end_year]
+
+    # For each country, find its earliest and latest year and calculate change
+    def calculate_country_change(country_df):
+        # Get all years for this country
+        country_years = country_df[year_col].unique()
+
+        # Find earliest and latest years
+        earliest_year = country_years.min()
+        latest_year = country_years.max()
+
+        # Get opinion values for those years
+        earliest_opinion = country_df[country_df[year_col] == earliest_year][value_col].mean()
+        latest_opinion = country_df[country_df[year_col] == latest_year][value_col].mean()
+
+        return pd.Series({
+            'Earliest_Year': earliest_year,
+            'Latest_Year': latest_year,
+            'Start_Opinion': earliest_opinion,
+            'End_Opinion': latest_opinion,
+            'Change': latest_opinion - earliest_opinion
+        })
+
+    # Apply to each country
+    change_data = df.groupby(country_col).apply(calculate_country_change).reset_index()
+
+    # Print summary of years used
+    year_range = f"{int(change_data['Earliest_Year'].min())}-{int(change_data['Latest_Year'].max())}"
+    print(f"Showing change in public opinion (earliest to latest year per country)")
+    print(f"Overall year range: {year_range}")
+
+    # Set value_label and title
+    if value_label is None:
+        value_label = 'Change in Opinion'
+    map_title = f'{value_label} (Country-Specific Years)'
+
+    # Define custom diverging colorscale: red (negative change) -> white (no change) -> green (positive change)
+    diverging_colorscale = [
+        [0.0, 'rgb(178, 34, 34)'],       # Dark red (most negative)
+        [0.25, 'rgb(220, 130, 130)'],    # Light red
+        [0.5, 'rgb(247, 247, 247)'],     # White/neutral (zero)
+        [0.75, 'rgb(120, 198, 121)'],    # Light green
+        [1.0, 'rgb(35, 139, 69)']        # Dark green (most positive)
+    ]
+
+    # Create choropleth map with diverging color scale centered at 0
+    fig = px.choropleth(
+        change_data,
+        locations=country_col,
+        locationmode='country names',
+        color='Change',
+        hover_name=country_col,
+        hover_data={
+            'Change': ':.1f',
+            'Start_Opinion': ':.1f',
+            'End_Opinion': ':.1f',
+            'Earliest_Year': True,
+            'Latest_Year': True,
+            country_col: False
+        },
+        color_continuous_scale=diverging_colorscale,
+        color_continuous_midpoint=0,
+        labels={
+            'Change': value_label,
+            'Start_Opinion': 'Start Opinion',
+            'End_Opinion': 'End Opinion',
+            'Earliest_Year': 'Start Year',
+            'Latest_Year': 'End Year'
+        }
+    )
+
+    # Customize hover template to show country-specific years and values
+    fig.update_traces(
+        hovertemplate='<b>%{hovertext}</b><br>' +
+                      'Start Year: %{customdata[3]:.0f}<br>' +
+                      'Start Opinion: %{customdata[1]:.1f}<br>' +
+                      'End Year: %{customdata[4]:.0f}<br>' +
+                      'End Opinion: %{customdata[2]:.1f}<br>' +
+                      'Change: %{customdata[0]:.1f}<extra></extra>'
+    )
+
+    # Update layout with enhanced visual styling and title
+    fig.update_layout(
+        title=dict(
+            text=map_title,
+            font=dict(size=14, color='rgb(80, 80, 80)'),
+            x=0.5,
+            xanchor='center',
+            y=0.98,
+            yanchor='top'
+        ),
+        geo=dict(
+            showframe=True,
+            framecolor='rgb(100, 100, 100)',
+            framewidth=1.5,
+            showcoastlines=True,
+            coastlinecolor='rgb(120, 120, 120)',
+            coastlinewidth=0.8,
+            projection_type='natural earth',
+            showland=True,
+            landcolor='rgb(242, 242, 242)',
+            showcountries=True,
+            countrycolor='rgb(255, 255, 255)',
+            countrywidth=1,
+            showocean=True,
+            oceancolor='rgb(230, 245, 255)',
+            showlakes=True,
+            lakecolor='rgb(230, 245, 255)',
+            bgcolor='rgba(255, 255, 255, 0)'
+        ),
+        coloraxis_colorbar=dict(
+            title=value_label,
+            len=0.8,
+            thickness=15,
+            tickfont=dict(size=10),
+            title_font=dict(size=11),
+            y=0.5,
+            yanchor='middle',
+            x=1.0,
+            xanchor='left'
+        ),
+        autosize=True,
+        height=500,
+        showlegend=False,
+        margin=dict(l=0, r=100, t=40, b=10),
         paper_bgcolor='rgba(255, 255, 255, 0)',
         plot_bgcolor='rgba(255, 255, 255, 0)'
     )
