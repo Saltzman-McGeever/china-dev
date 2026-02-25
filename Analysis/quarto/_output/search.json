@@ -18,7 +18,7 @@
     "href": "data_inventory.html#temporal-trends-2000-2023",
     "title": "Data Inventory",
     "section": "Temporal Trends (2000-2023)",
-    "text": "Temporal Trends (2000-2023)\n\n\nCode\nfrom load_data import clg_dev\nfrom plots import create_temporal_trends\n\n# Create time series visualization\nfig = create_temporal_trends(clg_dev)\nfig.show(config={'modeBarButtonsToRemove': ['zoom2d', 'pan2d', 'select2d', 'lasso2d', 'zoomIn2d', 'zoomOut2d', 'autoScale2d', 'resetScale2d', 'toImage'], 'displaylogo': False, 'scrollZoom': False})"
+    "text": "Temporal Trends (2000-2023)\n\n\nCode\nfrom load_data import clg_dev\nfrom Plots import create_temporal_trends\n\n# Create time series visualization\nfig = create_temporal_trends(clg_dev)\nfig.show(config={'modeBarButtonsToRemove': ['zoom2d', 'pan2d', 'select2d', 'lasso2d', 'zoomIn2d', 'zoomOut2d', 'autoScale2d', 'resetScale2d', 'toImage'], 'displaylogo': False, 'scrollZoom': False})"
   },
   {
     "objectID": "data_inventory.html#geographic-distribution-of-projects",
@@ -46,6 +46,13 @@
     "href": "data_inventory.html#public-opinion-of-china-by-country",
     "title": "Data Inventory",
     "section": "Public Opinion of China by Country",
-    "text": "Public Opinion of China by Country\n\n\nCode\nfrom load_data import gpoc\nfrom plots import create_public_opinion_map\n\nfig = create_public_opinion_map(gpoc)\nfig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False})"
+    "text": "Public Opinion of China by Country\n\nOpinion (2023)Change (2000-2023)\n\n\n\n\nCode\nfrom load_data import gpoc\nfrom Plots import create_public_opinion_map\n\nfig = create_public_opinion_map(gpoc, year=2023)\nfig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False, 'responsive': True})\n\n\nShowing public opinion (using latest year ≤ 2023 for each country)\n\n\n                            \n                                            \n\n\n\n\n\n\nCode\nfrom Plots import create_public_opinion_change_map\n\nfig = create_public_opinion_change_map(gpoc, start_year=2000, end_year=2023)\nfig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False, 'responsive': True})\n\n\nShowing change in public opinion (earliest to latest year per country)\nOverall year range: 2000-2023"
+  },
+  {
+    "objectID": "analysis.html#regression-analysis-public-opinion-on-development-funds",
+    "href": "analysis.html#regression-analysis-public-opinion-on-development-funds",
+    "title": "Analysis",
+    "section": "Regression Analysis: Public Opinion on Development Funds",
+    "text": "Regression Analysis: Public Opinion on Development Funds\n\n\nCode\nimport pandas as pd\nimport numpy as np\nfrom regress import regress\n\n# Aggregate development funds by country (in billions USD)\ncountry_funds = merged_data.groupby('Country_of_Activity')['Amount_Constant_USD_2023'].sum().reset_index()\ncountry_funds.columns = ['Country', 'Total_Funds']\ncountry_funds['One Billion Dev-Dollars'] = country_funds['Total_Funds'] / 1e9\n\n# Get average public opinion by country\ncountry_opinion = merged_data.groupby('Country_of_Activity')['net_positive_adj'].mean().reset_index()\ncountry_opinion.columns = ['Country', 'Net Positive Opinion']\n\n# Merge funds and opinion data\nregression_data = pd.merge(country_funds, country_opinion, on='Country', how='inner')\n\n# Run regression with forest plot\nresults = regress(regression_data,\n                  y_value='Net Positive Opinion',\n                  x_value='One Billion Dev-Dollars',\n                  label='Public Opinion on Development Funds')\n\n\n===========================================================================================\n                              coef    std err          t      P&gt;|t|      [0.025      0.975]\n-------------------------------------------------------------------------------------------\nconst                      21.0605      3.150      6.686      0.000      14.829      27.292\nOne Billion Dev-Dollars     1.2391      0.512      2.418      0.017       0.225       2.253\n===========================================================================================\n\nR²: 0.0424\nAdj. R²: 0.0352\nN: 134"
   }
 ]

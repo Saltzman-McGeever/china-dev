@@ -8,8 +8,8 @@ merged_data = pd.merge(
     clg_dev,
     gpoc,
     how='left',
-    left_on=['Country_of_Activity_ISO3'],
-    right_on=['iso3'])
+    left_on=['Country_of_Activity_ISO3', 'Commitment_Year'],
+    right_on=['iso3', 'year'])
 
 merged_data
 # %%

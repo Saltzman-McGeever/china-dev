@@ -12,8 +12,37 @@ from pathlib import Path
 python_dir = Path('../python').resolve()
 if str(python_dir) not in sys.path:
     sys.path.insert(0, str(python_dir))
+
+# Now import after path is set
+from merge_data import merged_data
 ```
 
 ## Overview
 
 This page contains statistical analysis of Chinese development projects.
+
+## Regression Analysis: Public Opinion on Development Funds
+
+```{python}
+import pandas as pd
+import numpy as np
+from regress import regress
+
+# Aggregate development funds by country (in billions USD)
+country_funds = merged_data.groupby('Country_of_Activity')['Amount_Constant_USD_2023'].sum().reset_index()
+country_funds.columns = ['Country', 'Total_Funds']
+country_funds['One Billion Dev-Dollars'] = country_funds['Total_Funds'] / 1e9
+
+# Get average public opinion by country
+country_opinion = merged_data.groupby('Country_of_Activity')['net_positive_adj'].mean().reset_index()
+country_opinion.columns = ['Country', 'Net Positive Opinion']
+
+# Merge funds and opinion data
+regression_data = pd.merge(country_funds, country_opinion, on='Country', how='inner')
+
+# Run regression with forest plot
+results = regress(regression_data,
+                  y_value='Net Positive Opinion',
+                  x_value='One Billion Dev-Dollars',
+                  label='Public Opinion on Development Funds')
+```
