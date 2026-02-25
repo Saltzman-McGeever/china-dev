@@ -104,7 +104,9 @@ def create_flat_map_visualization(df,
                                    agg_func='count',
                                    value_label='Projects',
                                    country_col='Country_of_Activity',
-                                   color_scale='Greens'):
+                                   color_scale='Greens',
+                                   zmax=None,
+                                   outlier_countries=None):
     # Perform aggregation by country
     if agg_func == 'count':
         country_agg = df.groupby(country_col).size().reset_index(name='Value')
@@ -120,9 +122,8 @@ def create_flat_map_visualization(df,
         # For custom functions
         country_agg = df.groupby(country_col)[agg_col].agg(agg_func).reset_index(name='Value')
 
-    # Create choropleth map
-    fig = px.choropleth(
-        country_agg,
+    # Build choropleth kwargs, optionally capping the color scale
+    choropleth_kwargs = dict(
         locations=country_col,
         locationmode='country names',
         color='Value',
@@ -131,10 +132,31 @@ def create_flat_map_visualization(df,
         color_continuous_scale=color_scale,
         labels={'Value': value_label}
     )
+    if zmax is not None:
+        choropleth_kwargs['range_color'] = [0, zmax]
 
-    # Customize hover template to use ": " instead of "="
+    # Exclude outlier countries from the main choropleth so they can be rendered separately
+    main_agg = country_agg[~country_agg[country_col].isin(outlier_countries.keys())].copy() \
+        if outlier_countries else country_agg.copy()
+
+    # Pre-format values as B/M units for hover tooltips
+    def _fmt(v):
+        if v >= 1e9:
+            return f'${v / 1e9:.2f}B'
+        elif v >= 1e6:
+            return f'${v / 1e6:.2f}M'
+        else:
+            return f'${v:,.2f}'
+
+    main_agg['_fmt'] = main_agg['Value'].apply(_fmt)
+    choropleth_kwargs['custom_data'] = ['_fmt']
+
+    # Create choropleth map
+    fig = px.choropleth(main_agg, **choropleth_kwargs)
+
+    # Customize hover template using pre-formatted B/M value
     fig.update_traces(
-        hovertemplate='<b>%{hovertext}</b><br>' + value_label + ': %{z}<extra></extra>'
+        hovertemplate='<b>%{hovertext}</b><br>' + value_label + ': %{customdata[0]}<extra></extra>'
     )
 
     # Update layout with flat projection (transparent backgrounds, centered on China)
@@ -171,6 +193,36 @@ def create_flat_map_visualization(df,
             yanchor='middle'
         )
     )
+
+    # Render outlier countries as a darker green than the scale maximum, with a text label
+    OUTLIER_GREEN = 'rgb(0, 35, 14)'  # darker than Plotly Greens scale max (~rgb(0,68,27))
+    if outlier_countries:
+        for country_name, _ in outlier_countries.items():
+            country_rows = country_agg[country_agg[country_col] == country_name]
+            if not country_rows.empty:
+                actual_value = country_rows['Value'].values[0]
+                if actual_value >= 1e9:
+                    value_str = f'${actual_value / 1e9:.2f}B'
+                elif actual_value >= 1e6:
+                    value_str = f'${actual_value / 1e6:.2f}M'
+                else:
+                    value_str = f'${actual_value:,.2f}'
+
+                # Solid dark-green fill for the outlier country
+                fig.add_trace(go.Choropleth(
+                    locations=[country_name],
+                    locationmode='country names',
+                    z=[1],
+                    colorscale=[[0, OUTLIER_GREEN], [1, OUTLIER_GREEN]],
+                    showscale=False,
+                    hovertemplate=(
+                        f'<b>{country_name}</b><br>'
+                        f'{value_label}: {value_str}<br>'
+                        f'<i>Outlier — exceeds color scale</i><extra></extra>'
+                    ),
+                    showlegend=False
+                ))
+
 
     return fig
 

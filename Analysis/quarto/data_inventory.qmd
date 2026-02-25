@@ -51,12 +51,15 @@ fig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', '
 ### Total Funding (USD)
 ```{python}
 # Sum of project amounts by country
+# Color scale capped at $10B; Pakistan (top recipient) annotated as outlier
 fig = create_flat_map_visualization(
     clg_dev,
     agg_col='Amount_Constant_USD_2023',
     agg_func='sum',
     value_label='Total USD (2023)',
-    color_scale='Greens'
+    color_scale='Greens',
+    zmax=10e9,
+    outlier_countries={'Pakistan': (30.3752, 69.3451)}
 )
 fig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False})
 ```
