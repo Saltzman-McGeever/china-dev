@@ -107,7 +107,8 @@ def create_flat_map_visualization(df,
                                    country_col='Country_of_Activity',
                                    color_scale='Greens',
                                    zmax=None,
-                                   outlier_countries=None):
+                                   outlier_countries=None,
+                                   is_currency=True):
     # Perform aggregation by country
     if agg_func == 'count':
         country_agg = df.groupby(country_col).size().reset_index(name='Value')
@@ -142,6 +143,8 @@ def create_flat_map_visualization(df,
 
     # Pre-format values as B/M units for hover tooltips
     def _fmt(v):
+        if not is_currency:
+            return f'{v:,.0f}'
         if v >= 1e9:
             return f'${v / 1e9:.2f}B'
         elif v >= 1e6:
@@ -205,7 +208,9 @@ def create_flat_map_visualization(df,
             country_rows = country_agg[country_agg[country_col] == country_name]
             if not country_rows.empty:
                 actual_value = country_rows['Value'].values[0]
-                if actual_value >= 1e9:
+                if not is_currency:
+                    value_str = f'{actual_value:,.0f}'
+                elif actual_value >= 1e9:
                     value_str = f'${actual_value / 1e9:.2f}B'
                 elif actual_value >= 1e6:
                     value_str = f'${actual_value / 1e6:.2f}M'

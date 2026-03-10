@@ -43,7 +43,8 @@ fig = create_flat_map_visualization(
     agg_col='AidData_Record_ID',
     agg_func='nunique',
     value_label='Number of Projects',
-    color_scale='YlOrRd'
+    color_scale='YlOrRd',
+    is_currency=False
 )
 fig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False, 'responsive': True})
 ```
