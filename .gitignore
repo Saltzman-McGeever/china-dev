@@ -11,3 +11,4 @@ __pycache__/
 venv/
 env/
 ENV/
+datasets/aid_data_geospatial.gpkg
