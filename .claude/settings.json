@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p /Users/levisaltzman/Projects/Research/ChinaDev/datasets /Users/levisaltzman/Projects/Research/ChinaDev/docs)",
+      "Bash(mv \"/Users/levisaltzman/Projects/Research/ChinaDev/Analysis/AidDatas_CLG_Global_Dataset_v1.0.xlsx\" /Users/levisaltzman/Projects/Research/ChinaDev/datasets/)",
+      "Bash(mv \"/Users/levisaltzman/Projects/Research/ChinaDev/Analysis/GPOC 1.0.xlsx\" /Users/levisaltzman/Projects/Research/ChinaDev/datasets/)",
+      "Bash(pip install:*)",
+      "Bash(git add:*)",
+      "Bash(git checkout:*)",
+      "Bash(git rebase:*)",
+      "Bash(GIT_EDITOR=true git rebase --continue)"
+    ]
+  }
+}

@@ -107,8 +107,10 @@ def create_flat_map_visualization(df,
                                    country_col='Country_of_Activity',
                                    color_scale='Greens',
                                    zmax=None,
-                                   outlier_countries=None,
-                                   is_currency=True):
+                                   use_percentiles=False,
+                                   format_fn=None,
+                                   outlier_color=None,
+                                   outlier_countries=None):
     # Perform aggregation by country
     if agg_func == 'count':
         country_agg = df.groupby(country_col).size().reset_index(name='Value')
@@ -141,18 +143,48 @@ def create_flat_map_visualization(df,
     main_agg = country_agg[~country_agg[country_col].isin(outlier_countries.keys())].copy() \
         if outlier_countries else country_agg.copy()
 
-    # Pre-format values as B/M units for hover tooltips
-    def _fmt(v):
-        if not is_currency:
-            return f'{v:,.0f}'
-        if v >= 1e9:
-            return f'${v / 1e9:.2f}B'
-        elif v >= 1e6:
-            return f'${v / 1e6:.2f}M'
-        else:
-            return f'${v:,.2f}'
+    # Handle percentile-based discrete coloring
+    if use_percentiles:
+        # Compute decile boundaries (0, 10, 20, ..., 100 percentiles)
+        percentiles = [i * 10 for i in range(11)]  # [0, 10, 20, ..., 100]
+        boundaries = main_agg['Value'].quantile([p / 100.0 for p in percentiles]).values
 
-    main_agg['_fmt'] = main_agg['Value'].apply(_fmt)
+        # Assign each country to a decile (0-9 for colorscale mapping)
+        main_agg['Decile'] = pd.cut(main_agg['Value'], bins=boundaries, labels=range(0, 10), include_lowest=True, duplicates='drop')
+        main_agg['Decile'] = main_agg['Decile'].astype(float)
+
+        # Update choropleth kwargs to use discrete Decile column
+        choropleth_kwargs['color'] = 'Decile'
+
+        # Create 10-step pastel yellow-to-purple colorscale with sharp transitions
+        # Positions: 0/9, 1/9, 2/9, ... 8/9, 1.0 ensures distinct color blocks
+        yellow_to_purple_colorscale = [
+            [0.0,  'rgb(255, 253, 208)'],      # decile 0: pastel yellow
+            [0.11, 'rgb(255, 247, 190)'],      # decile 1: pale yellow
+            [0.22, 'rgb(255, 237, 170)'],      # decile 2: pale yellow-orange
+            [0.33, 'rgb(255, 223, 160)'],      # decile 3: pastel peach
+            [0.44, 'rgb(255, 205, 180)'],      # decile 4: pale peach-pink
+            [0.56, 'rgb(240, 190, 210)'],      # decile 5: pastel pink
+            [0.67, 'rgb(220, 190, 230)'],      # decile 6: pale lavender
+            [0.78, 'rgb(200, 180, 220)'],      # decile 7: pastel purple
+            [0.89, 'rgb(180, 160, 210)'],      # decile 8: soft purple
+            [1.0,  'rgb(160, 140, 190)'],      # decile 9: muted purple
+        ]
+        choropleth_kwargs['color_continuous_scale'] = yellow_to_purple_colorscale
+        choropleth_kwargs['range_color'] = [-0.5, 9.5]  # Center the 10 buckets
+
+    # Pre-format values for hover tooltips
+    if format_fn is None:
+        # Default: format as currency with B/M units
+        def format_fn(v):
+            if v >= 1e9:
+                return f'${v / 1e9:.2f}B'
+            elif v >= 1e6:
+                return f'${v / 1e6:.2f}M'
+            else:
+                return f'${v:,.2f}'
+
+    main_agg['_fmt'] = main_agg['Value'].apply(format_fn)
     choropleth_kwargs['custom_data'] = ['_fmt']
 
     # Create choropleth map
@@ -201,8 +233,8 @@ def create_flat_map_visualization(df,
         )
     )
 
-    # Render outlier countries as a darker green than the scale maximum, with a text label
-    OUTLIER_GREEN = 'rgb(0, 35, 14)'  # darker than Plotly Greens scale max (~rgb(0,68,27))
+    # Render outlier countries as a color beyond the scale maximum, with a text label
+    _outlier_color = outlier_color if outlier_color is not None else 'rgb(0, 35, 14)'
     if outlier_countries:
         for country_name, _ in outlier_countries.items():
             country_rows = country_agg[country_agg[country_col] == country_name]
@@ -217,12 +249,12 @@ def create_flat_map_visualization(df,
                 else:
                     value_str = f'${actual_value:,.2f}'
 
-                # Solid dark-green fill for the outlier country
+                # Solid fill for the outlier country using the designated outlier color
                 fig.add_trace(go.Choropleth(
                     locations=[country_name],
                     locationmode='country names',
                     z=[1],
-                    colorscale=[[0, OUTLIER_GREEN], [1, OUTLIER_GREEN]],
+                    colorscale=[[0, _outlier_color], [1, _outlier_color]],
                     showscale=False,
                     hovertemplate=(
                         f'<b>{country_name}</b><br>'

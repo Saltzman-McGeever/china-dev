@@ -4,14 +4,14 @@
     "href": "data_inventory.html",
     "title": "Data Inventory",
     "section": "",
-    "text": "This analysis visualizes Chinese development projects around the world using data from AidData’s China’s Global Loans and Grants Dataset, Version 1.0."
+    "text": "Code\nimport sys\nfrom pathlib import Path\n\n# Add the python directory to the path\n# When running from quarto/, go up to Analysis/, then into python/\npython_dir = Path('../python').resolve()\nif str(python_dir) not in sys.path:\n    sys.path.insert(0, str(python_dir))"
   },
   {
     "objectID": "data_inventory.html#overview",
     "href": "data_inventory.html#overview",
     "title": "Data Inventory",
-    "section": "",
-    "text": "This analysis visualizes Chinese development projects around the world using data from AidData’s China’s Global Loans and Grants Dataset, Version 1.0."
+    "section": "Overview",
+    "text": "Overview\nThis analysis visualizes Chinese development projects around the world using data from AidData’s China’s Global Loans and Grants Dataset, Version 1.0."
   },
   {
     "objectID": "data_inventory.html#temporal-trends-2000-2023",
@@ -25,7 +25,7 @@
     "href": "data_inventory.html#geographic-distribution-of-projects",
     "title": "Data Inventory",
     "section": "Geographic Distribution of Projects",
-    "text": "Geographic Distribution of Projects\n\nTotal ProjectsTotal Funding (USD)\n\n\n\n\nCode\nfrom Plots import create_flat_map_visualization\n\n# Count unique projects by country\nfig = create_flat_map_visualization(\n    clg_dev,\n    agg_col='AidData_Record_ID',\n    agg_func='nunique',\n    value_label='Number of Projects',\n    color_scale='YlOrRd'\n)\nfig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False, 'responsive': True})\n\n\n                            \n                                            \n\n\n\n\n\n\nCode\n# Sum of project amounts by country\n# Color scale capped at $10B; Pakistan (top recipient) annotated as outlier\nfig = create_flat_map_visualization(\n    clg_dev,\n    agg_col='Amount_Constant_USD_2023',\n    agg_func='sum',\n    value_label='Total USD (2023)',\n    color_scale='Greens',\n    zmax=10e9,\n    outlier_countries={'Pakistan': (30.3752, 69.3451)}\n)\nfig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False, 'responsive': True})"
+    "text": "Geographic Distribution of Projects\n\nTotal ProjectsTotal Funding (USD)\n\n\n\n\nCode\nfrom Plots import create_flat_map_visualization\n\n# Count unique projects by country\nfig = create_flat_map_visualization(\n    clg_dev,\n    agg_col='AidData_Record_ID',\n    agg_func='nunique',\n    value_label='Number of Projects',\n    color_scale='YlOrRd',\n    format_fn=lambda x: f'{int(x)}'\n)\nfig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False, 'responsive': True})\n\n\n                            \n                                            \n\n\n\n\n\n\nCode\n# Sum of project amounts by country\n# 10 discrete percentile categories from white (lowest 10%) to dark green (highest 10%)\n# Pakistan (top recipient) annotated as outlier\nfig = create_flat_map_visualization(\n    clg_dev,\n    agg_col='Amount_Constant_USD_2023',\n    agg_func='sum',\n    value_label='Total USD (2023)',\n    zmax=10e9,\n    use_percentiles=True,\n    outlier_color='rgb(20, 0, 50)',\n    outlier_countries={'Pakistan': (30.3752, 69.3451)}\n)\nfig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False, 'responsive': True})"
   },
   {
     "objectID": "analysis.html",
@@ -46,7 +46,7 @@
     "href": "data_inventory.html#public-opinion-of-china-by-country",
     "title": "Data Inventory",
     "section": "Public Opinion of China by Country",
-    "text": "Public Opinion of China by Country\n\nOpinion (2023)Change (2000-2023)\n\n\n\n\nCode\nfrom load_data import gpoc\nfrom Plots import create_public_opinion_map\n\nfig = create_public_opinion_map(gpoc, year=2023)\nfig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False, 'responsive': True})\n\n\nShowing public opinion (using latest year ≤ 2023 for each country)\n\n\n/Users/ethanmcgeever/Desktop/CLG/Analysis/python/Plots.py:264: FutureWarning:\n\nDataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.\n\n\n\n                            \n                                            \n\n\n\n\n\n\nCode\nfrom Plots import create_public_opinion_change_map\n\nfig = create_public_opinion_change_map(gpoc, start_year=2000, end_year=2023)\nfig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False, 'responsive': True})\n\n\nShowing change in public opinion (earliest to latest year per country)\nOverall year range: 2000-2023\n\n\n/Users/ethanmcgeever/Desktop/CLG/Analysis/python/Plots.py:404: FutureWarning:\n\nDataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning."
+    "text": "Public Opinion of China by Country\n\nOpinion (2023)Change (2000-2023)\n\n\n\n\nCode\nfrom load_data import gpoc\nfrom Plots import create_public_opinion_map\n\nfig = create_public_opinion_map(gpoc, year=2023)\nfig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False, 'responsive': True})\n\n\nShowing public opinion (using latest year ≤ 2023 for each country)\n\n\n                            \n                                            \n\n\n\n\n\n\nCode\nfrom Plots import create_public_opinion_change_map\n\nfig = create_public_opinion_change_map(gpoc, start_year=2000, end_year=2023)\nfig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False, 'responsive': True})\n\n\nShowing change in public opinion (earliest to latest year per country)\nOverall year range: 2000-2023"
   },
   {
     "objectID": "analysis.html#regression-analysis-public-opinion-on-development-funds",
