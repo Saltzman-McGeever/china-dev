@@ -4,28 +4,28 @@
     "href": "data_inventory.html",
     "title": "Data Inventory",
     "section": "",
-    "text": "Code\nimport sys\nfrom pathlib import Path\n\n# Add the python directory to the path\n# When running from quarto/, go up to Analysis/, then into python/\npython_dir = Path('../python').resolve()\nif str(python_dir) not in sys.path:\n    sys.path.insert(0, str(python_dir))"
+    "text": "This analysis visualizes Chinese development projects around the world using data from AidData’s China’s Global Loans and Grants Dataset, Version 1.0."
   },
   {
     "objectID": "data_inventory.html#overview",
     "href": "data_inventory.html#overview",
     "title": "Data Inventory",
-    "section": "Overview",
-    "text": "Overview\nThis analysis visualizes Chinese development projects around the world using data from AidData’s China’s Global Loans and Grants Dataset, Version 1.0."
+    "section": "",
+    "text": "This analysis visualizes Chinese development projects around the world using data from AidData’s China’s Global Loans and Grants Dataset, Version 1.0."
   },
   {
     "objectID": "data_inventory.html#temporal-trends-2000-2023",
     "href": "data_inventory.html#temporal-trends-2000-2023",
     "title": "Data Inventory",
     "section": "Temporal Trends (2000-2023)",
-    "text": "Temporal Trends (2000-2023)\n\n\nCode\nfrom load_data import clg_dev\nfrom Plots import create_temporal_trends\n\n# Create time series visualization\nfig = create_temporal_trends(clg_dev)\nfig.show(config={'modeBarButtonsToRemove': ['zoom2d', 'pan2d', 'select2d', 'lasso2d', 'zoomIn2d', 'zoomOut2d', 'autoScale2d', 'resetScale2d', 'toImage'], 'displaylogo': False, 'scrollZoom': False})"
+    "text": "Temporal Trends (2000-2023)\n\n\nCode\ncreate_temporal_trends(clg_dev) |&gt;\n  config(\n    modeBarButtonsToRemove = c(\"zoom2d\", \"pan2d\", \"select2d\", \"lasso2d\",\n                               \"zoomIn2d\", \"zoomOut2d\", \"autoScale2d\",\n                               \"resetScale2d\", \"toImage\"),\n    displaylogo = FALSE,\n    scrollZoom  = FALSE\n  )\n\n\nA marker object has been specified, but markers is not in the mode\nAdding markers to the mode..."
   },
   {
     "objectID": "data_inventory.html#geographic-distribution-of-projects",
     "href": "data_inventory.html#geographic-distribution-of-projects",
     "title": "Data Inventory",
     "section": "Geographic Distribution of Projects",
-    "text": "Geographic Distribution of Projects\n\nTotal ProjectsTotal Funding (USD)\n\n\n\n\nCode\nfrom Plots import create_flat_map_visualization\n\n# Count unique projects by country\nfig = create_flat_map_visualization(\n    clg_dev,\n    agg_col='AidData_Record_ID',\n    agg_func='nunique',\n    value_label='Number of Projects',\n    color_scale='YlOrRd',\n    format_fn=lambda x: f'{int(x)}'\n)\nfig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False, 'responsive': True})\n\n\n                            \n                                            \n\n\n\n\n\n\nCode\n# Sum of project amounts by country\n# 10 discrete percentile categories from white (lowest 10%) to dark green (highest 10%)\n# Pakistan (top recipient) annotated as outlier\nfig = create_flat_map_visualization(\n    clg_dev,\n    agg_col='Amount_Constant_USD_2023',\n    agg_func='sum',\n    value_label='Total USD (2023)',\n    zmax=10e9,\n    use_percentiles=True,\n    outlier_color='rgb(20, 0, 50)',\n    outlier_countries={'Pakistan': (30.3752, 69.3451)}\n)\nfig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False, 'responsive': True})"
+    "text": "Geographic Distribution of Projects\n\nTotal ProjectsTotal Funding (USD)\n\n\n\n\nCode\ncreate_flat_map_visualization(\n  clg_dev,\n  agg_col     = \"AidData_Record_ID\",\n  agg_func    = \"nunique\",\n  value_label = \"Number of Projects\",\n  color_scale = \"YlOrRd\",\n  format_fn   = function(x) as.character(as.integer(x))\n) |&gt;\n  config(\n    modeBarButtonsToRemove = c(\"lasso2d\", \"select2d\", \"resetGeo\", \"toImage\"),\n    displaylogo = FALSE,\n    responsive  = TRUE\n  )\n\n\nWarning: Specifying width/height in layout() is now deprecated.\nPlease specify in ggplotly() or plot_ly()\n\n\n\n\n\n\n\n\n\n\nCode\n# 10 discrete percentile categories; Pakistan annotated as outlier\ncreate_flat_map_visualization(\n  clg_dev,\n  agg_col           = \"Amount_Constant_USD_2023\",\n  agg_func          = \"sum\",\n  value_label       = \"Total USD (2023)\",\n  zmax              = 10e9,\n  use_percentiles   = TRUE,\n  outlier_color     = \"rgb(20, 0, 50)\",\n  outlier_countries = list(Pakistan = c(30.3752, 69.3451))\n) |&gt;\n  config(\n    modeBarButtonsToRemove = c(\"lasso2d\", \"select2d\", \"resetGeo\", \"toImage\"),\n    displaylogo = FALSE,\n    responsive  = TRUE\n  )\n\n\nWarning: Specifying width/height in layout() is now deprecated.\nPlease specify in ggplotly() or plot_ly()"
   },
   {
     "objectID": "analysis.html",

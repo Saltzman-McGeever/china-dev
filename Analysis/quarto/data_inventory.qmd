@@ -2,16 +2,12 @@
 title: "Data Inventory"
 ---
 
-```{python}
+```{r}
 #| echo: false
-import sys
-from pathlib import Path
-
-# Add the python directory to the path
-# When running from quarto/, go up to Analysis/, then into python/
-python_dir = Path('../python').resolve()
-if str(python_dir) not in sys.path:
-    sys.path.insert(0, str(python_dir))
+#| message: false
+library(here)
+source(here("analysis", "R", "load_data.R"))
+source(here("analysis", "R", "plots.R"))
 ```
 
 ## Overview
@@ -20,13 +16,15 @@ This analysis visualizes Chinese development projects around the world using dat
 
 ## Temporal Trends (2000-2023)
 
-```{python}
-from load_data import clg_dev
-from Plots import create_temporal_trends
-
-# Create time series visualization
-fig = create_temporal_trends(clg_dev)
-fig.show(config={'modeBarButtonsToRemove': ['zoom2d', 'pan2d', 'select2d', 'lasso2d', 'zoomIn2d', 'zoomOut2d', 'autoScale2d', 'resetScale2d', 'toImage'], 'displaylogo': False, 'scrollZoom': False})
+```{r}
+create_temporal_trends(clg_dev) |>
+  config(
+    modeBarButtonsToRemove = c("zoom2d", "pan2d", "select2d", "lasso2d",
+                               "zoomIn2d", "zoomOut2d", "autoScale2d",
+                               "resetScale2d", "toImage"),
+    displaylogo = FALSE,
+    scrollZoom  = FALSE
+  )
 ```
 
 ## Geographic Distribution of Projects
@@ -34,60 +32,40 @@ fig.show(config={'modeBarButtonsToRemove': ['zoom2d', 'pan2d', 'select2d', 'lass
 :::panel-tabset
 
 ### Total Projects
-```{python}
-from Plots import create_flat_map_visualization
-
-# Count unique projects by country
-fig = create_flat_map_visualization(
-    clg_dev,
-    agg_col='AidData_Record_ID',
-    agg_func='nunique',
-    value_label='Number of Projects',
-    color_scale='YlOrRd',
-    format_fn=lambda x: f'{int(x)}'
-)
-fig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False, 'responsive': True})
+```{r}
+create_flat_map_visualization(
+  clg_dev,
+  agg_col     = "AidData_Record_ID",
+  agg_func    = "nunique",
+  value_label = "Number of Projects",
+  color_scale = "YlOrRd",
+  format_fn   = function(x) as.character(as.integer(x))
+) |>
+  config(
+    modeBarButtonsToRemove = c("lasso2d", "select2d", "resetGeo", "toImage"),
+    displaylogo = FALSE,
+    responsive  = TRUE
+  )
 ```
 
 ### Total Funding (USD)
-```{python}
-# Sum of project amounts by country
-# 10 discrete percentile categories from white (lowest 10%) to dark green (highest 10%)
-# Pakistan (top recipient) annotated as outlier
-fig = create_flat_map_visualization(
-    clg_dev,
-    agg_col='Amount_Constant_USD_2023',
-    agg_func='sum',
-    value_label='Total USD (2023)',
-    zmax=10e9,
-    use_percentiles=True,
-    outlier_color='rgb(20, 0, 50)',
-    outlier_countries={'Pakistan': (30.3752, 69.3451)}
-)
-fig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False, 'responsive': True})
-```
-
-:::
-
-## Public Opinion of China by Country
-
-:::panel-tabset
-
-### Opinion (2023)
-```{python}
-from load_data import gpoc
-from Plots import create_public_opinion_map
-
-fig = create_public_opinion_map(gpoc, year=2023)
-fig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False, 'responsive': True})
-```
-
-### Change (2000-2023)
-```{python}
-from Plots import create_public_opinion_change_map
-
-fig = create_public_opinion_change_map(gpoc, start_year=2000, end_year=2023)
-fig.show(config={'modeBarButtonsToRemove': ['lasso2d', 'select2d', 'resetGeo', 'toImage'], 'displaylogo': False, 'responsive': True})
+```{r}
+# 10 discrete percentile categories; Pakistan annotated as outlier
+create_flat_map_visualization(
+  clg_dev,
+  agg_col           = "Amount_Constant_USD_2023",
+  agg_func          = "sum",
+  value_label       = "Total USD (2023)",
+  zmax              = 10e9,
+  use_percentiles   = TRUE,
+  outlier_color     = "rgb(20, 0, 50)",
+  outlier_countries = list(Pakistan = c(30.3752, 69.3451))
+) |>
+  config(
+    modeBarButtonsToRemove = c("lasso2d", "select2d", "resetGeo", "toImage"),
+    displaylogo = FALSE,
+    responsive  = TRUE
+  )
 ```
 
 :::

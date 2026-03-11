@@ -6,7 +6,6 @@
 |---------|-------------|------|
 | China Global Loans and Grants Dataset | AidData's CLG Global Dataset v1.0 | [AidData](https://www.aiddata.org/datasets) |
 | AidData's Geospatial Global Chinese Development Finance Dataset | Geolocated project-level finance data | [AidData](https://www.aiddata.org/datasets) |
-| Global Public Opinion on China | Survey data on public attitudes toward China | — |
 | World Bank WDI | World Development Indicators | [World Bank](https://databank.worldbank.org/source/world-development-indicators) |
 | BU GDP Center's Chinese Loans to Africa Database | Chinese loan-level data for Africa | [BU GDP Center](https://www.bu.edu/gdp/chinese-loans-to-africa-database/) |
 
