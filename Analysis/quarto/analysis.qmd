@@ -1,3 +1,258 @@
 ---
 title: "Analysis"
+execute:
+  echo: false
 ---
+
+```{r}
+#| include: false
+library(targets)
+library(here)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(sandwich)
+
+source(here("analysis", "R", "regress.R"))
+
+tar_config_set(store = here("_targets"))
+tar_load(clg_dev)
+tar_load(clg_codebook)
+
+# Derived variables (NA treated as 0 for binary indicators)
+flag <- function(x) as.integer(!is.na(x) & x == "Yes")
+clg_dev <- clg_dev |>
+  mutate(
+    infrastructure_dummy  = flag(Infrastructure),
+    distress_dummy        = flag(Financial_Distress),
+    covid_dummy           = flag(COVID),
+    cofinanced_dummy      = as.integer(Cofinanced == "Yes"),
+    interest_free_dummy   = flag(Interest_Free_Loan),
+    project_finance_dummy = flag(Project_Finance),
+    collateralized_dummy  = flag(Collateralized)
+  )
+
+# Map derived dummy names to their codebook source variable
+dummy_map <- c(
+  infrastructure_dummy  = "Infrastructure",
+  distress_dummy        = "Financial_Distress",
+  covid_dummy           = "COVID",
+  cofinanced_dummy      = "Cofinanced",
+  interest_free_dummy   = "Interest_Free_Loan",
+  project_finance_dummy = "Project_Finance",
+  collateralized_dummy  = "Collateralized"
+)
+
+# Wrapper so all regressions inherit codebook + map automatically
+reg <- function(...) regress(..., codebook = clg_codebook, var_map = dummy_map)
+```
+
+## 1. Loan Size over Time
+
+Does the average loan commitment grow over time?
+
+```{r}
+#| results: asis
+#| fig-width: 7
+#| fig-height: 3
+reg(
+  data    = clg_dev,
+  y_value = "Amount_Constant_USD_2023",
+  x_value = "Commitment_Year"
+)
+```
+
+## 2. Infrastructure Premium
+
+Do infrastructure projects receive larger loans than non-infrastructure projects?
+
+```{r}
+#| results: asis
+#| fig-width: 7
+#| fig-height: 3
+reg(
+  data    = clg_dev,
+  y_value = "Amount_Constant_USD_2023",
+  x_value = "infrastructure_dummy"
+)
+```
+
+## 3. Concessionality over Time
+
+Is Chinese lending becoming less concessional over time?
+
+```{r}
+#| results: asis
+#| fig-width: 7
+#| fig-height: 3
+reg(
+  data    = clg_dev |> filter(!is.na(Grant_Element_IMF)),
+  y_value = "Grant_Element_IMF",
+  x_value = "Commitment_Year"
+)
+```
+
+## 4. Loan Maturity and Infrastructure
+
+Do infrastructure projects carry longer maturities?
+
+```{r}
+#| results: asis
+#| fig-width: 7
+#| fig-height: 3
+reg(
+  data    = clg_dev |> filter(!is.na(Maturity)),
+  y_value = "Maturity",
+  x_value = "infrastructure_dummy"
+)
+```
+
+## 5. Interest Rates over Time
+
+Are fixed interest rates rising or falling as China scales up lending?
+
+```{r}
+#| results: asis
+#| fig-width: 7
+#| fig-height: 3
+reg(
+  data    = clg_dev |> filter(!is.na(Fixed_Interest_Rate)),
+  y_value = "Fixed_Interest_Rate",
+  x_value = "Commitment_Year"
+)
+```
+
+## 6. COVID and Loan Size
+
+Were loans committed during the COVID period larger or smaller?
+
+```{r}
+#| results: asis
+#| fig-width: 7
+#| fig-height: 3
+reg(
+  data    = clg_dev,
+  y_value = "Amount_Constant_USD_2023",
+  x_value = "covid_dummy"
+)
+```
+
+## 7. Co-financing and Loan Size
+
+Are co-financed loans larger than solo Chinese loans?
+
+```{r}
+#| results: asis
+#| fig-width: 7
+#| fig-height: 3
+reg(
+  data    = clg_dev,
+  y_value = "Amount_Constant_USD_2023",
+  x_value = "cofinanced_dummy"
+)
+```
+
+## 8. Grace Periods and Infrastructure
+
+Do infrastructure loans come with longer grace periods?
+
+```{r}
+#| results: asis
+#| fig-width: 7
+#| fig-height: 3
+reg(
+  data    = clg_dev |> filter(!is.na(Grace_Period)),
+  y_value = "Grace_Period",
+  x_value = "infrastructure_dummy"
+)
+```
+
+## 9. Concessionality and Infrastructure
+
+Are infrastructure loans more or less concessional than non-infrastructure loans?
+
+```{r}
+#| results: asis
+#| fig-width: 7
+#| fig-height: 3
+reg(
+  data    = clg_dev |> filter(!is.na(Grant_Element_IMF)),
+  y_value = "Grant_Element_IMF",
+  x_value = "infrastructure_dummy"
+)
+```
+
+## 10. Maturities over Time
+
+Are loan maturities getting longer or shorter as China's program matures?
+
+```{r}
+#| results: asis
+#| fig-width: 7
+#| fig-height: 3
+reg(
+  data    = clg_dev |> filter(!is.na(Maturity)),
+  y_value = "Maturity",
+  x_value = "Commitment_Year"
+)
+```
+
+## 11. Interest Rates and Infrastructure
+
+Are infrastructure loans priced differently from non-infrastructure loans?
+
+```{r}
+#| results: asis
+#| fig-width: 7
+#| fig-height: 3
+reg(
+  data    = clg_dev |> filter(!is.na(Fixed_Interest_Rate)),
+  y_value = "Fixed_Interest_Rate",
+  x_value = "infrastructure_dummy"
+)
+```
+
+## 12. Interest-Free Loans and Loan Size
+
+Are interest-free loans larger or smaller?
+
+```{r}
+#| results: asis
+#| fig-width: 7
+#| fig-height: 3
+reg(
+  data    = clg_dev,
+  y_value = "Amount_Constant_USD_2023",
+  x_value = "interest_free_dummy"
+)
+```
+
+## 13. COVID and Concessionality
+
+Did COVID-era loans carry more favorable terms?
+
+```{r}
+#| results: asis
+#| fig-width: 7
+#| fig-height: 3
+reg(
+  data    = clg_dev |> filter(!is.na(Grant_Element_IMF)),
+  y_value = "Grant_Element_IMF",
+  x_value = "covid_dummy"
+)
+```
+
+## 14. Project Finance and Loan Size
+
+Are project-financed deals larger than standard loans?
+
+```{r}
+#| results: asis
+#| fig-width: 7
+#| fig-height: 3
+reg(
+  data    = clg_dev,
+  y_value = "Amount_Constant_USD_2023",
+  x_value = "project_finance_dummy"
+)
+```

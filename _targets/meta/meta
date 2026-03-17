@@ -1,0 +1,11 @@
+name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
+clg_path|stem|29e92318fec470d1|19cf93291099eb1d|2c530c1562a7fbd1|1178054928|datasets/AidDatas_CLG_Global_Dataset_v1.0.xlsx|t20522.9666951637s|s40586849b|40586849|file|local|vector|||0||
+clg_dev|stem|1f10debc7b21b065|09046447eccdf992|a8711d696dd11d45|1347559195||t20528.9100579679s|s12891747b|12891747|rds|local|vector|||3.853||
+clg_codebook|stem|830c35e1d7b80eec|14bd6cb0cd090eb0|54f3f3368d8f3a49|-700012745||t20528.9400648122s|s30999b|30999|rds|local|vector|||1.346||
+load_geo|function|abf652d3f4b00cd5
+merge_clg_geo|function|ff2c00050af67d92
+load_clg_dev|function|0c11be99ecd508be
+load_clg_codebook|function|faf937e92fd8f9f9
+geo_path|stem|603fc2c083c0cdd1|2ddd023692f53070|2c530c1562a7fbd1|1186932546|datasets/aid_data_geospatial.gpkg|t20522.9724380166s|s727351296b|727351296|file|local|vector|||0||
+geo|stem|9ac623bf7d0df91b|d56ee4ce94603f63|f4524287f89e8d0c|48463235||t20529.5172867779s|s525012603b|525012603|rds|local|vector|||2.418||
+clg_plus_geo|stem|26b6b5f61f0e19e4|35344c2a090c0465|c397d7426edb3ba1|-491112768||t20529.5176993247s|s413063890b|413063890|rds|local|vector|||0.182||

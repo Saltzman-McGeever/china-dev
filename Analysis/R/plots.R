@@ -1,6 +1,8 @@
 library(dplyr)
 library(plotly)
 
+source(here::here("analysis", "R", "style.R"))
+
 # Shared geo layout used by all choropleth maps
 .geo_layout <- list(
   showframe      = TRUE,
@@ -39,15 +41,15 @@ create_temporal_trends <- function(df,
     add_bars(
       x      = ~Year, y = ~Project_Count,
       name   = "Number of Projects",
-      marker = list(color = "rgb(253, 141, 60)", opacity = 0.8),
+      marker = list(color = PLOTLY_STYLE$primary_color, opacity = 0.8),
       yaxis  = "y"
     ) |>
     add_lines(
       x      = ~Year, y = ~Total_Spending_Billions,
       name   = "Total Spending (Billions USD)",
-      line   = list(color = "rgb(70, 130, 180)", width = 3),
+      line   = list(color = PLOTLY_STYLE$secondary_color, width = 3),
       mode   = "lines+markers",
-      marker = list(size = 8, color = "rgb(54, 100, 139)"),
+      marker = list(size = 8, color = PLOTLY_STYLE$secondary_color),
       yaxis  = "y2"
     ) |>
     layout(
@@ -80,11 +82,12 @@ create_temporal_trends <- function(df,
         bgcolor = "rgba(255,255,255,0)", bordercolor = "rgba(0,0,0,0)",
         borderwidth = 0, font = list(size = 10)
       ),
-      plot_bgcolor  = "white",
-      paper_bgcolor = "white",
+      plot_bgcolor  = PLOTLY_STYLE$bg_color,
+      paper_bgcolor = PLOTLY_STYLE$bg_color,
       margin        = list(l = 50, r = 50, t = 30, b = 50),
-      font          = list(family = "Arial, sans-serif", size = 11,
-                           color = "rgb(80, 80, 80)")
+      font          = list(family = PLOTLY_STYLE$font_family,
+                           size   = PLOTLY_STYLE$font_size,
+                           color  = PLOTLY_STYLE$font_color)
     )
 }
 

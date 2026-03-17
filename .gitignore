@@ -12,3 +12,6 @@ venv/
 env/
 ENV/
 datasets/aid_data_geospatial.gpkg
+
+# Scratch file
+scratch.R
