@@ -1,0 +1,3725 @@
+AIDDATA
+
+A Research Lab at William & Mary
+
+WORKING PAPER 50
+
+Abstract
+By combing geocoded project-level data on Chinese development assistance with geocoded householdlevel data from the Demographic and Health Survey (DHS), we investigate the effect of Chinese project
+assistance on household welfare in 13 sub-Saharan African countries. We exploit the geographic proximity of household clusters across two different DHS survey waves (before and after the influx of Chinese
+aid) and use a difference-in-difference design in order to investigate the impact of Chinese aid on households’ wealth and education. Our results consistently point to an overall positive effect of Chinese project
+assistance on household welfare: areas that receive Chinese projects are more likely to be wealthier, stay
+in school longer, and achieve a higher educational attainment than areas which did not receive such
+projects. Results are robust to various alternative model specifications.
+
+JEL Classifications: F35, O19, O20
+Keywords: OECD-DAC, Aid Allocation, Aid Effectiveness, China, Africa, Emerging Donors, Project Level,
+Household Welfare, DHS, Geocoded Data
+
+Author Information
+Bruno Martorano
+Maastricht University
+UNU MERIT
+martorano@merit.unu.edu
+Laura Metzger
+ETH Zürich, Center for Development and Cooperation (NADEL), Switzerland
+Marco Sanfilippo
+University of Bari, Italy
+IOB, University of Antwerp, Belgium
+The views expressed in AidData Working Papers are those of the authors and should not be attributed
+to AidData or funders of AidData’s work, nor do they necessarily reflect the views of any of the many
+institutions or individuals acknowledged here.
+
+Acknowledgments
+We would like to thank Axel Dreher, Samuel Brazys, Brad Parks and participants to a workshop at Heidelberg University, Sept 2017, for useful comments and discussions.
+
+Contents
+1. Introduction .................................................................................................................................................... 1
+2. Data and Methods.......................................................................................................................................... 4
+2.1 Aid Data .................................................................................................................................................... 4
+2.2 Demographic and Health Survey (DHS) ................................................................................................ 8
+2.3 Methodology ........................................................................................................................................... 9
+3. Main Results .................................................................................................................................................. 15
+3.1 Robustness of Main Results .................................................................................................................. 18
+4. Sectoral Analysis of Chinese Aid ................................................................................................................ 19
+5. Distribution and Scale of Chinese Aid ....................................................................................................... 20
+6. Discussion ..................................................................................................................................................... 22
+References......................................................................................................................................................... 24
+Appendix ........................................................................................................................................................... 27
+
+1. Introduction
+The Diplomat, an international online news magazine, has referred to China’s graduation from a poor
+country to an economic superpower within no less than 30 years as an “earth-shaking rise”.1 Meanwhile,
+the global community has followed China’s development with both hope and anxiety: there is as least
+as much admiration for China’s achievements as there is criticism for its authoritarian leadership style,
+human rights violations, and aggressive business practices. This also applies to China’s new role as an
+international donor. Formerly a recipient of development aid itself, China is now probably the largest of
+the so-called emerging donors. Speculations about the repercussions of Chinese foreign assistance on
+recipient countries are numerous and most notably larger than evidence on its actual consequences
+(see Naím, 2007). This applies to sub-Saharan Africa especially, where China has ramped up its activities
+not long after the turn of the millennium.2
+
+Until recently, systematically assessing the allocation and effectiveness of Chinese aid has been very
+difficult, because the Chinese government barely publishes information on its foreign assistance.
+Fortunately, however, data availability has significantly improved due to a comprehensive dataset on
+Chinese Official Finance to Africa issued by the AidData research lab. Today, a growing body of
+empirical literature is providing new insights on the drivers of Chinese aid allocation (see Strange et al.
+2013, Dreher et al. 2014, Strange et al. 2014, Dreher et al. 2015, Dreher and Fuchs 2015, Strange et al.
+2015, Kilama 2016). A study by Isaksson and Kotsadam (2017) moreover looks at the governance aspect
+of Chinese aid and finds a positive relationship between Chinese aid and local corruption. Research on
+the effectiveness of China’s aid is conducted as well, but to a much lesser degree. Dreher et al. 2016 and
+Dreher et al. 2017 are the only study we know of that examine and find a positive effect of Chinese aid
+on growth in recipient countries. In view of China’s growing influence as an international donor, it is
+important to learn more about the poverty reduction potential of its activities.
+
+The present paper investigates the effectiveness of Chinese aid in sub-Saharan Africa (SSA). This region
+is the poorest in the world, the largest recipient of Chinese aid3, and a major destination for other forms
+of economic cooperation from China (Brautigam 2009, Sanfilippo, 2010). More specifically, we analyse
+
+1
+
+https://thediplomat.com/2011/02/understanding-chinas-global-impact/
+See Kobayashi (2008) and Bräutigam (2009) for a discussion of the evolution of Chinese aid since the 1990s.
+3
+See the first China White Paper on Foreign Aid published in 2011:
+http://english.gov.cn/archive/white_paper/2014/09/09/content_281474986284620.htm
+2
+
+1
+
+if and to what extent Chinese aid projects impact household welfare in 13 sub-Saharan African countries.
+Since Chinese aid covers a broad range of sectors (Bräutigam 2009, Strange et al. 2014) and potentially
+affects various dimensions of peoples’ lives, we look at two different measures of well-being: wealth and
+educational outcomes. Both measures are key to household welfare, highly relevant for poverty
+reduction and relate to sectors in which China is very active. To the best of our knowledge, this is the
+first study to provide cross-country evidence on the effectiveness of Chinese aid at the micro-level and
+beyond the dimension of economic growth.
+
+An obvious challenge to our research objective is that we are dealing with non-randomised
+observational data that is prone to selection bias: Chinese aid projects are unlikely to be randomly
+allocated across countries and regions within countries. This makes it difficult to obtain reliable estimates
+of the effect of Chinese aid on household well-being. In order to deal with this problem in the best way
+possible, we approach our empirical analysis as follows (see also Section 2). We match georeferenced
+data on Chinese aid projects in the AidData set to georeferenced household data in the Demographic
+and Health Survey (DHS) at two points in time: before and after the inflow of Chinese aid. Using a
+difference-and-difference estimator, we then compare the welfare of household clusters that have been
+“treated” with at least one aid project between the two DHS survey waves to the welfare of “control”
+clusters. By exploiting the geographic proximity of household clusters covered by the DHS, we are able
+to compare households located in the same area before and after treatment. This greatly increases the
+comparability of households in our dataset across time. 4 In addition, we use inverse probability
+weighting – a matching method – in order to construct a proper counterfactual and make treatment and
+control clusters as comparable as possible. Since information on the exact number of Chinese projects
+on the ground as well as their financial project volume is rather patchy, our main analysis captures
+treatment in form of a dummy variable indicating the presence of a project (yes/no). However, in order
+to also consider treatment intensity, we extend our analysis by replacing the dummy with the number of
+projects on the one hand and financial project volume on the other hand.
+
+Our study contributes to two main strands in the aid literature. First, it adds to the empirical literature
+that investigates aid effectiveness at the sub-national level across countries (see Kilby 2000, Dollar and
+
+4
+
+Since the DHS survey is not a panel, we cannot compare the same households at two different points in time, namely before and
+after treatment. However, we can compare households located in same area at two different points in time, allowing us to achieve
+a high comparability between households across survey waves.
+
+2
+
+Svensson 2000, Guillaumont and Laajaj 2006, Denizer et al. 2013, Bulman et al. 2015, Dreher and
+Lohmann 2015, Metzger and Günther 2015, Briggs 2016, Kotsadam et al. 2018). Studying aid
+effectiveness sub-nationally is important, because it helps narrowing the gap between macro- and
+micro-economic studies in the field (Rodrik 2008, Denizer et al. 2013, Bulman et al. 2015, Metzger and
+Günther 2015, Dreher et al. 2016, Dreher et al. 2017, Briggs 2018). Second, we add to the (yet) small
+body of literature on the effectiveness of Chinese aid (Dreher et al. 2016, Dreher et al. 2017). Given the
+methodology we use, our study also relates to newer literature that applies a difference-in-differences
+(DiD) approach to geo-referenced and non-randomised observational data (see Kotsadam and Tolonen
+2016, Isaksson and Kotsadam 2018, Kotsadam et al. 2018). 5 Yet, we propose an alternative
+methodology to exploit our geo-referred information which relies on impact evaluation methods to
+reduce the potential bias due to the lack of a perfect counterfactual.
+
+The existing literature offers few insights on China’s aid effectiveness directly, but there are indirectly
+related aspects worth pointing to. On a positive note, China’s South-South cooperation philosophy6 may
+lead to higher ownership, larger freedom of choice and, thus, better targeting of aid, rendering foreign
+assistance more effective. Moreover, China’s emphasis on project aid as well as technical cooperation
+and training can be an effective way to promote local economic development in the short-term (Clemens
+et al. 2012, Reilly 2015). Last, China’s comparatively strong focus on (often big scale) economic
+cooperation may create direct opportunities for the local population and, at the same time, lead to a
+better integration of national markets into the global economy. The positive relationship between
+Chinese aid and regional (Dreher et al. 2016) and national growth (Dreher et al. 2017) lends support to
+these arguments. On the other hand, China’s non-interference and no-strings-attached loan policy can
+threaten debt sustainability (Kilama 2016) and undermine good governance and foster corruption
+(Isaksson and Kotsadam 2017). Moreover, the Chinese government’s emphasis on mutually beneficial
+cooperation might affect profit sharing negatively and diminish longer-term economic benefits to
+recipient countries.
+
+5
+
+Benyishay et al. (2017) provides a review on how increasingly available disaggregated geospatial data allows for applying a
+variety of impact evaluation methods to assessing the effectiveness of aid, among others.
+6
+China’s foreign assistance is guided by eight principles. For details see: http://www.china.org.cn/opinion/201111/29/content_24030234.htm
+
+3
+
+To what extent these considerations affect the welfare of households that live in the proximity of Chinese
+aid projects is an open question that we explore in this study. Our main results (discussed in Section 3)
+consistently point to an overall positive impact of Chinese project assistance on the welfare of
+households living in our sample countries. Areas that receive Chinese projects are more likely to be
+wealthier, stay in school longer, and achieve a higher educational attainment than areas which did not
+receive such projects. These findings are confirmed when we break the analysis down to the sector level
+(Section 4), although we also find some evidence for heterogeneous effects of aid. The latter suggests
+that a sectoral analysis of aid can be helpful in further unravelling the mechanisms through which
+Chinese projects affect household welfare. Finally, we find that the intensity of treatment seems to have
+implications for household welfare: a (positive) non-linear relationship between treatment and outcome
+variables indicates that positive effects of aid only materialise when certain number of projects (or a
+certain project volume) is reached. However, these effects seem to wear off in some cases once a certain
+threshold is passed.
+
+2. Data and Methods
+Our analysis is based on the combination of two main sources of data: (1) Aid Data’s Chinese Official
+Finance to Africa dataset and (2) the Demographic and Health Survey (DHS). Our sample consists of 13
+African countries for which at least two DHS survey waves are available and for which the first wave
+corresponds to a period characterised by little or no Chinese aid activities (i.e. before the year 2000):
+Benin, Cote d’Ivoire, Ethiopia, Ghana, Guinea, Kenya, Malawi, Namibia, Nigeria, Senegal, Togo, Uganda
+and Zimbabwe.
+
+2.1 Aid Data
+The Chinese Official Finance to Africa dataset comprises 1,955 geocoded projects in 50 African
+countries, spanning 3,545 locations and covering the years 2000 to 2012. The countries included in our
+sample account for 852 projects in 1,745 locations, which are widely distributed within countries and
+across time (see Figure 1).
+
+4
+
+Figure 1. Mapping of Chinese Aid Projects by Destination Countries
+
+For each project, the database provides detailed information on its location, the sector it belongs to
+(classified following the OECD Creditor Report System (CSR) purpose codes), its financial volume, the
+type of flow7 (e.g. ODA or other official flows, OOF) and its status (e.g. planned or implemented).
+
+We made two major adjustments to the data for our empirical analysis. First, a large majority (67.4%) of
+projects are classified either as “completed” or “implemented”, while the rest is still “in the pipeline”.
+Projects in the pipeline have not formally started and 11.3% of them are pledged only. Since their
+implementation is uncertain, we exclude these projects from our analysis. Second, we only account for
+projects that are defined by a precise location, which is key to the identification strategy adopted in the
+
+7
+
+In the case of China, it is important to distinguish between official development assistance (ODA)-like flows and other official
+flows (OOF). According to the DAC definition, ODA is (a) provided by official agencies to developing countries, (b) aimed at
+promoting economic development and welfare, and (c) contains a grant element of at least 25 percent. OOF are also funded by
+government agencies, but not primarily aimed at development goals and/or not sufficiently concessional to categorise as ODA.
+Results from an empirical work by Dreher et al (2015) show that Chinese ODA to Africa are not significantly correlated with national
+political institutions, while OOF-like flows are more likely to go to countries with higher corruption levels.
+
+5
+
+rest of the analysis. AidData attributes a precision code to each geo-localised project that identifies how
+close a project is to a given set of coordinates. We consider projects with a precision code of up to 4,
+meaning that the project location is at least overlapping with a first order administrative division such as
+a province, state or governorate. 8 Of the total number of projects in our sample 67% fall into this
+category. This is a standard practice in studies using this source of data and looking at local
+characteristics of aid projects (see e.g. Dreher et al., 2015; Briggs, 2018). Dropping projects in the
+pipeline and those with a precision code larger than 4 leaves us with a final sample of 878 observations
+(or project-locations).
+
+In this final sample, Chinese assistance primarily consists of economic-oriented projects especially in
+Ethiopia, Nigeria and Uganda. Overall, transport, communication and energy projects account for 44%
+of the total number of projects. Education and health projects make up a large share of Chinese
+assistance too, accounting for about 21.3% of all projects (Figure 2). This is true in particular for Ghana
+(education alone represents 26% of the projects), Guinea and Malawi.
+
+Figure 2. Distribution of Chinese aid projects by Sector
+
+Communications
+Transport and Storage
+10%
+
+Education
+
+23%
+
+5%
+5%
+
+Health
+
+7%
+Government and Civil Society
+7%
+
+21%
+11%
+
+11%
+
+Energy Generation and Supply
+Water Supply and Sanitation
+Other Social infrastructure and
+servi..
+
+Source: Authors’ elaboration based on Aid Data
+8
+
+For more details see Aid Data’s methodological notes: http://china.aiddata.org/content/methodology
+
+6
+
+Most of the projects (53.2%) included in our final sample are categorised as ODA-like; 41.8% are
+classified as Vague Official Finance, since information required for a more specific categorisation is
+lacking. Only 4.3% of all projects are classified as other official flows (OOF), which means commercial
+activities (mostly related to the communication sector, and including loans to build telecom
+infrastructures). Moreover, above 46% of project financing is provided in the form of loans, which seem
+to be China’s preferred mode of foreign assistance.9
+
+A few additional characteristics and limitations of the AidData dataset are important to keep in mind for
+the interpretation of our results (Strange et al. 2013). First, since China does not officially report data on
+its foreign assistance, project-related data is compiled from various sources, including governments,
+media, and the private sector. Therefore, the data might be not fully representative of Chinese assistance
+provided to sub-Saharan African countries. Second, a bias in China publicly reporting certain projects
+(but not others) cannot be ruled out (Strange et al. 2013). Third, since China’s foreign assistance does
+not adhere to DAC standards and definitions, it is difficult to categorise it in the same way and with the
+same precision as aid from DAC donors. This reduces the comparability between aid flows from China
+and DAC member countries. Finally, and importantly, information on financial disbursements to projects
+is not available at the location level (i.e. the geographic project site level). Financial disbursement data
+is only available at the overall project level. In light of this, we do not use information on projects’ financial
+flows in the main analysis. Instead, we indicate the presence of a project (location) in any given area with
+dummy variables. However, in order to take the intensity of treatment into account we repeat our main
+analysis by replacing the project location dummies with (a) the number of projects going to certain areas
+and (b) the actual financial size of the project (see Tables A10 and A11). As financial disbursement
+information is not available at the local level, we adopt the approach of other studies in the field and
+divide the total financial disbursement to a project by the number of its locations (see e.g. Dreher et al.
+2016).
+
+9
+
+http://www.sais-cari.org/publications-1/2017/7/5/policy-brief-112016-how-chinese-money-is-transforming-africa-its-not-whatyou-think
+
+7
+
+2.2 Demographic and Health Survey (DHS)
+The DHS is a large-scale survey programme. Data are nationally representative and include information
+for a wide range of indicators on several dimensions of households’ wellbeing, including assets,
+education, health, and nutrition. All DHS surveys are based on a common questionnaire. This key feature
+allows us to analyse and compare the effect of Chinese aid on household welfare across countries. For
+the present analysis, we use DHS survey data on 13 African countries. We consider two data points for
+each country: a “pre-treatment” or “baseline” wave, close to the first year of the AidData dataset (2000)
+and a period characterised by little or no Chinese aid activities, and a “post-treatment” wave, which is
+the most recent DHS survey year. Countries and corresponding survey years are listed in Table A1 in the
+Appendix. Taken together, the surveys include information on 430,308 households.
+
+In order to measure the impact of Chinese assistance on household welfare we consider a number of
+economic and social indicators. Concerning economic indicators, we use the wealth index that is directly
+available from the DHS as a measure of households’ material well-being (Filmer and Pritchett, 1999,
+2001; McKenzie, 2005). The DHS wealth index is generated by means of factor analysis and is based on
+assets such as a radio, refrigerator, telephone, television, the quality of the dwelling, water supply, access
+to sanitation facilities, and the type of flooring (Filmer and Pritchett, 1999, 2001; McKenzie, 2005). In all
+our analyses, we use the DHS wealth index, which ranks households on a continuous scale. The
+continuous scale is re-adjusted by adding a constant such that it contains only positive values; then it is
+transformed into its natural logarithm. Moreover, we use the wealth index recoded into national
+quintiles, also readily available from the DHS. It should be noted that the wealth index represents a
+relative measure of wealth within a specific country at a given point in time. Therefore, the index may
+not properly capture changes in households’ wealth over time. Moreover, since assets can be country
+specific, the comparability of the index across countries may be limited.
+
+In order to assess the impact of Chinese aid on local educational outcomes and, hence, households’
+human capital, we rely on two indicators: (a) the average and maximum years of education in each
+household (counting only members over 25 years of age) and (b) the educational attainment in each
+household. Educational attainment consists of six categories that are coded as follows: (0) “none”, (1)
+“incomplete primary”, (2) “complete primary”, (3) “incomplete secondary”, (4) “complete secondary”,
+
+8
+
+and (5) “higher education”. We consider the average and maximum value of educational attainment
+within each household for household members over 25 years of age. Summary statistics of all variables
+used in the analysis are provided in Table 1 (see Section 2.3).
+
+2.3 Methodology
+In order to link the DHS data to the information in Aid Data, we use geo-referred spatial information. The
+clusters surveyed in the DHS as well as the projects listed in Aid Data have point coordinates (GPS). We
+use these GPS coordinates to match household data from the DHS to sub-national project data from the
+Aid Data set.
+
+The Aid Data information tells us when and where a Chinese aid project has been established. The DHS
+data tells us which household is located in an area close to such an aid project. Combining this
+information allows us to compare the welfare of households (with regard to wealth and education)
+before and after the implementation of a project.
+
+We exploit the establishment of the Forum on China-Africa Cooperation (FOCAC) in 2000 as a possible
+source of exogenous variation in the provision of Chinese aid. According to existing analyses, anecdotal
+evidence and a few official sources such as the Ministry of Commerce (MOFCOM) and the White Papers
+on Foreign Aid, most of Chinese aid and other forms of economic cooperation have been flooding into
+Africa after the start of the new millennium and following pledges made during the FOCAC (triannual)
+meetings (Lum et al., 2009; Brautigam, 2009).10 Evidence on the provision of Chinese loans (a major
+component of China’s overall aid flows) to Africa reported in Figure A1 in the Appendix is consistent
+with this hypothesis: for the continent as a whole Chinese flows in 2000 were nearly zero and then
+increased significantly afterwards.
+
+10
+
+Malawi represents an exception since it was not affected by the first FOCAC, as it has established diplomatic relations with China
+only in 2008. In this specific case, we can compare HH’s living conditions in 2004 (a few years before relations with China
+normalised) with those in 2010 (i.e. a few years after).
+
+9
+
+Our empirical analysis leans on the methodology used by Kotsadam et al. (2018) 11 to evaluate the
+effectiveness of local aid projects on infant mortality at the household level by means of a difference-indifferences (DiD) approach. In our case, we have:
+
+!"#$% = () + (+ ,% + (- ."#$ + (/ (,% ∗ ."#$ ) + (3 4"#$% + 56 + 78% + 9
+
+(1)
+
+Where Yhcit represents the outcome of interest (see Section 3.2) computed at the level of each household
+h based in a geographic cluster c in country i at time t. D is a dummy variable identifying the treatment
+group (=1). Households within a 25-kilometer (km) radius of a Chinese aid project are assigned to the
+treatment group, while households outside that radius are assigned to the control group. T is a dummy
+variable assuming the value of one if the information refers to the most recent DHS survey wave. Zhcit is
+a vector of time variant characteristics measured at the household level. These characteristics include (a)
+the demographic composition of the households - number of persons living in the household, number
+of men, household members’ average age, the dependency ratio, and a dummy variable (=1) if the
+household head is female; (b) the assets owned by the household (i.e. bike, car, radio and telephone),
+plus further proxy variables for living conditions such as access to electricity and flooring in the house;
+and (c) a dummy variable (=1) for households living in rural areas. Due to endogeneity, we include the
+variables measuring individual assets or proxying for living conditions only for the specification using
+educational outcomes as dependent variable (i.e. column 3 and following in each table), but not for the
+regressions using wealth as dependent variable. Furthermore, we add time varying country (78%) and
+area (56 ) fixed effects to control for time trends and area-specific characteristics that may be spuriously
+correlated with our dependent and independent variables.
+
+Our approach to analysis (DiD) grounds on the premise that both DHS waves (before and after treatment
+with a Chinese aid project) are based on the same underlying population. However, since the DHS is not
+a panel, different survey waves are based on different sets of clusters and households within clusters.
+The chance that the same households are interviewed in both survey waves is extremely low. In order to
+deal with these limitations which can potentially bias our results we propose an alternative methodology
+to exploit our geo-referred data. This is done in three steps.
+
+11
+
+See also earlier work by Kotsadam and Tolonen (2016), Isaksson and Kostadam (2018), and Wegenast et al. (2016).
+
+10
+
+First, we exploit the geographic proximity of clusters located in populated areas of the countries in our
+sample, taking our analysis from the household level to a more aggregated geographic-area level.
+Geographic areas are defined to share the first decimal place both for latitude and longitude
+coordinates which roughly corresponds to 8 km. Using the first decimal represents a good strategy to
+balance the number of clusters and the degree of homogeneity of the households included in each area.
+For each survey wave, we identify the clusters located within this geographic boundary. With this
+strategy, we can match the same areas in two different periods. Figure 3 provides a graphical
+representation of this procedure, using the Ethiopian data as an example. Map 1 reports the geographic
+distribution of the constructed areas in both survey waves. The dots represent our new, more aggregate,
+unit of analysis. Figure 3 shows the steps through which we move from clusters to aggregate areas in
+more detail. Purple dots are the original clusters in the 2000 wave, whereas the blue dot is the centroid
+of each newly constructed area. For areas around the blue dots we report collapsed information,
+summarising the data of all original clusters in 2000 that are located in the newly constructed area. This
+means that we compute the average characteristics of the households that have been surveyed. The
+aggregated areas in 2000 are then matched with the corresponding areas in 2011, which are
+constructed with the exact same methodology.12 For Ethiopia, we have 84 geographic area units for
+which we can match information from pre-treatment surveys to post-treatment surveys (these are the
+overlapping green and yellow bubbles in Map 2, Figure 3). In total, our final sample includes 1229
+geographic units that we observe over two periods.13
+
+12
+
+Wegenast et al. (2016) propose a similar method since they re-aggregate information from the clusters to the district level,
+computing mean values to get to a dataset that varies by district and year. They do not, however, provide the additional steps we
+make in our analysis to ensure a more precise comparability between treated and control areas.
+13
+Benin: 79 units; Cote d’Ivoire: 38; Ethiopia: 84; Ghana: 105; Guinea: 61; Kenya: 191; Malawi: 232; Nigeria: 96; Namibia; 87;
+Senegal: 61; Togo: 90; Uganda: 61; Zimbabwe: 44.
+
+11
+
+Figure 3. Procedures to construct areas
+
+Second, we use a non–experimental technique called inverse probability weighting (IPW) to adjust for
+the selection bias that may results from the fact that we are dealing with non-randomised, observational
+data (Horvitz and Thompson 1952, Fitzgerald et al., 1988, Wooldridge, 2007). IWP aims at constructing
+a credible counterfactual from the data in two stages by identifying and then matching “quasi – identical”
+units in the treatment and control groups. For each area we use a probit model to estimate the
+probability of being a recipient of Chinese aid. Variables in the model includes the demographic
+composition of the households living in our unit of analysis (share of female-headed households,
+average age of household members, average size of households, share of men, share of children aged
+between 0 and 4, share of children aged between 5 and 14, share of children aged between 15 and 17,
+average dependency ratio), the assets owned by the same group of households (percentage of
+households holding a bike, a car and a radio) and other information to proxy living conditions (e.g.
+access to electricity and floor living conditions), the share of households living in rural areas as well as
+
+12
+
+region fixed effects and year dummies. All variables are measured in the baseline year in order to
+reproduce initial conditions, and are computed as average levels among all households belonging to
+the same area. The graph depicting the weighted propensity scores for control and treatment groups
+indicates the goodness of the overall balance after matching (Figure 4, left panel). This is confirmed by
+the Hotelling test: after matching, we do not observe a significant difference in means between control
+and treatment group for the variables that were used to calculate the propensity scores (Prob > F
+(78,837) = 0.6335).
+Figure 4. Distribution of propensity scores, before (left panel) and after (right panel) matching
+Distribution of propensity scores (weighted)
+
+0
+
+0
+
+.5
+
+.5
+
+1
+
+1.5
+
+1
+
+2
+
+2.5
+
+1.5
+
+Distribution of propensity scores (unweighted)
+
+0
+
+.2
+
+.4
+.6
+Propensity score
+Treated
+
+.8
+
+1
+
+0
+
+.2
+
+Control
+
+.4
+.6
+Propensity score
+Treated
+
+.8
+
+1
+
+Control
+
+Third, in our difference-in-difference analysis we weigh the control sample by the inverse of the
+probability computed in the previous stage in order to make it as comparable as possible to the
+treatment sample. The DiD specification now is:
+
+!6$% = () + (+ ,% + (- .6$ + (/ (,% ∗ .6$ ) + (3 46$% + 56 + 78% + 9
+
+(2)
+
+The only difference with equation (1) is that Y and Z are now computed at the area-level x rather than at
+the household-level h. Standard errors are clustered at the area-level.
+
+As outlined by Benyishay et al. (2017), following this approach allows one to control for confounding
+factors and omitted variables at a disaggregated geographic level. Additionally, time variant country
+
+13
+
+fixed effects 14 account for factors potentially affecting the treatment and outcome variables at the
+national level and over time.15 Table 1 reports descriptive statistics on the main variables used in the
+regression analysis.
+
+Table 1: Descriptive Statistics
+Variables
+
+Obs
+
+Mean
+
+Std. Dev.
+
+Min
+
+Max
+
+1,748
+
+13.94
+
+0.45
+
+-2.30
+
+15.03
+
+Dependent Variables
+Natural Logarithm (DHS Wealth
+Index)
+DHS Wealth Index Quintiles
+
+1,748
+
+3.18
+
+1.01
+
+1.00
+
+5.00
+
+Average Years of Education
+
+2,219
+
+5.41
+
+3.12
+
+0.00
+
+15.60
+
+Max. Years of Education
+
+2,219
+
+6.82
+
+3.33
+
+0.00
+
+16.92
+
+Average Educational Attainment
+
+2,219
+
+1.63
+
+0.97
+
+0.00
+
+4.72
+
+Max. Educational Attainment
+
+2,219
+
+2.07
+
+1.05
+
+0.00
+
+5.00
+
+Treated (D) with Project
+
+2,458
+
+0.35
+
+Number of Projects
+
+2,458
+
+6.22
+
+46.28
+
+0.00
+
+1234
+
+Total Amount (Financial Volume)
+
+2,458
+
+79.67
+
+831.09
+
+0.00
+
+35048
+
+Female-Headed Household
+
+2,280
+
+0.26
+
+0.16
+
+0.00
+
+1.00
+
+Age of Household Members
+
+2,280
+
+43.86
+
+6.10
+
+26.95
+
+72.59
+
+Household Size
+
+2,280
+
+6.23
+
+2.41
+
+2.10
+
+28.83
+
+No. of Men in Household
+
+2,458
+
+0.45
+
+0.30
+
+0.00
+
+2.24
+
+Dependency Ratio
+
+2,280
+
+0.50
+
+0.09
+
+0.26
+
+0.87
+
+Access to Electricity
+
+2,280
+
+0.33
+
+0.38
+
+0.00
+
+1.00
+
+Radio
+
+2,280
+
+0.65
+
+0.22
+
+0.00
+
+1.00
+
+Bicycle
+
+2,280
+
+0.30
+
+0.24
+
+0.00
+
+1.00
+
+Car
+
+2,280
+
+0.08
+
+0.13
+
+0.00
+
+0.88
+
+Telephone
+
+2,129
+
+0.05
+
+0.12
+
+0.00
+
+0.94
+
+Type of Flooring
+
+2,280
+
+2.06
+
+0.75
+
+1.00
+
+3.00
+
+Rural Area
+
+2,280
+
+0.65
+
+0.45
+
+0.00
+
+1.00
+
+Treatment Variables
+
+Household Characteristics
+
+Household Assets
+
+Source: Authors’ elaboration on DHS data
+Note: All the variables are calculated at the area-level. See Section 3 for the construction of how geographic areas have
+been constructed.
+
+14
+
+Note that adding fixed effects to our model causes the treatment dummy D to being dropped from the regression due to perfect
+collinearity.
+15
+We do not include region-year specific effects (as for instance done by Isaksonn and Kostadam, 2018) since the areas we
+constructed might include clusters belonging to different regions (although this happens in a minority of cases). The fixed effects
+at the level of constructed areas that are absorbed by the DiD represent a higher level compared to the regions.
+
+14
+
+3. Main Results
+Our main analysis is reported in Table 2. The results indicate that Chinese Aid projects have a positive
+and significant effect on the wellbeing of households in the sub-Saharan countries forming part of our
+sample.
+
+Concerning households’ material well-being, we observe that areas located in the proximity of a Chinese
+project site seem to be wealthier than “control” areas located farther away from such project sites. This
+result holds for both the continuous wealth index taken from the DHS survey (Table 2, column 1) and the
+index reflecting the wealth distribution across quintiles (Table 2, column 2). Thus, apparently, treated
+areas are relatively wealthier than control areas; and they are more likely to be in a higher wealth quintile.
+To some extent, these findings fit with the results by Dreher et al. (2016) who identify a positive effect of
+Chinese aid at the regional level in Africa. However, our results do generally not imply a causal
+relationship between Chinese projects and household wealth: for the majority of our sample countries,
+wealth indicators are only available in the latest DHS survey waves (post-treatment). Consequently, we
+cannot compare control and treatment areas over time and our DiD model (subsection 2.3, equation (2))
+reduces to a cross-section which does not allow for a causal interpretation of the data. Except for the
+analysis presented in Table A2 in Appendix I, this situation applies to all wealth-related regressions in
+this study. Importantly, while the previous results seem to confirm a wealth enhancing effect of Chinese
+development assistance, the analysis of the distribution of such benefits across quantiles of the wealth
+index says little about redistributive effects. For example, Chinese aid could have an equalising effect if
+it moved areas in lower quintiles up into higher quintiles. The opposite would apply if it mostly benefitted
+areas that were already in higher quintiles before receiving a project. A deeper examination of
+distributional effects of Chinese aid at the sub-national and micro-level certainly deserves more
+attention.
+
+The analysis on education outcomes (Table 2, columns 3 to 6) is based on our full DiD specification,
+since data is available for both survey waves.16 This being said, the results presented in columns 3 to 6
+indicate that Chinese aid projects have a positive and significant effect (a) on average and maximum
+16
+
+As discussed in subsection 2.3, adding fixed effects to our model causes the treatment dummy D to being dropped from the
+regression due to perfect collinearity. This automatism does not affect the interpretation of the DiD estimator, which is our main
+variable of interest, but we lose information on differences between control and treatment areas at baseline. That means, the
+regression results do not reveal whether Chinese aid projects went to areas with initially higher or lower education levels.
+
+15
+
+years of education, and (b) on average and maximum educational attainment (the level of acquired
+education). The positive and significant post-treatment dummy T indicates that educational outcomes
+have generally improved over time in sub-Saharan Africa. This is well in line with other studies and a
+well-known fact by now (Riddel and Niño-Zarazúa, 2016). Several mechanisms may explain these results.
+First, better educational outcomes can be a direct result of (successful) Chinese projects in the education
+sector. After all, education-related projects account for 11% of the total sectoral distribution of Chinese
+aid (see Figure 2). In Section 4 we study this possible mechanism more closely. Second, better
+educational outcomes can be an indirect result of projects with relevant spillover effects. Infrastructural
+projects for instance, which make up at least 21% of Chinese aid, can facilitate access to education for a
+large number of pupils. Third, increased economic wellbeing, possibly driven by Chinese aid projects,
+may also contribute to improved educational outcomes in treatment areas, for example by enabling
+households to pay for education.
+
+Finally, most of the control variables added to each regression play the expected role on the different
+outcomes examined.
+
+16
+
+Table 2: Main Results, OLS Weighted (IWP)
+(1)
+Ln (DHS
+Wealth Index)
+Treated (D) with Project
+
+0.025***
+[0.009]
+
+(2)
+DHS Wealth
+Index
+Quintiles
+0.139***
+[0.053]
+
+Treated*Survey Year (D*T)
+Most Recent Survey Year (T)
+Female-Headed HH1
+Age Of HH members
+HH Size
+No. Of Men in HH
+Rural Area
+Dependency Ratio
+
+0.067
+[0.045]
+0.001
+[0.001]
+0.003
+[0.009]
+0.013
+[0.040]
+-0.111***
+[0.017]
+0.463***
+[0.119]
+
+0.880***
+[0.230]
+0.016***
+[0.006]
+-0.069**
+[0.028]
+0.234*
+[0.140]
+-1.120***
+[0.109]
+4.116***
+[0.603]
+
+Yes
+
+Yes
+
+13.714***
+[0.093]
+968
+0.419
+
+1.420***
+[0.533]
+968
+0.735
+
+Access To Electricity
+Radio
+Bicycle
+Car
+Type Of Flooring
+Telephone
+Country-Year FE
+Constant
+Obs. = No. Of Areas
+R-squared
+Number Of Areas
+
+(3)
+Average
+Years of
+Education
+
+(4)
+(5)
+Average
+Max. Years of
+Educational
+Education
+Attainment
+automatically dropped
+
+(6)
+Max.
+Educational
+Attainment
+
+0.510***
+[0.157]
+2.150***
+[0.295]
+0.376
+[0.461]
+-0.075***
+[0.019]
+0.094
+[0.081]
+-0.549**
+[0.261]
+-0.584**
+[0.234]
+2.443**
+[1.075]
+0.828**
+[0.388]
+2.720***
+[0.440]
+0.172
+[0.394]
+3.844***
+[0.897]
+0.744***
+[0.166]
+1.063
+[0.699]
+Yes
+
+0.167***
+[0.052]
+0.310***
+[0.093]
+0.020
+[0.155]
+-0.024***
+[0.006]
+0.032
+[0.027]
+-0.176**
+[0.089]
+-0.203***
+[0.077]
+0.837**
+[0.337]
+0.264**
+[0.127]
+0.804***
+[0.142]
+-0.003
+[0.131]
+1.287***
+[0.283]
+0.322***
+[0.065]
+0.313
+[0.240]
+Yes
+
+0.466***
+[0.169]
+2.018***
+[0.295]
+0.379
+[0.491]
+-0.044**
+[0.020]
+0.320***
+[0.084]
+-0.419
+[0.262]
+-0.816***
+[0.281]
+3.320***
+[1.171]
+0.816*
+[0.421]
+2.744***
+[0.470]
+0.651
+[0.435]
+3.587***
+[0.857]
+0.948***
+[0.180]
+0.953
+[0.672]
+Yes
+
+0.162***
+[0.058]
+0.192**
+[0.097]
+0.008
+[0.177]
+-0.014**
+[0.006]
+0.106***
+[0.029]
+-0.148
+[0.099]
+-0.276***
+[0.090]
+1.042***
+[0.364]
+0.201
+[0.140]
+0.819***
+[0.157]
+0.126
+[0.145]
+1.248***
+[0.275]
+0.430***
+[0.073]
+0.311
+[0.237]
+Yes
+
+2.237*
+[1.166]
+1,767
+0.620
+968
+
+0.808**
+[0.386]
+1,767
+0.613
+968
+
+0.229
+[1.303]
+1,767
+0.584
+968
+
+0.191
+[0.433]
+1,767
+0.580
+968
+
+Robust standard errors clustered at the area-level, *** p<0.01, ** p<0.05, * p<0.1; 1HH: Household
+Note: All the variables are calculated at the area-level. See Section 3 for the construction of how geographic areas have been constructed.
+
+17
+
+3.1 Robustness of Main Results
+In order to test the robustness of our main results, we apply the following changes to the data. First, we
+include wealth indicators at baseline for countries for which this information is available across both
+survey waves. The use of baseline information allows us to run DiD regressions and address the
+aforementioned concerns related to cross-sectional models. Second, we exclude potential outliers:
+areas that received a large number of projects. Third, we test how sensitive results are to enlarging the
+buffer zone (50 km) that is used to assign areas to treatment and control groups.
+
+(i) Including wealth-related information at baseline
+For Kenya, Malawi and Nigeria, comparable wealth-related data is available across both survey waves.
+The DiD regressions reported in Table A2 (Appendix I) are based on the sample of these three countries.
+The results are very consistent with the results of the cross-sectional analysis reported in Table 2 above.
+The DiD coefficients indicate that Chinese projects have a positive and significant effect on the wealth
+of households located in their vicinity. Moreover, the post-treatment dummy (T) indicates that household
+wealth has generally not increased over time in the sampled countries. That means, while wealth did not
+increase in Kenya, Malawi and Nigeria over time and overall, areas treated with Chinese aid nevertheless
+experienced a significant increase in wealth.
+
+(ii) Excluding potential outliers
+The distribution of projects across areas shows that the 25th percentile benefitted from only 2 projects
+while the 90th and 95th percentile from 75 projects and 181 projects, respectively (Figure A2, Appendix
+III). Therefore, we test to what degree our results may be driven by areas recording a large number of
+projects. First, we exclude areas recording more than 75 projects (left panel of Table A3, Appendix I).
+Then, we exclude areas recording more than 181 projects (right panel of Table A3, Appendix I). Our
+results remain robust to the exclusion of these outlier areas.
+
+(iii) Adopting a larger buffer zone
+Finally, we test to what extent choosing a larger buffer zone of 50km (in order to assign areas to control
+and treatment groups) affects our main findings. Results are presented in Table A4 in Appendix I. We
+observe that Chinese aid projects still have a positive and significant impact on the wealth of households
+
+18
+
+(areas) that live up to 50km away from the project site. However, the effect such projects on educational
+outcomes apparently wears off with increasing distance. This seems reasonable: education-related
+interventions are likely local in nature (such as the construction of schools or provision of other services),
+reaching a limited amount of people. This, in turn, may limit spillover effects beyond a certain
+geographical distance.
+
+4. Sectoral Analysis of Chinese Aid
+In this section, we discuss the results of our sectoral analysis of Chinese aid. The sectoral analysis serves
+two main purposes. First, it allows us to take the heterogeneity of aid projects and their potentially
+heterogeneous effects on household well-being into account. Second, it allows us to more directly link
+projects to their intended outcomes: we can link education projects to education outcomes (columns 3
+to 6, Table A7, Appendix II) and economic projects to economic outcomes (columns 1 and 2, Table A5,
+Appendix II). We group all projects into two big categories on the basis of their Creditor Report System
+(CRS) sectoral codes: social sector projects and economic sector projects. 17 Regression results are
+presented in Tables A5 to A7 in Appendix II.
+
+Table A5 shows the effect of economic projects on our outcome variables (education and material wellbeing). We find that economic sector projects have a positive and significant effect on both educational
+outcomes and wealth. Thus, it seems that projects in the economic sector directly affect households’
+material well-being (wealth) and have positive second-order effects in the realm of education.
+
+Tables A6 and A7 show the effect of social sector and education projects on households’ well-being.
+The data suggest that benefits generated by social sector projects in general and education projects in
+particular are not as broad as benefits generated by economic projects, since the effect of education on
+wealth (see column 1, Tables A6 and A7) is not significant anymore. However, social sector and
+
+17
+
+Economic projects include: Transport and Storage (210); Communications (220); Energy Generation and Supply (230); Banking
+and Financial Services (240); Business and Other Services (250); Agriculture, Forestry and Fishing (310); Industry, Mining,
+Construction (320); Trade and Tourism (330). Social projects include: Education (110); Health (120); Population Policies (130);
+Water Supply and Sanitation (140); Government and Civil Society (150); Other Social Infrastructure and Services (160); Women in
+Development (420); Developmental Food Aid (520); Non-Food Commodity Assistance (530). CRS codes are provided in
+parentheses.
+
+19
+
+education projects still have a positive and significant effect on households’ likelihood of belonging to
+a higher wealth quintile. To some extent, this fits the results of studies showing that education
+interventions can result in significant monetary returns to individuals, for example due to better labour
+market outcomes (see Heynemann and Lee, 2017).
+
+The results in columns 3 to 6 show that education projects have a significant and positive effect on all
+educational outcomes we consider, suggesting that Chinese aid does improve well-being in this
+important area. The finding is consistent with macro-level studies that find a positive relationship
+between education aid provided by Western donors and educational outcomes in developing countries
+(see e.g. Michaelowa and Weber, 2007, Birchler and Michaelowa, 2016 as well as Heynemann and Lee,
+2017 and Riddel and Niño-Zarazúa, 2016 for a review of findings on the effectiveness of education aid.)
+Furthermore, it is consistent with micro- and project-level studies which also find a positive relationship
+between education interventions and outcomes (see Heynemann and Lee, 2017 and Riddel and NiñoZarazúa, 2016).
+
+Overall, our findings provide new evidence on the role of China as a provider of education aid,
+underlining the government’s strong emphasis on human resource development especially in Sub
+Saharan Africa (King, 2014). Furthermore, similar to the aid effectiveness literature that focusses on
+heterogeneous effects of different types of aid (in terms of sector, form of delivery, location, or distance
+to beneficiaries) (Clemens et al., 2012, Briggs, 2018), our results indicate that different types of Chinese
+aid too have heterogeneous effects on the outcome variables we consider.
+
+5. Distribution and Scale of Chinese Aid
+In our main analysis, we focus on whether a project is implemented or not and refrain from using
+potentially less reliable information on the number of projects or project volumes. An obvious limitation
+of this approach is that it does not consider the scale of projects and, hence, the intensity of treatment
+on treated areas. Therefore, we may be underestimating the overall effects of Chinese project assistance
+on household well-being. Moreover, our approach does not allow us to test for non-linear effects of aid
+that have been identified by earlier macro- and project-level studies. We adjust our main specification
+
+20
+
+as described below, such that we can explore these additional aspects with regard to Chinese
+assistance.
+
+As laid out in Section 2.1, we take the intervention scale into account by replacing project location
+dummies - indicating the presence of a project (yes or no) - with (a) the number of projects going to
+certain areas (see Table A9, Appendix III), and (b) the actual financial volume of the project (see Table
+A10, Appendix III). Moreover, we apply an extension to our analysis by using the propensity score-based
+marginal mean weighting through stratification (MMWS) method (Hong, 2010; Hong, 2012; Huang et al
+2005). MMWS combines propensity score stratification and inverse probability of treatment weighting in
+order to reduce selection bias and is applicable to estimating causal effects of so-called multivalued
+treatments which can take on more than one value (Linden et al. 2014). Based on the distribution of the
+number of projects (Table A8, Appendix III) we consider three, hence multivalued, ordinal treatment
+levels: one single project (25th percentile), more than one project but less than 17 projects (25th to 75th
+percentile), and 17 or more projects (>75th percentile). Based on the distribution of financial project size,
+we consider the following three treatment levels: higher than zero but lower than 37.71 $ million (25th
+percentile); equal or more than 37.71 $ million but lower than 252.98 $ million (25th to 75th percentile);
+equal or higher than 252.98 $ million (95th percentile). As before, areas not located within a 25km radius
+of a Chinese aid project serve as the control group.
+
+Now, MMWS serves to reduce selection bias by achieving balance on baseline (and observable)
+characteristics between all treatment levels (Linden et al. 2014). The empirical strategy relies on four
+steps. First, we compute the generalised propensity score for each area. To this end, we use an ordered
+logistic regression and regress our ordinal treatment variable on the relevant set of covariates. Second,
+the generalised propensity scores that we computed for each area is stratified into four strata. Third, we
+compute the MMWS weights for each area corresponding to its stratum and treatment level. Finally, we
+re-estimate our main specifications using the MMWS as probability weights.
+
+The results presented in Table A9 indicate that the treatment intensity in terms of the number of projects
+matters: the effect on our outcome variables is non-linear. More specifically, Chinese aid projects do not
+seem to have a significant impact on areas recording only one project. Instead, depending on the
+outcome variable we consider, the impact is positive in areas counting more than one and up to 17
+
+21
+
+projects (e.g. wealth), or in areas counting more than 17 projects (e.g. wealth quintiles). In other words,
+the threshold at which Chinese projects affect household welfare varies with the outcome variable.
+
+Table A10 reports the regressions that include treatment intensity based on financial project volume.
+The results point in a similar direction as the results in Table A9: the impact of Chinese assistance is only
+statistically significant after a certain threshold has been reached. We observe again that the threshold
+at which Chinese assistance becomes effective apparently depends on the type of outcome variable
+(compare columns 1 and 2 in Table A10). With respect to education outcomes we moreover observe
+that project effects only turn significant at the highest treatment level (see columns 3 to 6 in Table A10).
+This suggests that improvements of educational outcomes only kick in once a comparatively larger
+amount of financial resources have been spent on a project.
+
+In summary, the results in Tables A9 and A10 are an important addition to our work. On the one hand,
+they support our core results by pointing to a positive relation between Chinese aid and household
+welfare that is robust to a treatment indicator that accounts for the scale of the projects. On the other
+hand, we believe they complement our analysis in two main respects: First, the relationship between
+treatment level and outcome variables is non-linear. Second, the threshold at which Chinese assistance
+becomes effective varies with the outcome variables on the one hand (wealth, wealth quintiles,
+education outcomes) and the treatment variable on the other hand (number of projects and project
+volume).
+
+6. Discussion
+China is rapidly becoming an important source of development assistance to low-income countries,
+especially in sub-Saharan Africa. While the lack of reliable statistics on Chinese aid has thus far limited
+the analysis of its effectiveness, recent work seems to point to positive effects on national and subnational economic growth – e.g. Dreher et al. (2016) and Dreher et al. (2017). In this paper, we go a step
+further and evaluate the effectiveness of Chinese aid on the welfare of households based in 13 SSA
+countries. Our empirical strategy grounds on a novel methodology which relies on quasi-experimental
+and impact evaluation methods to reduce the potential bias due to the lack of a perfect counterfactual.
+Combining a rich set of georeferenced data on Chinese foreign assistance projects with household-level
+
+22
+
+information from the DHS, we provide first evidence of a positive effect of Chinese projects on the
+wellbeing of households located in our sample countries. Areas that receive such projects are more
+likely to be wealthier, and they are more likely to be in a higher wealth quintile. Moreover, households
+located in areas that receive such projects stay in school longer, and achieve a higher educational
+attainment than areas which did not receive such projects. Results also show that aid sectoral
+composition matters, and that accounting for the size of aid has a non-linear relation with some of the
+outcomes.
+
+The present paper is a first step towards analysing the effectiveness of Chinese foreign assistance on the
+household level. In future research, we plan to investigate further topics which are immediately related
+to this paper. First, household welfare should be more comprehensively assessed by including further
+dimensions of well-being such as for example consumption. Consumption was not included in the
+present analysis due a lack of corresponding information in the DHS. Second, we plan to address some
+of the shortcomings related to measuring wealth and its distribution with DHS data, with the goal to
+provide insights on the relationship between aid and inequality. While our main results seem to confirm
+a wealth enhancing effect of Chinese aid, the analysis of the distribution of such benefits says little about
+redistributive effects. Third, we are interested on measuring the impact of Chinese development
+assistance on labour market outcomes. Finally, we plan to replicate our methodology in order to assess
+the effectiveness of other donors’ foreign assistance (for which georeferenced information exists) and
+compare it to Chinese assistance.
+
+23
+
+References
+BIRCHLER K., MICHAELOWA K. 2016. Making aid work for education in developing countries:
+an analysis of aid effectiveness for primary education coverage and quality, International
+Journal of Educational Development, Vol. 48, 37-52.
+BENYISHAY A., PARKS B., RUNFOLA D., TANNER J., TRICHLER R., HEUSER S., DOLAN C., BATRA G.,
+GOODMAN S., ANAND A. 2017. A primer on geospatial impact evaluation methods, tools, and
+applications, Aiddata Working Paper N. 44.
+BRAUTIGAM D. 2009. The Dragon’s Gift – The Real Story of China in Africa, Oxford University Press.
+BRIGGS, R.C. 2016. Does Foreign Aid Target the Poorest? International Organizations 2016: 1-20
+BRIGGS, R.C. 2018. Poor targeting: A gridded spatial analysis of the degree to which aid reaches the
+poor in Africa, World Development 103: 133-148
+CLEMENS M., RADELET S., BHAVNANI R.R., BAZZI S. 2012. Counting chickens when they hatch: timing
+and the effects of aid on growth, The Economic Journal, 122(6), 590-617.
+DENIZER C, KAUFMANN D, KRAAY A. 2013. Good Countries or Good Projects? Macro and Micro
+Correlates of World Bank Project Performance. Journal of Development Economics 105: 288–
+302. http://dx.doi.org/10.1596/1813-9450-5646
+DOLLAR D, SVENSSON J. 2000. What Explains the Success and Failure of Structural Adjustment
+Programs? The Economic Journal 110(446): 894-917. DOI: 10.1111/1468-0297.00569
+DREHER A., FUCHS A., HODLER R., PARKS C.B., RASCHKY P.A., TIERNEY M.J. 2016. Aid on Demand:
+African Leaders and the Geography of China’s Foreign Assistance. AidData Working Paper N. 3
+(Revised, October 2016), Williamsburg, VA: AidData
+DREHER A., FUCHS A., PARKS C.B, STRANGE A.M.., TIERNEY M.J. 2017. Aid, China and Growth:
+Evidence from a new global development finance dataset, AidData Working Paper N. 46,
+Williamsburg, VA: AidData.
+DREHER A., FUCHS A. 2015. Rogue Aid? An empirical analysis of China’s aid allocation. Canadian
+Journal of Economics 48(3): 988-1023.
+DREHER A., FUCHS A., PARKS C.B., STRANGE A. M., TIERNEY M.J. 2015. Apples and Dragon Fruits:
+The Determinants of Aid and Other Forms of State Financing from China to Africa. AidData
+Working Paper 5 (October).
+DREHER A., NUNNENKAMP P., THIELE R. 2011. Are ‘New’ Donors Different? Comparing the Allocation
+of Bilateral Aid Between non-DAC and DAC Donor countries. World Development 39(11): 19501968.
+FILMER, D., PRITCHETT, L. 1999. The Effect of Household Wealth on Educational Attainment: Evidence
+from 35 Countries. Population and Development Review, Vol. 25, No. 1, pp. 85 – 120.
+FILMER, D., PRITCHETT, L. 2001. Estimating Wealth Effect without Expenditure Data-or Tears: An
+Application to Educational Enrollments in States in India. Demography Vol. 38, No. 1, 115 – 1
+
+24
+
+FITZGERALD, J., GOTTSCHALK, P., MOFFITT, R. 1998. An analysis of sample attrition on the second
+generation of respondents in the Michigan panel study of income dynamics. Journal of Human
+Resources 33: 300–334.
+GUILLAUMONT P, LAAJAJ R. 2006. When instability increases the effectiveness of aid projects. Policy
+Research Working Paper 4034. The World Bank, Washington D.C.
+http://dx.doi.org/10.1596/1813-9450-4034
+HONG, G. 2010. Marginal mean weighting through stratification: adjustment for selection bias in
+multilevel data. Journal of Educational and Behavioral Statistics 35: 499-531.
+HONG, G. 2012. Marginal mean weighting through stratification: a generalized method for evaluating
+multi-valued and multiple treatments with non-experimental data. Psychological Methods 17:
+44-60.
+HPRVITZ, D.G. , THOMPSON, D.J., 1952. A generalization of sampling without replacement from a
+finite universe. J. Ameri. Statist. Assoc. 47, 663–685.
+HUANG I.-C., FRANGAKIS C., DOMINIC F., DIETTE G. B., WU, A. W. 2005. Application of a propensity
+score approach for risk adjustment in profiling multiple physician groups on asthma care, Health
+Services Research 40: 253-278.
+ISAKSSON, A.S., KOTSADAM, A. 2018. Chinese aid and local corruption, Journal of Public Economics,
+https://doi.org/10.1016/j.jpubeco.2018.01.002
+ISHAM J, KAUFMANN D. 1999. The Forgotten Rationale For Policy Reform: The Productivity of
+Investment Projects. Quarterly Journal of Economics 114(1): 149-84. DOI:
+10.1162/003355399555972
+KILAMA, E.G. 2016. The influence of China and emerging donors aid allocation: A recipient
+perspective. China Economic Review 38: 76-91.
+KILBY C. 2000. Supervision and Performance: The case of World Bank Projects. Journal of
+Development Economics 62(1): 233-259. DOI: 10.1016/S0304-3878(00)00082-1
+KING K. 2014 China’s higher education engagement with Africa: A different partnership and
+cooperation model? International Development Policy, 5-2014
+KOBAYASHI, T. 2008. Evolution of China’s Aid Policy. JBIC Working Paper No. 27. Japan Bank of
+International Cooperation.
+KOTSADAM, A., TOLONEN A. 2016. African Mining, Gender, and Local Employment. World
+Development 83: 325-339.
+KOTSADAM, A., OSTBY, G., RUSTAD, S.A., TOLLEFSEN, S.A., URDAL, H. 2017. Development Aid and
+Infant Mortality. Micro-level evidence from Nigeria, World Development 105: 59-69.
+LINDEN, A. 2014. Combining propensity score-based stratification and weighting to improve causal
+inference in the evaluation of health care interventions. Journal of Evaluation in Clinical Practice
+20: 1065-1071.
+
+25
+
+McKENZIE, D. J. 2005. Measuring inequality with asset indicators. Journal of Population Economics, 18,
+229-260.
+METZGER L., GÜNTHER I. 2015. How to Assess the Effectiveness of Development Aid Projects:
+Evaluation Ratings versus Project Indicators. Journal of International Development 27(8): 14961520.
+MICHAELOWA K., WEBER A. 2007. Aid effectiveness in the Education Sector: A Dynamic Panel
+Analysis, in: S. Lahiri (ed.): Theory and Practice of Foreign Aid, Amsterdam (Elsevier), pp. 357385.
+REILLY J. 2015. The role of China as an education aid donor, Background Paper for the Education for
+All Global Monitoring Report 2015, UNESCO.
+RIDDEL A., NINO-ZARAZUA M. 2016. The effectivennes of foreign aid to education. What can be
+learned? International Journal of Educational Development 48, 23-36.
+SANFILIPPO, M. 2010 Chinese FDI to Africa: What Is the Nexus with Foreign Economic Cooperation?
+African Development Review 22(s1), 599-614
+STRANGE A. M., PARKS C.B., TIERNEY M.J., FUCHS A., DREHER A. 2014. Tracking Under-Reported
+Financial Flows: China’s Development Finance and the Aid Conflict Nexus Revisited. University of
+Heidelberg, Discussion Paper Series No. 553 (January).
+STRANGE A. M., PARKS C.B., TIERNEY M.J., FUCHS A., DREHER A., RAMACHANDRAN, V. 2013.
+China’s Development Finance to Africa: A Media-Based Approach to Data Collection. Center for
+Global Development, Working Paper 323 (April).
+WOOLDRIDGE, J. M. 2007. Inverse probability weighted estimation for general missing data
+problems. Journal of Econometrics, 141(2), 1281-1301.
+
+26
+
+Appendix
+I.
+
+DHS Data and Robustness Of Main Results
+
+Table A1: DHS Data Availability
+Country
+
+Baseline
+
+After Treatment
+
+Benin
+
+1996
+
+2012
+
+C. d'Ivoire
+
+1999
+
+2012
+
+Ethiopia
+
+2000
+
+2010
+
+Ghana
+
+1998
+
+2014
+
+Guinea
+
+1999
+
+2012
+
+Kenya
+
+2003
+
+2014
+
+Malawi
+
+2004
+
+2015
+
+Namibia
+
+2000
+
+2013
+
+Nigeria
+
+2003
+
+2013
+
+Senegal
+
+1997
+
+2012
+
+Togo
+
+1998
+
+2013
+
+Uganda
+
+2001
+
+2006
+
+Zimbabwe
+
+1999
+
+2015
+
+27
+
+Table A2: Robustness Test Main Results, OLS weighted (IWP) –
+Considering Wealth Index at Baseline (Kenya, Malawi, Nigeria only)
+(1)
+
+(2)
+
+Ln (DHS Wealth Index)
+
+DHS Wealth Index Quintiles
+
+Treated (D) with Project
+Treated*Survey Year (D*T)
+Most Recent Survey Year (T)
+Female-Headed HH1
+Age Of HH members
+HH Size
+No. Of Men in HH
+Rural Area
+Dependency Ratio
+
+Country-Year FE
+Constant
+Obs. = No. Of Areas
+R-squared
+Number Of Areas
+
+automatically dropped
+0.017***
+[0.005]
+-0.014*
+[0.008]
+0.017
+[0.018]
+-0.000
+[0.001]
+0.003
+[0.004]
+-0.001
+[0.009]
+-0.050***
+[0.009]
+0.236***
+[0.040]
+
+0.303***
+[0.092]
+-0.170
+[0.119]
+0.051
+[0.312]
+0.001
+[0.008]
+0.005
+[0.051]
+0.074
+[0.152]
+-0.807***
+[0.161]
+3.631***
+[0.526]
+
+Yes
+
+Yes
+
+13.856***
+[0.035]
+966
+0.515
+483
+
+1.985***
+[0.514]
+966
+0.444
+483
+
+Robust standard errors clustered at the area-level, *** p<0.01, ** p<0.05, * p<0.1
+1
+HH: Household
+Note: All the variables are calculated at the area-level. See Section 3 for the construction of how geographic areas have
+been constructed.
+
+28
+
+Table A3: Robustness Test Main Results, OLS weighted (IWP) – Excluding Outliers (No. of Projects)
+
+Treated (D) with Project
+Treated*Survey Year
+(D*T)
+Most Recent Survey
+Year (T)
+Female-Headed HH1
+Age Of HH members
+HH Size
+No. Of Men in HH
+Rural Area
+Dependency Ratio
+Access To Electricity
+
+Ln (DHS
+Wealth
+Index)
+0.024**
+[0.009]
+
+0.071
+[0.046]
+0.001
+[0.001]
+0.003
+[0.009]
+0.011
+[0.040]
+-0.112***
+[0.017]
+0.491***
+[0.125]
+
+Radio
+Bicycle
+Car
+Type Of Flooring
+Telephone
+Country-Year FE
+Constant
+Obs = No. Of Areas
+R-squared
+Number Of Areas
+
+Yes
+13.705***
+[0.096]
+924
+0.380
+
+Excluding areas with more than 75 projects (90th percentile)
+DHS Wealth
+Average
+Average
+Max. Years
+Index
+Years of
+Educational
+of Education
+Quintiles
+Education
+Attainment
+0.118**
+automatically dropped
+[0.053]
+0.481***
+0.156***
+0.450***
+[0.155]
+[0.052]
+[0.166]
+1.993***
+0.278***
+1.746***
+[0.325]
+[0.101]
+[0.312]
+0.907***
+0.379
+0.023
+0.434
+[0.228]
+[0.460]
+[0.154]
+[0.495]
+0.016**
+-0.075***
+-0.023***
+-0.044**
+[0.006]
+[0.019]
+[0.006]
+[0.020]
+-0.074***
+0.069
+0.023
+0.290***
+[0.029]
+[0.081]
+[0.026]
+[0.084]
+0.266*
+-0.443*
+-0.124
+-0.284
+[0.141]
+[0.252]
+[0.082]
+[0.251]
+-1.105***
+-0.544**
+-0.185**
+-0.771***
+[0.109]
+[0.242]
+[0.078]
+[0.292]
+4.056***
+2.199**
+0.767**
+3.110***
+[0.617]
+[1.096]
+[0.343]
+[1.196]
+0.781**
+0.255**
+0.758*
+[0.397]
+[0.130]
+[0.435]
+2.746***
+0.809***
+2.779***
+[0.443]
+[0.144]
+[0.477]
+0.158
+-0.007
+0.626
+[0.395]
+[0.131]
+[0.438]
+3.921***
+1.316***
+3.770***
+[0.991]
+[0.313]
+[0.945]
+0.774***
+0.332***
+0.955***
+[0.170]
+[0.066]
+[0.185]
+1.142
+0.333
+1.073
+[0.843]
+[0.290]
+[0.822]
+Yes
+Yes
+Yes
+Yes
+1.409**
+2.501**
+0.851**
+0.671
+[0.546]
+[1.191]
+[0.395]
+[1.335]
+924
+1,723
+1,723
+1,723
+0.719
+0.623
+0.622
+0.585
+959
+959
+959
+
+Max.
+Educational
+Attainment
+
+0.155***
+[0.057]
+0.122
+[0.101]
+0.034
+[0.178]
+-0.014**
+[0.007]
+0.096***
+[0.029]
+-0.087
+[0.092]
+-0.258***
+[0.092]
+0.985***
+[0.372]
+0.183
+[0.144]
+0.830***
+[0.159]
+0.121
+[0.146]
+1.295***
+[0.303]
+0.435***
+[0.075]
+0.337
+[0.290]
+Yes
+0.294
+[0.445]
+1,723
+0.587
+959
+
+Robust standard errors clustered at the area-level, *** p<0.01, ** p<0.05, * p<0.1; 1HH: Household
+
+29
+
+Ln (DHS
+Wealth
+Index)
+0.026***
+[0.009]
+
+0.066
+[0.046]
+0.001
+[0.001]
+0.004
+[0.009]
+0.012
+[0.040]
+-0.112***
+[0.017]
+0.482***
+[0.124]
+
+Yes
+13.707***
+[0.096]
+946
+0.413
+
+Excluding areas with more than 181 (95th percentile)
+DHS Wealth
+Average
+Average
+Max. Years
+Index
+Years of
+Educational
+of Education
+Quintiles
+Education
+Attainment
+0.128**
+automatically dropped
+[0.053]
+0.518***
+0.169***
+0.481***
+[0.155]
+[0.052]
+[0.166]
+2.143***
+0.313***
+1.992***
+[0.302]
+[0.095]
+[0.300]
+0.889***
+0.373
+0.014
+0.379
+[0.229]
+[0.460]
+[0.155]
+[0.492]
+0.016**
+-0.076***
+-0.024***
+-0.044**
+[0.006]
+[0.019]
+[0.006]
+[0.020]
+-0.069**
+0.086
+0.030
+0.311***
+[0.028]
+[0.080]
+[0.026]
+[0.083]
+0.248*
+-0.538**
+-0.167*
+-0.412
+[0.141]
+[0.261]
+[0.090]
+[0.263]
+-1.107***
+-0.578**
+-0.202***
+-0.809***
+[0.109]
+[0.238]
+[0.078]
+[0.285]
+4.100***
+2.311**
+0.813**
+3.208***
+[0.612]
+[1.088]
+[0.341]
+[1.187]
+0.777**
+0.251**
+0.767*
+[0.387]
+[0.127]
+[0.423]
+2.699***
+0.796***
+2.710***
+[0.441]
+[0.143]
+[0.473]
+0.167
+-0.004
+0.641
+[0.392]
+[0.130]
+[0.434]
+3.917***
+1.306***
+3.677***
+[0.975]
+[0.309]
+[0.931]
+0.771***
+0.330***
+0.967***
+[0.168]
+[0.065]
+[0.182]
+1.107
+0.321
+1.003
+[0.827]
+[0.284]
+[0.804]
+Yes
+Yes
+Yes
+Yes
+1.434***
+2.334**
+0.814**
+0.368
+[0.541]
+[1.185]
+[0.394]
+[1.324]
+946
+1,745
+1,745
+1,745
+0.725
+0.623
+0.617
+0.586
+964
+964
+964
+
+Max.
+Educational
+Attainment
+
+0.166***
+[0.057]
+0.195*
+[0.099]
+0.007
+[0.178]
+-0.014**
+[0.006]
+0.104***
+[0.029]
+-0.141
+[0.100]
+-0.277***
+[0.091]
+1.017***
+[0.370]
+0.189
+[0.140]
+0.810***
+[0.158]
+0.129
+[0.144]
+1.251***
+[0.300]
+0.438***
+[0.074]
+0.311
+[0.284]
+Yes
+0.208
+[0.441]
+1,745
+0.582
+964
+
+Table A4: Robustness Test Main Results, OLS weighted (IWP) – Buffer Zone 50 km
+(1)
+Ln (DHS
+Wealth
+Index)
+Treated (D) with Project
+
+0.064*
+[0.034]
+
+(2)
+DHS
+Wealth
+Index
+Quintiles
+0.102*
+[0.054]
+
+Treated*Survey Year (D*T)
+Most Recent Survey Year (T)
+
+Female-Headed HH1
+Age Of HH members
+HH Size
+No. Of Men in HH
+Rural Area
+Dependency Ratio
+
+Max. Years
+of
+Education
+
+(6)
+Max.
+Educationa
+l
+Attainment
+
+0.066
+[0.133]
+2.283***
+[0.289]
+
+0.041
+[0.042]
+0.409***
+[0.092]
+
+-0.031
+[0.144]
+2.302***
+[0.316]
+
+0.025
+[0.048]
+0.356***
+[0.105]
+
+0.898*
+[0.458]
+-0.062***
+[0.015]
+-0.016
+[0.066]
+0.161
+[0.259]
+-0.496**
+[0.206]
+2.229**
+[1.020]
+1.410***
+[0.308]
+1.784***
+[0.431]
+0.941**
+[0.377]
+3.808***
+[0.764]
+0.660***
+[0.170]
+1.824***
+[0.539]
+
+0.217
+[0.137]
+-0.021***
+[0.005]
+-0.005
+[0.022]
+0.047
+[0.087]
+-0.169***
+[0.063]
+0.725**
+[0.321]
+0.462***
+[0.097]
+0.556***
+[0.133]
+0.236*
+[0.121]
+1.280***
+[0.237]
+0.236***
+[0.054]
+0.640***
+[0.183]
+
+0.721
+[0.463]
+-0.021
+[0.017]
+0.170**
+[0.073]
+0.351
+[0.247]
+-0.761***
+[0.249]
+2.788**
+[1.154]
+1.659***
+[0.371]
+1.890***
+[0.529]
+0.904**
+[0.428]
+3.536***
+[0.815]
+0.781***
+[0.191]
+1.726***
+[0.481]
+
+0.155
+[0.150]
+-0.007
+[0.006]
+0.055**
+[0.024]
+0.103
+[0.082]
+-0.246***
+[0.080]
+0.871**
+[0.376]
+0.507***
+[0.122]
+0.589***
+[0.173]
+0.196
+[0.143]
+1.201***
+[0.261]
+0.295***
+[0.063]
+0.659***
+[0.159]
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+13.186***
+[0.483]
+1,141
+0.095
+
+0.391
+[0.481]
+1,141
+0.687
+
+1.975*
+[1.108]
+2,041
+0.609
+1,141
+
+0.817**
+[0.346]
+2,041
+0.601
+1,141
+
+-0.001
+[1.224]
+2,041
+0.567
+1,141
+
+0.214
+[0.394]
+2,041
+0.548
+1,141
+
+Bicycle
+Car
+Type Of Flooring
+Telephone
+
+Obs = No. Of Areas
+R-squared
+Number Of Areas
+
+(5)
+
+0.800***
+[0.215]
+0.018***
+[0.007]
+0.007
+[0.018]
+0.189*
+[0.103]
+-1.145***
+[0.096]
+4.913***
+[0.512]
+
+Radio
+
+Constant
+
+Average
+Years of
+Education
+
+(4)
+Average
+Educationa
+l
+Attainment
+
+0.277
+[0.184]
+0.002
+[0.003]
+0.036
+[0.027]
+0.042
+[0.057]
+-0.146***
+[0.024]
+0.922***
+[0.354]
+
+Access To Electricity
+
+Country-Year FE
+
+(3)
+
+Robust standard errors in brackets *** p<0.01, ** p<0.05, * p<0.1; 1HH: Household
+Note: All the variables are calculated at the area-level. See Section 3 for the construction of how geographic areas have been
+constructed.
+
+30
+
+II.
+
+Sectoral Analysis Of Chinese Assistance
+Table A5: Robustness Test Main Results, OLS weighted (IWP) – Economic Projects
+
+Treated (D) with Project
+Treated*Survey Year (D*T)
+
+(1)
+
+(2)
+
+(3)
+
+(4)
+
+(5)
+
+Ln (DHS
+Wealth
+Index)
+
+DHS Wealth
+Index
+Quintiles
+
+Average
+Years of
+Education
+
+Average
+Educational
+Attainment
+
+Max. Years
+of
+Education
+
+0.031***
+[0.010]
+
+0.144***
+[0.055]
+0.430***
+[0.164]
+2.244***
+[0.293]
+
+0.135**
+[0.055]
+0.344***
+[0.093]
+
+0.378**
+[0.177]
+2.112***
+[0.289]
+
+0.113*
+[0.060]
+0.234**
+[0.096]
+
+0.392
+[0.465]
+-0.072***
+[0.019]
+0.076
+[0.081]
+-0.500*
+[0.259]
+-0.602**
+[0.237]
+2.253**
+[1.079]
+0.842**
+[0.396]
+2.729***
+[0.444]
+0.196
+[0.400]
+3.898***
+[0.917]
+0.746***
+
+0.025
+[0.156]
+-0.023***
+[0.006]
+0.026
+[0.027]
+-0.160*
+[0.089]
+-0.210***
+[0.077]
+0.775**
+[0.339]
+0.269**
+[0.129]
+0.805***
+[0.143]
+0.005
+[0.133]
+1.306***
+[0.290]
+0.322***
+
+0.393
+[0.495]
+-0.041**
+[0.020]
+0.304***
+[0.084]
+-0.374
+[0.260]
+-0.833***
+[0.280]
+3.147***
+[1.169]
+0.831*
+[0.429]
+2.748***
+[0.472]
+0.673
+[0.441]
+3.639***
+[0.874]
+0.950***
+
+0.011
+[0.178]
+-0.013*
+[0.006]
+0.100***
+[0.029]
+-0.132
+[0.099]
+-0.283***
+[0.090]
+0.983***
+[0.365]
+0.209
+[0.143]
+0.816***
+[0.158]
+0.136
+[0.147]
+1.268***
+[0.282]
+0.432***
+
+[0.170]
+1.068
+[0.709]
+
+[0.066]
+0.313
+[0.243]
+
+[0.184]
+0.954
+[0.681]
+
+[0.075]
+0.307
+[0.240]
+
+Most Recent Survey Year (T)
+
+Female-Headed HH1
+Age Of HH members
+HH Size
+No. Of Men in HH
+Rural Area
+Dependency Ratio
+
+0.070
+[0.045]
+0.001
+[0.001]
+0.003
+[0.009]
+0.014
+[0.040]
+-0.111***
+[0.017]
+0.454***
+[0.119]
+
+0.897***
+[0.232]
+0.017***
+[0.006]
+-0.071**
+[0.028]
+0.245*
+[0.140]
+-1.122***
+[0.108]
+4.080***
+[0.599]
+
+Access To Electricity
+Radio
+Bicycle
+Car
+Type Of Flooring
+Telephone
+
+Country-year FE
+Constant
+Obs = No. Of Areas
+R-squared
+Number Of Areas
+
+(6)
+Max.
+Education
+al
+Attainment
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+13.710***
+[0.092]
+968
+0.420
+
+1.422***
+[0.532]
+968
+0.734
+
+2.258*
+[1.176]
+1,767
+0.616
+968
+
+0.815**
+[0.389]
+1,767
+0.609
+968
+
+0.248
+[1.309]
+1,767
+0.580
+968
+
+0.197
+[0.434]
+1,767
+0.575
+968
+
+Robust standard errors in brackets *** p<0.01, ** p<0.05, * p<0.1; 1HH: Household
+Note: All the variables are calculated at the area-level. See Section 3 for the construction of how geographic areas have been
+constructed. Economic related projects include projects in the following Sectors (CRS code in parenthesis): Transport and Storage
+(210); Communications (220); Energy Generation and Supply (230); Banking and Financial Services (240); Business and Other
+Services (250); Agricolture, Forestry and Fishing (310); Industry, Mining, Constructurion (320); Trade and Tourism (330).
+
+31
+
+Table A6: Robustness Test Main Results, OLS weighted (IWP) – Social Sector Projects
+(1)
+Ln (DHS
+Wealth
+Index)
+Treated (D) with Project
+Treated*Survey Year (D*T)
+
+0.014
+[0.009]
+
+(2)
+DHS
+Wealth
+Index
+Quintiles
+0.174***
+[0.053]
+
+Age Of HH members
+HH Size
+No. Of Men in HH
+Rural Area
+Dependency Ratio
+
+0.063
+[0.045]
+0.001
+[0.001]
+0.002
+[0.009]
+0.016
+[0.039]
+-0.112***
+[0.017]
+0.456***
+[0.119]
+
+0.154***
+[0.057]
+0.248***
+[0.092]
+-0.009
+[0.175]
+-0.013**
+[0.006]
+0.100***
+[0.028]
+-0.147
+[0.097]
+-0.273***
+[0.090]
+1.041***
+[0.360]
+0.203
+[0.142]
+0.816***
+[0.157]
+0.120
+[0.146]
+1.210***
+[0.274]
+0.436***
+[0.076]
+0.358
+[0.238]
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+1.498***
+[0.520]
+968
+0.736
+
+2.173*
+[1.177]
+1,767
+0.618
+968
+
+0.789**
+[0.390]
+1,767
+0.610
+968
+
+0.170
+[1.312]
+1,767
+0.583
+968
+
+0.172
+[0.436]
+1,767
+0.577
+968
+
+0.828***
+[0.225]
+0.016***
+[0.006]
+-0.074***
+[0.027]
+0.238*
+[0.137]
+-1.115***
+[0.109]
+3.984***
+[0.597]
+
+Bicycle
+Car
+Type Of Flooring
+Telephone
+
+Constant
+Obs = No. Of Areas
+R-squared
+Number Of Areas
+
+13.733***
+[0.092]
+968
+0.415
+
+Max. Years
+of Education
+
+(6)
+Max.
+Education
+al
+Attainment
+
+0.482***
+[0.170]
+2.168***
+[0.280]
+0.328
+[0.483]
+-0.042**
+[0.020]
+0.304***
+[0.082]
+-0.420
+[0.259]
+-0.805***
+[0.281]
+3.330***
+[1.159]
+0.815*
+[0.424]
+2.741***
+[0.468]
+0.624
+[0.439]
+3.461***
+[0.851]
+0.966***
+[0.185]
+1.108*
+[0.669]
+
+Radio
+
+Yes
+
+(5)
+
+0.157***
+[0.052]
+0.367***
+[0.090]
+0.002
+[0.152]
+-0.023***
+[0.006]
+0.026
+[0.026]
+-0.175**
+[0.089]
+-0.201***
+[0.077]
+0.835**
+[0.333]
+0.265**
+[0.128]
+0.800***
+[0.142]
+-0.010
+[0.133]
+1.249***
+[0.282]
+0.328***
+[0.068]
+0.361
+[0.241]
+
+Access To Electricity
+
+Country-year FE
+
+Average
+Years of
+Education
+
+(4)
+Average
+Education
+al
+Attainment
+
+0.514***
+[0.159]
+2.317***
+[0.286]
+0.320
+[0.452]
+-0.073***
+[0.019]
+0.076
+[0.079]
+-0.549**
+[0.260]
+-0.573**
+[0.236]
+2.450**
+[1.065]
+0.829**
+[0.389]
+2.716***
+[0.438]
+0.146
+[0.401]
+3.711***
+[0.892]
+0.764***
+[0.172]
+1.226*
+[0.699]
+
+Most Recent Survey Year (T)
+Female-Headed HH1
+
+(3)
+
+Robust standard errors in brackets *** p<0.01, ** p<0.05, * p<0.1; 1HH: Household
+Note: All the variables are calculated at the area-level. See Section 3 for the construction of how geographic areas have been
+constructed. Socially-related projects include projects in the following Sectors (CRS code in parenthesis): Education (110); Health
+(120); Population Policies (130); Water Supply and Sanitation (140); Government and Civil Society (150); Other Social Infrastructure
+and Services (160); Women in Development (420); Developmental Food Aid (520); Non-Food Commodity Assistance (530).
+
+32
+
+Table A7: Robustness Test Main Results, OLS weighted (IWP) – Education Sector Projects
+(1)
+Ln (DHS
+Wealth
+Index)
+Treated (D) with Project
+Treated*Survey Year (D*T)
+
+0.013
+[0.011]
+
+(2)
+DHS
+Wealth
+Index
+Quintiles
+0.175***
+[0.063]
+
+Most Recent Survey Year (T)
+Female-Headed HH1
+Age Of HH members
+HH Size
+No. Of Men in HH
+Rural Area
+Dependency Ratio
+
+(6)
+
+Max. Years
+of
+Education
+
+Max.
+Educational
+Attainment
+
+0.585***
+[0.168]
+2.301***
+[0.285]
+0.363
+[0.451]
+-0.072***
+[0.019]
+0.076
+[0.081]
+-0.505*
+[0.258]
+-0.573**
+[0.239]
+2.379**
+[1.070]
+0.844**
+[0.391]
+2.730***
+[0.435]
+0.174
+[0.399]
+3.684***
+[0.897]
+0.784***
+[0.174]
+1.195*
+[0.697]
+
+0.173***
+[0.054]
+0.364***
+[0.090]
+0.015
+[0.152]
+-0.023***
+[0.006]
+0.026
+[0.027]
+-0.162*
+[0.088]
+-0.201***
+[0.078]
+0.813**
+[0.336]
+0.270**
+[0.129]
+0.803***
+[0.141]
+-0.001
+[0.133]
+1.244***
+[0.285]
+0.334***
+[0.069]
+0.349
+[0.242]
+
+0.585***
+[0.183]
+2.143***
+[0.276]
+0.370
+[0.480]
+-0.041**
+[0.020]
+0.305***
+[0.083]
+-0.379
+[0.255]
+-0.802***
+[0.283]
+3.269***
+[1.161]
+0.826*
+[0.426]
+2.761***
+[0.465]
+0.648
+[0.439]
+3.419***
+[0.855]
+0.987***
+[0.186]
+1.094
+[0.665]
+
+0.195***
+[0.058]
+0.238***
+[0.090]
+0.004
+[0.173]
+-0.013**
+[0.006]
+0.101***
+[0.029]
+-0.134
+[0.095]
+-0.272***
+[0.091]
+1.023***
+[0.361]
+0.206
+[0.142]
+0.824***
+[0.155]
+0.126
+[0.146]
+1.193***
+[0.277]
+0.443***
+[0.077]
+0.357
+[0.237]
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+13.731***
+[0.091]
+968
+0.415
+
+1.474***
+[0.525]
+968
+0.734
+
+2.139*
+[1.182]
+1,767
+0.618
+968
+
+0.779**
+[0.392]
+1,767
+0.610
+968
+
+0.130
+[1.314]
+1,767
+0.584
+968
+
+0.158
+[0.435]
+1,767
+0.579
+968
+
+Bicycle
+Car
+Type Of Flooring
+Telephone
+
+Obs = No. Of Areas
+R-squared
+Number Of Areas
+
+(5)
+
+0.904***
+[0.229]
+0.016***
+[0.006]
+-0.075***
+[0.028]
+0.261*
+[0.136]
+-1.114***
+[0.110]
+3.992***
+[0.588]
+
+Radio
+
+Constant
+
+Average
+Years of
+Education
+
+(4)
+Average
+Education
+al
+Attainment
+
+0.069
+[0.046]
+0.001
+[0.001]
+0.002
+[0.009]
+0.017
+[0.039]
+-0.112***
+[0.017]
+0.458***
+[0.119]
+
+Access To Electricity
+
+Country-year FE
+
+(3)
+
+Robust standard errors in brackets *** p<0.01, ** p<0.05, * p<0.1; 1HH: Household
+Note: All the variables are calculated at the area-level. See Section 3 for the construction of how geographic areas have been
+constructed. Education-related projects include projects in the CRS code 110.
+
+33
+
+III.
+
+Distribution And Intensity Of Chinese Foreign Assistance
+
+Table A8. Number of projects (#) and total project amount (US constant $)
+Mean
+
+Median
+
+25th percentile
+
+75th percentile
+
+Number of projects
+
+35.32
+
+5
+
+2
+
+16
+
+Total amount
+
+551.67
+
+107.66
+
+37.71
+
+252.98
+
+34
+
+Table A9: OLS weighted (MMWS) – Multilevel Treatment (Number Of Projects)
+
+Treat-Level 1
+Treat-Level 2
+Treat-Level 3
+
+(1)
+
+(2)
+
+Ln (DHS
+Wealth
+Index)
+
+DHS Wealth
+Index
+Quintiles
+
+0.066
+[0.047]
+0.159***
+[0.060]
+0.016
+[0.049]
+
+-0.035
+[0.113]
+0.117
+[0.074]
+0.408***
+[0.063]
+
+Treat1*Survey Year
+
+(3)
+Average
+Years of
+Educatio
+n
+
+0.232
+[0.319]
+0.578**
+
+Treat2*Survey Year
+
+(4)
+
+(5)
+
+Average
+Educational
+Attainment
+
+Max. Years
+of
+Education
+
+0.067
+[0.095]
+0.139*
+
+0.300
+[0.332]
+0.452*
+
+(6)
+Max.
+Education
+al
+Attainment
+
+0.060
+[0.110]
+0.120*
+
+[0.274]
+[0.076]
+[0.259]
+[0.071]
+0.486**
+0.169**
+0.305
+0.104
+[0.209]
+[0.070]
+[0.222]
+[0.074]
+Most Recent Survey Year
+2.034***
+0.358***
+2.062***
+0.321***
+[0.253]
+[0.086]
+[0.277]
+[0.095]
+Female-Headed HH1
+0.702**
+0.468**
+0.891**
+0.264**
+0.876*
+0.254*
+[0.351]
+[0.196]
+[0.415]
+[0.131]
+[0.453]
+[0.143]
+Age Of HH members
+0.010
+0.025***
+-0.069***
+-0.022***
+-0.040**
+-0.012**
+[0.009]
+[0.006]
+[0.015]
+[0.005]
+[0.016]
+[0.005]
+HH Size
+0.097
+-0.016
+-0.058
+-0.017
+0.140*
+0.049*
+[0.075]
+[0.020]
+[0.074]
+[0.023]
+[0.083]
+[0.026]
+No. Of Men in HH
+0.015
+0.287***
+0.127
+0.056
+0.370
+0.135
+[0.179]
+[0.106]
+[0.275]
+[0.086]
+[0.280]
+[0.089]
+Rural Area
+-0.223***
+-1.088***
+-0.605***
+-0.206***
+-0.873***
+-0.288***
+[0.047]
+[0.075]
+[0.208]
+[0.065]
+[0.233]
+[0.072]
+Dependency Ratio
+1.976**
+4.479***
+2.803***
+0.896***
+3.769***
+1.192***
+[1.001]
+[0.440]
+[1.071]
+[0.313]
+[1.160]
+[0.340]
+Access To Electricity
+1.592***
+0.488***
+1.822***
+0.533***
+[0.306]
+[0.095]
+[0.343]
+[0.106]
+Radio
+2.183***
+0.675***
+2.322***
+0.719***
+[0.430]
+[0.124]
+[0.458]
+[0.135]
+Bicycle
+0.339
+0.055
+0.586
+0.087
+[0.411]
+[0.128]
+[0.425]
+[0.138]
+Car
+4.158***
+1.367***
+4.187***
+1.323***
+[0.823]
+[0.266]
+[0.982]
+[0.306]
+Type Of Flooring
+2.013***
+0.734***
+2.045***
+0.760***
+[0.570]
+[0.185]
+[0.559]
+[0.178]
+Telephone
+0.498***
+0.190***
+0.569***
+0.229***
+[0.166]
+[0.053]
+[0.184]
+[0.061]
+Country-year FE
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+Constant
+11.999***
+0.488
+2.534***
+0.933***
+0.658
+0.345
+[1.194]
+[0.420]
+[0.978]
+[0.313]
+[1.094]
+[0.347]
+Obs = No. Of Areas
+1,051
+1,051
+1,951
+1,951
+1,951
+1,951
+R-squared
+0.163
+0.669
+0.621
+0.615
+0.579
+0.566
+Number Of Areas
+1,051
+1,051
+1,051
+1,051
+1
+Robust standard errors in brackets *** p<0.01, ** p<0.05, * p<0.1; HH: Household
+Note: All the variables are calculated at the area-level. See Section 3 for the construction of how geographic areas
+have been constructed.
+Treat3*Survey Year
+
+35
+
+Table A10: OLS weighted (MMWS) – Multilevel Treatment (Financial Project Volume)
+(1)
+Ln (DHS
+Wealth
+Index)
+Treat-Level 1
+Treat-Level 2
+Treat-Level 3
+
+0.168
+[0.117]
+0.089**
+[0.035]
+0.006
+[0.028]
+
+(2)
+DHS
+Wealth
+Index
+Quintiles
+-0.040
+[0.120]
+0.152*
+[0.089]
+0.167**
+[0.078]
+
+Treat1*Survey Year
+
+(3)
+Average
+Years of
+Education
+
+(4)
+Average
+Educationa
+l
+Attainment
+
+(5)
+Max. Years
+of
+Education
+
+(6)
+Max.
+Educationa
+l
+Attainment
+
+0.533
+0.149
+0.379
+0.122
+[0.371]
+[0.154]
+[0.477]
+[0.199]
+Treat2*Survey Year
+0.134
+0.080
+0.019
+0.056
+[0.221]
+[0.071]
+[0.257]
+[0.077]
+Treat3*Survey Year
+0.466**
+0.149**
+0.352
+0.115*
+[0.237]
+[0.069]
+[0.245]
+[0.067]
+Most Recent Survey Year
+2.162***
+0.398***
+2.231***
+0.373***
+[0.275]
+[0.093]
+[0.293]
+[0.102]
+Female-Headed HH1
+0.422*
+0.449**
+0.464
+0.150
+0.476
+0.161
+[0.240]
+[0.188]
+[0.433]
+[0.140]
+[0.483]
+[0.159]
+Age Of HH members
+0.010
+0.026***
+-0.056***
+-0.018***
+-0.025
+-0.008
+[0.007]
+[0.006]
+[0.014]
+[0.004]
+[0.016]
+[0.005]
+HH Size
+0.077
+-0.018
+-0.056
+-0.019
+0.157**
+0.051**
+[0.060]
+[0.018]
+[0.068]
+[0.022]
+[0.074]
+[0.023]
+No. Of Men in HH
+-0.061
+0.336***
+0.277
+0.106
+0.556**
+0.191**
+[0.144]
+[0.114]
+[0.268]
+[0.084]
+[0.256]
+[0.081]
+Rural Area
+-0.175***
+-1.069***
+-0.659***
+-0.232***
+-0.860***
+-0.297***
+[0.034]
+[0.061]
+[0.209]
+[0.068]
+[0.240]
+[0.079]
+Dependency Ratio
+1.629**
+4.991***
+2.202**
+0.799**
+3.704***
+1.260***
+[0.760]
+[0.388]
+[0.957]
+[0.315]
+[1.127]
+[0.373]
+Access To Electricity
+1.789***
+0.550***
+1.892***
+0.541***
+[0.301]
+[0.095]
+[0.337]
+[0.107]
+Radio
+1.604***
+0.480***
+1.783***
+0.557***
+[0.343]
+[0.111]
+[0.415]
+[0.133]
+Bicycle
+0.647*
+0.141
+0.789**
+0.150
+[0.355]
+[0.115]
+[0.380]
+[0.126]
+Car
+3.882***
+1.297***
+3.826***
+1.238***
+[0.808]
+[0.262]
+[0.920]
+[0.287]
+Type Of Flooring
+1.675***
+0.581***
+1.749***
+0.634***
+[0.593]
+[0.196]
+[0.582]
+[0.188]
+Telephone
+0.412***
+0.169***
+0.561***
+0.243***
+[0.150]
+[0.051]
+[0.168]
+[0.060]
+Country-year FE
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+Constant
+12.392***
+0.073
+3.109***
+1.126***
+0.660
+0.336
+[0.899]
+[0.355]
+[0.948]
+[0.321]
+[1.086]
+[0.368]
+Obs = No. Of Areas
+1,051
+1,051
+1,951
+1,951
+1,951
+1,951
+R-squared
+0.141
+0.680
+0.659
+0.664
+0.632
+0.645
+Number Of Areas
+1,051
+1,051
+1,051
+1,051
+Robust standard errors in brackets *** p<0.01, ** p<0.05, * p<0.1; 1HH: Household
+Note: All the variables are calculated at the area-level. See Section 3 for the construction of how geographic areas
+have been constructed.
+
+36
+
+Figure A1. Distribution of Chinese Loans to Africa since 2000
+
+18
+16
+14
+
+US$ bn
+
+12
+10
+8
+6
+4
+2
+2015
+
+2014
+
+2013
+
+2012
+
+2011
+
+2010
+
+2009
+
+2008
+
+2007
+
+2006
+
+2005
+
+2004
+
+2003
+
+2002
+
+2001
+
+2000
+
+0
+
+Source: China-Africa Research Initiative, Johns Hopkins University (accessed on Dec 13, 2017, at: http://www.sais-cari.org/data-chineseloans-and-aid-to-africa)
+
+Figure A2. Number of projects along the different percentiles
+200
+
+181
+
+number of projects
+
+160
+120
+75
+
+80
+40
+0
+
+2
+25%
+
+90%
+percentile
+
+37
+
+95%
+
+

@@ -1,0 +1,4724 @@
+Journal of Development Economics 140 (2019) 44–71
+
+Contents lists available at ScienceDirect
+
+Journal of Development Economics
+journal homepage: www.elsevier.com/locate/devec
+
+African leaders and the geography of China’s foreign assistance
+Axel Dreher a,b,c,d,e , Andreas Fuchs f,g , Roland Hodler c,e,h , Bradley C. Parks i,j ,
+Paul A. Raschky k, ∗ , Michael J. Tierney l
+a
+
+Alfred-Weber-Institute for Economics, Heidelberg University, Germany
+
+b KOF Swiss Economic Institute, Switzerland
+c
+
+CEPR, UK
+Georg-August University Goettingen, Germany
+e CESifo, Germany
+f
+Faculty of Economic and Social Sciences, Helmut-Schmidt-University Hamburg (HSU/UniBwH), Germany
+g Research Area “Poverty Reduction, Equity, and Development”, Kiel Institute for the World Economy, Germany
+h
+Department of Economics and SIAW-HSG, University of St. Gallen, Switzerland
+i
+AidData, Global Research Institute, The College of William and Mary, USA
+j Center for Global Development, USA
+k
+Department of Economics, Monash University, Australia
+l Department of Government, The College of William and Mary, USA
+d
+
+A R T I C L E
+
+I N F O
+
+JEL classiﬁcations:
+D73
+F35
+P33
+R11
+Keywords:
+foreign aid
+favoritism
+political capture
+patronage
+clientelism
+aid on demand
+aid allocation
+Africa
+China
+Oﬃcial Development Assistance
+georeferenced data
+spatial analysis
+
+A B S T R A C T
+
+We investigate whether foreign aid from China is prone to political capture in aid-receiving countries. Specifically, we examine whether more Chinese aid is allocated to the birth regions of political leaders, controlling
+for indicators of need and various ﬁxed eﬀects. We collect data on 117 African leaders’ birthplaces and geocode
+1650 Chinese development projects across 2969 physical locations in Africa from 2000 to 2012. Our econometric results show that political leaders’ birth regions receive substantially larger ﬁnancial ﬂows from China in the
+years when they hold power compared to what the same region receives at other times. We ﬁnd evidence that
+these biases are a consequence of electoral competition: Chinese aid disproportionately beneﬁts politically privileged regions in country-years when incumbents face upcoming elections and when electoral competitiveness is
+high. We observe no such pattern of favoritism in the spatial distribution of World Bank development projects.
+
+1. Introduction
+Visitors to the village of Yoni, located in Bombali district, Sierra
+Leone, will ﬁnd “a wonderful school in the middle of what Africans
+call ‘the bush”’ (Acemoglu and Robinson, 2012). The school was built
+
+with Chinese aid, and at the time of its construction in 2010, Yoni was
+the hometown of Sierra Leone’s President, Ernest Bai Koroma. A fancy,
+new school in the President’s hometown could be a simple coincidence,
+but several studies suggest that government oﬃcials systematically
+favor their home regions (e.g., Barkan and Chege, 1989; Moser, 2008;
+
+∗ Corresponding author.
+E-mail addresses: mail@axel-dreher.de (A. Dreher), mail@andreas-fuchs.net (A. Fuchs), roland.hodler@unisg.ch (R. Hodler), bparks@aiddata.wm.edu
+(B.C. Parks), paul.raschky@monash.edu (P.A. Raschky), mjtier@wm.edu (M.J. Tierney).
+https://doi.org/10.1016/j.jdeveco.2019.04.003
+Received 8 August 2018; Received in revised form 12 February 2019; Accepted 14 April 2019
+Available online 23 April 2019
+0304-3878/© 2019 Elsevier B.V. All rights reserved.
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+
+Mu and Zhang, 2014; Burgess et al., 2015; Do et al., 2017; De Luca et
+al., 2018).1 Hodler and Raschky (2014a) study political favoritism in
+a large sample of subnational administrative regions from all over the
+world. They ﬁnd that the birth regions of political leaders have higher
+levels of nighttime light than other regions when those leaders are in
+power, which suggests that governments are systematically directing
+additional resources to those areas. Higher foreign aid inﬂows at the
+recipient-country level amplify this eﬀect. As such, there are some
+grounds to believe that this “school in the bush” might reﬂect a broader
+pattern.
+In this article, we investigate whether, when, and why African political leaders use foreign aid to favor their birth regions.2 We ﬁrst introduce a new georeferenced dataset on the subnational allocation of Chinese Government-ﬁnanced development projects across Africa over the
+2000–2012 period.3 We then use these data to test whether China’s
+demand-driven approach to aid allocation is vulnerable to political capture. More speciﬁcally, we study whether Chinese aid is disproportionately allocated to the birth regions of the political leaders of recipient
+countries. We run Ordinary Least Squares (OLS) and Poisson PseudoMaximum Likelihood (PPML) models and control for a number of subnational variables and various ﬁxed eﬀects.
+Our results show that the birth regions of political leaders receive
+larger amounts of Chinese aid—at the ﬁrst and second subnational
+administrative level (ADM1 and ADM2).4 These results tend to
+be strongest for total oﬃcial ﬁnancing ﬂows—concessional and
+non-concessional state ﬁnancing with and without development
+intent—from China. Controlling for country-year- and region-ﬁxed
+eﬀects, our OLS estimates suggest that Chinese oﬃcial ﬁnancing to a
+political leader’s birth ADM1 region nearly triples after that individual
+assumes power. When we use a stricter deﬁnition of aid that broadly
+aligns with the OECD’s criteria for Oﬃcial Development Assistance
+(ODA), our OLS ﬁxed-eﬀects regressions still suggest an aid increase
+of more than 75% to the ADM1 birth regions of political leaders. We
+do not ﬁnd increases in Chinese aid in the years before leaders assume
+power or after they leave oﬃce, which suggests that these eﬀects are
+causal.
+We argue that our results are consistent with the clientelistic logic
+of political survival, which is predominant in Africa, and with Beijing’s
+
+demand-driven approach to aid allocation, which makes Chinese aid
+vulnerable to political capture. To test these arguments, we exploit data
+on the timing and competitiveness of elections in recipient countries.
+We use these data on election pressures to test for heterogeneous treatment eﬀects. We ﬁnd a stronger birth-region bias in the allocation of
+Chinese aid in the year before an executive election and when executive elections are more competitive. These results support our argument
+that African leaders steer Chinese aid to their birth regions to improve
+their chances of staying in power.5
+We then replicate our analysis with World Bank projects for comparison. The World Bank is a useful benchmark because it uses a relatively stringent set of project appraisal procedures that should make
+it more diﬃcult for political leaders to misuse its ﬁnancial support
+for political purposes (Jenkins, 1997; Deininger et al., 1998; Warner,
+2010; Clemens and Kremer, 2016).6 In contrast to Chinese aid, we
+ﬁnd no evidence that World Bank funding disproportionately beneﬁts the birth regions of political leaders. Nor do we ﬁnd any evidence
+of birth-region bias in the allocation of World Bank aid in countryyears when political leaders face upcoming elections. Our empirical
+results are therefore consistent with the notion that the Chinese Government’s “on demand” approach to aid allocation is vulnerable to political capture, while World Bank project preparation policies and procedures reduce the risk that its aid will be misused for domestic political
+purposes.7
+This paper builds upon and contributes to the empirical literature on
+aid allocation, which traces its origins to McKinlay and Little (1977).8
+This body of research is overwhelmingly focused on “traditional” donor
+countries that are members of the Development Assistance Committee of the OECD (OECD-DAC). However, the international development
+ﬁnance regime established after World War II is undergoing a period of
+unprecedented tumult, with growing competition from donors outside
+the OECD-DAC who are challenging prevailing rules and norms (Nielson et al., 2017; Fuchs and Müller, 2018).
+Chief among these competitors is China. The conventional wisdom among Western politicians, journalists, and think tanks is that
+China—and other donors outside the OECD-DAC—favor corrupt countries and authoritarian regimes and they are more interested in
+advancing their own interests (e.g., natural resource acquisition) than
+addressing the needs of host country populations (Naím, 2007). However, Dreher et al. (2011) compare the cross-country allocation of
+aid from so-called “new” donors (excluding China) and OECD-DAC
+donors, and ﬁnd that “new” and “traditional” donors behave similarly.
+Dreher and Fuchs (2015) focus on China, speciﬁcally, and using various sources of data on the cross-country allocation of Chinese foreign aid projects, ﬁnd that its aid is not inﬂuenced by the governance characteristics of recipient countries. Nor do they ﬁnd evidence
+that China’s aid allocation is motivated by a desire to access natural resources in recipient countries. But Chinese aid does favor poor
+and populous countries, and countries that vote with China in the
+U.N. General Assembly (Dreher et al., 2018). Therefore, at the coun-
+
+1 When Koroma ﬁrst came to power in 2007, Bombali was one of the country’s poorest districts. However, it experienced signiﬁcant development gains
+during the course of Koroma’s ten-year presidency (World Bank, 2013). The
+capital of the President’s home district (Makeni) was one of few places in the
+country that enjoyed 24 hour access to electricity by the end of his second term
+in oﬃce (Inveen, 2017). Bombali, which is one of the country’s four most populous districts, also played an important role in helping Koroma get re-elected
+in 2012. He secured 93.2% of the vote there. In the country’s remaining 13
+districts, he achieved an average vote share of 51.2%.
+2
+For ease of exposition, we use the term “aid” to refer to all oﬃcial ﬁnancing
+ﬂows (Oﬃcial Development Assistance and Other Oﬃcial Flows). We introduce
+more precise, technical deﬁnitions below.
+3
+This new dataset, which we have made available via http://aiddata.org/
+datasets, can be used to investigate important questions related to the nature,
+allocation, and impact of Chinese aid. Indeed, since we ﬁrst published this
+dataset alongside the working-paper version of this study, it has been used to
+investigate how Chinese aid aﬀects household wealth and educational attainment (Martorano et al., 2018), corruption (Brazys et al., 2017; Isaksson and
+Kotsadam, 2018a), environmental degradation (BenYishay et al., 2016; Marty
+et al., 2019), local conﬂict (Gehring et al., 2018), and trade union membership
+(Isaksson and Kotsadam, 2018b).
+4 We also tested whether political favoritism related to the allocation of Chinese funding extends to locations with inhabitants that share the same ethnicity
+of the current political leader. To identify the possibility of ethnic favoritism in
+the allocation of Chinese funding, we changed the unit of observation from
+subnational administrative units to ethnic regions within a country. Unlike our
+analysis of birth regions, we do not ﬁnd robust evidence for ethnic favoritism.
+Appendix F elaborates on this analysis and shows basic results. Details are
+reported in the working-paper version of this article (Dreher et al., 2016).
+
+5
+In this regard, our results are consistent with Khomba and Trew (2017);
+they too ﬁnd that leaders allocate discretionary resources to geographical areas
+where the expected probability of voting for the ruling party is high.
+6
+Another reason for focusing on the World Bank is the lack of geocoded
+aid project datasets for bilateral Western donors that cover a suﬃciently large
+number of recipient countries during our study period.
+7
+In the working-paper version of this article (Dreher et al., 2016), we provide preliminary evidence that Chinese aid promotes economic development at
+subnational scales, which suggests that the political favoritism that we detect in
+our allocation regressions has distributional consequences. We further explore
+this in Dreher et al. (2019).
+8
+Prominent contributions include Maizels and Nissanke (1984), Alesina and
+Dollar (2000), Kuziemko and Werker (2006), and Faye and Niehaus (2012). On
+the World Bank, see Frey and Schneider (1986), Dreher et al. (2009), and Kilby
+(2009).
+
+45
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+
+large number of voters than private goods (Ichino and Nathan, 2013).11
+Observability matters because it provides more opportunities for creditclaiming, which helps leaders maximize voter turnout and inﬂuence
+vote choice (Cruz and Schneider, 2017; Marx, 2017; Cruz et al., 2018a,
+2018b).
+The logic of political survival also suggests that leader incentives
+to engage in clientelistic behavior vary over geographic space and
+time. A leader should have stronger incentives to target particularistic rewards to those geographic areas that are less likely to engage
+in performance-based voting and more likely to engage in clientelistic
+voting (Engelsma et al., 2017).12 The home regions of African political leaders are places where clientelistic voting is more likely because
+many co-partisans and co-ethnics are geographically concentrated in
+these areas (Wahman and Boone, 2018). They are also places where
+performance-based voting is unlikely for several reasons. First, voters
+in these regions are more likely to receive and believe misleading information about the political leader (as they are more trusting of the
+messengers who transmit such information).13 Second, even if rational voters from the political leader’s home region are disappointed in
+the performance of the incumbent, they may still support him if they
+expect that their co-partisans from the same region will support him or
+if they expect even worse treatment from a new political leader from
+another home region.14 Therefore, from the vantage point of a voteseeking political leader, club good provision to one’s home region is a
+reliable and cost-eﬀective method of buying votes. But the strength of
+this incentive should vary over time—in particular, the incentive to target particularistic rewards (club goods) to one’s home region should
+be strongest when the risk of being removed from oﬃce is highest
+(Briggs, 2012; Labonne, 2016; Marx, 2017).
+Three observable implications follow from this argument about
+the clientelistic logic of political survival in Africa. First, biases in
+the allocation of foreign aid projects should be most acute among
+projects ﬁnanced by donors that grant high levels of site selection
+authority to incumbent political leaders of the recipient country. Second, any bias towards the home region of an incumbent political
+leader should be more acute in the run-up to an election. That is
+
+try level, Chinese aid does not seem to be allocated very diﬀerently
+from Western aid. Both are a function of recipient need and donor
+interest.
+In contrast to previous work on Chinese aid, this study focuses on the
+subnational allocation of aid. While we are not the ﬁrst to investigate
+the allocation of foreign aid within countries, until recently research
+that relies on subnationally geocoded aid data focus on a single country (e.g., Francken et al., 2012; Briggs, 2014; Jablonski, 2014; Nunnenkamp et al., 2017), or on a cross-section of subnational localities
+from diﬀerent countries (e.g., Findley et al., 2011; Engelsma et al.,
+2017).9 In this article, we analyze geocoded data for a large number
+of recipient countries over an extended period of time. This research
+design provides signiﬁcant advantages over previous studies. If one
+focuses exclusively on cross-sectional variation, a positive association
+between the location of aid projects and the location of a leader’s birthplace could simply be driven by permanent or highly persistent regionspeciﬁc characteristics. We rely on variation across regions and over
+time in tandem with binary variables for the years just prior to and after
+the political leader’s term in oﬃce. This approach allows us to estimate
+the causal eﬀects of a political leader’s birth region on the amount of
+aid it receives. The second diﬀerence between this paper and previous
+contributions is our focus on Chinese aid rather than aid allocated by
+“traditional” donors.
+The remainder of this paper is structured as follows. Section 2 draws
+upon the logic of political survival to identify a set of testable implications about when and how aid is likely to be used by political leaders
+in host countries to stay in power. It also explains why Chinese aid
+might be particularly vulnerable to this type of political manipulation.
+In Section 3, we introduce our new dataset on Chinese development
+projects and leader characteristics at the subnational level. We also
+describe our empirical strategy. Section 4 presents our empirical ﬁndings. In Section 5, we conclude and outline potentially fruitful avenues
+for future research.
+2. The logic of political survival and aid allocation to leader birth
+regions
+Leaders who must compete in elections to stay in power have diﬀerent resource allocation incentives than leaders who do not face such
+electoral pressures (Bueno de Mesquita et al., 2003). In Africa, the
+logic of political survival is generally governed by clientelism, whereby
+politicians provide particularistic rewards to their core constituents (or
+“clients”) in exchange for votes (Wantchekon, 2003; van de Walle,
+2007; Casey, 2015).10 Therefore, African leaders who must compete
+in nationwide elections have strong incentives to provide particularistic rewards to the speciﬁc geographic areas where they have the best
+odds of inﬂuencing ﬁnal election outcomes. These rewards can be private goods (cash, commodities, housing) or club goods (schools, clinics,
+water wells, electricity) since, in either case, leaders can grant access to
+some individuals and communities and deny access to others (Kimenyi,
+2006; Kramon, 2017). However, in clientelistic political systems, politicians have particularly strong incentives to provide club goods because
+they are targetable like private goods, but more easily observed by a
+
+11
+By contrast, in political systems where performance-based voting is prevalent, politicians have strong incentives to provide pure public goods that are
+non-rival in consumption and non-excludable—for example, a well-managed
+economy or polity (Wahman and Boone, 2018).
+12
+Stated diﬀerently, even in political systems where clientelism is prevalent,
+leaders know that they face two diﬀerent types of voters—those who will vote
+on a clientelistic basis (delivery of club goods and private goods) and those who
+will vote on a performance basis (delivery of nationwide public goods)—and
+they have to decide in which geographical areas the provision of particularistic
+rewards will return the most votes. Given resource constraints, a leader will prioritize the allocation of club and private goods to voters in geographical areas
+where the expected probability of clientelistic voting is high and not where the
+expected probability of performance-based voting is high. Evenly distributing
+clientelistic rewards across regions is not politically rational if leaders anticipate that voters will be diﬀerentially responsive to such rewards.
+13
+Horowitz and Long (2016: 354) provide evidence that, in the run-up to the
+2007 election, Kenyan voters from the home (ethnic) regions of presidential
+candidates mostly received news from so-called “vernacular” radio stations that
+targeted their speciﬁc home (ethnic) communities: Kenyans in Kikuyu areas
+predominantly listened to Kikuyu-language radio stations; Kenyans in Kamba
+areas predominantly listened to Kamba-language radio stations; and Kenyans
+in Luo areas predominantly listened to Luo-language radio stations. Horowitz
+and Long (2016) also provide evidence that each “vernacular” radio station
+allocated “disproportionate airtime to the co-ethnic candidate of the language
+group it served,” making it easier for the political candidates to provide misleading information to voters in their home (ethnic) regions (without being
+challenged or corrected by their competitors).
+14
+Indeed, it is rational to vote for a poorly-performing political incumbent if
+you expect that a new political leader will target clientelistic beneﬁts to copartisans in a region other than your own (Padró i Miquel, 2007; van de Walle,
+2007).
+
+9
+A notable exception is Öhler and Nunnenkamp (2014), who—among
+others—also investigate whether more World Bank projects are sited in leader
+regions in Africa, but their results are based on limited variation from just 17
+African countries.
+10
+The clientelist logic of political survival also suggests that leaders may seek
+to build inclusive coalitions and insure against coups and revolutions by allocating patronage to elites in proportion to the size of the ethnic groups to which
+they belong (Francois et al., 2015). Testing this theoretical prediction is beyond
+the scope of our present study, but it represents a promising avenue for future
+research.
+
+46
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+
+to say, as an election nears, it should become more important for
+the political leader to provide targeted beneﬁts to his or her core
+voters. But this eﬀect may not be present for all types of elections.
+Most African countries have political systems characterized by strong
+presidents (Robinson and Torvik, 2016), so one would expect the
+eﬀect to be most pronounced during executive elections—in particular, competitive executive elections. Third, to the extent that there
+is a higher probability of clientelistic voting in home provinces, it is
+possible that political leaders may broadly distribute aid across the
+districts in their home provinces rather than narrowly distribute aid
+within their home district. This type of resource allocation strategy
+should help political leaders maximize voter turnout in stronghold
+areas.15,16
+In the remainder of this section, we focus on the cross-donor variation in the degree to which host governments are granted discretion
+over project site selection. We compare two donors with widely divergent systems for designing, selecting, and locating new development
+projects: the World Bank and China.
+In principle, every project that the World Bank considers ﬁnancing must be subjected to cost-beneﬁt analysis prior to approval. A
+simple rule for project acceptability was codiﬁed in 1994 through
+the adoption of Operational Policy (OP) 10.04 (“Economic Evaluation of Investment Operations”): projects that are approved for World
+Bank ﬁnancing should “[create] more net beneﬁts to the economy
+than other mutually exclusive options for the use of the resources
+in question.”17 OP 10.04 further stipulates that the World Bank staﬀ
+should evaluate “the project’s consistency with the Bank’s poverty
+reduction strategy” and “[consider] mechanisms for targeting the poor”
+(World Bank, 1994). According to the World Bank’s Independent Evaluation Group, one of the main motivations for the adoption of OP
+10.04 was to create “a safeguard against project choices being captured by narrow political or sectional interests” (Warner, 2010: 2).
+Elaborating on this point, Warner (2010: 2) notes that “[e]ﬃciency
+considerations always compete with other motives in project selection,
+and the policy is designed to give eﬃciency the upper hand in this
+competition.”
+Even though not all World Bank projects are subjected to costbeneﬁt analysis or distributional analysis in practice (Warner, 2010),
+these project appraisal procedures appear to be signiﬁcantly more
+robust than those used to vet prospective Chinese aid projects. We consulted with two former employees of the Department of Foreign Aid
+(DFA) within China’s Ministry of Commerce and they both informed
+us that there is no comparable set of economic analysis procedures in
+place to screen and select candidate projects.18 Instead, China uses a
+
+demand-driven approach to select and site aid projects.
+This approach is best understood in the context of one of the foundational principles of China’s foreign aid policy: non-interference in the
+internal aﬀairs of recipient countries and respect for their sovereignty.
+The principle can be traced back to the Final Communiqué of the 1955
+Asian-African conference of Bandung, and it is highlighted in the Chinese Government’s latest White Paper on Foreign Aid: “[w]hen providing foreign assistance, China adheres to the principles of not imposing any political conditions, not interfering in the internal aﬀairs of
+the recipient countries and fully respecting their right to independently
+choose their own paths and models of development” (State Council,
+2014).19
+Oﬃcials from China’s Ministry of Commerce, which is formally
+responsible for managing the country’s foreign aid program, take this
+principle seriously. They informed us during interviews that “the initiative generally comes from the recipient side.”20 More speciﬁcally,
+the Chinese aid allocation process begins when the recipient government proposes a project to the Economic and Commercial Counselor’s
+oﬃce attached to China’s in-country diplomatic mission.21 This oﬃce
+then submits the government’s application—if it meets a minimum viability standard—to the Ministry of Commerce and the Ministry of Foreign Aﬀairs in Beijing. A team of technical experts from the Ministry of
+Commerce then travels to the country that requested support to undertake a project and budget feasibility assessment in consultation with
+the domestic authorities. Upon their return to Beijing, the technical
+team prepares a ﬁnal project proposal for the State Council’s determination. If the State Council authorizes the project, the Ministry of Finance
+transfers funds to the Ministry of Commerce and the procurement process begins.22 Notwithstanding these formal project preparation procedures, Dornan and Brant (2014) note that relatively little eﬀort is made
+by any agency within the Chinese government to conduct rigorous economic analysis of potential projects and that project appraisal processes
+remain weak.
+Chinese projects are also diﬀerent from World Bank projects in that
+they are typically negotiated directly with the political leaders of recipient countries (AfDB et al., 2011).23 This approach limits opportunities for technocrats in line ministries, opposition politicians, civil society organizations, and journalists to sound the alarm when politicallymotivated projects are proposed (Jansson, 2013), and it creates significant scope for leaders to steer projects towards politically consequential regions (Engelsma et al., 2017). The Chinese Government is almost
+
+15
+
+However, given that the probability of clientelistic voting is lower outside a leader’s home regions, the incentive to broadly distribute particularistic
+rewards outside this region should be weaker.
+16
+Of course, we do not argue that this is the only possible reason why Chinese
+aid might be channeled to leaders’ birth regions. At least, four other channels
+come to mind: the possibility that African leaders might be economically privileging their home regions in anticipation of returning to these places after
+leaving oﬃce; the possibility that they are motivated by parochial altruism; the
+possibility that the Chinese government itself is directly or indirectly promoting
+its own domestic political culture wherein elected leaders disproportionately
+allocate public resources to their home villages (Mu and Zhang, 2014); and the
+possibility that Chinese ﬁrms in Africa with close ties to the leaders of African
+countries inﬂuence the project identiﬁcation and selection process (Chen and
+Orr, 2009; Dornan and Brant, 2014; Zhu, 2015). While these potential motives
+are not mutually exclusive, we focus on the electoral motives of political leaders
+as it lends itself to empirical scrutiny.
+17 Speciﬁcally, OP 10.04 states that “[t]o be acceptable on economic grounds,
+a [World Bank-ﬁnanced] project must meet two conditions: (a) the expected
+present value of the project’s net beneﬁts must not be negative; and (b) the
+expected present value of the project’s net beneﬁts must be higher than or equal
+to the expected net present value of mutually exclusive project alternatives.”
+18
+Authors’ email correspondence with DFA oﬃcials in January 2019.
+
+19
+The World Bank’s Articles of Agreement also codify the principle of political non-interference in the aﬀairs of recipient countries. Section 10 of Article IV
+makes clear that the organization should make investment decisions based on
+economic criteria: “[t]he Bank and its oﬃcers shall not interfere in the political
+aﬀairs of any member; nor shall they be inﬂuenced in their decisions by the
+political character of the member or members concerned. Only economic considerations shall be relevant to their decisions, and these considerations shall be
+weighed impartially in order to achieve the purposes stated in Article I.” However, China and the World Bank put the principle of non-interference into practice in very diﬀerent ways. A case in point is the World Bank’s use and China’s
+non-use of cost-beneﬁt analysis for screening, selecting, and siting projects.
+20 Authors’ interview in June 2013. Oﬃcials from the Ministry of Health also
+told us that they “send medical teams to the areas of the country that are
+selected by the recipient government” (authors’ interview in October 2014).
+21
+Our description of this process relies heavily upon Davies et al. (2008) and
+Corkin (2011).
+22
+There is a diﬀerent procedure for recipient governments seeking a concessional loan worth more than RMB 20 million.
+23
+The World Bank typically negotiates projects with government technocrats
+in the line ministries of recipient countries.
+
+47
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+
+certainly aware of this fact.24 Bräutigam (2012: 23) notes that“[t]hose
+designing China’s aid program see nothing wrong with fulﬁlling a host
+president or key minister’s desire to have a fancy Chinese school built
+in his or her hometown.”
+Sudan provides a useful illustration of how Chinese aid can be
+used by host government leaders to increase their odds of remaining
+in power. Over the last ﬁfteen years, Sudan has received billions of
+dollars of Chinese development ﬁnance. Many of these projects have
+been located within the so-called “Hamdi Triangle,” a region in the
+Nile River Valley between the cities of Dongola, Sennar, and El Obeid
+(in North Kordofan) that is considered to be the heartland of the Arab
+Riverine tribes and the political base of the ruling National Conference
+Party (NCP) (Roessler, 2013). President Bashir’s hometown of Shendi
+lies along the bank of the Nile River and falls squarely within the
+Hamdi Triangle (Verhoeven, 2015). This area of the country assumed
+special political signiﬁcance after 2005 when the authorities in Khartoum signed a Comprehensive Peace Agreement (CPA) with the Sudan
+People’s Liberation Army (SPLA) that called for presidential and legislative elections in 2010 and a referendum on South Sudan’s independence in 2011. In recognition of the domestic political threats posed by
+the presidential election and the referendum, Abdel Rahim Hamdi (a
+political strategist for the NCP and former Minister of Finance) laid out
+a “grand strategy” for domestic political survival at a 2005 NCP conference (Hamdi, 2005). He argued that the ruling party’s electoral fortunes
+would hinge on its ability to deliver job opportunities and public services to the core constituents in the area between Dongola, Sennar, and
+El Obeid and, therefore, called for concentrated investment in this area.
+He also argued that non-Western funds would be necessary to target
+this area.25 In the years following the adoption of this strategy, Chinese
+development and investment projects focused heavily in these areas and
+other pro-NCP constituencies (Roessler, 2013).
+Foreign aid from Western donors and multilateral development
+agencies can of course also be inﬂuenced by the interests and demands
+of host country leaders, and there is some evidence that traditional
+sources of aid are vulnerable to political capture and manipulation
+(Cohen, 1995; Briggs, 2012, 2014; Jablonski, 2014; Masaki, 2018).
+Indeed, Faye and Niehaus (2012) show that Western donors use aid to
+help politically aligned recipient governments get reelected. But there
+do appear to be fundamental diﬀerences in the way that China and
+Western donors operationalize the principle of “country ownership.”
+Nissanke and Söderberg (2011: 26) note that “Chinese arrangements
+appear to be […] much more ﬂexible than the mechanisms oﬀered
+by traditional donors […] [and] [p]roject selection is request-based:
+projects are initiated by borrowing countries, dependent on their preference, priority and circumstances.” By comparison, many Western
+donors have due diligence standards and procedures in place to ensure
+
+that the process of designing projects and allocating scarce resources
+across subnational jurisdictions is guided by economic criteria (Jenkins, 1997; Deininger et al., 1998; Warner, 2010; OECD, 2015).26
+3. Data and methods
+This section introduces the data and empirical strategy that we use
+to test whether the political leaders’ birthplace matters for the allocation of Chinese aid within African countries.
+Our sample covers subnational units of 47 African countries over the
+2000–2011 period.27 These subnational units are administrative regions
+at the ﬁrst and second subnational levels. ADM1 regions correspond to
+provinces, states, or governorates, while ADM2 regions are smaller and
+typically correspond to counties or districts. The Database of Global
+Administrative Areas (GADM) provides shapeﬁles with information on
+subnational administrative regions and their boundaries. There are 709
+ADM1 regions and 5835 ADM2 regions in the 47 African countries covered in our sample.28
+3.1. New georeferenced data on China’s foreign aid activities
+We build on the dataset in Strange et al. (2017), who provide
+project-level information about Chinese Government-ﬁnanced activities in African countries (see Strange et al., 2014 for methodological
+details). These data on Chinese oﬃcial ﬁnancing were assembled using
+AidData’s Tracking Underreported Financial Flows (TUFF) method,
+which synthesizes and standardizes a large amount of unstructured
+information in the public domain. In total, they cover 1650 projects
+committed to 49 African countries, amounting to approximately US$
+83.3 billion in oﬃcial ﬁnancing over the 2000–2012 period.29 Despite
+the short time since the dataset’s public release, it has already been
+used in a number of publications at the country level (e.g., Hendrix
+and Noland, 2014; Dreher and Fuchs, 2015; Hsiang and Sekar, 2016;
+Kilama, 2016; Hernandez, 2017; Li, 2017; Eichenauer et al., 2018)
+and—using the data introduced in this paper—also at subnational
+scales (e.g., BenYishay et al., 2016; Brazys et al., 2017; Gehring et al.,
+2018; Isaksson and Kotsadam, 2018a, 2018b; Martorano et al., 2018;
+Marty et al., 2019).
+In order to take the data to the subnational level, we georeferenced the project-level data from version 1.1 of AidData’s Chinese Oﬃcial Finance to Africa dataset using the method described in Strandow
+et al. (2011).30 This method relies on a double-blind system, where
+two coders employ a deﬁned hierarchy of geographic terms and independently assign uniform latitude and longitude coordinates, information about the precision of the data, and standardized names to
+
+26
+The World Bank, the Asian Development Bank, the Inter-American Development Bank, the European Union, and the U.S. Government’s Millennium Challenge Corporation all use some form of cost-beneﬁt analysis to vet candidate
+projects (Warner, 2010: 57).
+27
+We exclude Western Sahara, a disputed territory, Somalia for the absence of
+a central government, and the ﬁve small island states of Cape Verde, Comoros,
+Mauritius, São Tomé and Príncipe, and Seychelles. Given potential concerns
+about the comprehensiveness of the 2012 data of the 1.1 version of AidData’s
+China in Africa dataset, we follow Strange et al. (2017) and exclude 2012.
+28
+The GADM database includes subnational boundaries only at the ADM1
+level for Egypt, Equatorial Guinea, Lesotho, Libya, and Swaziland. In our
+ADM2-level analysis, we use ADM1 regions for these countries instead. Excluding these countries does not change the results qualitatively. ADM1 and ADM2
+regions across Africa are shown in Fig. B.1 in Appendix B.
+29
+The largest recipients of Chinese oﬃcial ﬁnancing are Ghana, the DRC, and
+Ethiopia, with registered ﬂows in the range of US$ 7.9–12.1 billion. Unsurprisingly, the dataset does not contain any development projects in the four African
+countries that recognized the Republic of China (Taiwan) rather than the PRC
+during our period of study: Burkina Faso, the Gambia, São Tomé and Príncipe,
+and Swaziland.
+30
+We exclude ﬂows coded as non-binding pledges or suspended projects.
+
+24
+
+There are even reasons to believe that the Chinese Government may encourage this type of behavior. DiLorenzo and Cheng (2019) provide empirical evidence that China strategically increases the provision of aid to new leaders
+and governments shortly after they come to power. After Maithripala Sirisena
+was elected as the President of Sri Lanka, he attended a ceremony to celebrate
+the opening of a Chinese Government-ﬁnanced hospital in his home district of
+Polonnaruwa and informed the crowd in attendance that “[w]hen the Chinese
+ambassador visited my house to ﬁx the date for this ceremony, he said that Chinese President Xi Jinping sent me another gift. […] He has gifted 2 billion yuan
+[US$ 295 million] to be utilized for any project [that I] wish” (Reuters, 2018).
+25
+Speciﬁcally, Hamdi (2005) wrote: “Financial ﬂows […] from [Western]
+institutions will be characterized by the following: they will be late; will be
+far less than promised; they will be surrounded by rules and bureaucracy. […]
+Investment funds will go to areas that are already predetermined in the [CPA];
+this is, to the geographical south with its deﬁned borders, Nuba Mountains,
+Southern Blue Nile. Moreover, these investment funds will be supervised by
+certain Commissions which ensure that they go to the speciﬁed zones only. Due
+to these facts, foreign investment will remain out of our hands and will not
+beneﬁt the North much. In a sharp contrast to that, [non-Western] investment,
+both oﬃcial and private will go to the Geographical North.”
+48
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+
+Fig. 1. Value of Chinese aid projects per subnational unit in Africa (total value in million 2009 US$, 2000–11, ADM1).
+
+Assistance (ODA) and Other Oﬃcial Flows (OOF).32 Fig. 1 shows
+the allocation of oﬃcial ﬁnancing across ADM1 regions.33 Second,
+we restrict our analysis to Chinese “aid” in the strict sense of the
+term, i.e., those ﬂows that Strange et al. (2017) identify as being
+“ODA-like.”
+A caveat related to these two variable deﬁnitions is that 35% of the
+projects lack information on their respective ﬁnancial values. Although
+this source of measurement bias is likely to be negligible because most
+of the missing values correspond to scholarship and technical assistance
+activities that typically have low ﬁnancial values, we take two actions
+to account for this limitation of the dataset. First, if we know there
+are Chinese projects in a particular subnational locality but we have no
+information about any of their monetary amounts, we set Aidict to missing.34 Second, we run robustness checks where our dependent variables
+
+each geographic feature of interest. If the locations chosen by the two
+coders are not identical, then a senior researcher identiﬁes the source
+of discrepancy and assigns the appropriate geocode. This process of
+arbitration between two independent coders by a third ensures strict
+quality control, minimizing missed or incorrect locations. For projects
+with more than one location, we georeferenced all locations.31 Our
+application of this geocoding method yielded 1898 project locations
+geocoded at the ADM1 level and 1575 project locations at the ADM2
+level.
+Our dependent variable, Aidict , measures Chinese aid allocated
+to region i in country c and year t in constant 2009 US$. But
+we distinguish between two deﬁnitions of Aidict . First, we analyze
+the allocation of Chinese “aid” in the broadest sense, including all
+oﬃcial ﬁnancing activities from China as identiﬁed by Strange et
+al. (2017). To the maximum extent possible, Strange et al. (2017)
+code Chinese Government-ﬁnanced projects as either “ODA-like” or
+“OOF-like” based upon the OECD criteria for Oﬃcial Development
+
+32 In cases when a Chinese Government-ﬁnanced project cannot be clearly categorized as ODA or OOF, Strange et al. (2017) assign it to a residual category
+called “Vague (Oﬃcial Finance).” Our measure of Chinese “aid” includes all
+oﬃcial ﬁnancing activities, including those categorized as ODA-like, OOF-like,
+and Vague (Oﬃcial Finance). In line with the bulk of the aid allocation literature, we do not scale oﬃcial ﬁnance according to population size or level of
+development, but control for them on the right-hand side.
+33
+In addition, Fig. B.2 in Appendix B shows a map with the number of Chinese
+aid projects across ADM1 regions.
+34
+Our results are qualitatively unchanged if we set Aidict to zero in these cases
+(see Table E.1 in Appendix E).
+
+31
+Because we do not observe ﬁnancial values at the project-location level but
+only at the project level, we spread project amounts equally across all locations
+identiﬁed in each project.
+
+49
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+
+Fig. 2. Birth regions of eﬀective political leaders in Africa (2000–11, ADM1).
+
+then analyze IDA volumes separately.37
+
+are binary variables that assume values of one if a project has been committed to a subnational region in a given year, and zero otherwise (see
+Table E.2 in Appendix E).
+We also look at the subnational allocation of aid from the World
+Bank, which is one of the largest “traditional” donors in Africa and one
+that is known for screening and selecting loan proposals based on strict
+project appraisal policies and procedures (as discussed in Section 2). For
+this purpose, we rely on a new georeferenced dataset provided by AidData (2015) that consists of all World Bank projects approved between
+2000 and 2011.35 The dataset includes 533 projects and 7519 project
+locations in Africa worth US$ 43.4 billion (in commitment terms).36
+Again, we distinguish between two deﬁnitions of the dependent variable to mimic the approach taken for Chinese aid. We ﬁrst analyze
+the total value of World Bank ﬁnancing (transformed to constant 2009
+US$), which includes both concessional ﬂows from the International
+Development Association (IDA) and non-concessional ﬂows from the
+International Bank for Reconstruction and Development (IBRD), and
+
+3.2. Birth regions of Africa’s political leaders
+Our main explanatory variable of interest is a binary variable,
+Birthregionict , that is equal to one if the political leader of country c
+in year t was born in administrative region i, and zero otherwise. We
+apply the deﬁnition of countries’ eﬀective leaders from Goemans et al.’s
+(2009) Archigos dataset, updated in Dreher and Yu (2016). In order
+to assign latitude and longitude coordinates to the birthplaces of the
+political leaders of African countries, we again follow Strandow et al.
+(2011).38 We are able to attribute leaders to 76.7% of the country-years
+covered at the ADM1 level; the remaining leaders are either foreignborn or we were not able to gather suﬃciently precise information to
+place them in ADM1 regions. Fig. 2 shows a map of the birth regions
+
+37
+We exclude World Bank projects that are nationwide in scope or allocated to
+the central government and therefore cannot be attributed to a speciﬁc region.
+In total, approximately 40% of all projects are assigned to a distinguishable
+location (Dreher and Lohmann, 2015). Figs. B.3 and B.4 in Appendix B show
+maps of the allocation of World Bank aid across African ADM1 regions. The
+correlation between Chinese and World Bank aid is positive but low (0.062 for
+total amounts and 0.123 for concessional ﬂows).
+38
+We code their latitude and longitude coordinates using Geonames (see
+http://www.geonames.org). We record locations with ﬁve decimal places of
+precision. As secondary source we rely on the American National Geospatial
+Intelligence Service (NGA) (http://geonames.nga.mil/ggmagaz).
+
+35
+Comprehensive geocoded data for “traditional” bilateral donors are not
+available for long periods of time or for the entire African continent.
+36
+See Findley et al. (2011) for a detailed description of an earlier release of
+these data.
+
+50
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+
+Table 1
+Summary statistics, ADM1, 2000–11.
+Variable
+
+Obs.
+
+Mean
+
+Std. Dev.
+
+Min
+
+Max
+
+Chinese total ﬂows (in levels)
+Chinese ODA-like ﬂows (in levels)
+Chinese project dummy
+World Bank total ﬂows (in levels)
+World Bank IDA ﬂows (in levels)
+Birthregion
+Prebirth (2 years)
+Postbirth (2 years)
+Birthregion Spouse
+Light2000 (in levels)
+Population2000 (in levels)
+Capitalregion
+Mines (in levels)
+Oilgas
+Area (in levels)
+Ports
+Roaddensity
+Executive election next year
+Legislative election next year
+Executive electoral competitiveness
+Legislative electoral competitiveness
+Provincial elections
+
+8327
+8307
+8327
+8327
+8327
+8327
+8327
+8327
+8327
+8327
+8327
+8327
+8327
+8327
+8327
+8327
+8327
+8318
+8327
+8327
+8327
+6041
+
+6.5m
+1.6m
+0.070
+5.71m
+4.53m
+0.066
+0.009
+0.08
+0.035
+1.953
+1.1m
+0.062
+3.511
+0.176
+40952
+0.184
+0.090
+0.162
+0.211
+4.699
+4.981
+0.198
+
+86.8m
+29.2m
+0.256
+30.77m
+16.17m
+0.248
+0.093
+0.089
+0.184
+5.984
+1.7m
+0.241
+12.41
+0.381
+81130
+0.387
+0.143
+0.369
+0.408
+1.919
+1.663
+0.399
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+6047
+0
+0
+0
+41.56
+0
+0
+0
+0
+0
+0
+0
+
+5.2b
+1.5b
+1
+2.06b
+297m
+1
+1
+1
+1
+48.20
+21.9m
+1
+139
+1
+0.6m
+1
+1.874
+1
+1
+6
+6
+1
+
+Notes: Descriptive statistics are based on the estimation sample used in Table 2, column 1. The exception
+are the election-related variables, where statistics are based on the estimation samples of Table 4.
+
+of political leaders across the African continent at the ADM1 level. In
+total, we observe 117 leaders with 73 changes in the Birthregionict variable over time at the ADM1 level. Appendix A lists all domestic-born
+leaders alongside their administrative birth regions.
+
+by a desire for access to natural resources, we compute Minesic , which
+is deﬁned as the log of the sum of mineral facilities in each subnational region i according to the Mineral Resource Data System of the
+United States Geological Survey (USGS, 2005).41 As a second indicator
+of resource wealth, the variable OilGasic takes a value of one if parts of
+an oil or gas ﬁeld are within the boundaries of administrative region i
+(according to data from Lujala et al., 2007), and zero otherwise. Previous studies of subnational aid allocation suggest that donors favor
+areas with good baseline infrastructure conditions (e.g., Marty et al.,
+2017), so we also compute the total length of roads per square kilometer (RoadDensityic ) using geographic data from CIESIN (2013) and
+construct a binary variable Portic that is equal to one if a port is located
+in region i according to data from the World Port Index (NGA, 2011),
+and zero otherwise.
+Table 1 provides summary statistics at the level of ADM1 regions.
+The likelihood of the average African region to receive Chinese aid in
+a given year is 7%. The average region receives approximately US$ 6.5
+million in Chinese funding per year, of which US$ 1.6 million arrives
+in the form of ODA-like ﬂows. An average ADM1 region is the political
+leader’s birth region in 6.6% of the years.
+
+3.3. Additional data
+We prepare additional variables that are potential determinants of
+Chinese aid allocation and might be correlated with our variable of
+interest. We include nighttime light intensity from the National Oceanic
+and Atmospheric Administration (NOAA, 2014) as a proxy for economic
+activity at the subnational level.39 A main advantage of these data is
+the high spatial granularity, which is particularly useful in the African
+context where regional GDP estimates are typically poor or unavailable.
+The variable Light2000ic corresponds to the log of the average nighttime
+light intensity of the pixels in region i of country c in 2000, which is at
+the beginning of our sample period.40
+We further control for (log) geographical size and (log) population
+size of subnational regions. The variable Areaic is directly calculated
+from the shapeﬁle of subnational boundaries, while Population2000ic is
+based on high-resolution data on the spatial distribution of the world
+population in 2000 by the Center for International Earth Science Information Network (CIESIN). We add the binary variable Capitalregionic
+that takes the value of one if the capital city of country c is located in
+region i in order to account for the speciﬁc role played by the country’s capital. To control for the possibility that Chinese aid is motivated
+
+3.4. Empirical strategy
+In order to test whether the current political leaders’ birthplaces
+matter for the allocation of Chinese aid, we estimate two sets of regressions:
+∑
+𝛽j Xicj + 𝛾 Birthregionict + 𝜖ict ,
+(1)
+Aidict = 𝛼ct +
+
+39
+NOAA uses satellite measures of light intensity from evenings during the
+dark half of the lunar cycle in seasons when the sun sets early. It removes
+observations that are likely to be aﬀected by, e.g., cloud coverage, ﬁres or
+other ephemeral lights. Henderson et al. (2012) and Hodler and Raschky
+(2014a) show that changes in nighttime light intensity are highly correlated
+with changes in national and subnational GDP, respectively. Bruederle and
+Hodler (2018) show that nighttime light intensity is also a good proxy for local
+human development outcomes.
+40
+We follow Michalopoulos and Papaioannou (2013, 2014) and Hodler and
+Raschky (2014a, 2014b) in adding 0.01 to the average nighttime light intensity
+before taking its logarithm. Doing so ensures that we do not lose observations
+with a reported nighttime light intensity of zero. Using the year 2000 minimizes
+the possibility of reverse causality. Results are qualitatively the same when we
+use lagged nighttime light intensity instead.
+
+j
+
+Aidict = 𝛼ct + 𝛿ic + 𝛾 Birthregionict + 𝜖ict ,
+
+(2)
+
+j
+where Xic represents our time-invariant control variables, 𝛼 ct countryyear-ﬁxed eﬀects, and 𝛿 ic region-ﬁxed eﬀects.
+
+To ease the interpretation of our results, we report results for all
+regressions with OLS. This approach comes with the disadvantage that
+
+41
+
+This cross-sectional dataset on historical and current mining facilities
+includes mines, plants, mills, and reﬁneries of many mineral commodities such
+as coal, iron ore, copper, gold, silver, and zinc. We added one before taking the
+logarithm.
+51
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+
+we have to add a value of US$ 1 before taking logarithms in order
+to avoid taking the log of zero. This might lead to a signiﬁcant bias
+at the ADM2 level in particular, where we have a large number of
+zero observations. For comparison, we therefore also estimate our main
+regressions with Poisson Pseudo-Maximum Likelihood (PPML). Santos
+Silva and Tenreyro (2006) show that PPML outperforms simple OLS and
+Tobit approaches with heteroskedasticity and many zero observations
+in the data.42
+Comparing the models in Equations (1) and (2), the former has two
+advantages. First, the omission of region-ﬁxed eﬀects allows us to also
+exploit between-region variation, which might be important to identify
+the relationship between leaders’ birthplaces and aid absent large variation in the leaders’ birth regions.43 Second, this speciﬁcation allows us
+to include variables that vary across regions exclusively. While the focus
+of our analysis is on the birth regions of political leaders, the inclusion
+of these variables facilitates comparison with the country-level literature on the allocation of aid. A shortcoming of this approach is that a
+statistically signiﬁcant eﬀect of these regions on aid might be spurious
+and could simply reﬂect the fact that certain regions receive more aid
+than others because of variables that we do not control for and that
+are unrelated to leaders. Equation (2) precludes such spurious results
+by exploiting region-speciﬁc variation over time exclusively. While this
+speciﬁcation is the more rigorous one, we lose substantial variation,
+which makes identifying the relationship between aid and leaders’ birth
+regions more diﬃcult. We also go a step further and control for the last
+two years before the political leaders came to power and the ﬁrst two
+years after they were out of power as placebo tests. The former is particularly important to rule out the possibility that our ﬁndings are driven
+by unobserved country-speciﬁc trends in aid over time. In all allocation
+equations, we cluster standard errors by country.44
+Some readers might be concerned that the unoﬃcial and opensource nature of the Chinese aid data threatens the reliability of our
+empirical tests.45 To the extent that leaders’ birthplaces get better coverage in the sources used in Strange et al. (2017), a positive eﬀect of
+Birthregionict on Chinese aid could reﬂect greater coverage rather than
+more projects. Moreover, it could be easier to georeference projects in
+birth regions of leaders if these regions attract more media coverage.
+This would imply that selection into the analysis dataset could be based
+on the independent variable of interest and—if true—could lead to an
+overestimation of the extent of political capture. This should be particularly likely for small projects as large projects are very visible and
+will likely receive some media coverage in non-birth regions as well.
+To test whether we are likely to miss small projects outside the political
+
+leaders’ birth regions, we regress (log) average project size on our birth
+region variable, controlling for country-year- and region-ﬁxed eﬀects
+(see Table E.4 in Appendix E for details). At the ADM1 level, we ﬁnd
+that the average project size does not change when a new leader originates from a region. At the smaller ADM2 regions, our results show that
+projects in birth regions are larger rather than smaller. Therefore, it is
+unlikely that a positive birthplace coeﬃcient in our main regressions
+results from the detection of a larger number of small projects or an
+increased ability to georeference projects in leaders’ birthplaces but not
+elsewhere.46
+Appendix D further explores diﬀerences between project locations
+that can be precisely mapped to an ADM1 region to those with less
+precise information. Out of the 2969 project locations geocoded at
+the ADM1 level, 1898 locations (i.e., 64%) can be mapped to ADM1
+regions. These project locations receive ﬁnancial ﬂows that are substantially larger (in terms of mean and median size), and more of them
+are loans while fewer of them are ODA-like ﬂows. It is less likely that
+projects with precise information have reached the commitment stage
+but not the implementation stage or completion stage during our period
+of study.47 In robustness tests, we investigate whether these observable
+diﬀerences inﬂuence our main ﬁndings (see Table E.8 in Appendix E).
+We ﬁnd that our main results hold when we exclude (i) projects with
+loan amounts above the median, (ii) projects that did reach the implementation or completion stage during our period of study, or (iii) all
+projects ﬁnanced via loans.
+4. Results
+4.1. Main results
+We start by presenting our baseline results where we analyze
+China’s aid allocation at the level of ADM1 regions (such as provinces).
+Columns 1 to 4 of Table 2 show the results from estimations of Equation (1), which includes country-year-ﬁxed eﬀects but not region-ﬁxed
+eﬀects. Columns 1 and 2 consider total ﬂows of Chinese oﬃcial ﬁnancing, estimated with OLS and PPML, respectively. In Columns 3 and
+4, we replicate the analysis but focus on a stricter deﬁnition of Chinese aid—ODA-like ﬂows rather than all forms of oﬃcial ﬁnancing.
+The maximum number of observations is 8375 from 709 ADM1 regions
+in 47 countries. However, not all of these observations contribute to
+the identiﬁcation of the birth-region eﬀect. In the regressions without
+region-ﬁxed eﬀects for total aid, 4886 observations are from countryyears with no variation in our dependent variable, so that coeﬃcients
+are identiﬁed based on variation from the remaining 3441 observations (from 43 countries). When we include ﬁxed eﬀects for regions
+in addition, this number is further reduced to 1991 observations (from
+43 countries).
+Starting with the control variables, we ﬁnd few consistent results
+across models and type of ﬁnancing. As one exception, our results show
+that regions containing the country’s capital receive signiﬁcantly more
+funding. Funding amounts increase with a region’s level of economic
+
+42
+While initially introduced into the trade literature, PPML becomes more
+widely used in the empirical aid literature as well (e.g., Fuchs and Vadlamannati, 2013; Acht et al., 2015; Davies and Klasen, 2019). We use the user-written
+Stata command “poi2hdfe” to estimate a Poisson regression model with high
+dimensional ﬁxed eﬀects (Guimaraes and Portugal, 2010; Figueiredo et al.,
+2015).
+43
+Leader changes are infrequent. In our sample, we observe 73 (82) changes
+in Birthregion at the ADM1 (ADM2) level.
+44
+Our results do not depend on how we cluster standard errors. Table E.3
+in Appendix E shows that clustering for periods each leader is in power
+(where country-years with power transitions or without domestic-born leaders
+receive a separate country-speciﬁc leader ID), ADM1 regions or—using two-way
+clustering—at the country and year, ADM1 and year, or ADM1 and country-year
+level, does not change our conclusions.
+45
+Kilby (2017) investigates whether and to what extent the TUFF methodology may be subject to detection bias at the country level and points to the
+importance of English as an oﬃcial language. Factors that do not vary over
+time within regions or are constant across regions in any one year are captured
+by our ﬁxed eﬀects. Muchapondwa et al. (2016) ﬁnd a high level of correspondence between the Chinese development project data collected through
+the TUFF methodology and data collected through the systematic implementation of ﬁeld-based data collection protocols by local enumerators in Uganda
+and South Africa.
+
+46
+Furthermore, in the working-paper version of this article (Dreher et al.,
+2016), we test whether aid is less eﬀective when it is committed to a region
+when it is the leader’s birth region compared to aid committed at other times.
+To the extent that aid reporting rather than the volume of aid increases in
+the leaders’ birth regions, the aid “committed” to birth regions should be less
+eﬀective in promoting development (as larger amounts of aid would not ﬂow to
+these regions but would merely be more likely to be reported there). Since this
+is not what we ﬁnd, this further increases our conﬁdence that the open-source
+nature of the Chinese aid data does not threaten our identiﬁcation strategy. We
+further explore this issue in Dreher et al. (2019).
+47
+A typical project location that cannot be mapped to an ADM1 region would
+be an unrestricted grant (e.g., general budget support to the central government).
+
+52
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+
+Table 2
+Birth regions and China’s aid I, ADM1, 2000–11.
+
+Birthregion
+Light2000 (in logs)
+Population2000 (in logs)
+Capitalregion
+Mines (in logs)
+Oilgas
+Area (in logs)
+Ports
+Roaddensity
+Country-year FE
+ADM1 FE
+R-squared
+Observations
+Regions
+
+(1)
+Total OLS
+
+(2)
+Total PPML
+
+(3)
+ODA OLS
+
+(4)
+ODA PPML
+
+(5)
+Total OLS
+
+(6)
+Total PPML
+
+(7)
+ODA OLS
+
+(8)
+ODA PPML
+
+0.688∗∗
+(0.324)
+0.293∗∗
+(0.119)
+0.087
+(0.094)
+4.164∗∗∗
+(0.544)
+0.117∗
+(0.067)
+0.070
+(0.149)
+0.234∗∗
+(0.091)
+−0.068
+(0.193)
+1.145
+(1.198)
+Yes
+No
+0.40
+8327
+709
+
+0.969∗∗∗
+(0.359)
+0.218
+(0.158)
+0.389∗
+(0.227)
+1.558∗∗∗
+(0.431)
+0.186∗
+(0.106)
+0.326
+(0.438)
+0.367
+(0.233)
+−0.256
+(0.684)
+1.406
+(2.166)
+Yes
+No
+
+0.283
+(0.209)
+0.242∗
+(0.125)
+0.014
+(0.089)
+2.837∗∗∗
+(0.459)
+0.003
+(0.041)
+0.077
+(0.133)
+0.183∗∗
+(0.080)
+−0.155
+(0.150)
+1.181
+(1.080)
+Yes
+No
+0.35
+8375
+709
+
+0.921
+(0.564)
+−0.117
+(0.444)
+0.367∗
+(0.210)
+2.988∗∗∗
+(1.023)
+0.224
+(0.179)
+0.036
+(0.807)
+−0.420
+(0.497)
+−1.797∗
+(1.044)
+4.137∗
+(2.360)
+Yes
+No
+
+1.082∗∗
+(0.423)
+
+0.267∗
+(0.142)
+
+0.569∗∗
+(0.252)
+
+2.257∗∗∗
+(0.328)
+
+Yes
+Yes
+0.30
+8327
+709
+
+Yes
+Yes
+
+Yes
+Yes
+0.28
+8375
+709
+
+Yes
+Yes
+
+8327
+709
+
+8375
+709
+
+8327
+709
+
+8375
+709
+
+Notes: The dependent variable is Chinese total ﬂows (in logs) in columns 1 and 5, Chinese total ﬂows (in levels) in columns 2 and 6, Chinese ODA-like
+ﬂows (in logs) in columns 3 and 7, and Chinese ODA-like ﬂows (in levels) in columns 4 and 8. Standard errors (in parentheses) clustered at the country
+∗∗∗
+∗
+level.
+(∗∗ , ): signiﬁcant at the 1% (5%, 10%) level.
+
+aid committed to the political leaders’ birth regions is 164% larger.50
+Analyzing ODA-like ﬂows only in columns 3 and 4, the results for our
+main variable of interest are weaker than for total oﬃcial ﬁnancing
+ﬂows. The coeﬃcient of Birthregionict , while still positive, is no longer
+statistically signiﬁcant at conventional levels in the OLS regression and
+marginally insigniﬁcant in the PPML regression (p-value: 0.103).
+In columns 5 to 8, we report our regressions from Equation (2).
+That is, we replace our time-invariant control variables with regionﬁxed eﬀects. Controlling for both country-year- and region-ﬁxed eﬀects
+absorbs a large share of the variation in our variable of interest, so this
+approach represents the more conservative speciﬁcation. Controlling
+for this set of ﬁxed eﬀects makes the existence of a spurious relationship between birthplace and aid ﬂows less likely. At the same time,
+the region-ﬁxed eﬀects imply that the estimates in columns 5 to 8 can
+only be based on the 29 African countries with at least one change
+in the political leaders’ birth region during our sample period. That
+is, these estimates are neither based on the 17 countries where the
+same leaders hold power throughout our sample period (see Table A.1
+in Appendix A), nor on the Democratic Republic of the Congo where
+Laurent-Désiré Kabila was followed by his son Joseph Kabila who
+was born in the same ADM1 region. It is therefore remarkable that
+the results tend to become stronger with the inclusion of region-ﬁxed
+eﬀects. The coeﬃcient estimate in column 5 suggests that total oﬃcial
+ﬁnancing ﬂows increase by approximately 195% when ADM1 regions
+become the political leader’s birth region (though the coeﬃcient esti-
+
+development (proxied by nighttime light intensity) in our OLS regressions (at least at the 10% level of statistical signiﬁcance), but become
+insigniﬁcant when we estimate regressions with PPML. Therefore, while
+more Chinese aid is allocated to poorer countries (Dreher and Fuchs,
+2015), our results show that, if anything, poorer regions within countries (i.e., regions with less nighttime light intensity, after controlling
+for regional population size) receive less support from China. According
+to the OLS results, geographically larger regions receive signiﬁcantly
+more funding, while countries with larger populations receive more
+funding according to the PPML regressions. Road density and ports are
+not related to the receipt of Chinese funding in our OLS regressions
+(but reach statistical signiﬁcance for ODA-like ﬂows when estimated
+with PPML). Also, contrary to conventional wisdom, the availability of
+oil and gas does not seem to correlate with Chinese funding at the subnational level, while ADM1 regions with mines do receive signiﬁcantly
+more Chinese funding (at the 10% level). However, this latter eﬀect
+disappears when we restrict the sample to ODA-like ﬂows—that is, aid
+in the strict sense (see columns 3 and 4). This pattern is in line with
+the ﬁndings of Dreher et al. (2018), who report that China’s commercial motives matter more for less concessional ﬂows than for ODA-like
+ﬂows at the country level.
+Turning to our primary variable of interest, the results in columns
+1 and 2 show that larger amounts of Chinese funding go to the birth
+regions of a country’s political leader, at the 5% and 1% levels of signiﬁcance.48 The coeﬃcient of the OLS regression implies an increase in
+total ﬁnancial ﬂows of almost 100% to ADM1 regions containing the
+political leader’s birthplace.49 The quantitative size of the eﬀect is even
+larger according to the PPML result, which suggests that the amount of
+
+48
+Including Birthregionict to a speciﬁcation with only the control variables used
+in column 1 increases the adjusted R-squared from 0.352 to 0.353. While having
+a statistically signiﬁcant and quantitatively substantive eﬀect, the explanatory
+power of leader birth regions is thus rather low. The increase of the adjusted
+R-squared is comparable in size to including Population2000ic or Roaddensityic
+in the baseline speciﬁcation.
+49
+Fig. C.1 in Appendix C shows the partial leverage plot corresponding to
+column 1. As can be seen, the result is not driven by obvious outliers.
+
+50
+Alternatively, using a project dummy as dependent variable, the coeﬃcient
+of Birthregionict is positive and statistically signiﬁcant at the 10% level (see
+Table E.2 in Appendix E). We ﬁnd that the likelihood of a birth region to receive
+Chinese aid is 3.2% higher, which is sizable given the sample mean of 9%. This
+highlights that our main ﬁnding cannot be driven by individual, large-scale
+projects (“mega projects”).
+
+53
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+
+Table 3
+Birth regions and China’s aid II, ADM1, 2000–11.
+
+Birthregion
+Prebirth (2 years)
+Postbirth (2 years)
+
+(1)
+Total OLS
+
+(2)
+Total PPML
+
+(3)
+ODA OLS
+
+(4)
+ODA PPML
+
+(5)
+Total OLS
+
+(6)
+Total PPML
+
+(7)
+ODA OLS
+
+(8)
+ODA PPML
+
+1.169∗∗
+(0.470)
+−0.177
+(0.463)
+0.553
+(0.413)
+
+1.859∗∗
+(0.829)
+0.883
+(0.852)
+1.074
+(0.827)
+
+0.636∗∗
+(0.295)
+−0.406
+(0.409)
+0.682
+(0.472)
+
+1.032∗∗∗
+(0.342)
+−1.983
+(1.437)
+−0.635
+(1.450)
+
+0.992∗∗
+(0.415)
+
+0.277∗∗
+(0.120)
+
+0.495∗
+(0.266)
+
+2.661∗∗∗
+(0.418)
+
+1.020∗
+(0.606)
+Yes
+Yes
+0.30
+8327
+709
+
+0.628∗∗∗
+(0.111)
+Yes
+Yes
+
+0.774
+(0.500)
+Yes
+Yes
+0.28
+8375
+709
+
+1.909∗∗∗
+(0.157)
+Yes
+Yes
+
+Birthregion Spouse
+Country-year FE
+ADM1 FE
+R-squared
+Observations
+Regions
+Birthregion = Prebirth
+
+Yes
+Yes
+0.30
+8327
+709
+0.018
+
+Yes
+Yes
+8327
+709
+0.204
+
+Yes
+Yes
+0.28
+8375
+709
+0.011
+
+Yes
+Yes
+8375
+709
+0.028
+
+8327
+709
+
+8375
+709
+
+Notes: The dependent variable is Chinese total ﬂows (in logs) in columns 1 and 5, Chinese total ﬂows (in levels) in columns 2 and 6, Chinese ODA-like
+ﬂows (in logs) in columns 3 and 7, and Chinese ODA-like ﬂows (in levels) in columns 4 and 8. The last row reports the p-value of a test on whether the
+∗∗∗
+∗
+coeﬃcient of Birthregion equals the coeﬃcient of Prebirth. Standard errors (in parentheses) clustered at the country level.
+(∗∗ , ): signiﬁcant at the
+1% (5%, 10%) level.
+
+mated with PPML drops in size compared to column 2).51 ODA-like
+ﬂows increase by slightly more than 75%, at the 5% level of signiﬁcance (column 7) and show a larger and highly signiﬁcant coeﬃcient
+when estimated with PPML (column 8). In summary, the weight of the
+evidence across these diﬀerent speciﬁcations suggests that the political
+interests of African leaders strongly shape the subnational allocation of
+Chinese aid.
+Next, we test whether this bias reﬂects a catch-up eﬀect of poorer
+regions that become the leader’s birth region, which—as one might
+argue—could be desirable from a development perspective.52 In order
+to do so, we run regressions where we replace initial nighttime light
+with the (logged) level of nighttime light in the previous year and
+add its interaction with Birthregionict . If more Chinese aid was indeed
+directed to poorer areas to help them converge with other parts of
+the country, we would expect to observe a negative coeﬃcient on the
+interaction term, i.e., a stronger eﬀect in poorer regions that become
+birth regions. However, we ﬁnd the opposite to be true as the eﬀect
+of Birthregionict is stronger rather than weaker in richer regions (see
+column 10 of Table E.5 in Appendix E).53
+In a next step, we include the binary indicators Prebirthict and
+Postbirthict to our speciﬁcations with country-year- and region-ﬁxed
+
+eﬀects. Prebirthict is equal to one in the last two years before a region
+becomes the birth region of the (new) political leader, while Postbirthict
+is equal to one in the ﬁrst two years in which a region is no longer the
+birth region of the (old) political leader. A statistically signiﬁcant coefﬁcient on Prebirthict would imply that the political leaders’ birth regions
+received more Chinese funding before political leaders assumed power,
+which would cast doubt on our interpretation that these regions receive
+more Chinese funding because political leaders favor them. By contrast,
+a statistically signiﬁcant coeﬃcient on Postbirthict would not necessarily invalidate a causal interpretation. It might well be that part of the
+funding pledged for a birth region is formally committed right after the
+leader left oﬃce.
+As Table 3 shows, neither Prebirthict nor Postbirthict are statistically signiﬁcant in any of the speciﬁcations (and Prebirthict even has
+a negative coeﬃcient in three of the four regressions). We also test
+whether the coeﬃcient of Prebirthict is signiﬁcantly diﬀerent from those
+of Birthregionict (rather than being signiﬁcantly diﬀerent from zero).
+With the exception of our PPML regression for total ﬂows shown in
+column 2, the coeﬃcients for total ﬂows and ODA-like ﬂows are statistically diﬀerent between pre-birth regions and birth regions (see pvalues in the last row of Table 3). This ﬁnding provides remarkably
+strong support for our interpretation that the political leader’s birth
+region registers a causal eﬀect on the receipt of Chinese aid.54
+To provide further evidence for this interpretation, we focus on the
+birth regions of the spouses of the political leaders. The underlying
+idea is that it would be unlikely that the birth region of a leader’s
+spouse would get more Chinese aid during her husbands’ tenure for
+some region-speciﬁc time-varying characteristics other than her husband having the power to play favorites. We georeferenced the birth
+regions of the spouses of the political leaders in our sample (where
+suﬃcient information was available) and added the resulting binary
+indicator of the spouses’ birth regions to our regression. In cases of a
+polygamous leader, the spouse that assumes representative functions is
+
+51
+Fig. C.2 in Appendix C shows the partial leverage plot corresponding to column 5. Again, the result is not driven by obvious outliers. To make sure that this
+ﬁnding is not driven by single countries or years, we replicated this regression
+excluding each time one of the countries or years in our sample. Tables E.9 and
+E.10 in Appendix E show that our main ﬁnding is robust. Moreover, Table E.11
+in Appendix E shows that we obtain similar ﬁndings when replacing aid with
+per-capita aid as dependent variable (and remove population from the set of
+control variables).
+52
+On this point, see footnote 1.
+53
+Table E.5 in Appendix E also investigates the potential heterogeneity of
+these eﬀects in other dimensions. There is no evidence that the eﬀect of birth
+regions diﬀers systematically with the tenure of the political leader, the quality
+of political institutions (as measured by the Polity Score), years of schooling,
+perceived corruption, quality of the bureaucracy, the country’s natural resource
+endowment, or voting patterns in the United Nations General Assembly. In addition, the birth region eﬀect is not restricted to a small number of sectors but
+represents a broader pattern. Table E.6 in Appendix E applies OECD-DAC definitions to categorize Chinese projects into “Social Infrastructure & Services,”
+“Economic Infrastructure & Services” and “Production Sectors,” and run separate regressions for each category. The coeﬃcient estimates suggest sizable
+birth-region eﬀects for each of these three categories, but the eﬀect is not statistically signiﬁcant at the 10% level for “Economic Infrastructure & Services.”
+One potential explanation is that geographic features make roads, railways and
+other types of economic infrastructure less vulnerable to political capture.
+
+54
+We further explore the relevance of pre-birth and post-birth regions by
+deﬁning Prebirth (1st year) and Postbirth (1st year) for the one year immediately
+before and after a leader is in power (rather than two years). As can be seen
+from Table E.7 in Appendix E, Prebirth (1st year) is insigniﬁcant in all regressions. This again supports the causal interpretation of our main ﬁndings. The
+signiﬁcant eﬀect of Postbirth (1st year) in two speciﬁcations most likely reﬂects
+delayed commitments of aid that is pledged during the leaders’ tenure. Adding
+a further lag, Postbirth (2nd year), results in insigniﬁcant (and negative) coeﬃcients, while our main results are hardly aﬀected by its inclusion.
+
+54
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+
+Table 4
+Birth regions, elections and China’s aid, ADM1, 2000–11.
+
+Birthregion
+∗
+
+Executive election next year
+
+∗
+
+Legislative election next year
+
+∗
+
+Executive electoral competitiveness
+
+∗
+
+Legislative electoral competitiveness
+
+∗
+
+Provincial elections
+
+Country-year FE
+ADM1 FE
+R-squared
+Observations
+Regions
+
+(1)
+Total OLS
+
+(2)
+Total OLS
+
+(3)
+Total OLS
+
+(4)
+Total OLS
+
+(5)
+Total OLS
+
+0.848∗
+(0.442)
+1.311∗
+(0.741)
+
+0.984∗∗
+(0.439)
+
+−1.108
+
+0.130
+(1.403)
+
+−0.278
+
+(0.681)
+
+(0.581)
+
+0.458
+(0.641)
+0.441∗∗∗
+(0.135)
+0.176
+(0.250)
+
+Yes
+Yes
+0.30
+8318
+709
+
+Yes
+Yes
+0.30
+8327
+709
+
+Yes
+Yes
+0.30
+8327
+709
+
+Yes
+Yes
+0.30
+8327
+709
+
+2.767∗∗
+(1.022)
+Yes
+Yes
+0.28
+6041
+517
+
+Notes: The dependent variable is Chinese total ﬂows (in logs). Standard errors (in parentheses) clustered at the country level.
+∗
+(∗∗ , ): signiﬁcant at the 1% (5%, 10%) level.
+
+∗∗∗
+
+Table 5
+Birth regions and China’s aid, ADM2, 2000–11.
+
+Birthregion (same ADM2)
+
+(1)
+Total OLS
+
+(2)
+Total PPML
+
+(3)
+ODA OLS
+
+(4)
+ODA PPML
+
+(5)
+Total OLS
+
+(6)
+Total PPML
+
+(7)
+ODA OLS
+
+(8)
+ODA PPML
+
+0.277
+(0.271)
+
+1.510∗∗∗
+(0.095)
+
+0.281
+(0.248)
+
+3.511∗∗∗
+(1.162)
+
+Yes
+Yes
+0.10
+69817
+5835
+
+Yes
+Yes
+
+Yes
+Yes
+0.07
+69880
+5835
+
+Yes
+Yes
+
+0.284
+(0.271)
+0.086∗∗
+(0.042)
+Yes
+Yes
+0.10
+69817
+5835
+0.473
+
+1.467∗∗∗
+(0.065)
+−0.426
+(1.204)
+Yes
+Yes
+
+0.284
+(0.248)
+0.031
+(0.021)
+Yes
+Yes
+0.07
+69880
+5835
+0.321
+
+3.623∗∗∗
+(1.179)
+2.595∗∗
+(1.274)
+Yes
+Yes
+
+Birthregion (other in ADM1)
+Country-year FE
+ADM2 FE
+R-squared
+Observations
+Regions
+Birthregion (same) = Birthregion (other)
+
+69817
+5835
+
+69880
+5835
+
+69817
+5835
+0.106
+
+69880
+5835
+0.558
+
+Notes: The dependent variable is Chinese total ﬂows (in logs) in columns 1 and 5, Chinese total ﬂows (in levels) in columns 2 and 6, Chinese ODA-like ﬂows
+(in logs) in columns 3 and 7, and Chinese ODA-like ﬂows (in levels) in columns 4 and 8. The last row reports the p-value of a test on whether the coeﬃcient
+∗∗∗
+∗
+of Birthregion (same ADM2) equals the coeﬃcient of Birthregion (other in ADM1). Standard errors (in parentheses) clustered at the country level.
+(∗∗ , ):
+signiﬁcant at the 1% (5%, 10%) level.
+
+coded as the “ﬁrst spouse.”55 As can be seen from columns 5 to 8 in
+Table 3, we obtain similar results for spouses as for the political leaders
+themselves, with signiﬁcant coeﬃcients for total oﬃcial ﬁnancing ﬂows
+and—in the PPML model—ODA-like ﬂows. We interpret this similarity
+as further evidence that political leaders direct Chinese aid to their and
+their spouses’ birth regions.56
+
+Beck et al. (2001) and add interaction terms between Birthregionict and
+these variables to Equation (2).57 Table 4 presents our OLS estimates.
+The electoral variable used in column 1 is a binary variable indicating whether a national executive election takes places in the next year.
+Most of the countries in our sample have electoral systems that focus on
+a strong president, so that we expect the leader to be particularly interested in providing particularistic rewards in the form of Chinese aid
+projects prior to executive elections.58 The regression results show that
+the amount of Chinese aid indeed increases signiﬁcantly and substantially prior to executive elections. In column 2 we use a binary variable
+for national legislative (rather than executive) elections. The coeﬃcient
+of the interaction is considerably lower and not statistically signiﬁcant
+at conventional levels. In columns 3 and 4, we use indices measuring the
+electoral competitiveness of executive and legislative elections, respectively. These indices are based on both electoral rules and electoral
+outcomes. For the ease of interpretation, we rescale these indices such
+that they range from 0 to 6, with higher values indicating greater competitiveness. Column 3 shows that more Chinese aid is channeled to
+the leaders’ birth regions, at the 1% level of signiﬁcance, if executive
+
+4.2. The role of elections
+The results so far show that African leaders are successful in ensuring that their birth regions receive more Chinese aid than other regions.
+This ﬁnding is consistent with the clientelistic logic of political survival
+in Africa discussed in Section 2. This logic implies that the bias towards
+the political leaders’ birth regions should become more pronounced in
+the run up to an executive election. We therefore use various measures of electoral pressure from the Database of Political Institutions by
+
+55
+Typically, this spouse is the person who the leader is most often seen with
+and–in the case of a male leader–this person is called the “ﬁrst lady.” The correlation between the binary variables for the political leader’s ADM1 birth region
+and their spouse’s ADM1 birth region is 0.186.
+56
+There could be diﬀerent motives for why political leaders aim at attracting
+Chinese aid to their spouses’ birth regions. First, they may extend their clientelistic policies aimed at political survival onto these regions. Second, they may
+be motivated by parochial altruism. Of course, the two motives are not mutually
+exclusive.
+
+57
+The country-year-ﬁxed eﬀects in Equation (2) absorb possible direct eﬀects
+of these electoral variables.
+58
+As can be seen from Table 1, 16.2% of region-year pairs face elections in
+the upcoming year.
+
+55
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+
+Fig. 3. Maps of Chinese and World Bank aid allocation and leader birth regions.
+Notes: Comparison of the subnational allocation of total (2000-2011) Chinese aid (upper maps) and World Bank aid (lower map) from the following three countries:
+Namibia (left), South Africa (center), and Liberia (right). The light grey lines indicate ADM2 boundaries while the bold, black lines indicate ADM1 boundaries. The
+house symbol indicate the political leaders’ ADM2 birth regions. Darker colors indicate higher total aid commitments to the respective ADM2 region.
+
+elections are more competitive.59 In column 4, we ﬁnd no comparable
+results for the competitiveness of legislative elections.
+We would ideally like to also test the eﬀect of regional elections. In addition to channeling Chinese aid to areas that advance
+their own electoral goals, one might expect national political leaders to use aid to support political allies in their home regions. We
+are however not aware of data on the timing of sub-national elections for a large sample of African countries and years. We therefore test whether the existence of elections at the ADM1 level changes
+the amount of Chinese aid that is committed to the leaders’ birth
+regions. To do so, we interact Birthregionict with a binary indicator
+for the existence of provincial elections. Using the “state” variable
+from Beck et al. (2001), we construct a measure that takes a value
+
+of one if either the executive or legislature are elected at the ADM1
+level, and zero otherwise. As can be seen in column 5, there is indeed
+a diﬀerential birth-region eﬀect between those country-years where
+provincial elections exist and those where provincial elections do not
+exist.
+In summary, the evidence presented in Table 4 suggests that the
+electoral motivations of political leaders can explain why their home
+regions disproportionately beneﬁt from the receipt of Chinese aid. This
+ﬁnding is consistent with the clientelistic logic of political survival in
+Africa.
+
+4.3. Birth provinces versus birth districts
+We also argued in Section 2 that African leaders might have incentives to broadly distribute aid across diﬀerent districts within their
+home province rather than narrowly targeting just their home district.
+
+59
+
+We ﬁnd no evidence that the birth region-eﬀect of upcoming elections
+becomes stronger at times when competitiveness is higher.
+56
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+
+Table 6
+Birth regions and World Bank aid, ADM1 & ADM2, 2000–11.
+(1)
+ADM1 Total OLS
+
+(2)
+ADM1 Total PPML
+
+(3)
+ADM1 IDA OLS
+
+(4)
+ADM1 IDA PPML
+
+(5)
+ADM2 Total OLS
+
+(6)
+ADM2 Total PPML
+
+(7)
+ADM2 IDA OLS
+
+(8)
+ADM2 IDA PPML
+
+Birthregion
+
+−0.127
+
+−0.209
+
+−0.061
+
+−0.182
+
+Country-year FE
+ADM1 FE
+ADM2 FE
+R-squared
+Observations
+Regions
+
+(0.156)
+Yes
+Yes
+No
+
+(0.176)
+Yes
+Yes
+No
+0.42
+8508
+709
+
+(0.157)
+Yes
+Yes
+No
+
+0.114
+(0.448)
+Yes
+No
+Yes
+0.24
+70020
+5835
+
+−0.005
+
+(0.181)
+Yes
+Yes
+No
+0.41
+8508
+709
+
+0.169
+(0.444)
+Yes
+No
+Yes
+0.25
+70020
+5835
+
+0.129
+(0.317)
+Yes
+No
+Yes
+
+8508
+709
+
+8508
+709
+
+(0.314)
+Yes
+No
+Yes
+70020
+5835
+
+70020
+5835
+
+Notes: The dependent variable is World Bank total ﬂows (in logs) in columns 1 and 5, World Bank total ﬂows (in levels) in columns 2 and 6, World Bank IDA
+∗∗∗
+ﬂows (in logs) in columns 3 and 7, and World Bank IDA ﬂows (in levels) in columns 4 and 8. Standard errors (in parentheses) clustered at the country level.
+∗
+(∗∗ , ): signiﬁcant at the 1% (5%, 10%) level.
+
+Table 5 turns to ADM2 regions such as districts rather than ADM1
+regions such as provinces, and focuses on the results from our regressions of Equation (2), which now include ADM2 region-ﬁxed eﬀects. In
+this table, Birthregionict is set equal to one only for the ADM2 regions
+where the political leaders were born. Columns 1 and 2 focus on total
+amounts, estimated with OLS and PPML respectively; columns 3 and
+4 turn to ODA-like ﬂows instead. As can be seen, the results depend
+substantially on how we estimate regressions. While the coeﬃcient of
+Birthregionict is always positive, it is not signiﬁcant at conventional levels in OLS regressions. It is signiﬁcant at the 1% level when we use
+PPML instead. Compared to the ADM1 level of analysis, the number
+of zero observations is much larger here, so adding a value of one
+before taking logs and estimating with OLS becomes more consequential. We take these results as tentative evidence that the eﬀect of the
+political leaders’ birth regions on Chinese aid applies at the ADM2 level
+too.
+Columns 5–8 further address the question of targeting and include
+a binary indicator that is set to one for all ADM2 regions nested within
+a political leader’s ADM1 birth region, but zero for the ADM2 region in
+which the leader was born. This indicator has a positive and statistically
+signiﬁcant eﬀect in two of these four speciﬁcations. The comparison of
+the two coeﬃcients within speciﬁcations (i.e., within each regression of
+columns 5–8) also merits attention. In each speciﬁcation, the point estimates suggest that the eﬀect tends to be stronger in the political leader’s
+birth district than in the other districts within the same province. However, since these diﬀerences are not statistically signiﬁcant at conventional levels (with a p-value of 0.106 in column 6 and higher p-values
+in other columns), we conclude that there is no strong evidence that
+Chinese aid beneﬁts the birth districts (ADM2 birth regions) of politi-
+
+cal leaders more than other districts within the birth provinces (ADM1
+birth regions) of political leaders.
+The maps in the upper panel of Fig. 3 provide graphical illustrations of this empirical pattern. Maps a, c and e focus on areas
+in Namibia, South Africa and Liberia, respectively. In Namibia and
+South Africa, some of the ADM2 regions nested within the political
+leader’s ADM1 birth region received Chinese aid, while the actual
+ADM2 region where the leader was born did not receive any Chinese
+aid. In contrast, the leader’s ADM2 birth region in Liberia was the only
+ADM2 region in the corresponding ADM1 region that received Chinese
+aid.
+Overall, our results suggest that Chinese aid is broadly distributed
+across diﬀerent districts within the African leaders’ home provinces.
+The clientelistic logic of political survival in Africa suggests that the
+leaders may do so in order to maximize political support (and voter
+turnout) in these stronghold areas.
+4.4. Comparison with World Bank aid
+Finally, we turn to the allocation of World Bank funding to test
+whether ﬁnancial support from a donor with strict project appraisal
+policies and procedures can be politically manipulated to the same
+extent as ﬁnancial support from China, with its strong emphasis on
+political non-interference and its lack of such procedures.
+In Table 6 we again focus on total oﬃcial ﬁnancing and ODA-like
+ﬂows. Total ﬂows are commitments made through either the IBRD or
+IDA windows of the World Bank; IDA ﬂows include only grants and
+highly concessional loans and thus mirror our ODA-like regressions for
+China in previous tables. Columns 1 to 4 show results for ADM1 regions,
+
+Table 7
+Birth regions, elections and World Bank aid, ADM1, 2000–11.
+
+Birthregion
+∗
+
+Executive election next year
+
+∗
+
+Legislative election next year
+
+∗
+
+Executive electoral competitiveness
+
+∗
+
+Legislative electoral competitiveness
+
+∗
+
+Provincial elections
+
+(1)
+Total OLS
+
+(2)
+Total OLS
+
+(3)
+Total OLS
+
+(4)
+Total OLS
+
+(5)
+Total OLS
+
+−0.118
+
+−0.109
+
+−0.319
+
+−0.249
+
+−0.312
+
+(0.188)
+−0.070
+(0.263)
+
+(0.191)
+
+(0.253)
+
+(0.278)
+
+(0.311)
+
+−0.091
+(0.226)
+
+Country-year FE
+ADM1 FE
+R-squared
+Observations
+Regions
+
+0.039
+(0.054)
+0.023
+(0.052)
+
+Yes
+Yes
+0.41
+8499
+709
+
+Yes
+Yes
+0.41
+8508
+709
+
+Yes
+Yes
+0.41
+8508
+709
+
+Yes
+Yes
+0.41
+8508
+709
+
+0.588
+(0.469)
+Yes
+Yes
+0.40
+6169
+517
+
+Notes: The dependent variable is World Bank total ﬂows (in logs). Standard errors (in parentheses) clustered at the country level.
+∗∗∗
+∗
+(∗∗ , ): signiﬁcant at the 1% (5%, 10%) level.
+57
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+
+and columns 5 to 8 for ADM2 regions.60 We ﬁnd no evidence that ADM1
+or ADM2 regions get more World Bank funding in years when they are
+the current political leader’s birth region than in other years.
+The maps in Fig. 3 illustrate how the subnational allocation of Chinese aid (upper panel) and World Bank aid (lower panel) diﬀers in
+three countries: Namibia, South Africa, and Liberia. In Namibia and
+South Africa, the ADM1 regions that contain the leaders’ ADM2 birth
+regions received Chinese aid (maps a and c), but no World Bank aid
+(maps b and d). In Liberia, the leader’s ADM2 birth region directly beneﬁted from Chinese aid, even though Chinese aid was relatively sparsely
+allocated across ADM2 regions in the southeastern part of the country.
+By contrast, World Bank aid was more broadly distributed across the
+ADM2 regions in the area, and the leader’s ADM2 birth region did not
+receive any World Bank aid.
+In Table 7 we focus on ADM1 regions and include interaction terms
+between Birthregionict and variables that measure the timing and competitiveness of national elections or the existence of regional elections.
+None of these interaction terms are statistically signiﬁcant. Hence, it
+seems that African leaders cannot use funding from the World Bank for
+patronage politics in the same way they can use Chinese funding.61
+
+the scope of this study to examine the consequences of spatial inequalities that are reinforced by China. However, the fact that Chinese development projects target politically privileged regions necessarily means
+that politically marginalized regions beneﬁt less from such projects.
+Future research should therefore assess whether and to what extent Chinese development ﬁnance indirectly increases the probability of social
+unrest, state repression, or violent conﬂict.62
+Finally, our paper compares the subnational allocation of Chinese
+and World Bank development ﬁnance. The World Bank is a useful
+benchmark institution because, during our period of study, it used costbeneﬁt analysis to vet prospective projects and minimize the risk of
+political capture. China did not have a comparable institutional safeguard in place during our period of study. Therefore, we use subnational geocoded Chinese project data and World Bank project data to
+explore whether donors with widely divergent project appraisal systems
+are diﬀerentially vulnerable to political capture. We do not ﬁnd any evidence that World Bank projects favor the home regions of political leaders. Nor do we ﬁnd evidence that World Bank projects favor the home
+regions of political leaders in the run up to (competitive) executive elections. This empirical pattern is consistent with the argument that, when
+governments propose projects to the World Bank that are (implicitly)
+based upon political site selection criteria, there is a higher probability of detection and a lower probability of project approval. However,
+additional research—covering a wider set of donors with more diverse
+project appraisal systems—will be necessary to pinpoint the speciﬁc
+rules and procedures on the donor side that prevent resources from
+being politically misused.
+
+5. Conclusions
+China often seeks to diﬀerentiate itself from Western donors by arguing that its aid is demand-driven and thus more responsive to the needs
+of recipient countries. Others credit China for providing African governments with more “ownership” and “policy space” (e.g., Bräutigam,
+2011; Kragelund, 2011; Reisen and Stijns, 2011). However, it is unclear
+who Beijing expects to beneﬁt from the system it has put in place for
+selecting and siting aid projects. “Recipient need” could refer to the
+needs of the general population or to governing elites and their clients,
+but the interests of these groups are not necessarily aligned.
+In order to analyze Chinese aid allocation across subnational localities, we introduce a new georeferenced dataset on oﬃcially-ﬁnanced
+Chinese development projects across Africa over the 2000–2012 period.
+Our results highlight the potential development risks of an “ondemand” approach: controlling for indicators of recipient need and
+various ﬁxed eﬀects, more Chinese development ﬁnance is located in
+the birth regions of African leaders. When granted access to a highly
+discretionary source of aid, African leaders play favorites by allocating substantial additional resources to their home regions. This ﬁnding
+is robust when we restrict aid to those ﬂows that comply with OECD
+deﬁnitions of oﬃcial development assistance or use a binary outcome
+variable rather than aid amounts.
+We also recover evidence that this birth-region eﬀect is signiﬁcantly
+larger in the years immediately preceding executive elections and when
+competitiveness of executive elections is high. This empirical pattern is
+consistent with the notion that African leaders who face electoral competition are particularly keen on using Chinese aid to deliver clientelistic rewards to their core constituents.
+In the working-paper version of this article (Dreher et al., 2016)
+and follow-up work (Dreher et al., 2019), we provide suggestive evidence that Chinese “aid” does improve local economic development
+outcomes—inside and outside of the birth regions of political leaders.
+In this regard, our results call attention to the fact that Chinese funding will have longer-term, distributional eﬀects on the ground that are
+not yet fully appreciated. Chinese-funded projects seem to increase economic growth at subnational scales, but these beneﬁts accrue disproportionately to the birth regions of political leaders, which are already
+wealthier than other regions (Hodler and Raschky, 2014a). It is beyond
+
+Acknowledgements
+We thank the editor (Patrick Francois), two anonymous referees, Kurt Annen, Sarah Bermeo, Sarah Bush, Marta Curto-Grau, Martin Gassebner, Ryan Jablonski, Andreas Kotsadam, Gregory Lévieuge,
+Jamus Lim, Yannick Lucotte, Takaaki Masaki, Ibrahim Okumu, Duncan Snidal, Heiwai Tang, Huang Yi, Ekkart Zimmermann, Zhao Zhejin,
+participants of many conferences, and seminar audiences at many universities for helpful comments (see Appendix G for details).
+We also thank Humanity United and the Hewlett Foundation for
+the generous funding that made this research possible. Axel Dreher
+and Andreas Fuchs are grateful for generous support from the German
+Research Foundation (DFG) in the framework of the project “The Economics of Emerging Donors in Development Cooperation” at Heidelberg University (DR 640/5-1 and FU 997/1-1). Roland Hodler and Paul
+Raschky are grateful for generous support from the Australian Research
+Council (ARC DP150100061).
+Evelyn Hytopoulos, Scott Stewart, Charles Perla, Harsh Desai, Daniel
+Lantz, Lauren Su, Catherine Crowley, Faith Savaino, Melanie Gilbert,
+Torey Beth Jackson, Tiﬀanie Choi, Rebecca Thorpe, Darice Xue, Jiaorui
+Jiang, Junrong Zhu, Ze Fu, Zach Baxter, Graeme Cranston Cuebas,
+Xiao Liu, Emily Qiu, Hanyang Xu, Dylan Kolhoﬀ, Grace Perkins, Yue
+Zhang, Rohan Desai, Will Nelson, Ryan Septon, Elizabeth Saccoccia,
+Rachel Benavides, Dominic Sanzotta, Michael Hathaway, Warren Kirkwood, Connor Kennedy, Laura Preszler, Andrea Soleta, Sara Gomez,
+Tom Westover, Ann Rogers, Nate Tanner, Rebecca Schectman, Matt
+Westover, Sara Rock, Jordan Fox, Emily Tanner, Rachel Kellogg, Austin
+Trotta, Isabel Docampo, Lu Sevier, Joseph Dobbels, Julia Varoutsos,
+Steven Livingston, Victor Polanco, Emily McLenigan, Bilal Asad, Qi
+Jiang, Anna Umstead, Lauren Harrison, James Willard, Robert Francis, Justin DeShazor, McKay Corbett, Brittany Tennant, Dominick Margiotta, and Daniel Overbeck provided outstanding research assistance.
+
+62
+
+In a recent paper, Gehring et al. (2018) provide some evidence that Chinese
+aid indirectly increases the probability of non-lethal government repression but
+they ﬁnd no evidence of a signiﬁcant increase of demonstrations, strikes, or
+riots.
+
+60
+
+We focus on regressions including region-ﬁxed eﬀects to reduce clutter.
+61
+These results remain unchanged if we add Prebirthict and Postbirthict to the
+regressions.
+58
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+
+Appendix A. Leader data
+Table A.1
+African leaders in the sample.
+Country
+
+Leader name
+
+Entered oﬃce
+
+Left oﬃce
+
+ADM1 region
+
+ADM2 region
+
+Ethnicity
+
+Angola
+Benin
+Benin
+Botswana
+Burkina Faso
+Burundi
+Burundi
+Burundi
+Côte d’Ivoire
+Côte d’Ivoire
+Cameroon
+Cape Verde
+Cape Verde
+Central African Republic
+Chad
+Comoros
+Comoros
+Comoros
+Comoros
+Democratic Republic of Congo
+Democratic Republic of Congo
+Egypt
+Egypt
+Equatorial Guinea
+Eritrea
+Ethiopia
+Gabon
+Gambia
+Ghana
+Ghana
+Ghana
+Guinea
+Guinea
+Guinea
+Guinea
+Guinea-Bissau
+Guinea-Bissau
+Guinea-Bissau
+Guinea-Bissau
+Guinea-Bissau
+Kenya
+Kenya
+Lesotho
+Liberia
+Liberia
+Liberia
+Libya
+Madagascar
+Madagascar
+Madagascar
+Malawi
+Malawi
+Mali
+Mali
+Mauritania
+Mauritania
+Mauritania
+Mauritania
+Mauritania
+Mauritius
+Mauritius
+Mauritius
+Mauritius
+Morocco
+Mozambique
+Mozambique
+
+Jose Eduardo dos Santos
+Mathieu Kerekou
+Thomas Yayi Boni
+Festus Mogae
+Blaise Compaore
+Pierre Buyoya
+Pierre Nkurunziza
+Domitien Ndayizeye
+Alassane Ouattara
+Laurent Gbagbo
+Paul Biya
+Jose Maria Neves
+Carlos Veiga
+Ange-Felix Patasse
+Idriss Deby
+Ikililou Dhoinine
+Azali Assoumani
+Ahmed Abdallah Mohamed Sambi
+Azali Assoumani
+Laurent-Désiré Kabila
+Joseph Kabila
+Mohammed Hussein Tantawi
+Hosni Mubarak
+Teodoro Obiang Nguema Mbasogo
+Isaias Afewerki
+Meles Zenawi
+Omar Bongo Ondimba
+Yahya Jammeh
+John Evans Atta-Mills
+John Agyekum Kufuor
+Jerry Rawlings
+Lansana Conté
+Sekouba Konate
+Alpha Conde
+Moussa Dadis Camara
+Joao Bernardo Vierira
+Raimundo Pereira
+Malam Bacai Sanha
+Kumba Iala
+Henrique Pereira Rosa
+Daniel arap Moi
+Mwai Kibaki
+Pakalithal Mosisili
+Charles Taylor
+Gyude Bryant
+Ellen Johnson Sirleaf
+Muammar al-Gaddaﬁ
+Marc Ravalomanana
+Didier Ratsiraka
+Andry Rajoelina
+Bakili Muluzi
+Bingu wa Mutharika
+Alpha Oumar Konare
+Amadou Toumani Toure
+Ely Ould Mohamed Vall
+Mohammed Ould Abdelaziz
+Maaouya Ould Taya
+Ba Mamadou Mbaré
+Sidi Ould Cheikh Abdellahi
+Navinchandra Ramgoolam
+Anerood Jugnauth
+Navinchandra Ramgoolam
+Paul Berenger
+Mohammed VI of Morocco
+Armando Emilio Guebuza
+Joaquim Alberto Chissano
+
+10.09.1979
+04.04.1996
+06.04.2006
+31.03.1998
+15.10.1987
+25.07.1996
+26.08.2006
+30.04.2003
+11.04.2011
+26.10.2000
+06.11.1982
+01.02.2001
+04.04.1991
+22.10.1993
+02.12.1990
+26.02.2011
+27.05.2002
+27.05.2006
+30.04.1999
+16.05.1997
+17.01.2001
+11.02.2011
+14.10.1981
+03.08.1979
+24.05.1993
+27.05.1991
+28.11.1967
+22.07.1994
+07.01.2009
+08.01.2001
+31.12.1981
+03.04.1984
+05.12.2009
+21.12.2010
+23.12.2008
+01.20.2005
+02.03.2009
+08.09.2009
+18.02.2000
+28.09.2003
+22.08.1978
+31.12.2002
+29.05.1998
+02.08.1997
+14.10.2003
+16.01.2006
+01.09.1969
+06.07.2002
+09.02.1997
+17.03.2009
+21.05.1994
+24.05.2004
+08.06.1992
+08.06.2002
+03.08.2005
+05.08.2009
+12.12.1984
+15.04.2009
+19.04.2007
+05.07.2005
+18.09.2000
+22.12.1995
+30.09.2003
+23.07.1999
+02.02.2005
+06.11.1986
+
+ongoing
+06.04.2006
+ongoing
+01.04.2008
+ongoing
+30.04.2003
+ongoing
+26.08.2006
+ongoing
+11.04.2011
+ongoing
+ongoing
+29.07.2000
+15.03.2003
+ongoing
+ongoing
+26.05.2006
+26.05.2011
+21.01.2002
+16.01.2001
+ongoing
+ongoing
+11.02.2011
+ongoing
+ongoing
+ongoing
+08.06.2009
+ongoing
+ongoing
+07.01.2009
+07.01.2001
+22.12.2008
+21.12.2010
+ongoing
+05.12.2009
+02.03.2009
+08.09.2009
+ongoing
+14.09.2003
+01.10.2005
+30.12.2002
+ongoing
+ongoing
+11.08.2003
+16.01.2006
+ongoing
+23.08.2011
+17.03.2009
+06.07.2002
+ongoing
+24.05.2004
+ongoing
+08.06.2002
+ongoing
+19.04.2007
+ongoing
+03.08.2005
+05.08.2009
+06.08.2008
+ongoing
+30.09.2003
+17.09.2000
+05.07.2005
+ongoing
+ongoing
+02.02.2005
+
+Luanda
+Atakora
+Borgou
+Central
+Oubritenga
+Bururi
+Bujumbura Mairie
+Kayanza
+N’zi-Comoé
+Fromager
+Sud
+Santa Catarina
+São Vicente
+Ouham-Pendé
+Bet
+Nzwani
+Njazídja
+Mwali
+Njazídja
+Katanga
+Katanga
+Al Qahirah
+Al Minuﬁyah
+Wele-Nzás
+Anseba
+Tigray
+Haut-Ogooué
+Western
+Western
+Ashanti
+Greater Accra
+Kindia
+Conarky
+Boké
+Nzérékoré
+Bissau
+Oio
+Oio
+Cacheu
+Bafatá
+Rift Valley
+Central
+Mohale’s Hoek
+Bomi
+Montserrado
+Montserrado
+Surt
+Antananarivo
+Toamasina
+Antananarivo
+Machinga
+Thyolo
+Kayes
+Mopti
+Nouakchott
+Inchiri
+Adrar
+Gorgol
+Brakna
+Port Louis
+Plaines Wilhems
+Port Louis
+Moka
+Rabat - Salé - Zemmour - Zaer
+Nampula
+Gaza
+
+Maianga
+Toﬀo
+Tchaourou
+Serowe
+Ziniare
+Rutovu
+Roherero
+Kayanza
+Dimbokro
+Gagnoa
+Dja-et-Lobo
+
+Kimbundu
+Somba
+Yoruba
+Bechuanas
+Mossi
+Tutsi
+Hutu
+Hutu
+Dioula
+Krou (Bete)
+Beti
+Portugese
+Portugese
+Sara-Kaba
+Zaghawa
+Swahili
+Swahili
+Hadrami
+Swahili
+Luba
+Luba
+Nubian
+Arab
+Fang
+Biher-Tigrinya
+Tigray-Tigrinya
+Teke
+Jola
+Fanti
+Asante
+Ewe
+Susu
+Mandinka
+Mandinka
+Kpelle
+Papel
+
+Paoua
+Ennedi Ouest
+
+Tanganika
+Haut-Lomami
+
+Asmara City
+Central Tigray
+Lé coni-Djoué
+Brikama
+Wassa West
+Kumasi
+Accra
+Coyah
+Conarky
+Boké
+Nzérékoré
+Bissau
+Mansaba
+Mansaba
+Bula
+Bafatá
+Baringo
+Nyeri
+Klay
+Greater Monrovia
+Greater Monrovia
+Analamanga
+Atsinanana
+Analamanga
+SC Chiwalo
+TA Nchilamwela
+Kayes
+Mopti
+Nouakchott
+Akjoujt
+Atar
+Maghama
+Aleg
+
+Rabat
+Murrupula
+Chibuto
+
+Mandinka
+Balante
+Balante
+Kalenjin
+Kikuyu
+Basotho
+Gola
+Grebo
+Gola
+Qadhadhfa
+Merina
+Malagasy
+Merina
+Yao
+Lhomwe
+Bambara/Fula
+Mandingo
+Bidan
+Bidan
+Bidan
+Fula
+Bidan
+Hindu
+Hindu
+Hindu
+French
+Arabs
+Tsonga
+Tsonga
+
+(continued on next page)
+
+59
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+
+Table A.1 (continued)
+Country
+
+Leader name
+
+Entered oﬃce
+
+Left oﬃce
+
+ADM1 region
+
+ADM2 region
+
+Ethnicity
+
+Namibia
+Namibia
+Niger
+Niger
+Niger
+Nigeria
+Nigeria
+Nigeria
+Republic of the Congo
+Rwanda
+Senegal
+Sierra Leone
+Sierra Leone
+South Africa
+South Africa
+Sudan
+Swaziland
+Tanzania
+Tanzania
+Togo
+Togo
+Tunisia
+Tunisia
+Uganda
+Zambia
+Zambia
+Zambia
+Zimbabwe
+
+Sam Daniel Nujoma
+Hiﬁkepunye Pohamba
+Mahamadou Issoufou
+Salou Djibo
+Mamadou Tandja
+Goodluck Jonathan
+Olusegun Obasanjo
+Umaru Musa Yar’Adua
+Denis Sassou Nguesso
+Paul Kagame
+Abdoulaye Wade
+Ahmad Tejan Kabbah
+Ernest Bai Koroma
+Jacob Zuma
+Thabo Mbeki
+Umar Hassan Ahmad al-Bashir
+Mswati III of Swaziland
+Jakaya Kikwete
+Benjamin Mkapa
+Faure Gnassingbe
+Gnassingbe Eyadema
+Zine El Abidine Ben Ali
+Fouad Mebazaa
+Yoweri Museveni
+Frederick Chiluba
+Levy Mwanawasa
+Michael Sata
+Robert Mugabe
+
+21.03.1990
+21.03.2005
+07.04.2011
+08.02.2010
+22.12.1999
+09.02.2010
+29.05.1999
+29.05.2007
+15.10.1997
+19.07.1994
+02.04.2000
+10.03.1998
+17.09.2007
+09.05.2009
+16.06.1999
+30.06.1989
+25.04.1986
+21.12.2005
+23.11.1995
+04.05.2005
+14.04.1967
+07.11.1987
+15.01.2011
+26.01.1986
+02.11.1991
+03.01.2002
+23.09.2011
+04.03.1980
+
+21.03.2005
+ongoing
+ongoing
+07.04.2011
+08.02.2010
+ongoing
+29.05.2007
+09.02.2010
+ongoing
+ongoing
+ongoing
+17.09.2007
+ongoing
+ongoing
+24.09.2008
+ongoing
+ongoing
+ongoing
+21.12.2005
+ongoing
+05.02.2005
+14.01.2011
+13.12.2011
+ongoing
+02.01.2002
+19.08.2008
+ongoing
+ongoing
+
+Omusati
+Ohangwena
+Tahoua
+Tillabéry
+Diﬀa
+Bayelsa
+Ogun
+Katsina
+Cuvette
+Gitarama
+Louga
+Eastern
+Northern
+KwaZulu-Natal
+Eastern Cape
+Northern
+Manzini
+Pwani
+Mtwara
+Maritime
+Kara
+Sousse
+Tunis
+Ntungamo
+Copperbelt
+Copperbelt
+Northern
+Harare
+
+Okahao
+Engela
+Illéla
+Kollo
+Ma’iné-Soroa
+Ogbia
+Abeokuta South
+Katsina (K)
+Owando
+Tambwe
+Kébémer
+Kailahun
+Bombali
+Nkandla
+Idutywa
+River Nile
+
+Ovambo
+Ovambo
+Hausa
+Djerma
+Kanuri
+Ijaw
+Yoruba
+Fulani
+Mbochi
+Tutsi
+Wolof
+Mende
+Temne
+Zulu
+Xhosa
+Ja’alin
+Swazi
+Kwere
+Ngoni
+Kabre
+Kabre/Kabiye
+Tunisia Arabs
+Tunisia Arabs
+Banyankole
+Bemba
+Lenje
+Bemba
+Shona
+
+Appendix B. Additional maps
+
+Fig. B.1 Subnational boundaries.
+
+60
+
+Bagamoyo
+Masasi
+Lacs
+Kozah
+Sousse Médina
+Bab Souika
+Ruhaama
+Kitwe
+Mufulira
+Mpika
+Harare
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+
+Fig. B.2 China’s aid projects per subnational unit in Africa (total number of projects, 2000–11, ADM1).
+
+61
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+
+Fig. B.3 Value of World Bank aid projects per subnational unit in Africa (total value in million 2009 US$, 2000–11, ADM1).
+
+62
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+
+Fig. B.4 World Bank aid projects per subnational unit in Africa (total number of projects, 2000–11, ADM1).
+
+Appendix C. Partial leverage plots
+
+Fig. C.1 Table 2, column 1.
+
+63
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+
+Fig. C.2 Table 2, column 5.
+
+Appendix D. Projects without locational details
+Table D.1
+Project location characteristics by precision of locational information.
+
+Number of project locations
+Mean loan size
+Median loan size
+Share of locations without data on loan size
+Share of locations not completed or in implementation
+Share of loans
+Share of ODA
+
+precise
+
+imprecise
+
+1898
+236.00
+35.80
+26.40
+17.65
+40.09
+51.58
+
+1071
+70.50
+7.26
+40.00
+39.31
+22.04
+70.31
+
+Notes: The table compares project locations that can be mapped to an ADM1 region
+with locations where this is not possible. Speciﬁcally, “precise” project locations are
+those with AidData precision code smaller than 5. “imprecise” project locations are those
+larger than 4, which for example includes locations that can only be related to estimated
+coordinates, projects that are country-wide or committed to larger geographic areas, or
+locations that are unclear.
+
+Appendix E. Additional regressions
+Table E.1
+Birth regions and China’s aid with alternative treatment of missing ﬁnancial values, OLS, ADM1 &
+ADM2, 2000–11.
+
+Birthregion
+Country-year FE
+Region FE
+R-squared
+Observations
+Regions
+
+(1)
+ADM1 Total
+
+(2)
+ADM2 Total
+
+(3)
+ADM1 ODA
+
+(4)
+ADM2 ODA
+
+0.993∗∗
+(0.414)
+Yes
+Yes
+0.28
+8508
+709
+
+0.281
+(0.296)
+Yes
+Yes
+0.10
+70020
+5835
+
+0.531∗∗
+(0.235)
+Yes
+Yes
+0.27
+8508
+709
+
+0.265
+(0.251)
+Yes
+Yes
+0.07
+70020
+5835
+
+Notes: The dependent variable is Chinese total ﬂows (in logs) in columns 1 and 2 and Chinese ODAlike ﬂows (in logs) in columns 3 and 4. Here we set the value of the ﬂows to zero if we know there
+are Chinese projects in a particular ADM1 or ADM2 region but have no information about any of
+their monetary amounts (while we set these values to missing in Tables 2–5). Standard errors (in
+parentheses) clustered at the country level. ∗∗∗ (∗∗ , ∗ ): signiﬁcant at the 1% (5%, 10%) level.
+
+64
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+Table E.2
+Birth regions and China’s aid, linear probability model (OLS), ADM1, 2000–11.
+
+Birthregion
+Light2000 (in logs)
+Population2000 (in logs)
+Capitalregion
+Mines (in logs)
+Oilgas
+Area (in logs)
+Ports
+Roaddensity
+Country-year FE
+ADM1 FE
+R-squared
+Observations
+Regions
+
+(1)
+Total dummy
+
+(2)
+Total dummy
+
+0.032∗
+(0.018)
+0.021∗∗∗
+(0.007)
+0.009
+(0.006)
+0.269∗∗∗
+(0.031)
+0.008∗
+(0.005)
+−0.000
+(0.009)
+0.018∗∗∗
+(0.006)
+−0.007
+(0.013)
+0.104
+(0.068)
+Yes
+No
+0.39
+8508
+709
+
+0.036∗
+(0.021)
+
+Yes
+Yes
+0.28
+8508
+709
+
+Notes: The dependent variable is a binary variable that takes a value of one if one or more
+Chinese aid projects have been committed to an ADM1 region in a given year, and zero otherwise. Standard errors (in parentheses) clustered at the country level. ∗∗∗ (∗∗ , ∗ ): signiﬁcant
+at the 1% (5%, 10%) level.
+
+Table E.3
+Robustness to alternative clustering of the standard errors, OLS, ADM1, 2000–11.
+
+Birthregion
+Country-year FE
+ADM1 FE
+Cluster 1
+Cluster 2
+R-squared
+Observations
+Regions
+
+(1)
+Total
+
+(2)
+Total
+
+(3)
+Total
+
+(4)
+Total
+
+(5)
+Total
+
+(6)
+Total
+
+1.082∗∗
+(0.423)
+Yes
+Yes
+Country
+
+1.082∗∗∗
+(0.369)
+Yes
+Yes
+Leader
+
+1.082∗∗
+(0.458)
+Yes
+Yes
+ADM1
+
+0.30
+8327
+709
+
+0.30
+8327
+709
+
+0.30
+8327
+709
+
+1.082∗∗
+(0.431)
+Yes
+Yes
+Country
+Year
+0.30
+8327
+709
+
+1.082∗∗
+(0.465)
+Yes
+Yes
+ADM1
+Year
+0.30
+8327
+709
+
+1.082∗∗
+(0.441)
+Yes
+Yes
+ADM1
+Country-year
+0.30
+8327
+709
+
+Notes: The dependent variable is Chinese total ﬂows (in logs). Standard errors (in parentheses) clustered at the level indicated in
+the rows “Cluster 1” and “Cluster 2.” Columns 4–6 use the Stata command “xtivreg2” that allows for two-way clustering. ∗∗∗ (∗∗ , ∗ ):
+signiﬁcant at the 1% (5%, 10%) level.
+
+Table E.4
+Birth regions and average Chinese project size, OLS, ADM1 & ADM2, 2000–11.
+
+Birthregion
+Country-year FE
+ADM1 FE
+ADM2 FE
+R-squared
+Observations
+Regions
+
+(1)
+ADM1 Project size
+
+(2)
+ADM2 Project size
+
+0.516
+(1.007)
+Yes
+Yes
+No
+0.77
+586
+276
+
+0.381∗∗∗
+(0.127)
+Yes
+No
+Yes
+0.83
+671
+428
+
+Notes: The dependent variable is average project size, i.e., Chinese total
+ﬂows divided by the number of projects in a given region-year. Standard
+errors (in parentheses) clustered at the country level. ∗∗∗ (∗∗ , ∗ ): signiﬁcant
+at the 1% (5%, 10%) level.
+
+65
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+
+Table E.5
+Birth regions and heterogeneous eﬀects of China’s aid, OLS, ADM1, 2000–11.
+
+Birthregion interacted with
+Birthregion
+Interaction
+Country-year FE
+ADM1 FE
+R-squared
+Observations
+Regions
+
+(1)
+Total
+
+(2)
+Total
+
+(3)
+Total
+
+(4)
+Total
+
+Tenure
+1.437∗∗∗
+(0.510)
+−0.060
+(0.043)
+Yes
+Yes
+0.30
+8327
+709
+
+Polity
+−0.467
+(1.694)
+2.350
+(2.338)
+Yes
+Yes
+0.30
+8303
+709
+
+Bureaucracy
+2.301∗∗
+(0.853)
+−0.822
+(0.677)
+Yes
+Yes
+0.31
+6937
+591
+
+Corruption
+0.375
+(1.638)
+0.427
+(0.734)
+Yes
+Yes
+0.31
+6937
+591
+
+(5)
+Total
+
+(6)
+Total
+
+(7)
+Total
+
+(8)
+Total
+
+(9)
+Total
+
+(10)
+Total
+
+School
+
+Oilgas
+1.244∗∗
+(0.518)
+−0.760
+(0.763)
+Yes
+Yes
+0.30
+8327
+709
+
+Mines
+0.991
+(0.932)
+0.031
+(0.369)
+Yes
+Yes
+0.30
+8327
+709
+
+UN agree.
+6.138
+(10.876)
+−5.246
+(10.882)
+Yes
+Yes
+0.30
+8187
+709
+
+UN dist.
+0.768
+(0.665)
+1.021
+(1.972)
+Yes
+Yes
+0.30
+8187
+709
+
+Light
+2.113∗∗
+(0.805)
+0.559∗∗
+(0.258)
+Yes
+Yes
+0.30
+8327
+709
+
+−0.040
+(0.920)
+0.208
+(0.249)
+Yes
+Yes
+0.31
+6239
+531
+
+Notes: The dependent variable is Chinese total ﬂows (in logs). Each regression contains an interaction term between Birthregion and the variable indicated in the respective column.
+Column 10 further includes lagged light (in levels). Standard errors (in parentheses) clustered at the country level. ∗∗∗ (∗∗ ): signiﬁcant at the 1% (5%) level.
+Deﬁnitions and sources of interacted variables: Tenure: Number of years the leader is in oﬃce (with zero indicating the year of entry)–Goemans et al.’s (2009) Archigos dataset,
+updated in Dreher and Yu (2016). Polity: Measure of regime authority on a 21-point scale ranging from −10 (hereditary monarchy) to +10 (consolidated democracy)–Polity
+IV Project, Political Regime Characteristics and Transitions, 1800–2013, http://www.systemicpeace.org/inscrdata.html. Bureaucracy.: Quality of the bureaucracy–International
+Country Risk Guide (ICRG), http://www.prsgroup.com/about-us/our-two-methodologies/icrg. Corruption: Corruption within the political system–International Country Risk Guide
+(ICRG), http://www.prsgroup.com/about-us/our-two-methodologies/icrg. School: Years of schooling for total population aged 15 and over–Barro and Lee (2010). Oilgas, Mines,
+and Lagged light: See main text. UN agree.: Voting similarity index (0–1) equal to (total of votes where both states agree)/(total of joint votes), computed using two-category vote
+data (1 = “yes” or approval for an issue; 2 = “no” or disapproval for an issue)–Bailey et al. (2017). UN dist.: Distance between a pair of states’ foreign policy preferences based on
+UNGA voting–Bailey et al. (2017).
+
+Table E.6
+Diﬀerential eﬀects across sectors, OLS, ADM1, 2000–11.
+
+Sector
+Birthregion
+Country-year FE
+ADM1 FE
+R-squared
+Observations
+Regions
+
+(1)
+Total
+
+(2)
+Total
+
+(3)
+Total
+
+Social Infrastructure &
+Services
+0.624∗
+(0.326)
+Yes
+Yes
+0.27
+8370
+709
+
+Economic Infrastructure
+& Services
+0.307
+(0.281)
+Yes
+Yes
+0.28
+8459
+709
+
+Production Sectors
+0.275∗
+(0.147)
+Yes
+Yes
+0.11
+8470
+709
+
+Notes: The dependent variable is Chinese total ﬂows (in logs) for the sector indicated in the respective column. Social
+Infrastructure & Services includes Education, Health, Population Pol./Progr. & Reproductive Health, Water Supply &
+Sanitation, Government & Civil Society, and Other Social Infrastructure & Services. Economic Infrastructure & Services
+includes Transport & Storage, Communications, Energy, Banking & Financial Services, and Business & Other Services.
+Production Sectors include Agriculture, Forestry, Fishing, Industry, Mining, Construction, Trade Policies & Regulations,
+and Tourism. Standard errors (in parentheses) clustered at the country level. ∗∗ (∗ ): signiﬁcant at the 5% (10%) level.
+
+Table E.7
+Birth regions with one-year leads and lags and China’s aid, OLS with country-year- and region-ﬁxed eﬀects,
+ADM1, 2000–11.
+
+Birthregion
+Prebirth (1st year)
+Postbirth (1st year)
+
+(1)
+Total
+
+(2)
+ODA
+
+(3)
+Total
+
+(4)
+ODA
+
+1.309∗∗∗
+(0.434)
+0.467
+(0.778)
+1.471∗
+(0.772)
+
+0.593∗∗
+(0.273)
+−0.772
+(0.584)
+0.836
+(0.624)
+
+Yes
+Yes
+0.30
+8327
+709
+
+Yes
+Yes
+0.28
+8375
+709
+
+1.246∗∗∗
+(0.462)
+0.428
+(0.788)
+1.395∗
+(0.799)
+−0.478
+(0.473)
+Yes
+Yes
+0.30
+8327
+709
+
+0.592∗∗
+(0.276)
+−0.773
+(0.588)
+0.835
+(0.627)
+−0.006
+(0.656)
+Yes
+Yes
+0.28
+8375
+709
+
+Postbirth (2nd year)
+Country-year FE
+ADM1 FE
+R-squared
+Observations
+Regions
+
+Notes: The dependent variable is Chinese total ﬂows (in logs) in columns 1 and 3 and Chinese ODA-like
+ﬂows (in logs) in columns 2 and 4. Standard errors (in parentheses) clustered at the country level. ∗∗∗ (∗∗ ,
+∗ ): signiﬁcant at the 1% (5%, 10%) level.
+
+66
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+Table E.8
+Robustness to the exclusion of various project types, OLS, ADM1, 2000–11.
+Excludes projects with
+
+(1)
+Large amounts
+
+(2)
+Implementation
+
+(3)
+Loans
+
+Birthregion
+
+0.420∗∗
+(0.205)
+Yes
+Yes
+0.27
+8008
+709
+
+0.496∗∗
+(0.250)
+Yes
+Yes
+0.27
+8475
+709
+
+0.907∗∗
+(0.371)
+Yes
+Yes
+0.24
+8314
+709
+
+Country-year FE
+ADM1 FE
+R-squared
+Observations
+Regions
+
+Notes: The dependent variable is (log) Chinese ﬂows, modiﬁed as indicated in the column header. Based on the descriptive
+statistics reported in Appendix D, we exclude large projects (“Large amounts,” i.e., projects with commitment amounts above
+the median), projects that are completed or in implementation (“Implementation”), and are loans (“Loans”). Standard errors
+(in parentheses) clustered at the country level. ∗∗∗ (∗∗ , ∗ ): signiﬁcant at the 1% (5%, 10%) level.
+
+Table E.9
+Leave one country out, OLS, ADM1, 2000–11.
+Regression
+
+Country removed
+
+Birthregion
+
+(1)
+(2)
+(3)
+(4)
+(5)
+(6)
+(7)
+(8)
+(9)
+(10)
+(11)
+(12)
+(13)
+(14)
+(15)
+(16)
+(17)
+(18)
+(19)
+(20)
+(21)
+(22)
+(23)
+(24)
+(25)
+(26)
+(27)
+(28)
+(29)
+(30)
+(31)
+(32)
+(33)
+(34)
+(35)
+(36)
+(37)
+(38)
+(39)
+(40)
+(41)
+(42)
+(43)
+(44)
+(45)
+(46)
+(47)
+(48)
+
+None
+AGO
+BDI
+BEN
+BFA
+BWA
+CAF
+CIV
+CMR
+COG
+DJI
+DZA
+EGY
+ERI
+ETH
+GAB
+GHA
+GIN
+GMB
+GNB
+GNQ
+KEN
+LBR
+LBY
+LSO
+MAR
+MDG
+MLI
+MOZ
+MRT
+MWI
+NAM
+NER
+NGA
+RWA
+SDN
+SEN
+SLE
+SWZ
+TCD
+TGO
+TUN
+TZA
+UGA
+ZAF
+ZAR
+ZMB
+ZWE
+
+1.082∗∗
+1.082∗∗
+1.138∗∗
+1.136∗∗
+1.082∗∗
+1.148∗∗∗
+1.109∗∗
+1.106∗∗
+1.082∗∗
+1.082∗∗
+1.082∗∗
+1.082∗∗
+1.132∗∗
+1.082∗∗
+1.082∗∗
+1.137∗∗
+1.218∗∗∗
+1.129∗∗
+1.082∗∗
+1.010∗∗
+1.082∗∗
+0.991∗∗
+1.002∗∗
+1.091∗∗
+1.082∗∗
+1.082∗∗
+1.043∗∗
+1.083∗∗
+1.123∗∗
+1.115∗∗
+1.038∗∗
+1.094∗∗
+1.108∗∗
+1.041∗∗
+1.082∗∗
+1.082∗∗
+1.082∗∗
+1.009∗∗
+1.082∗∗
+1.082∗∗
+0.939∗∗
+1.113∗∗
+1.290∗∗∗
+1.082∗∗
+0.906∗∗
+1.082∗∗
+0.977∗∗
+1.082∗∗
+
+(0.423)
+(0.423)
+(0.446)
+(0.441)
+(0.423)
+(0.424)
+(0.431)
+(0.425)
+(0.423)
+(0.423)
+(0.422)
+(0.423)
+(0.423)
+(0.422)
+(0.423)
+(0.427)
+(0.420)
+(0.437)
+(0.422)
+(0.449)
+(0.422)
+(0.425)
+(0.435)
+(0.426)
+(0.423)
+(0.423)
+(0.434)
+(0.437)
+(0.441)
+(0.461)
+(0.441)
+(0.442)
+(0.431)
+(0.447)
+(0.423)
+(0.423)
+(0.423)
+(0.428)
+(0.422)
+(0.423)
+(0.414)
+(0.430)
+(0.384)
+(0.424)
+(0.401)
+(0.423)
+(0.417)
+(0.423)
+
+R-squared
+
+Observations
+
+0.30
+0.30
+0.30
+0.30
+0.30
+0.30
+0.30
+0.30
+0.28
+0.30
+0.30
+0.30
+0.30
+0.30
+0.30
+0.30
+0.29
+0.30
+0.30
+0.30
+0.30
+0.29
+0.29
+0.30
+0.30
+0.30
+0.30
+0.29
+0.30
+0.30
+0.30
+0.30
+0.30
+0.30
+0.30
+0.30
+0.30
+0.29
+0.30
+0.30
+0.29
+0.30
+0.30
+0.30
+0.30
+0.29
+0.28
+0.29
+
+8327
+8116
+8129
+8184
+7799
+8219
+8123
+8102
+8210
+8207
+8267
+7752
+8018
+8258
+8206
+8223
+8211
+8239
+8255
+8223
+8259
+8237
+8150
+7943
+8209
+8148
+8264
+8220
+8209
+8174
+8020
+8179
+8238
+7872
+8214
+8224
+8195
+8295
+8279
+8111
+8275
+8039
+8031
+7635
+8225
+8222
+8223
+8211
+
+Notes: The dependent variable is Chinese total ﬂows (in logs). All regressions include country-year- and ADM1
+region-ﬁxed eﬀects. Standard errors (in parentheses) clustered at the country level. ∗∗∗ (∗∗ , ∗ ): signiﬁcant at
+the 1% (5%, 10%) level.
+
+67
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+Table E.10
+Leave one year out, OLS, ADM1, 2000–11.
+Regression
+
+Year removed
+
+Birthregion
+
+(1)
+(2)
+(3)
+(4)
+(5)
+(6)
+(7)
+(8)
+(9)
+(10)
+(11)
+(12)
+(13)
+
+None
+2000
+2001
+2002
+2003
+2004
+2005
+2006
+2007
+2008
+2009
+2010
+2011
+
+1.082∗∗
+1.157∗∗∗
+0.825∗
+1.085∗∗∗
+1.151∗∗
+1.152∗∗
+0.968∗∗
+1.103∗∗
+1.051∗∗
+1.237∗∗∗
+1.012∗∗
+1.358∗∗∗
+0.852∗∗
+
+(0.423)
+(0.401)
+(0.474)
+(0.399)
+(0.486)
+(0.456)
+(0.446)
+(0.478)
+(0.424)
+(0.454)
+(0.407)
+(0.435)
+(0.393)
+
+R-squared
+
+Observations
+
+0.30
+0.30
+0.30
+0.30
+0.30
+0.30
+0.29
+0.30
+0.27
+0.30
+0.30
+0.28
+0.31
+
+8327
+7623
+7627
+7628
+7628
+7629
+7628
+7644
+7639
+7633
+7642
+7640
+7636
+
+Notes: The dependent variable is Chinese total ﬂows (in logs). All regressions include country-year- and
+ADM1 region-ﬁxed eﬀects. Standard errors (in parentheses) clustered at the country level. ∗∗∗ (∗∗ , ∗ ):
+signiﬁcant at the 1% (5%, 10%) level.
+
+Table E.11
+Birth regions and China’s aid per capita, ADM1, 2000–11.
+
+Birthregion
+Light2000 (in logs)
+Capitalregion
+Mines (in logs)
+Oilgas
+Area (in logs)
+Ports
+Roaddensity
+Country-year FE
+ADM1 FE
+R-squared
+Observations
+Regions
+
+(1)
+Total OLS
+
+(2)
+Total PPML
+
+(3)
+ODA OLS
+
+(4)
+ODA PPML
+
+(5)
+Total OLS
+
+(6)
+Total PPML
+
+(7)
+ODA OLS
+
+(8)
+ODA PPML
+
+0.644∗
+(0.337)
+−0.052
+(0.133)
+4.498∗∗∗
+(0.563)
+0.059
+(0.091)
+0.272
+(0.175)
+−0.097
+(0.119)
+0.008
+(0.245)
+0.768
+(1.148)
+Yes
+No
+0.38
+8327
+709
+
+1.081∗∗
+(0.439)
+−0.018
+(0.217)
+1.525∗∗
+(0.739)
+−0.015
+(0.206)
+−0.464
+(0.708)
+−0.201
+(0.202)
+0.825
+(1.120)
+0.518
+(1.179)
+Yes
+No
+
+0.233
+(0.229)
+−0.131
+(0.139)
+3.193∗∗∗
+(0.480)
+−0.059
+(0.073)
+0.299∗∗
+(0.137)
+−0.181
+(0.126)
+−0.076
+(0.209)
+0.750
+(1.007)
+Yes
+No
+0.37
+8375
+709
+
+1.022∗
+(0.527)
+−0.145
+(0.293)
+2.763∗∗∗
+(0.918)
+0.005
+(0.240)
+−0.581
+(0.651)
+−0.422
+(0.266)
+−1.603∗∗
+(0.801)
+3.754
+(2.535)
+Yes
+No
+
+1.082∗∗
+(0.423)
+
+0.697
+(0.734)
+
+0.569∗∗
+(0.252)
+
+3.178∗∗
+(1.319)
+
+Yes
+Yes
+0.30
+8327
+709
+
+Yes
+Yes
+
+Yes
+Yes
+0.28
+8375
+709
+
+Yes
+Yes
+
+8327
+709
+
+8375
+709
+
+8327
+709
+
+8375
+709
+
+Notes: The dependent variable is Chinese total ﬂows per capita (in logs) in columns 1 and 5, Chinese total ﬂows per capita (in levels) in columns 2 and
+6, Chinese ODA-like ﬂows per capita (in logs) in columns 3 and 7, and Chinese ODA-like ﬂows per capita (in levels) in columns 4 and 8. We divide by
+Population2000 to obtain these per-capita values, omitting Population2000 from the set of control variables. Standard errors (in parentheses) clustered at
+the country level. ∗∗∗ (∗∗ , ∗ ): signiﬁcant at the 1% (5%, 10%) level.
+
+Appendix F. Ethnic regions
+We expect that political favoritism related to the allocation of Chinese funding is not limited to the subnational administrative units in which
+political leaders were born. Political leaders might also want people from their own ethnic group to beneﬁt disproportionately from development
+projects. If this is true, it implies that one should examine a wider set of locations with inhabitants that share the ethnicity of the current political
+leader. To identify the possibility of ethnic favoritism in the allocation of Chinese funding, we change the unit of observation from subnational
+administrative units to ethnic regions (GREG regions, see Weidmann et al., 2010) within a country.
+We begin this analysis at the level of ethnic regions by estimating a variant of Equation (1) (which does not control for region-ﬁxed eﬀects)
+where we replace Birthregionict by Ethnicregionict . The results in Table F.1 suggest that regions populated by individuals with the same ethnicity as
+the current political leader are more likely to receive support from China (columns 1 and 2). The coeﬃcients of the control variables follow a similar
+pattern as the results based on ADM1 regions. Richer ethnic regions (again measured by the level of nighttime light intensity in 2000) and ethnic
+regions that include the country’s capital receive more Chinese funding compared to other regions.
+Columns 3 and 4 replicate the regressions for the geographic regions populated by the ethnic groups of political leaders, where we now include
+ﬁxed eﬀects for ethnic rather than administrative regions. Using this more conservative speciﬁcation, we ﬁnd no evidence that the political leaders’
+ethnic regions receive signiﬁcantly more funding from China.63 We oﬀer four speculative explanations for these insigniﬁcant results that stand in
+contrast to our ﬁndings for leaders’ birth regions. First, the larger size of the ethnic regions compared to administrative regions reduces variation over
+time, making it more diﬃcult to identify the eﬀect with the inclusion of region-ﬁxed eﬀects. Second, the substantially lower number of development
+projects that we are able to assign to ethnic regions compared to administrative regions increases noise, again making the identiﬁcation of signiﬁcant
+
+63
+These results remain unchanged if we add Preethnicict and Postethnicict to the regressions, deﬁned in analogy to the Prebirthict and Postbirthict indicators above.
+They also hold for World Bank ﬁnancing.
+
+68
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+
+eﬀects more diﬃcult. Third, the number of changes in the ethnic groups of political leaders is smaller than the number of changes in leader birth
+regions. Fourth, political leaders might not steer Chinese funding to their ethnic groups. This ﬁnal reason would be in line with Ahlerup and
+Isaksson (2015: 144), who present evidence that “ethnic and regional [favoritism] are not the same, but rather have independent eﬀects that exist
+in parallel.”
+Table F.1
+Ethnic regions and China’s aid, OLS, GREG, 2000–11.
+
+Ethnicregion
+Light2000 (in logs)
+Population2000 (in logs)
+Capitalregion
+Mines (in logs)
+Oilgas
+Area (in logs)
+Ports
+Roaddensity
+Country-year FE
+Ethnic region FE
+R-squared
+Observations
+Regions
+
+(1)
+Total
+
+(2)
+ODA
+
+(3)
+Total
+
+(4)
+ODA
+
+1.020∗∗∗
+(0.353)
+0.227∗∗∗
+(0.076)
+0.016
+(0.077)
+4.682∗∗∗
+(0.664)
+0.233
+(0.165)
+−0.138
+(0.426)
+0.139
+(0.086)
+0.201
+(0.443)
+0.986
+(1.810)
+Yes
+No
+0.35
+6578
+559
+
+0.524∗
+(0.285)
+0.119∗∗
+(0.051)
+−0.022
+(0.050)
+3.495∗∗∗
+(0.552)
+0.188
+(0.146)
+−0.256
+(0.274)
+0.045
+(0.052)
+0.023
+(0.327)
+0.299
+(0.791)
+Yes
+No
+0.33
+6606
+559
+
+0.184
+(0.477)
+
+−0.064
+
+Yes
+Yes
+0.19
+6602
+559
+
+Yes
+Yes
+0.20
+6630
+559
+
+(0.319)
+
+Notes: The dependent variable is Chinese total ﬂows (in logs) in columns 1 and 3, and Chinese ODA-like
+ﬂows (in logs) in columns 2 and 4. Standard errors (in parentheses) clustered at the country level. ∗∗∗ (∗∗ , ∗ ):
+signiﬁcant at the 1% (5,% 10%) level.
+
+Appendix G. Acknowledgements
+This paper beneﬁted from comments made by conference participants at the Convening of the AidData Research Consortium at the College of
+William & Mary in Williamsburg, Virginia (January 2014), the Annual Conference of the International Political Economy Society in Washington,
+DC (November 2014), the Inaugural Sheﬃeld Workshop in Political Economy at the University of Sheﬃeld (February 2015), the European Public
+Choice Society Meeting at the University of Groningen, the IMF Conference on Financing for Development at the Graduate Institute of International
+and Development Studies in Geneva (April 2015), the International Conference on Globalization and Development at the University of Goettingen
+(May 2015), the Annual Conference of the Verein für Socialpolitik Research Committee Development Economics at the Kiel Institute for the World
+Economy, the Nordic Conference on Development Economics at the University of Copenhagen (June 2015), the Silvaplana Workshop on Political
+Economy (July 2015), the European Economic Association Meeting at the University of Mannheim (August 2015), the Annual Conference on the
+Political Economy of International Organizations at the University of Utah (January 2016), the CSAE Conference “Economic Development in Africa”
+at the University of Oxford (March 2016), the Development Economics Conference “Goettinger Schule” at the University of Goettingen (June 2016),
+the Workshop on “Global Challenges” at the Università degli Studi di Milano Bicocca (June 2016), the China Economics Summer Institute at the
+Hong Kong University of Science and Technology (August 2016), the Annual Meeting of the American Political Science Association in Philadelphia,
+the Frisch-PRIO Workshop on Foreign Aid in Oslo (September 2016), the Scientiﬁc Conference of the European Development Network at the
+University of Bonn (December 2016), the BNUBS-GATE Workshop at Heidelberg University (July 2017), and the Annual Meeting of the American
+Political Science Association in San Francisco (September 2017).
+We are also grateful for comments received at research seminars at the European Bank for Reconstruction and Development in London (October
+2014), NHH Bergen, the University of Bergen, KOF Zurich (November 2014), Heidelberg University (December 2014), the University of York (February 2015), the University of Mannheim, the ESG Management School Paris, Université de Fribourg (March 2015), the University of Gothenburg
+(April 2015), Goethe University Frankfurt, the Norwegian Business School in Oslo (May 2015), the Research Institute of Industrial Economics in
+Stockholm (September 2015), the Université libre de Bruxelles, the University of Kiel (January 2016), the University of Geneva (February 2016),
+Deakin University, the University of Melbourne (March 2016), Villanova University (September 2016), the University of Western Australia, the
+University of Passau (October 2016), the Helmut Schmidt University Hamburg, the University of Duisburg-Essen (January 2017), University of
+Mannheim (March 2017), the University of Goettingen (July 2017), the Development Economics Network Berlin (November 2017), Sapienza University of Rome (December 2017), the University of Potsdam (January 2018), DIAL Paris (June 2018), the University of Siegen (January 2019), the
+University of Kiel (January 2019), the University of Essex (March 2019), and IE University Madrid (March 2019).
+Appendix H. Supplementary data
+Supplementary data to this article can be found online at https://doi.org/10.1016/j.jdeveco.2019.04.003.
+
+69
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+
+References
+
+DiLorenzo, Matthew, Cheng, Mengfan, 2019. Political turnover and Chinese
+development cooperation. Chin. J. Int. Polit. 12 (1), 123–151.
+Do, Quoc-Anh, Nguyen, Kieu-Trang, Tran, Anh N., 2017. One Mandarin beneﬁts the
+whole clan: hometown favoritism in an authoritarian regime. Am. Econ. J. Appl.
+Econ. 9 (4), 1–29.
+Dornan, Matthew, Brant, Philippa, 2014. Chinese assistance in the Paciﬁc: agency,
+eﬀectiveness and the role of Paciﬁc island governments. Asia Paciﬁc Pol. Stud. 1 (2),
+349–363.
+Dreher, Axel, Fuchs, Andreas, 2015. Rogue aid? An empirical analysis of China’s aid
+allocation. Can. J. Econ. 48 (3), 988–1023.
+Dreher, Axel, Fuchs, Andreas, Hodler, Roland, Parks, Bradley, Raschky, Paul, Tierney,
+Michael J., 2016. Aid on Demand: African Leaders and the Geography of China’s
+Foreign Assistance. AidData Working Paper 3 (revised). AidData, Williamsburg, VA.
+Dreher, Axel, Fuchs, Andreas, Parks, Bradley, Strange, Austin M., Tierney, Michael J.,
+2018. Apples and dragon fruits: the determinants of aid and other forms of state
+ﬁnancing from China to Africa. Int. Stud. Q. 62, 182–194.
+Dreher, Axel, Lohmann, Steﬀen, 2015. Aid and growth at the regional level. Oxf. Rev.
+Econ. Pol. 31 (3–4), 420–446.
+Dreher, Axel, Nunnenkamp, Peter, Thiele, Rainer, 2011. Are ‘new’ donors diﬀerent?
+Comparing the allocation of bilateral aid between nonDAC and DAC donor
+countries. World Dev. 39 (11), 1950–1968.
+Dreher, Axel, Sturm, Jan-Egbert, Vreeland, James, 2009. Development aid and
+international politics: does membership on the UN security Council inﬂuence World
+Bank decisions? J. Dev. Econ. 88 (1), 1–18.
+Dreher, Axel, Yu, Shu, 2016. The Alma Mater Eﬀect. Does Foreign Education of Political
+Leaders Inﬂuence Foreign Policy? CEPR Discussion Paper No. 11450.
+Dreher, Axel, Fuchs, Andreas, Hodler, Roland, Parks, Bradley C., Raschky, Paul A., 2019.
+Is Favoritism a Threat to Chinese Aid Eﬀectiveness? A Subnational Analysis of
+Chinese Development Projects. Working Paper.
+Eichenauer, Vera Z., Fuchs, Andreas, Brückner, Lutz, 2018. The Eﬀects of Trade, Aid and
+Investment on China’s Image in Developing Countries. University of Heidelberg
+Department of Economics Discussion Paper Series No. 646. Heidelberg University,
+Heidelberg, Germany.
+Engelsma, Brian, Milner, Helen V., Shi, Weiyi, 2017. Political competition in recipient
+countries and the allocation of Chinese aid: evidence from Kenya and Zambia. In:
+Paper Prepared for the Tracking International Aid and Investment from Developing
+and Emerging Economies Workshop, Heidelberg University, 2017.
+Faye, Michael, Niehaus, Paul, 2012. Political aid cycles. Am. Econ. Rev. 102 (7),
+3516–3530.
+Figueiredo, Octavio, Guimaraes, Paulo, Woodward, Douglas, 2015. Industry
+concentration, distance decay, and knowledge spillovers: following the patent paper
+trail. J. Urban Econ. 89, 21–31.
+Findley, Michael G., Powell, Josh, Strandow, Daniel, Tanner, Jeﬀ, 2011. The localized
+geography of foreign aid: a new dataset and application to violent armed conﬂict.
+World Dev. 39 (11), 1995–2009.
+Francois, Patrick, Rainer, Ilia, Trebbi, Francesco, 2015. How is power shared in Africa?
+Econometrica 83 (2), 465–503.
+Francken, Nathalie, Minten, Bart, Swinnen, Johan F.M., 2012. The political economy of
+relief aid allocation: evidence from Madagascar. World Dev. 40 (3), 486–500.
+Frey, Bruno S., Schneider, Friedrich, 1986. Competing models of international lending
+activity. J. Dev. Econ. 20 (3), 225–245.
+Fuchs, Andreas, Müller, Angelika, 2018. Democracy and Aid Donorship. Kiel Working
+Paper No. 2113. Kiel Institute for the World Economy, Kiel, Germany.
+Fuchs, Andreas, Vadlamannati, Krishna Chaitanya, 2013. The needy donor: an empirical
+analysis of India’s aid motives. World Dev. 44, 110–128.
+Gehring, Kai, Kaplan, Lennart, Wong, Melvin H., 2018. Aid and Conﬂict at the
+Subnational Level—Evidence from World Bank and Chinese Development Projects
+in Africa. University of Heidelberg Department of Economics Discussion Paper 657.
+Heidelberg University, Heidelberg, Germany.
+Goemans, Hein E., Gleditsch, Kristian S., Chiozza, Giacomo, 2009. Introducing Archigos:
+a data set of political leaders. J. Peace Res. 46 (2), 269–283.
+Guimaraes, Paulo, Portugal, Pedro, 2010. A simple feasible alternative procedure to
+estimate models with high-dimensional ﬁxed eﬀects. STATA J. 10 (4), 628–649.
+Hamdi, Abdelrahim, 2005. Al-waraqa Al-Iqtisā diyya Li’l-Mu’tamar Alwatani Al-Hā kim
+Bi’l-Sudan (The Economic Paper for the ruling National Congress: Future of Foreign
+Investment in Sudan). Unpublished Manuscript. Khartoum, Sudan.
+Henderson, Vernon J., Storeygard, Adam, Weil, David N., 2012. Measuring economic
+growth from outer space. Am. Econ. Rev. 102 (2), 994–1028.
+Hendrix, Cullen, Noland, Marcus, 2014. Confronting the Curse: the Economics and
+Geopolitics of Natural Resource Governance. Peterson Institute for International
+Economics, Washington, DC.
+Hernandez, Diego, 2017. Are “new” donors challenging World Bank conditionality?
+World Dev. 96, 529–549.
+Hodler, Roland, Raschky, Paul A., 2014a. Regional favoritism. Q. J. Econ. 129 (2),
+995–1033.
+Hodler, Roland, Raschky, Paul A., 2014b. Economic shocks and civil conﬂict at the
+regional level. Econ. Lett. 124 (3), 530–533.
+Horowitz, Jeremy, Long, James, 2016. Strategic voting, information, and ethnicity in
+emerging democracies: evidence from Kenya. Elect. Stud. 44, 351–361.
+Hsiang, Solomon, Sekar, Nitin, 2016. Does Legalization Reduce Black Market Activity?
+Evidence from a Global Ivory Experiment and Elephant Poaching Data. NBER
+Working Paper 22314. NBER, Cambridge, MA.
+
+Acemoglu, Daron, Robinson, James, February 27, 2012. Fancy Schools. Why Nations
+Fail Blog. Available at: http://whynationsfail.com/blog/2012/2/27/fancy-schools.
+html. (Accessed 24 February 2015).
+Acht, Martin, Mahmoud, Toman Omar, Thiele, Rainer, 2015. Corrupt governments do
+not receive more state-to-state aid: governance and the delivery of foreign aid
+through non-state actors. J. Dev. Econ. 114, 20–33.
+African Development Bank (AfDB), Organisation for Economic Co-operation and
+Development (OECD), United Nations Development Programme (UNDP), United
+Nations Economic Commission for Africa (UNECA), 2011. African Economic
+Outlook 2011. AfDB, Tunis, Tunisia. Available at: http://www.afdb.org/ﬁleadmin/
+uploads/afdb/Documents/Generic-Documents/Media_Embargoed_Content/ENAEO_2011_embargo%206%20Juin.pdf. (Accessed 1 November 2014).
+AidData, 2015. Geocoded Data from the World Bank IBRD-IDA. Available at: http://
+aiddata.org. Version 1.0(Accessed 14 January 2015).
+Ahlerup, Pelle, Isaksson, Ann-Soﬁe, 2015. Ethno-Regional Favouritism in Sub-Saharan
+Africa. Kyklos 68 (2), 143–152.
+Alesina, Alberto, Dollar, David, 2000. Who gives foreign aid to whom and why? J. Econ.
+Growth 5 (1), 33–63.
+Bailey, Michael, Strezhnev, Anton, Voeten, Erik, 2017. Estimating dynamic state
+preferences from United Nations voting data. J. Conﬂict Resol. 61 (2), 430–456.
+Barkan, Joel D., Chege, Michael, 1989. Decentralising the state: district focus and the
+politics of reallocation in Kenya. J. Mod. Afr. Stud. 27 (3), 431–453.
+Barro, Robert, Lee, Jong-Wha, 2010. A New Data Set of Educational Attainment in the
+World, 1950–2010. J. Dev. Econ. 104, 184–198.
+Beck, Thorsten, Clarke, George, Groﬀ, Alberto, Keefer, Philip, Walsh, Patrick, 2001. New
+tools in comparative political economy: the database of political institutions. World
+Bank Econ. Rev. 15 (1), 165–176.
+BenYishay, Ariel, Parks, Bradley, Runfola, Daniel, Trichler, Rachel, 2016. Forest Cover
+Impacts of Chinese Development Projects in Ecologically Sensitive Areas. AidData
+Working Paper 32. AidData, Williamsburg, VA.
+Bräutigam, Deborah, November 1, 2011. Testimony on China’s Growing Role in Africa
+before the United States Senate Committee on Foreign Relations Subcommittee on
+African Aﬀairs. Available at: http://www.foreign.senate.gov/imo/media/doc/
+Deborah_Brautigam_Testimony.pdf. (Accessed 24 February 2015).
+Bräutigam, Deborah, 2012. China in Africa: investors, not infesters. China Econ. Q. 16
+(3), 22–27.
+Brazys, Samuel, Elkink, Johan A., Kelly, Gina, 2017. Bad neighbors? How Co-located
+Chinese and World Bank development projects impact local corruption in Tanzania.
+Rev. Int. Org. 12, 227–253.
+Briggs, Ryan C., 2012. Electrifying the base? Aid and incumbent advantage in Ghana. J.
+Mod. Afr. Stud. 50 (4), 603–624.
+Briggs, Ryan C., 2014. Aiding and abetting: project aid and ethnic politics in Kenya.
+World Dev. 64, 194–205.
+Bruederle, Anna, Hodler, Roland, 2018. Nighttime lights as a proxy for human
+development at the local level. PLoS One 13 (9), 1–22.
+Bueno de Mesquita, Bruce, Smith, Alastair, Silverson, Randolph M., Morrow, James D.,
+2003. The Logic of Political Survival. MIT Press, Cambridge, MA.
+Burgess, Robin, Jedwab, Remi, Miguel, Edward, Morjaria, Ameet, Padró i Miquel,
+Gerard, 2015. The value of democracy: evidence from road building in Kenya. Am.
+Econ. Rev. 105 (6), 1817–1851.
+Casey, Katherine, 2015. Crossing party lines: the eﬀects of information on redistributive
+politics. Am. Econ. Rev. 105 (8), 2410–2448.
+Center for International Earth Science Information Network (CIESIN), 2013. Global
+Roads Open Access Data Set, Version 1 (gROADSv1). Columbia University, and
+Information Technology Outreach Services—ITOS—University of Georgia. NASA
+Socioeconomic Data and Applications Center (SEDAC), Palisades, NY. Available at:
+https://doi.org/10.7927/H4VD6WCT.
+Chen, Chuan, Orr, Ryan, 2009. Chinese contractors in Africa: home government support,
+coordination mechanisms, and market entry strategies. J. Constr. Eng. Manag. 1135
+(11), 1201–1210.
+Clemens, Michael, Kremer, Michael, 2016. The new role for the World Bank. J. Econ.
+Perspect. 30 (1), 53–76.
+Cohen, John M., 1995. Ethnicity, Foreign Aid, and Economic Growth in Sub-saharan
+Africa: the Case of Kenya. HIID Development Paper No. 520. Harvard Institute for
+International Development, Cambridge, MA.
+Corkin, Lucy, 2011. Redeﬁning foreign policy impulses toward Africa: the roles of the
+MFA, the MOFCOM and China Exim Bank. J. Curr. Chin. Aﬀ. 40 (4), 61–90.
+Cruz, Cesi, Schneider, Christina J., 2017. Foreign aid and undeserved credit claiming.
+Am. J. Pol. Sci. 61 (2), 396–408.
+Cruz, Cesi, Keefer, Philip, Labonne, Julien, 2018a. Buying Informed Voters: New Eﬀects
+of Information on Voters and Candidates. Working Paper.
+Cruz, Cesi, Keefer, Philip, Labonne, Julien, Trebbi, Francesco, 2018b. Making Policies
+Matter: Voter Responses to Campaign Promises. NBER Working Paper 24785. NBER,
+Cambridge, MA.
+Davies, Martyn, Edinger, Hannah, Tay, Nastasya, Naidu, Sanusha, 2008. How China
+Delivers Development Assistance to Africa. Centre for Chinese Studies. University of
+Stellenbosch, Stellenbosch, South Africa.
+Davies, Ronald B., Klasen, Stephan, 2019. Darlings and orphans: interactions across
+donors in international aid. Scand. J. Econ. 121 (1), 243–277.
+Deininger, Klaus, Squire, Lyn, Basu, Swati, 1998. Does economic analysis improve the
+quality of foreign assistance? World Bank Econ. Rev. 12 (3), 385–418.
+De Luca, Giacomo, Hodler, Roland, Raschky, Paul A., Valsecchi, Michele, 2018. Ethnic
+favoritism: an axiom of politics? J. Dev. Econ. 132, 115–129.
+
+70
+
+A. Dreher et al.
+
+Journal of Development Economics 140 (2019) 44–71
+Naím, Moisés, 14 February 2007. Rogue Aid. Foreign Policy.
+National Geospatial-Intelligence Agency (NGA), 2011. World Port Index (Pub 150).
+National Geospatial-Intelligence Agency, Springﬁeld, VA. Available at: http://msi.
+nga.mil/NGAPortal.
+National Oceanic and Atmospheric Administration (NOAA), 2014. Version 4 DMSP-OLS
+Nighttime Lights Time Series. National Geophysical Data Center, Boulder, CO,
+(Accessed 5 April 2014).
+Nielson, Daniel L., Parks, Bradley, Tierney, Michael J., 2017. International organizations
+and development ﬁnance: introduction to the special issue. Rev. Int. Org. 12 (2),
+157–169.
+Nissanke, Machiko, Söderberg, Marie, 2011. The Changing Landscape in Aid
+Relationships in Africa: Can China’s Engagement Make a Diﬀerence to African
+Development. UI paper series 2011/2. Swedish Institute for International Aﬀairs,
+Stockholm, Sweden.
+Nunnenkamp, Peter, Öhler, Hannes, Sosa Andrés, Maximiliano, 2017. Need, merit and
+politics in multilateral aid allocation: a district-level analysis of World Bank projects
+in India. Rev. Dev. Econ. 21 (1), 126–156.
+OECD, 2015. Making Development Co-operation Fit for the Future: A Survey of Partner
+Countries. OECD Development Co-operation Working Paper No. 20. OECD, Paris,
+France. Available at: https://doi.org/10.1787/5js6b25hzv7h-en.
+Öhler, Hannes, Nunnenkamp, Peter, 2014. Needs-based targeting or favoritism? The
+regional allocation of multilateral aid within recipient countries. Kyklos 67 (3),
+420–446.
+Padró i Miquel, Gerard, 2007. The control of politicians in divided societies: the politics
+of fear. Rev. Econ. Stud. 74 (4), 1259–1274.
+Reisen, Helmut, Stijns, Jean-Philippe, 2011. Emerging Partners Create Policy Space for
+Africa. VoxEU.org. Available at: http://www.voxeu.org/article/how-emergingdonors-are-creating-policy-space-africa. (Accessed 1 November 2014).
+Reuters, 22 July 2018. China’s Xi Oﬀers Fresh $295 Million Grant to Sri Lanka.
+Robinson, James A., Torvik, Ragnar, 2016. Endogenous parliamentarism. J. Eur. Econ.
+Assoc. 14 (4), 907–942.
+Roessler, Phillip, 2013. Chinese Development Finance and Strategies of Political (And
+Territorial Survival in Sudan. The First Tranche. Available at: http://aiddata.org/
+blog/chinese-development-ﬁnance-and-strategies-of-political-and-territorialsurvival-in-sudan. (Accessed 27 August 2016).
+Santos Silva, João M.C., Tenreyro, Silvana, 2006. The log of gravity. Rev. Econ. Stat. 88
+(4), 641–658.
+State Council, 2014. China’s Foreign Aid. Beijing. Information Oﬃce of the State
+Council, China. Available at: http://news.xinhuanet.com/english/china/2014-07/
+10/c_133474011.htm. (Accessed 1 November 2014).
+Strandow, Daniel, Findley, Michael, Nielson, Daniel, Powell, Josh, 2011. The
+UCDP-AidData Codebook on Geo-Referencing Foreign Aid. Uppsala Conﬂict Data
+Program. Uppsala University, Uppsala, Sweden, Version 1.1.
+Strange, Austin M., Dreher, Axel, Fuchs, Andreas, Parks, Bradley, Tierney, Michael J.,
+2017. Tracking under-reported ﬁnancial ﬂows: China’s development ﬁnance and the
+aid-conﬂict nexus revisited. J. Conﬂ. Resolut. 61 (5), 935–963.
+Strange, Austin M., O’Donnell, Brian, Gamboa, Daniel, Parks, Bradley, Perla, Charles,
+2014. AidData’s Methodology for Tracking Under-reported Financial Flows.
+AidData, Williamsburg, VA.
+U.S. Geological Survey (USGS), 2005. Mineral Resources Data System. U.S. Geological
+Survey, Reston, VA.
+Verhoeven, Harry, 2015. Water, Civilisation and Power in Sudan. Cambridge University
+Press, Cambridge, UK.
+van de Walle, Nicolas, 2007. Meet the new boss, same as the old boss? The evolution of
+political clientelism in Africa. In: Herbert, K., Steven, I.W. (Eds.), Patrons, Clients,
+and Policies. Cambridge University Press, New York, NY, pp. 60–67.
+Wahman, Michael, Boone, Catherine, 2018. Captured countryside? Stability and change
+in sub-national support for African incumbent parties. Comp. Pol. 50 (2), 189–216.
+Wantchekon, Leonard, 2003. Clientelism and voting behavior: evidence from a ﬁeld
+experiment in Benin. World Polit. 55 (3), 399–422.
+Warner, Andrew, 2010. Cost-Beneﬁt Analysis in World Bank Projects. Independent
+Evaluation Group of the World Bank, Washington, DC.
+Weidmann, Nils B., Rød, Jan Ketil, Cederman, Lars-Erik, 2010. Representing ethnic
+groups in space: a new dataset. J. Peace Res. 47 (4), 491–499.
+World Bank, 1994. Operational policy (OP) 10.04: economic evaluation of investment
+Operations. In: World Bank Operational Manual: Operational Policies. World Bank,
+Washington, DC.
+World Bank, 2013. A Poverty Proﬁle for Sierra Leone. World Bank, Washington DC.
+Zhu, Xiao’ou, 2015. Demystifying the role of Chinese commercial actors in the shaping
+China’s foreign assistance: the case of post-war Sri Lanka. Stabil. Int. J. Secur. Dev. 4
+(1), 24.
+
+Ichino, Nahomi, Nathan, Noah L., 2013. Crossing the line: local ethnic geography and
+voting in Ghana. Am. Pol. Sci. Rev. 107 (2), 344–361.
+Inveen, Cooper, October 20, 2017. President’s Iron-Fist Methods Raise Fears for Future
+of Democracy in Sierra Leone. The Guardian.
+Isaksson, Ann-Soﬁe, Kotsadam, Andreas, 2018a. Chinese aid and local corruption. J.
+Public Econ. 159, 146–159.
+Isaksson, Ann-Soﬁe, Kotsadam, Andreas, 2018b. Racing to the bottom? Chinese
+development projects and trade union involvement in Africa. World Dev. 106 (C),
+284–298.
+Jablonski, Ryan S., 2014. How aid targets votes: the impact of electoral incentives on
+foreign aid distribution. World Polit. 66 (2), 293–330.
+Jansson, Johanna, 2013. The sicomines agreement revisited: Prudent Chinese banks and
+risk-taking Chinese companies. Rev. Afr. Polit. Econ. 40 (135), 152–162.
+Jenkins, Glenn P., 1997. Project analysis and the World Bank. Am. Econ. Rev. 87 (2),
+38–42.
+Khomba, Daniel C., Trew, Alex, 2017. Aid and Growth in Malawi. AidData Working
+Paper 42. AidData, Williamsburg, VA.
+Kilama, Eric, 2016. Evidences on donors competition in Africa: traditional donors versus
+China? J. Int. Dev. 28 (4), 528–551.
+Kimenyi, Mwangi S., 2006. Ethnicity, governance and the provision of public goods. J.
+Afr. Econ. 15, 62–99.
+Kilby, Christopher, 2009. The political economy of conditionality: an empirical analysis
+of World Bank loan disbursements. J. Dev. Econ. 89 (1), 51–61.
+Kilby, Christopher, 2017. What we don’t know: incorporating data uncertainty into aid
+allocation models. In: Paper Prepared for the Tracking International Aid and
+Investment from Developing and Emerging Economies Workshop. Heidelberg
+University.
+Kragelund, Paul, 2011. Emerging Partners and Governance: Does the Rise of Emerging
+Partnerships Increase Ownership of Development Policies and Widen the Policy
+Space for African Governments? Special African Economic Outlook 2011 Paper.
+OECD Development Centre, Paris, France.
+Kramon, Eric, 2017. Money for Votes: the Causes and Consequences of Electoral
+Clientelism in Africa. Cambridge University Press, Cambridge, UK.
+Kuziemko, Ilyana, Werker, Eric, 2006. How much is a seat on the security Council
+worth? Foreign aid and bribery at the United Nations. J. Political Econ. 114 (5),
+905–930.
+Labonne, Julien, 2016. Local political business cycles: evidence from Philippine
+municipalities. J. Dev. Econ. 121, 56–62.
+Li, Xiaojun, 2017. Does conditionality still work? China’s development assistance and
+democracy in Africa. Chin. Polit. Sci. Rev. 2 (2), 201–220.
+Lujala, Päivi, Rød, Jan Ketil, Thieme, Nadia, 2007. Fighting over oil: introducing a new
+dataset. Conﬂict Manag. Peace Sci. 24 (3), 239–256.
+Maizels, Alfred, Nissanke, Machiko K., 1984. Motivations for aid to developing
+countries. World Dev. 12 (9), 879–900.
+Martorano, Bruno, Metzger, Laura, Sanﬁlippo, Marco, 2018. Chinese Development
+Assistance and Household Welfare in Sub-saharan Africa. UNU-MERIT Working
+Paper 2018-012. UNU-MERIT, Maastricht, Netherlands.
+Marty, Robert, Dolan, Carrie, Leu, Mattias, Runfola, Daniel, 2017. Taking the health aid
+debate to the sub-national level: the impact and allocation of foreign health aid in
+Malawi. BMJ Glob. Health 2 e000129.
+Marty, Robert, Goodman, Seth, LeFew, Michael, Dolan, Carrie, BenYishay, Ariel,
+Runfola, Dan, 2019. Assessing the causal impact of Chinese aid on vegetative land
+cover in Burundi and Rwanda under conditions of spatial imprecision. Dev. Eng. 4
+100038.
+Marx, Benjamin, 2017. Elections as Incentives: Project Completion and Visibility in
+African Politics. Working Paper.
+Masaki, Takaaki, 2018. The political economy of aid allocation in Africa: evidence from
+Zambia. Afr. Stud. Rev. 61 (1), 55–82.
+McKinlay, Robert D., Little, Richard, 1977. A foreign policy model of US bilateral aid
+allocation. World Polit. 30 (1), 58–86.
+Michalopoulos, Stelios, Papaioannou, Elias, 2013. Pre-colonial ethnic institutions and
+contemporary African development. Econometrica 81 (1), 113–152.
+Michalopoulos, Stelios, Papaioannou, Elias, 2014. National institutions and subnational
+development in Africa. Q. J. Econ. 129 (1), 151–213.
+Moser, Christine, 2008. Poverty reduction, patronage or vote buying? The allocation of
+public goods and the 2001 election in Madagascar. Econ. Dev. Cult. Change 57 (1),
+137–162.
+Mu, Ren, Zhang, Xiaobo, 2014. Do elected leaders in a limited democracy have real
+power? Evidence from rural China. J. Dev. Econ. 107 (C), 17–27.
+Muchapondwa, Edwin, Nielson, Daniel, Parks, Bradley, Strange, Austin M., Tierney,
+Michael J., 2016. ‘Ground-Truthing’ Chinese development ﬁnance in Africa: ﬁeld
+evidence from South Africa and Uganda. J. Dev. Stud. 52 (6), 780–796.
+
+71
+
+

@@ -1,0 +1,5585 @@
+AIDDATA
+
+A Research Lab at William & Mary
+
+WORKING PAPER 46
+October 2017
+
+Aid, China, and Growth: Evidence from a New
+Global Development Finance Dataset
+
+Michael J. Tierney
+College of William & Mary and AidData
+
+Abstract
+This paper introduces a new dataset of official financing—including foreign aid and other forms of concessional and non-concessional state financing—from China to 138 countries between 2000 and 2014.
+We use these data to investigate whether and to what extent Chinese aid affects economic growth in
+recipient countries. To account for the endogeneity of aid, we employ an instrumental-variables strategy that relies on exogenous variation in the supply of Chinese aid over time resulting from changes
+in Chinese steel production. Variation across recipient countries results from a country’s probability of
+receiving aid. Controlling for year- and recipient-fixed effects that capture the levels of these variables,
+their interaction provides a powerful and excludable instrument. Our results show that Chinese official
+development assistance (ODA) boosts economic growth in recipient countries. For the average recipient
+country, we estimate that one additional Chinese ODA project produces a 0.7 percentage point increase
+in economic growth two years after the project is committed. We also benchmark the effectiveness of
+Chinese aid vis-á-vis the World Bank, the United States, and all members of the OECD’s Development
+Assistance Committee (DAC). Our results indicate that Chinese, U.S., and OECD-DAC ODA have positive
+effects on economic growth, but we find no robust evidence that World Bank aid promotes growth. We
+also find that, irrespective of the funding source, less concessional and more commercially-oriented types
+of official finance do not boost economic growth. Finally, we test the popular claim that significant financial support from China impairs the effectiveness of grants and loans from Western donors and lenders.
+Our results do not support this claim.
+JEL Classification: F35, F43, O19, O47, P33
+Keywords: China, Foreign Aid, Official Development Assistance, Aid Effectiveness, Economic Growth
+
+Author Information
+Axel Dreher
+Heidelberg University, Germany
+Andreas Fuchs
+Heidelberg University, Germany
+Bradley Parks
+College of William & Mary and AidData, USA
+Austin M. Strange
+Harvard University, USA
+Michael J. Tierney
+College of William & Mary and AidData, USA
+The views expressed in AidData Working Papers are those of the authors and should not be attributed
+to AidData or funders of AidData’s work, nor do they necessarily reflect the views of any of the many
+institutions or individuals acknowledged here.
+
+Acknowledgments
+The authors are grateful for generous support from the John D. and Catherine T. MacArthur Foundation,
+the William and Flora Hewlett Foundation, Humanity United, the Academic Research Fund of Singapore’s
+Ministry of Education, and the German Research Foundation (DFG) for ”The Economics of Emerging
+Donors in Development Cooperation” project at Heidelberg University (DR 640/5-1 and FU 997/1-1).
+We thank David Dollar, Quan Li, and participants at the ”Tracking International Aid and Investment from
+Developing and Emerging Economies” workshop held at Heidelberg University in September 2017 for
+comments on an earlier version of this paper. Excellent research assistance was provided by Melanie
+Aguilar-Rojas, Omar Alkhoja, Katherine Armstrong, Isabelle Baucum, Zach Baxter, Ellie Bentley, Liliana
+Besosa, Abegail Bilenkin, Allison Bowers, Ariel Cadby-Spicer, Emma Cahoon, Bree Cattelino, Alex Chadwick, Ava Chafin, Anissa Chams-Eddine, Tina Chang, Harrison Chapman, Yining Chen, Yuning Chen,
+Zihao Chen, Mengfan Cheng, Michelle Cheng, Tiffanie Choi, Miranda Clarke, Kate Connors, Graeme
+Cranston-Cuebas, Catherine Crowley, Hali Czosnek, Jenna Davis, Alex DeGala, Hannah Dempsey, Harsh
+Desai, Weiwei Du, Ashton Ebert, Caleb Ebert, Aili Espigh, Claire Etheridge, Ze Fu, Wesley Garner, Melanie
+Gilbert, Elizabeth Goldemen, Zijie Gong, Grace Grains, Liz Hall, Thompson Hangen, Sarah Harmon, Ethan
+Harrison, Collin Henson, Jasmine Herndon, Elizabeth Herrity, Gabrielle Hibbert, Carlos Holden-Villars,
+Keith Holleran, Weijue Huang, Daniel Hughes, Torey Beth Jackson, Jiaorui Jiang, Emmaleah Jones, Amar
+Kakirde, Naixin Kang, Ciera Killen, Ian Kirkwood, Emily Koerner, Dylan Kolhoff, Lidia Kovacevic, Martyna
+Kowalczyk, Mirian Kreykes, Dinu Krishnamoorthi, Isabella Kron, Karthik Kumarappan, Daniel Lantz, Caroline Lebegue, Jade Li, Yuwei Li, Yaseen Lofti, Adriane Lopez, Flynn Madden, Sarah Martin, George Moss,
+Marie Mullins, Qiuyan Ni, Jack Nicol, Brendan O’Connor, Alexandra Pancake, Carol Peng, Grace Perkins,
+Charles Perla, Sophia Perrotti, Andrea Powers, Han Qiao, Kamran Rahman, Sarah Reso, David Rice, Natalie
+Santos, Faith Savaiano, Dominic Scerbo, Leigh Seitz, William Shangraw, Kaitlan Shaub, Samuel Siewers,
+Kyra Solomon, Yifan Su, Elizabeth Sutterlin, Mahathi Tadikonda, Joanna Tan, Rebecca Thorpe, Jessica
+Usjanauskas, Emily Walker, Yale Waller, Katherine Walsh, Xinyi Wang, Jason (Jiacheng) Xi, Hanyang Xu,
+Darice Xue, Erya Yang, Gaohang Yao, Antonio Tianze Ye, Lincoln Zaleski, Jack Zhang, Yue Zhang, Echo
+Zhong, Joana Zhu, and Junrong Zhu.
+
+Contents
+1. Introduction ...................................................................................................................................................... 1
+2. A New Global Chinese Development Finance Dataset .............................................................................. 6
+3. Empirical Strategy .......................................................................................................................................... 11
+4. Main Results.................................................................................................................................................... 19
+5. Does Chinese Aid Harm the Effectiveness of Western Aid? .................................................................... 23
+6. Conclusions .................................................................................................................................................... 26
+References ........................................................................................................................................................... 30
+Tables and Figures ............................................................................................................................................. 36
+Appendix A: The Tracking Underreported Financial Flows (TUFF) Methodology .................................... 46
+Appendix B: Additional Tables and Figures in Section 2 .............................................................................. 49
+Appendix C: Additional Tables and Figures in Section 3 .............................................................................. 55
+Appendix D: Alternative Instruments for Western Aid .................................................................................. 58
+
+“Africa is beginning to do well economically. One of the main reasons for [this] turnaround in the
+economic fate of Africa is the emergence of the emerging nations in general and China in particular.”
+- Melas Zenawi, former Prime Minister of Ethiopia, 2012
+
+1. Introduction
+1
+
+Evidence on the effects of aid on economic growth is mixed. Some studies present evidence of
+positive impacts (Clemens et al. 2012; Galiani et al. 2017). Others detect null effects (Rajan and
+Subramanian 2008; Doucouliagos and Paldam 2009; Dreher and Langlotz 2017). Still others find that
+aid accelerates growth only under specific conditions (Burnside and Dollar 2000; Ouattara and Strobl
+2008; Minoiu and Reddy 2010; Minasyan et al. 2017). Virtually all of these studies evaluate the
+overseas development activities of Western donors and multilateral development banks, such as the
+2
+
+World Bank. These donors and lenders have wide-ranging interests and objectives (e.g., responding
+to public health challenges, providing relief to internally displaced persons, protecting biodiversity,
+removing land mines, or cementing military alliances), many of which are orthogonal or only loosely
+related to the goal of catalyzing economic growth.
+
+However, these established donors and lenders no longer dominate the development finance market
+(Dreher et al. 2011; Walz and Ramachandran 2011; Custer et al. 2015; Fuchs and Müller 2017).
+Countries like Brazil, China, India, Iran, and Saudi Arabia now spend billions of dollars throughout the
+developing world to build roads, dams, bridges, railways, airports, seaports, and electricity grids.
+China, in particular, has positioned itself as a leading global financier of the “hardware” of economic
+development. The scale and scope of its overseas infrastructure activities now rival or exceed that of
+other major donors and lenders. Its flagship “One Belt, One Road” (OBOR) initiative—a “Belt” of road,
+rail, port, and pipeline projects that create an infrastructure corridor from China to Central Asia and
+Europe and a “Maritime Silk Road” that links China to South and Southeast Asia, the Middle East, and
+Africa through a series of deep-water ports along the littoral areas of the Indian Ocean—has “little
+precedent in modern history, promising more than $1 trillion in infrastructure and spanning more than
+3
+
+60 countries” (Perlez and Huang 2017). Between 2000 and 2014, the Chinese government committed
+1
+
+For recent surveys of the aid effectiveness literature, see Werker (2012), Dreher et al. (2017), and Doucouliagos (forthcoming).
+
+2
+
+Throughout this study, we refer to the United States, other donors of the OECD’s Development Assistance Committee (DAC),
+and the World Bank as “Western” donors. We use these terms interchangeably with the terms “traditional” and “established.”
+3
+
+Beijing also invests significantly in health, education, water and sanitation, agriculture, and other social and productive sectors.
+1
+
+more than U.S.$350 billion in official finance to 140 countries and territories in Africa, Asia and the
+4
+
+Pacific, Latin America and the Caribbean, the Middle East, and Central and Eastern Europe. China’s
+annual provision of official finance now rivals that of the United States (see summary statistics in
+Section 3), and in some countries, China has become the single largest source of official finance
+(Campbell et al. 2012; Greenhill 2013).
+
+China’s emphasis on economic and social infrastructure stands in contrast to Western suppliers of
+development finance, which have scaled back their involvement in the infrastructure sector (Dollar
+2008; Hicks et al. 2008; Tierney et al. 2011). Infrastructural investments can ease key constraints to
+economic growth and spur growth accelerations (Deininger and Okidi 2003; Calderón and Servén
+2010a, 2010b; Khandker et al. 2013, 2014).
+
+Therefore, it is plausible that Chinese aid might have
+
+stronger economic growth impacts than aid from other bilateral and multilateral donors.
+
+However, there are also major differences in the types of “aid” that China and its Western counterparts
+provide to developing countries, and these compositional differences may enhance or diminish the
+economic growth effects of any financial support that is supplied. China, as we document in this study,
+provides relatively little aid in the strictest sense of the term (development projects with a grant
+element of 25 percent or higher). A large proportion of the financial support that China provides to
+other countries comes in the form of export credits and market or close-to-market rate loans. Western
+donors and lenders, on the other hand, generally provide development finance on highly concessional
+terms and have less aggressive export credit programs.
+
+On the other hand, some analysts argue that Chinese “aid” will likely dampen the growth prospects of
+5
+
+its recipient and borrower countries (Crouigneau and Hiault 2006; Onjala forthcoming). First, if China
+finances unproductive, “white elephant” capital investment projects that deliver weak financial and
+4
+
+These estimates are derived from the dataset described in Section 2 of this paper. Official finance consists of Official
+Development Assistance (ODA), which is the strictest definition of aid used by OECD-DAC members, and Other Official Flows
+(OOF). Whereas the former must have development intent and a minimum level of concessionality (a 25 percent or higher grant
+element), the latter lacks development intent and/or the level of concessionality that is required of ODA.
+5
+
+Tonga provides a case in point. As explained by Brant (2015), “[c]oncessional loans from China account for 65 percent of the
+nation’s debt stock, and it will be difficult for Tonga to service these debt obligations. Despite high-level overtures to Beijing,
+former Tongan Prime Minister Lord Tu'ivakano was unsuccessful in having these loans converted to grants. Repayment of one
+loan set to begin in 2013–14 would have accounted for over 17 percent of government revenue. China recently agreed to defer
+repayments for five years, but the original 20-year loan term does not change, meaning that annual repayments will be larger
+when they begin in 2018–19. Pacific Island communities are wondering what will happen if they cannot repay.”
+2
+
+economic returns, host governments may find it difficult to service their debts and cover their recurrent
+expenditures (Christiansen 2010; Dabla-Norris et al. 2012). They might also find themselves using
+more public funding than would otherwise be necessary to rehabilitate infrastructure that has fallen
+into a state of disrepair. Second, if a host government contracts excessive amount of debt through
+Chinese loans, it could deter foreign investment (Claessens et al. 1996; Pattillo et al. 2003; Ahlquist
+2006). Third, a host government that has taken on a high level of Chinese debt might experience
+foreign exchange shortages, which can lead to import shortages and constrain export growth (Iyoha
+1999). Fourth, unsustainable debt levels can lead to expectations of inflation and exchange rate
+depreciation (Fischer 1993). Any or all of these factors could reduce economic growth (Kumar and
+Woo 2010).
+
+6
+
+However, in spite of the increasingly important role that concessional and non-concessional state
+financing from China plays in many countries around the world, no studies have rigorously analyzed
+7
+
+the effectiveness of Chinese “aid” with global, cross-country panel data. The reason for this gap in the
+literature follows from the absence of comprehensive data. China’s government considers its
+international development finance program to be a “state secret” (Bräutigam 2009: 2). It does not
+disclose comprehensive or detailed information about the overseas development projects that it
+8
+
+funds. Nor does it publish a bilateral breakdown of its international development finance activities.
+
+We address this information gap by introducing a new dataset of official financing—including foreign
+aid and other forms of concessional and non-concessional state financing—from China to five major
+world regions (Africa, the Middle East, Asia and the Pacific, Latin America and the Caribbean, and
+Central and Eastern Europe) over the 2000-2014 period. This dataset was constructed with the
+Tracking Underreported Financial Flows (TUFF) methodology developed by Strange et al. (2017a,
+2017b), which triangulates information from four types of sources—English, Chinese and
+local-language news reports; official statements from Chinese ministries, embassies, and economic
+
+6
+
+Kumar and Woo (2010) estimate that, on average, a ten-percentage point increase in a country’s debt-to-GDP ratio yields a
+reduction in annual per capita income growth of 0.2 percentage points.
+7
+
+Dreher et al. (2016) focus on the localized economic development effects of Chinese aid within African countries only. Busse et
+al. (2016) analyze the growth effects of Chinese aid in Africa. However, they address endogeneity concerns with a GMM method
+that relies on internal instruments which are unlikely to be excludable.
+8
+
+These data likely have not been published by the Chinese government for reasons related to political will and capacity. On
+these points, see Lancaster (2007) and Strange et al. (2013).
+3
+
+and commercial counselor offices; the aid and debt information management systems of finance and
+planning ministries in counterpart countries; and case study and field research undertaken by scholars
+and NGOs—in order to minimize the impact of incomplete or inaccurate information. The dataset
+includes 4,304 projects financed with Chinese official development assistance (ODA) and other official
+flows (OOF) in 138 countries and territories around the world. We then use this novel dataset to
+estimate the effect of “Chinese aid” on recipient-country economic growth and on the effectiveness of
+financial support from more established donors and lenders.
+
+9
+
+More specifically, we seek to answer four questions. First, does the receipt of Chinese aid promote
+economic growth? Second, which types of Chinese aid are most effective on this dimension? Third,
+how do the growth effects of Chinese aid compare to those of Western donors and lenders? Fourth,
+does China’s aid undermine the effectiveness of Western donors and lenders?
+
+To identify whether and to what extent Chinese aid affects economic growth, we use a variant of an
+instrumental variable (IV) suggested in Dreher et al. (2016) for aid committed to subnational regions
+within African countries: the annual production volume of Chinese steel interacted with the recipient
+province’s probability of receiving aid. The Chinese government considers steel to be a strategically
+important commodity and therefore maintains excess production capacity. This policy choice by the
+Chinese government results in a surplus of steel, some of which China uses for aid projects around the
+world (Dreher et al. 2016). In years when production volumes are high, China’s supply of aid is also
+higher. We follow Nunn and Qian’s (2014) study on U.S. food aid and conflict to estimate which share
+of this year-to-year change in supply of aid transmits to a specific recipient country. To this end, we
+calculate the share of years during our sample period in which a country received positive amounts of
+Chinese aid. We expect countries with a higher probability of receiving aid from China will be more
+severely affected by year-to-year fluctuations in the supply of Chinese aid resulting from its production
+of steel.
+
+9
+
+For ease of exposition, we will use the term “aid” in this paper to refer broadly to any types of official finance from a donor (or
+lender) to a recipient (or borrower). In cases when we wish to reference the narrower (OECD-DAC) definition of aid, we use the
+term Official Development Assistance (ODA). In cases when we wish to reference concessional and non-concessional official
+financing that does not qualify as ODA, we use the term Other Official Flows (OOF). Finally, when we wish to reference the sum
+of ODA and OOF, we use the term Official Finance (OF).
+4
+
+The intuition of our strategy is akin to that of a difference-in-difference approach, since we investigate
+a differential effect of Chinese steel production on the amount of aid to countries with a high
+(compared to a low) probability of receiving Chinese aid. The identifying assumption is that growth in
+countries with differing probabilities of receiving aid will not be affected differently by changes in steel
+production, other than via the impact of aid, controlling for recipient-country- and year-fixed effects
+and the other variables in the model. In other words, as in any difference-in-difference setting, we rely
+on an exogenous treatment and the absence of different pre-trends across groups. Controlling for
+period-fixed effects, Chinese steel production cannot be correlated with the error term and is thus
+exogenous to aid. For different pre-trends to exist, these trends across countries with a high compared
+to a low probability of receiving aid would have to vary in tandem with period-to-period changes in
+steel production. We test this possibility below. We apply this strategy across two types of Chinese
+official financing—ODA and less concessional and more commercially-oriented financial flows (OOF).
+
+10
+
+We do so in the aggregate as well as across different aid sectors.
+
+To facilitate comparisons between China and other donors and lenders, we also provide estimates of
+whether aid from the United States, the OECD-DAC as a whole, and the World Bank affect economic
+growth. For each of these donors and lenders, our identification strategies rely on variation over time
+that comes from the respective aid budgets of each donor. Variation across recipients results from the
+recipients’ probability of receiving aid. Broadly following Temple and Van de Sijpe (2017), our
+instrument is the respective donor’s aid budget interacted with each recipient country’s probability of
+receiving aid. We also apply this instrument to China, so that we use the same type of instrument for all
+four donors. While aid budgets are arguably less exogenous than China’s steel production, this
+approach has the advantage of producing comparable local average treatment effects (LATE) across
+11
+
+donors.
+
+After comparing how aid from these donors impacts economic growth in recipient countries, we turn
+to the popular but untested claim that Chinese foreign aid might undermine the effectiveness of
+Western aid (e.g., Naím 2007; Brazys et al 2017). We perform several statistical tests that examine
+whether aid from Western donors registers different levels of economic growth in countries that are
+10
+
+For an extended discussion of the differences between the types of Chinese development finance see Dreher et al.,
+forthcoming,a.
+11
+
+For ease of exposition, we will use the term “donors” to refer to both donors and lenders in the empirical section of the paper.
+5
+
+Chinese “aid darlings”—major recipients of aid from Beijing—and other countries that have not received
+large amounts of Chinese aid.
+
+Our results suggest that Chinese ODA boosts short-term economic growth in recipient countries. In
+contrast, we find no evidence that the same is true for less concessional and more commercially
+oriented forms of Chinese official finance (OOF). Comparing Chinese aid with aid flows from the
+United States, OECD-DAC, and World Bank, we find no evidence that Chinese aid is inferior to aid
+from established donors on economic growth grounds. Nor do our results provide any evidence that
+Chinese aid undermines the economic growth effects of aid from Western donors.
+
+We proceed in the following manner. In Section 2, we introduce the first global, project-level database
+of Chinese official finance. We also provide a descriptive overview of China’s official finance activities
+around the world. In Section 3, we introduce our instrumental-variables approach to estimate the
+possible causal effects of Chinese aid on growth. We also elaborate the identification strategies used
+to compare the growth effects of Chinese and Western aid. In Section 4, we present our main results
+and discuss their implications. Section 5 investigates the potential effects of Chinese aid on the
+effectiveness of Western aid. We conclude the paper in Section 6 with a discussion of avenues for
+future research.
+
+2. A New Global Chinese Development Finance Dataset
+In this paper, we introduce a new dataset that measures foreign aid and other forms of concessional
+and non-concessional state financing from China to the developing world between 2000 and 2014.
+More specifically, the dataset captures ODA and OOF from China to 138 countries and territories in
+five regions of the world: Africa, the Middle East, Asia and the Pacific,
+13
+
+Caribbean, and Central and Eastern Europe.
+
+12
+
+Latin America and the
+
+It includes 4,304 Chinese development projects (worth
+
+approximately U.S.$351 billion) that were officially committed, in implementation, or completed
+between 2000 and 2014. The dataset also includes 630 pledges of support worth an estimated
+
+12
+
+We further subdivide this world region into Central and North Asia, South Asia, Southeast Asia, and the Pacific.
+
+13
+
+The full datasets include data on Chinese ODA and OOF to 140 countries and territories. However, Kiribati received only one
+project and it was cancelled, which is why it does not appear in the above statistic. We also exclude Palestine from our analysis.
+6
+
+U.S.$137 billion. We could not find evidence that these projects reached the official commitment
+stage, and exclude these records from our analysis.
+
+14
+
+Figure 1 illustrates the distribution of project
+
+status over time. Unsurprisingly, projects announced in recent years are less likely to have reached the
+completion stage than those announced in earlier years.
+
+The dataset was constructed using the TUFF methodology. This methodology was initially developed
+by several authors of this paper—in collaboration with AidData, a research lab at the College of William
+& Mary (Strange et al. 2017b). It codifies a set of open-source data collection procedures that make it
+possible to identify detailed financial, operational, and locational information about officially financed
+projects that are not voluntarily or systematically recorded by sovereign donors and lenders through
+international reporting systems, such as the OECD’s Creditor Reporting System (CRS) or the
+International Aid Transparency Initiative (IATI). This methodology, which is described at greater length
+in Appendix A and Strange et al. (2017b), standardizes and synthesizes large volumes of information
+primarily from four sources: English, Chinese and local-language news reports; documents from
+Chinese ministries, embassies, and economic and commercial counselor offices; the aid and debt
+information management systems of finance and planning ministries in counterpart countries; and
+case study and field research undertaken by scholars and NGOs. It represents a systematic,
+transparent, and replicable way of tracking the identifiable universe of projects financed by donors
+and lenders who do not publish official finance data at the project level. The methodology and the
+datasets that it has produced have been subjected to peer-review, stress-tested, and substantially
+improved over time (e.g., Muchapondwa et al. 2016; Strange et al. 2017a; Dreher et al. forthcoming,a).
+
+TUFF-derived data have now been used in dozens of publications in economics and political science
+(e.g., Hendrix and Noland 2014; Dreher and Fuchs 2015; Hsiang and Sekar 2016; Kilama 2016;
+Hernandez 2017; Strange et al. 2017a). The first empirical application of the TUFF methodology was a
+dataset that measured 21st-century Chinese official financial flows to Africa (Strange et al. 2013,
+2017a). This dataset has been used to study China’s motivations for aid giving in Africa and the
+intended and unintended impacts of these financial flows in one region of the world (BenYishay et al.
+
+14
+
+The dataset also includes 44 projects worth approximately U.S.$38 billion that were suspended or cancelled; and so-called
+“umbrella” projects that cover a number of specific sub-projects, of which 348 reached commitment stage (worth approximately
+U.S.$237 billion). We also exclude all of these project records from our analysis and from the descriptive statistics presented in
+this paper.
+7
+
+2016; Blair and Roessler 2016; Isaksson and Kotsadam 2016; Brazys et al. 2017; Hernandez 2017;
+Strange et al. 2017a; Dreher et al. forthcoming,a). Apart from the study of contemporary Chinese aid,
+researchers have adapted and applied the TUFF methodology to identify grants and loans from Gulf
+Cooperation Council (GCC) members (Minor et al. 2014), under-reported humanitarian assistance
+flows from Western and non-Western sources (Ghose 2017), foreign direct investment from Western
+and non-Western sources (Bunte et al. 2017), and pre-2000 foreign aid flows from China to Africa
+(Morgan and Zheng 2017).
+
+The dataset introduced and used in this paper builds upon and expands the geographical and
+temporal scope of the earlier dataset of Chinese official financial flows to Africa constructed in
+collaboration with AidData (see Strange et al. 2017a). The global patterns of Chinese aid allocation
+described in this section demonstrate some striking similarities with Chinese aid allocation in Africa,
+but they also capture some important substantive differences across regions and time.
+
+The dataset allows one to distinguish between three different types of Chinese official finance.
+“ODA-like” projects are comparable to ODA in that they are nominally intended to promote economic
+or social development and they are provided at levels of concessionality that are consistent with the
+ODA criteria established by the OECD-DAC. “OOF-like” projects are also financed by the Chinese
+government, but either have a non-developmental purpose or are insufficiently concessional to qualify
+as ODA. “Vague Official Finance (OF)” projects represent official financial flows where there is
+insufficient open-source information to make a clear determination as to whether the flows are more
+akin to ODA or OOF (Dreher et al. forthcoming,a). Figure 2 presents the distribution of these three
+categories of Chinese official finance over time. The graph in the left panel demonstrates that the vast
+majority of Chinese projects each year are ODA-like. However, as the right panel shows, these projects
+represent only 21 percent of total Chinese official finance in financial terms between 2000 and 2014.
+
+These patterns make more sense when one analyzes the sectoral distribution of Chinese official
+finance.
+
+15
+
+The conventional wisdom—that China funds the “hardware” of development—is consistent
+
+with the descriptive statistics in Figure 3, which ranks sectors by the number of dollars committed.
+China invests significantly more money in the “hardware” areas of energy generation, transportation,
+15
+
+We use 3-digit sector classifications based on OECD purpose codes.
+8
+
+industry, mining, and construction than it does on the “software” side of development in sectors like
+education, health, and governance. However, a measure of project counts, rather than dollar amounts,
+paints a very different picture, as can be seen in the same figure. Because the size of “software”
+projects are substantially smaller than the large hardware projects that dominate the news, the
+measure using project counts actually shows health, education, and governance as the most
+prominent sectors. These smaller, software projects are disproportionately ODA-like, while the large
+infrastructure projects tend to be funded with OOF-like loans (see Appendix B1).
+
+A nuanced pattern also emerges when one examines the countries that receive the “most” Chinese
+official finance. The Chinese State Council’s official White Papers from 2011 and 2014 claim that the
+vast majority of Chinese aid flows to Africa, rather than other regions of the world.
+
+16
+
+This view is
+
+reinforced by press accounts (Poplak 2016) and academic sources (Alden 2006; Carmody 2016: ch. 3)
+that emphasize a new, Chinese-led “scramble for Africa” in the 21st century. This is also what one
+observes in our global dataset (see Appendix B2). African countries received a large proportion (59
+percent) of the total number of projects financed by China between 2000 and 2014. Seven of the
+top-ten recipient countries are African countries (Appendix B3).
+
+However, a very different picture emerges when one counts total dollars, rather than projects,
+committed. These cross-country rankings reflect the fact that the number of “mega-projects” in
+Southeast Asia, the former Soviet Union, and Latin America dwarfs the number of “mega-projects” in
+Africa.
+
+17
+
+Of the 25 largest Chinese projects in financial terms, only six are located in Africa and the
+
+largest is #13 on that list (see Appendices B4 and B5 for details). More broadly, if one measures the
+average size of officially-financed Chinese projects in terms of constant dollars, only one African
+18
+
+country is on the list of top 20 recipients (South Africa at #8; see also Appendix B6).
+
+In Figures 4 and
+
+16
+
+China’s 2014 White Paper (State Council 2014) puts total annual foreign aid from China at about U.S.$4.8 billion (U.S.$14.41
+billion over 2010-2012). Kitano (2016) arrives at a slightly higher estimate of U.S.$5.2 billion (in 2012). The dataset introduced in
+this paper can be used to generate an estimate of global, annual Chinese ODA. Our estimate of average annual Chinese ODA
+(from 2000-2012), which is measured as the sum of all officially committed projects, projects in implementation, and completed
+projects during this time period, is $4.96 billion. Therefore, our global estimates of Chinese ODA are quite similar to those
+produced by Kitano (2016) and the Chinese government itself. However, it should be noted that neither Kitano (2016) nor the
+Chinese Government separately measures other sources of Chinese official financing (i.e., OOF). A major advantage of our
+dataset is that it is at the project level, which allows for analysis at various levels of disaggregation.
+
+17
+
+We define “mega-projects” as those projects whose financial value exceeds U.S.$ 1 billion.
+
+18
+
+Appendix B7 shows the top-ten recipients of total Chinese official finance from 2000-2014. If no country in a particular region
+is ranked in the top 10, we list the highest ranked country in each region along with its rank and the total amount of Chinese
+9
+
+5, we present maps of the global allocation of Chinese official finance, which further highlights
+differences in the geographic allocation of resources depending on whether one considers the
+number of committed projects or their reported financial values.
+
+In addition to illustrating the broad empirical patterns that emerge from this new dataset, we want to
+draw attention to several limitations related to missing data that one needs to keep in mind while
+conducting analysis. First, as described above, because of insufficiently specific information in the
+underlying data sources, roughly 8 percent of the project records and almost 16 percent of the project
+dollars are coded as “Vague Official Finance.” These projects are officially financed, but it is not
+possible (based upon the underlying source documentation) to make a clear determination of whether
+they qualify as ODA or OOF. Therefore, one needs to explicitly account for this uncertainty.
+
+19
+
+Second, a substantial and increasing proportion of project records lack information about the financial
+amounts committed. The percentage of projects that are missing financial amounts ranges from 20
+percent in 2001 to 48 percent in 2014 (Appendix B8). Some types of flows are particularly likely to lack
+financial amounts. For example, over 90 percent of projects that support technical assistance activities
+and scholarships lack financial amounts. However, loans include financial amounts 92 percent of the
+time. This missing data problem should be a second-order problem for researchers interested in the
+aggregate effects of aid on outcomes since loans (where financial information is mostly complete) are
+typically the largest flows, while technical assistance projects and scholarships (where financial
+information is relatively incomplete) tend to be small-scale flows (Appendix B9).
+
+A third missing data problem is the incomplete coverage of the Chinese government institutions that
+financed the projects in the dataset. While the dataset identifies dozens of funding agencies within the
+Chinese government (including various ministries, Chinese embassies, policy banks, state-owned news
+agencies), 78 percent of the project records, which reflect 20 percent of the financial value tracked in
+official finance allocated to that country as it appears in the dataset. The most important recipient of Chinese official finance is
+Russia, followed by Pakistan and Angola.
+19
+
+In this paper, we do so by separately analyzing the effects of Chinese ODA and OOF, where we include Vague OF flows in the
+latter. We think it is reasonable to assume that most Vague OF is actually OOF since many of the observable attributes of
+projects coded as Vague OF (e.g., projects in the infrastructure and economic production sectors, projects financed with loans,
+projects financed by China Development Bank and China Exim Bank) resemble the attributes of OOF projects more so than
+ODA projects. Therefore, comparisons of the effects of Chinese ODA and OOF (including Vague OF) should help reveal
+differences in the effects of Chinese ODA and OOF.
+10
+
+the dataset, lack information about the main funding agency responsible for the project. To the extent
+that the effectiveness of Chinese aid is conditional upon variation in the Chinese government
+institutions that fund aid projects, this is another limitation of the data that must be acknowledged.
+
+20
+
+Finally, it should be noted that the TUFF methodology may be subject to some degree of detection
+bias—in terms of its ability to identify projects and project financial amounts in countries where English
+is not the official language (Dreher et al. forthcoming,a; Kilby 2017). However, Muchapondwa et al.
+(2016) use a “ground-truthing” methodology in Uganda and South Africa to test the reliability of the
+TUFF methodology and find a generally high level of correspondence between the Chinese
+development project data collected through the TUFF methodology and the data collected through
+the systematic application of field-based data collection protocols by local enumerators. They also find
+that the TUFF methodology is able to identify significantly more projects than field-based methods.
+
+3. Empirical Strategy
+Leveraging this new dataset, we now analyze the causal effects of Chinese aid on economic growth in
+all recipient countries that are not classified by the World Bank as high-income countries.
+
+21
+
+Our
+
+empirical approach follows Dreher et al.’s (2016) analysis of how Chinese aid affects economic
+development at the local level within African countries. We estimate the following regression equation:
+
+𝐺𝑟𝑜𝑤𝑡ℎ!,! = β! 𝐴𝑖𝑑!"#,!,!!! + β! 𝑝𝑜𝑝!,!!! + β! 𝜂! + β! 𝜇! + 𝜀!,! ,
+
+(1)
+
+where Growthi,t is recipient country i’s yearly real GDP per capita growth in year t; AidCHN,i,t-2 is a
+measure of Chinese aid commitments two years before; 𝑝𝑜𝑝!,!!! stands for the recipient country’s
+(logged) population size, 𝜂! and 𝜇! represent country- and year-fixed effects, respectively, and ԑ is
+the error term. Standard errors are clustered at the recipient-country level.
+
+20
+
+We are partially able to address this limitation by decomposing Chinese official finance and separately analyzing Chinese
+ODA and OOF, as MOFCOM is known to provide the bulk of China’s ODA while OOF projects are often financed by China Exim
+Bank and China Development Bank.
+
+21
+
+See https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lendinggroups
+accessed September 13, 2017).
+11
+
+(last
+
+We use two measures of 𝐴𝑖𝑑!"#,!,!!! : the logged financial value of Chinese aid projects and the
+number of Chinese aid projects.
+
+22
+
+The former comes with the obvious advantage that it accounts for
+
+the size of projects. However, one important caveat is that 39 percent of the projects lack information
+on their financial value. While we present results using financial values of Chinese aid projects, we test
+the robustness of our results using counts of the number of projects.
+
+Of course, Chinese aid may be endogenous to economic growth. One likely source of endogeneity is
+reverse causation in which recipient economic features influence Chinese aid allocation. On the one
+hand, the Chinese government might provide more aid to poorer countries, which would be in line
+with its official goal to make “great efforts to ensure its aid benefits as many needy people as possible”
+(State Council 2011). On the other hand, the Chinese government might prefer to channel more aid to
+wealthy countries if these recipients provide more attractive commercial opportunities (Dreher et al.
+forthcoming,a).
+
+23
+
+It should also be noted that a large number of variables that are excluded from our
+
+models are potentially correlated with Chinese aid as well as with economic growth, introducing
+omitted variables bias.
+
+To account for endogeneity concerns, we employ an instrumental-variables strategy. Specifically, we
+estimate the following first-stage regression:
+
+𝐴𝑖𝑑!"#,!,!!! =γ! 𝑆𝑡𝑒𝑒𝑙!!! ∗ 𝑝!"#,! +γ! 𝑝𝑜𝑝!,!!! + γ! 𝜂! + γ! 𝜇! + 𝑢!,!!! .
+
+(2)
+
+Our instrument for AidCHN,i,,t-2 is the interaction of (lagged and logged) Chinese steel production
+𝑆𝑡𝑒𝑒𝑙!!! , which varies over time, and the probability of receiving Chinese aid 𝑝!"#,! , which varies across
+recipient countries. We calculate the probability of receiving Chinese aid as the share of years during
+24
+
+More
+
+!"
+!!! 𝑝!"#,!,! ,
+
+where
+
+our sample period (2000-2014) a country has received positive amounts of Chinese aid, 𝑝!"#,! .
+precisely, we define the probability of receiving aid from China as 𝑝!"#,! =
+
+22
+
+!
+!"
+
+Note that we added a value of one before taking logs, in order to not lose observations with zero aid.
+
+23
+
+Empirical research on Chinese aid allocation demonstrates a strong, negative correlation between Chinese ODA and the
+per-capita income of recipient countries (Dreher and Fuchs 2015; Dreher et al. forthcoming,a). However, Chinese OOF (in
+Africa) tends to favor creditworthy countries (with higher loan repayment capacity) and countries that have higher levels of
+imports to China (Dreher et al. forthcoming,a).
+24
+
+This directly follows the analyses in Nunn and Qian (2014) and Dreher and Langlotz (2017). Also see Werker et al. (2009).
+12
+
+𝑝!"#,!,! is a binary variable that equals one when recipient 𝑖 received a positive amount of aid from
+China in year 𝑦.
+
+One might be concerned that this instrument violates the exclusion restriction because the probability
+of receiving aid may directly affect economic growth (for the same reasons described above).
+However, our growth regressions control for the effect of the probability of receiving aid as well as
+steel production through the inclusion of recipient-country- and year-fixed effects. Given that we
+control for the effects of the probability of receiving aid, its interaction with an exogenous variable
+results in an exogenous instrument under mild assumptions (Bun and Harrison 2014; Nizalova and
+Murtazashvili 2016). The intuition of this approach is that of a difference-in-difference regression,
+where we investigate a differential effect of Chinese steel production on the amount of aid to countries
+with a high compared to a low probability of receiving Chinese aid. The identifying assumption is that
+growth in countries with differing probabilities of receiving Chinese aid will not be affected differently
+by changes in steel production, other than via the impact of aid, controlling for recipient-country- and
+year-fixed effects. In other words, as in any difference-in-difference setting, we rely on an exogenous
+treatment and the absence of different pre-trends across groups. Controlled for year-fixed effects,
+Chinese steel production cannot be correlated with the error term and is thus clearly exogenous to aid.
+In order for different pre-trends to exist, these trends across countries with a high compared to a low
+probability of receiving aid from China would have to vary in tandem with year-to-year changes in steel
+production.
+
+Following Christian and Barrett (2017), we plot the variation in Chinese steel production in concert with
+the variation in per-capita aid and growth for two different groups that are defined according to the
+median of the probability to receive aid. Appendix C1 plots these graphs. The results give little reason
+to believe that the parallel trends assumption is violated in our case. More precisely, the
+probability-specific trends in aid and growth, respectively, seem rather parallel across the regular
+recipients (those with a probability of receiving aid that is above the median) and the irregular
+recipients (those with a probability of receiving aid that is below the median). There is also no obvious
+non-linear trend in regular compared to irregular recipients that is similar for aid and growth.
+
+13
+
+The exogeneity of our interacted instrument would be violated if changes in steel production would
+affect recipient country growth differentially in countries with a high probability to receive aid
+compared to countries with a low probability to receive aid for reasons unrelated to aid. Steel
+production is arguably correlated with a large number of other variables. Some of those are likely to
+differentially affect growth in these groups of countries via aid exclusively. For example, if steel
+production is correlated with other inputs in aid projects, like cement or timber, our LATE would
+capture the combined effects of these inputs, which would not threaten our identification strategy.
+Steel production could however also be correlated with overall export volumes or foreign direct
+investments. Potentially, frequent recipients of Chinese aid projects are also frequent host countries of
+investment projects and those with close trade ties. This could imply that any differential effects of aid
+on growth that we observe could in result from trade and investment rather than aid. To address this
+concern, we control for the yearly volume of Chinese FDI inflows (from UNCTAD)
+
+25
+
+and Chinese
+
+exports (from the WDI) interacted with the probability to receive Chinese aid in a robustness test
+below.
+
+Our specification deviates from the extant literature on aid and growth in a number of ways (e.g.,
+Clemens et al. 2012; Dreher and Langlotz 2017; Galiani et al. 2017). First, we analyze ODA and OOF as
+separate regressors. Existing literature on aid and growth focuses exclusively on the potential growth
+st
+
+effects of ODA. However, ODA is only one component of 21 -century development finance. During
+our period of study (2000-2014), most of the official finance provided by China (62-77 percent) and the
+26
+
+World Bank (64 percent) was not Official Development Assistance (ODA).
+finance provided by the United States and the OECD-DAC was ODA.
+
+27
+
+By contrast, most of official
+
+This source of variation might
+
+25
+
+Specifically, we used data from the World Investment Report’s 2017 Annex table 01 (see http://unctad.org/en/
+Pages/DIAE/World%20Investment%20Report/Annex-Tables.aspx, last accessed October 6, 2017).
+
+26
+
+The World Bank has two different funding windows. Its International Development Association (IDA) offers poor countries
+access to grants and highly concessional loans (ODA), while its International Bank for Reconstruction and Development (IBRD)
+offers loans on non-concessional terms (OOF). Between 2000 and 2014, 64.3 percent of official finance flows from the World
+Bank were channeled through the IBRD (OOF) and the remaining 35.6 percent were channeled through the IDA (ODA).
+Similarly, only 21.6 percent of total official finance from China seems to meet the OECD-DAC criteria for ODA. World Bank data
+were retrieved from https://data.worldbank.org/ on 12 September 2017. Data on Chinese official finance were drawn from the
+dataset that is introduced in this paper.
+27
+
+Between 2000 and 2014, the United States provided U.S.$394.6 billion of official finance to other countries. 93 percent of
+these official finance flows (U.S.$366.4 billion) qualified as ODA and 7 percent (U.S.$28.1 billion) qualified as OOF. Between
+2000 and 2014, the OECD-DAC as a whole provided U.S.$1.753 trillion of official finance to other countries; 80.6 percent of
+these flows (U.S.$1.413 trillion) qualified as bilateral ODA and 19.4 percent (U.S.$339.2 billion) qualified as OOF. Data retrieved
+from http://stats.oecd.org/ and AidData’s Core Research Release, Version 3.1 on 6 October 2017.
+14
+
+help to explain heterogeneous “aid” impacts. Indeed, Cordella and Ulku (2007) find that the provision
+of more concessional forms of development finance increases growth in poor and highly indebted
+countries. Similarly, Khomba and Trew (2017) conclude that grants are more effective than loans at
+generating (localized) growth effects.
+
+28
+
+To account for this potential source of variation, we vary our
+
+definition of “treatment” and separately investigate the growth effects of more concessional finance
+(ODA) and less concessional (or market-based) forms of official finance (OOF) from China. In order to
+do so, we use the interaction of China’s steel production with the probability of recipient country i to
+receive Chinese ODA or OOF, respectively.
+
+Second, we rely on commitments rather than disbursements of aid. Given that aid should only affect
+development after its disbursement, the latter are preferable over the former. However,
+comprehensive data on disbursements of Chinese aid are not available and are virtually impossible to
+measure with open-source data collection methods. In our main specification, we lag commitments by
+two years in order to allow for sufficient time for commitments to affect outcomes. We base our lag
+duration on a subset of 300 projects in the dataset for which there is information on the actual project
+29
+
+start and end dates.
+
+The observed average project duration amounts to 664 days, and thus we apply
+
+a two-year lag in our baseline regressions.
+
+30
+
+While these data suggest two years may be an
+
+appropriate lag period, they are not necessarily a representative sample of projects (and potentially
+suffer from selection effects), so we perform analyses using various lag periods.
+
+Third, most previous studies focus on either aid per capita or aid as a share of GDP. One disadvantage
+of this approach is that it restricts the effect of population or GDP to be the same as those of aid. As
+Annen and Kosempel (2017) point out, there are no obvious theoretical reasons for using this
+approach. Their simulations also show that using aid-over-GDP ratios introduces a downward bias
+relative to using levels of aid. Following Ahmed (2016), among others, we instead use (logged) aid in
+levels as variable of interest and control for population size.
+
+28
+
+On the other hand, Odedokun (2004) provides evidence that the receipt of grants discourages domestic tax collection and
+undermines fiscal discipline, and Dovern and Nunnenkamp (2007) find that grants do not provide larger growth dividends than
+loans.
+29
+
+In subsetting the data, we exclude projects with a project length of zero days, which is typically the case for monetary grants.
+However, even in these cases, the recipient government will need considerable time to implement these projects, which makes
+a time lag necessary.
+30
+
+Historical Chinese aid data also reveal a median of two years between project start and completion (data from Bartke 1989).
+15
+
+Fourth, we employ annual data rather than data averaged over three-, four-, or five-year periods (e.g.,
+Clemens et al. 2012; Dreher and Lohmann 2015; Dreher and Langlotz 2017; Galiani et al. 2017). In
+order for our tests to show an effect of aid that actually exists with an 80 percent probability, we would
+require several thousand observations rather than the sample of roughly 420 observations that we
+31
+
+would have if we averaged our data over five-year-periods.
+
+This is a broader empirical challenge
+
+within the aid effectiveness literature (Ioannidis et al. forthcoming).
+
+32
+
+However, while much of the
+
+literature focusing on Western donors makes use of samples starting in the 1970s, the first year we
+have comprehensive, global data on Chinese aid is 2000.
+
+33
+
+Given that the use of yearly data
+
+substantially increases the power of our tests, our main regressions use yearly lags of aid rather than
+averaging data over longer periods of time, in keeping with Dreher et al. (2016). Our results must
+therefore be interpreted differently than most of the related aid effectiveness literature. We test
+whether aid affects growth in the short-run. That is, we can test whether the aid is spent in the receiving
+country (rather than re-directed abroad) and whether it creates spillover effects in the local economy
+but we can only provide tentative evidence on whether it creates longer-lasting effects by looking at
+various lag lengths.
+
+Fifth, we differ from much of the extant literature in our choice of control variables. In keeping with
+Dreher et al. (2016), our main regressions are parsimonious. Our main regressions control for fixed
+effects for years τ and countries η and the (logged) population size of recipient countries popi. Typical
+regressions in the aid effectiveness literature include additional control variables such as initial-period
+per-capita GDP, ethnic fractionalization, assassinations, proxies for institutional and economic policies,
+and proxies for financial development (e.g., Burnside and Dollar 2000). All of these variables are
+arguably endogenous and introduce bias even if aid is instrumented using a perfectly excludable
+instrumental variable. Given that our exclusion restriction holds absent the inclusion of these control
+variables, their omission reduces the efficiency of the estimator, but does not bias our estimates.
+
+34
+
+31
+
+This high number of required observations is driven by our fixed-effects setting, as both country- and time-fixed effects
+capture most of the variation in the dependent variable so that the variation caused by aid conditional on these fixed effects is
+rather small.
+
+32
+
+According to Ioannidis et al. (forthcoming), only about one percent of the 1,779 estimates in the aid-and-growth literature
+surveyed have adequate power (see also Dreher and Langlotz 2017; Doucouliagos forthcoming).
+33
+
+Chinese aid volumes are also available for years prior to 1987 (Dreher and Fuchs 2015) but these values are not necessarily
+comparable to post-2000 aid as they are gathered based on different data collection procedures.
+
+34
+
+We however test robustness by including the variables most commonly used in the aid effectiveness literature.
+16
+
+To compare growth effects across donors, we also run similar estimations for aid from three other
+major donors—the United States, the OECD-DAC, and the World Bank. Broadly following Temple and
+Van de Sijpe (2017), we use the interaction of a given donor’s total ODA and OOF budgets in a year
+with the recipient-specific probability of receiving aid from that donor. To enable comparisons of the
+effect of Chinese aid on growth to those of other donors, we rely on China’s aid budget interacted with
+a recipient’s probability of receiving aid to predict year-to-year changes in aid. By following this
+strategy, we obtain a similar LATE across donors, which enhances comparability. We rely on the
+exclusion restriction that changes in a donor’s aid budget over time do not differentially affect growth
+in countries with a low probability to receive aid from that donor compared to growth in countries with
+a high probability to receive aid, other than via the aid a country receives from that donor.
+
+Using aid budgets rather than steel comes at a cost as the interaction with aid budgets is arguably less
+exogenous than the interaction relying on China’s steel production. As Dreher and Langlotz (2017)
+explain, the exclusion restriction of the interacted aid budget instrument could well be violated “given
+that growth shocks in recipient countries could directly affect donors’ aid budgets […], while growth
+shocks in non-recipient countries might not.” They point to a paper by Rodella-Boitreaud and Wagner
+(2011) who find that donors increase their aid budgets in responding to increasing demands for their
+aid rather than just responding with re-allocations of aid. Nevertheless, we believe that this approach is
+reasonable for the purposes of achieving comparability across donors.
+
+35
+
+Specifically, we use the interaction of the respective donor’s aid budget, computed as the total sum of
+all ODA (OOF) commitments in a given year, with the recipient-specific probability of receiving aid
+from the respective donor as instrument for China, the OECD-DAC, and the United States. Broadly
+following Lang (2016), we calculate the World Bank’s aid “budget” with measures of its aid resources:
+the IBRD’s equity-to-loans ratio and the IDA’s “funding position.”
+
+36
+
+Lang suggests the IMF’s liquidity
+
+35
+
+We test robustness using variants of alternative instruments introduced in the recent literature. For the United States and the
+OECD-DAC, exogenous variation over time results from different levels of donor government and legislative fractionalization
+that are known to shift aid flows (Ahmed 2016; Dreher and Langlotz 2017). For the World Bank (IBRD and IDA), we make use of
+Galiani et al.’s (2017) idea to exploit variation in aid resulting from a country crossing the IDA’s income threshold for receiving
+highly concessional official financing. We again interact these variables with the probability to receive aid to create our
+instruments (see Appendix D). While these instruments are arguably more exogenous than our aid budget interactions they
+yield apples-to-oranges comparisons across donors.
+36
+
+Alternatively, one might think of aggregating country-specific commitments to derive the Bank’s total “aid budget.” For the
+Bank, however, we expect the liquidity ratios to be more suitable to indicate budgetary leeway, given that, unlike the DAC
+donors, the Bank has no fixed budget that it will spend independent of the demand for its resources.
+17
+
+ratio interacted with the probability of a country to be under an IMF program as instrument for IMF
+loans. We follow this idea by using similar proxies for the World Bank. In order to measure the
+availability of IBRD resources, we rely on the IBRD’s equity-to-loans ratio, which has been consistently
+reported in the IBRD’s annual financial statements since 1994.
+
+37
+
+The equity-to-loans ratio is a measure
+
+of the IBRD’s “ability to issue loans without calling its callable capital” (Bulow 2002: 245).
+
+38
+
+In order to
+
+measure the availability of IDA resources, we rely on a measure of IDA’s “funding position,” which is
+defined by the World Bank as “the extent to which IDA can commit to new financing of loans, grants
+and guarantees given its financial position at any point in time and whether there are sufficient
+resources to meet undisbursed commitments of loans and grants” (IDA 2015: 24). This indicator is
+publicly disclosed by the World Bank every year in its annual financial statement. However, it only
+began this practice in 2008, so we reconstruct the 1990-2007 time-series by using the World Bank’s
+description on how it calculates this indicator. More specifically, with the information reported in the
+IDA’s annual financial statements, we first sum the Bank’s net investment portfolio and its
+non-negotiable, non-interest-bearing demand obligations (on account of members’ subscriptions and
+contributions) and then divide this figure by the sum of the Bank’s undisbursed commitments of
+development credits and grants.
+
+39
+
+We would ideally like to focus on the same periods of time when comparing across donors. However,
+when we restrict the sample for the Western donors and lenders to the period for which we have aid
+data for China (2000-2014), our instruments for Western aid are insufficiently powerful according to
+
+37
+
+“Equity” is defined as the sum of usable paid-in capital, general reserves, special reserves, and cumulative translation
+adjustments. It does not include the “callable capital” that the IBRD’s shareholders are legally obligated to provide if and when it
+is needed. “Loans” are defined as the sum of loans outstanding and the present value of guarantees.
+38
+
+One Executive Director to the World Bank memorably characterized the IBRD’s callable capital in this way: “Management and
+the Board should think about callable capital as a Christian thinks about heaven, that it is a nice idea but no one wants to go
+there because the price of admission is death” (quoted in Kapur et al. 1997: 991).
+39
+
+Since 2008, the Bank has summed it net investment portfolio and its “unrestricted” demand obligations. However, prior to
+2008, the Bank did not separately report its “restricted” and “unrestricted” demand obligations. Therefore, we rely instead on
+the total non-negotiable, noninterest-bearing demand obligation figures reported in the Bank’s pre-2008 financial reports. The
+Bank’s “restricted” demand obligations from 2008-2014 were almost negligible (less than 1 percent of total demand
+obligations), so this difference in the way IDA’s funding position is calculated from 1999-2007 and 2008-2014 is small and
+unlikely to be consequential. Likewise, the Bank reported its “net investment portfolio” as a stand-alone figure from 2008 to 2014
+but not in earlier years. Therefore, as an approximation of the Bank’s net investment portfolio in each year between 2000 and
+2007 we sum “Investments—Notes B and F” and “currencies due from banks” less “net payable from investment securities
+transactions.” As an approximation of the Bank’s “net investment portfolio” in each year between 1990 and 1999 we sum cash
+and investments immediately available and not immediately available for disbursement.
+18
+
+the first-stage F statistics. Our comparison thus relies on comparable LATEs, but different samples in
+terms of recipients and years.
+
+4. Main Results
+Table 1 presents our main results on the potential growth effects of Chinese aid for the 2002-2016
+period.
+
+40
+
+We show results using OLS in columns 1-4. We start with the number of Chinese projects as
+
+variable of interest in columns 1 and 2 and then turn to the logged financial amounts in columns 3 and
+4. As can be seen from column 1, the number of Chinese OOF projects is significantly positively
+correlated with economic growth in recipient countries at the five-percent level of significance. Five
+additional Chinese OOF projects are associated with an increase in economic growth by more than a
+percentage point two years after the aid has been committed. When we instead focus on a narrowly
+defined measure of Chinese aid—i.e., Chinese development projects that meet the OECD-DAC criteria
+for ODA—the positive correlation is only slightly weaker and remains statistically significant at the
+five-percent level (column 2). The significantly positive correlation for OOF holds up when we look at
+amounts rather than numbers (column 3) but becomes marginally insignificant for amounts of ODA
+(column 4).
+
+The results in columns 1-4 only reflect correlations and likely suffer from endogeneity. This is why we
+proceed with applying our instrumental-variables strategy to account for reverse causality and other
+sources of endogeneity. Columns 5-8 replicate the regressions of columns 1-4 with 2SLS where the
+first-stage regression specification follows Equation 2. As can be seen from the Kleibergen-Paap F test
+reported at the bottom of the table, our instruments are highly relevant. At the ten-percent level of
+significance, Chinese ODA boosts economic growth in recipient countries (columns 6 and 8), while
+there is no significant effect of Chinese OOF (columns 5 and 7). The effects are stronger than the
+correlations obtained with OLS. The downward bias of the OLS results is in line with expectations, as
+China appears to provide more aid to poorer countries (Dreher and Fuchs 2015; Dreher et al.
+forthcoming,a). One additional Chinese aid project is associated with an increase in economic growth
+by 0.7 percentage points two years after the aid commitment (column 6).
+
+41
+
+This effect is sizable in light
+
+40
+
+Recall that while we measure Chinese aid annually between 2000 and 2014, we rely on two-year lags.
+
+41
+
+In our dataset, the average financial size of Chinese ODA projects is $43 million.
+19
+
+of the fact that the average economic growth rate of the recipient countries in our sample is 2.8
+percentage points. When we use financial amounts of ODA instead of project counts, our results
+suggest that a doubling of the Chinese ODA in the average recipient country increases recipient
+growth by 0.4 percentage points.
+
+Columns 9-12 replicate the regressions controlling for the most common determinants of growth
+employed in the aid effectiveness literature: the average number of assassinations in a recipient
+country (from Banks and Wilson 2016), its government surplus as a share of GDP, its rate of inflation,
+money as a share of GDP, and trade openness (all data from the World Bank’s World Development
+Indicators, WDI).
+
+42
+
+We linearly interpolate the control variables to maximize sample size. The
+
+excludability of our instrument does not depend on additional control variables but their inclusion
+arguably introduces endogeneity, which is why we prefer to omit them in our baseline specifications in
+columns 5-8. The number of observations is lower because of countries with data missing for all years.
+Nevertheless, as can be seen from columns 9-12, the inclusion of the additional variables does not
+qualitatively change our conclusions. The coefficients on our Chinese ODA measures remain positive
+and statistically significant at conventional levels—and of similar magnitude—while there is no such
+effect for OOF.
+
+As an important test for robustness, we also explored specifications that control for the yearly amounts
+of Chinese foreign direct investment flows (FDI) and its exports, both interacted with the probability of
+receiving Chinese aid. This accounts for potential confounding factors in which Chinese FDI and
+exports, rather than aid, was driving our differential growth effects in recipient countries that receive
+more Chinese aid compared to those that receive less. The results in Appendix C2 confirm the effect of
+Chinese ODA (and the non-result for OOF). While the coefficients for ODA projects and amounts
+increase in magnitude, the power of our instrument is weaker, as one might expect. In three of the four
+regressions, however, the instrument remains strong.
+
+Table 2 reports results for three major Western donors: the OECD-DAC, the United States, and the
+World Bank. Using the aid budget instrument, our broad findings for Chinese ODA are comparable to
+
+42
+
+We prefer to control for the individual dimensions of “good policy” rather than building a composite index. We do not include
+institutional quality, which hardly varies year-to-year and would substantially reduce the number of countries in our sample.
+20
+
+those obtained with the steel instrument in Table 1. Again, significant growth effects are only visible for
+Chinese ODA but not for Chinese OOF. The size of the estimated effect for ODA is roughly twice as
+large compared to the previous estimate: one additional Chinese aid project is associated with an
+increase in economic growth by 1.5 percentage points two years after the aid commitment (column 2).
+A doubling of Chinese ODA amounts increases growth by almost one percentage point (0.94) (column
+4). We find that ODA from the Western bilateral donors boosts economic growth in recipient countries
+as well (columns 6 and 8).
+
+43
+
+According to the results, a doubling of ODA from OECD-DAC countries
+
+(the United States) increases growth by 1.4 (2.3) percentage points. When we compare these effects to
+those of Chinese aid, we cannot reject the hypothesis that the effect of Chinese ODA on growth equals
+those of DAC donors or those of the United States. There is no comparable effect for DAC OOF and
+U.S. OOF (columns 5 and 7). Nor do we observe any effect of IBRD loans and IDA grants (columns 9
+and 10) on recipients’ economic growth.
+
+44
+
+Table 3 investigates the timing of the growth effects of aid across all donors. We estimate a variant of
+Table 2 where we change the lag structure of aid. We change the lag structure of the respective
+instrument in analogy—e.g., when we lag aid by four years, the corresponding instrument is lagged by
+five years. For the reader’s convenience, the second row of Table 3 replicates the results of our
+baseline specification where we use the second lag. Our results suggest that Chinese ODA yields
+near-term economic growth impacts, as evidenced by the significant coefficients in the first three
+years. By contrast, the economic growth impacts of DAC and U.S. ODA appear to accrue over longer
+periods of time: the growth effects of DAC and U.S. ODA are still visible after six years. We also find
+that DAC OOF and IBRD flows demonstrate negative growth effects after four years. These results do
+not imply that OOF cannot affect growth in the longer-run. Instead, we interpret them as showing that
+OOF is not complemented with additional domestic resources in the short-run, and might to some
+extent substitute domestic funds in the first couple of years after OOF is committed. To the extent that
+43
+
+This is remarkably different from the longer-term results reported in Dreher and Langlotz (2017). Focusing on four-year
+averages, Dreher and Langlotz find no significant effect of aid on growth. When we replicate the analysis using the same
+instrument as Dreher and Langlotz, we also find no effect of DAC aid on growth. The same holds when we follow Ahmed’s
+(2016) identification strategy for U.S. aid, and a variant of Galiani et al.’s (2017) identification strategy for the World Bank (other
+than Galiani et al. we do not use this instrument for all DAC donors, but focus on the World Bank only). This stresses the
+importance of different LATEs for differences in results among papers in the aid effectiveness literature. See Appendix D for
+details.
+44
+
+These findings should be interpreted with some degree of caution, as the results for the OECD-DAC and the United States are
+based on a longer panel (1978-2016) as the instrument failed to reach relevance on the shorter 2002-2016 sample. Similarly, the
+results for the IBRD refer to the 1997-2016 and for the IDA to the 1993-2016 period.
+21
+
+these projects are productive, they could still affect growth in the medium- or longer term, which we
+cannot test given the short sample of data at our disposal.
+
+45
+
+Finally, we investigate sectoral heterogeneity in the growth effects of aid. We do so in order to account
+for the fact that aid from China, the United States and the World Bank support different types of
+activities and the sectoral composition of aid may condition its impact on economic growth. Clemens
+et al. (2012) decompose total aid flows into “early-impact” aid flows (e.g., infrastructure) that plausibly
+impact near-term growth outcomes and aid flows that likely only generate growth and development
+benefits over longer periods of time. They find relatively strong impacts of aid on growth when they
+limit their analysis to “early-impact” aid flows. However, they do not test whether donors are
+differentially effective at promoting economic growth when they support the same types of “growth”
+sector activities (e.g., highways, bridges, railroads, dams, airports, seaports, electricity grids).
+Policymakers in developing countries frequently claim that China is more efficient at implementing
+social and economic infrastructure projects than its Western counterparts (Soulé-Kohndou 2016).
+
+46
+
+However, a popular counter-argument is that, in its zeal to help partner countries install the “hardware”
+of economic development in an efficient manner, China has prioritized speed over quality. Critics
+charge that China has financed white elephant projects—e.g. hospitals without the necessary
+equipment and personnel, roads that wash away because of substandard construction work and
+insufficient attention to long-term maintenance—that provide few economic benefits, while Western
+donors and lenders have learned through decades of experience to design and implement
+development projects in careful and sustainable ways.
+
+In Table 4, we estimate the growth effects of aid channeled to three broad sectors as defined by the
+OECD: Economic Infrastructure & Services, Social Infrastructure & Services, and Production Sectors.
+The “Social Infrastructure & Services” category includes health, education, governance, and water
+supply and sanitation projects; the “Economic Infrastructure & Services” category includes
+
+45
+
+Note that a substantial amount of OOF (and ODA) comes with imports from the West. If all aid would be imported, GDP
+would not increase mechanically simply because the aid is spent.
+46
+
+In 2008, the then-President of Senegal, Abdoulaye Wade, published an op-ed in the Financial Times, celebrating China for its
+responsiveness to the local authorities in Africa and admonishing Western donors for their skepticism and criticism of Beijing:
+“With direct aid, credit lines and reasonable contracts, China has helped African nations build infrastructure projects in record
+time. … I have found that a contract that would take five years to discuss, negotiate and sign with the World Bank takes three
+months when we have dealt with Chinese authorities” (Wade 2008).
+22
+
+transportation projects (e.g., roads, railways, and airports), energy production and distribution
+projects, and information and communication technology (ICT) projects (e.g., broadband internet and
+mobile phone infrastructure); and the “Production Sector” category includes agriculture, fishing,
+forestry, mining, industry, trade, and tourism projects. We limit our analysis to Chinese, U.S., and
+OECD-DAC ODA since our previous results suggest that only ODA consistently registers positive
+effects on economic growth. To instrument these different ODA flows, we rely on the sector-specific
+probability of receiving aid to calculate our interacted instruments. That is, rather than focusing on the
+probability of receiving any aid, we use the probability of receiving aid in these three sectors. Our
+results suggest that, irrespective of the source of ODA (China, the World Bank, or the U.S.), support for
+the “Economic Infrastructure & Services” sector and the “Social Infrastructure & Services” sector
+consistently yields positive economic growth returns. DAC ODA for “Production Sector” activities—but
+not those from China or the United States—increases economic growth as well.
+
+47
+
+Taken together, our results show positive causal effects of Chinese aid on recipients’ economic growth.
+Only ODA–i.e., aid in the strict sense – registers this positive effect. This is true of Chinese, U.S., and
+OECD-DAC ODA. However, one key difference is that the growth effects of Beijing’s development aid
+materialize within three years of the initial financial commitment, and these effects seem to be
+shorter-lived than those from Western ODA. Our sectoral regressions also suggest that ODA targeting
+economic and social infrastructure and services increases economic growth, regardless of the source
+48
+
+of funding.
+
+5. Does Chinese Aid Harm the Effectiveness of Western Aid?
+Having benchmarked the effectiveness of Chinese aid vis-à-vis the World Bank, the United States, and
+OECD-DAC donors as a whole, we now consider whether interactions between Chinese and
+traditional donors impinge upon the effectiveness of aid. More specifically, we test whether and to
+
+47
+
+However, when we run the sectoral regressions for the OECD-DAC and United States for the period of time we also have data
+for Chinese aid (2002-2016), the significantly positive results for these Western donors disappear. While these results should be
+interpreted with caution given the lower first-stage F statistics we obtain, they could hint at the Western donors’ neglect of
+infrastructure projects in recent decades (see Appendix C3 for details).
+48
+
+By contrast, growth effects are only observable in the production sectors for DAC aid.
+23
+
+what extent Western aid is less effective at spurring economic growth when given to countries that also
+receive substantial support from China.
+
+Scholars, journalists, and policymakers have previously argued that China’s disregard for good
+governance principles diminishes the effectiveness of aid from more “enlightened” donors
+(Crouigneau and Hiault 2006; Collier 2007; Naím 2007; Pehnelt 2007; Woods 2008; The Economist
+2009).
+
+49
+
+By way of example, in 2007, the head of the UK’s Department for International Development
+
+(DFID), Hilary Benn, asserted that “China’s failure to match the conditions placed on aid by countries
+such as Britain—including evidence of good governance, respect for human rights and spending
+directed to alleviate poverty—could set back progress toward democratic administrations” (McGreal
+2007). Similarly, in 2009, the Executive Vice President of the Asia Society relayed to the BBC a specific
+account from Southeast Asia where this dynamic seemed to be at work: “Cambodia was considering a
+$600m loan from the World Bank that had conditions about transparency and anti-corruption
+and accountability. The Cambodians basically told the World Bank to go to hell and the next day they
+received a $601 [million] loan from the Chinese with no conditions” (BBC 2009).
+
+Several recent studies suggest that anecdotes like this one may reflect a broader empirical pattern.
+Hernandez (2017) provides evidence that recipients of Chinese aid receive World Bank loans with
+fewer conditions. Likewise, Li (2017) finds that Chinese aid has blunted the democratizing effects of
+DAC aid to Sub-Saharan Africa. Kersting and Kilby (2014) similarly recover evidence that Chinese aid
+undermines democratic governance. Therefore, to the extent that World Bank conditions and
+high-quality institutions support economic growth in recipient countries, Chinese aid could have
+indirectly detrimental effects on economic growth rates.
+
+50
+
+We investigate the popular but empirically untested claim that access to Chinese aid reduces the
+effectiveness of Western aid. Ideally, we would like to include Chinese and Western development
+finance in the same regression, and add an interaction between them. However, our instruments lack
+power for Western aid when we restrict the sample to the recent period where Chinese aid data is also
+49
+
+Swedlund (2017) provides a counter-argument.
+
+50
+
+On the other hand, Strange et al. (2017a) find that Chinese aid can help prevent civil conflict when recipients are faced with
+sudden withdrawals of Western aid. Therefore, to the extent that political stability promotes economic growth, Chinese aid
+could also have indirect positive effects.
+24
+
+available. This is an even more acute problem when we also instrument the interaction (with the
+interaction of the individual instruments). Therefore, rather than using interactions, we compare the
+growth effects of Western aid between countries that have received a major influx of Chinese aid with
+average recipients of Chinese aid. In order to do so, Table 5 replicates Table 2 but restricts the sample
+to “Chinese aid darlings.” We define “Chinese aid darlings” as countries that either received a total of
+at least ten Chinese officially financed projects over the 2000-2014 period or at least two projects
+51
+
+during the 1960-2005 period (using historical Chinese aid data from Dreher and Fuchs 2015).
+
+Only
+
+for the IBRD and IDA the F statistics indicate sufficient power when we restrict the sample to the
+2002-2016 period for which we also have Chinese aid data available. For them, we therefore also run
+regressions where we define Chinese “aid darlings” as countries that receive at least one Chinese
+project in a particular year.
+
+Arguably, the decision of whether a country becomes a “Chinese aid darling” is not exogenous, as
+China’s aid allocation follows need-based, commercial, and geopolitical motives (Dreher and Fuchs
+2015; Dreher et al. forthcoming,a). Our results in Table 5 could thus suffer from sample selection bias.
+We address this issue by using the predicted number of Chinese projects rather than the actual
+number to select the sample of Chinese aid darlings (in Table 6). Specifically, we use the first-stage
+regression results from column 5 of Table 1 to make this decision (and thus exclusively focus on the
+more recent period). We define “aid darlings” as countries that are predicted to receive at least 10
+projects from Beijing over the sample period. In addition, we again run regressions for the IBRD and
+the IDA where “darlings” are those countries that we predict to receive at least one Chinese project in
+a particular year. Running seemingly unrelated regressions, we compute Wald tests to test statistically
+significant differences in the effect sizes compared to the coefficients in Table 2. The corresponding
+p-values are reported at the bottom of Tables 5 and 6.
+
+Comparing the results in Tables 5 and 6 with those in Table 2, we find no clear pattern. The coefficients
+show statistically significant differences between Table 2 (all countries) and Tables 5 and 6 (only
+Chinese aid darlings) in three sets of regressions and do not point in a clear direction. Specifically, the
+effects of DAC OOF and IDA commitments are more positive when given to “Chinese aid darlings”
+51
+
+th
+
+These cutoff values reflect the 56 percentile in both distributions. Of course, any cutoff is arbitrary. However, our findings do
+not hinge on this decision. For example, the results are qualitatively similar if we use 20 projects in the current period
+(2000-2014) as cutoff and disregard historical aid activities. Results are available on request.
+25
+
+(columns 1 and 6 of Table 6). In contrast, only one coefficient points to a lower effectiveness of
+Western aid in China’s presence. As illustrated in column 5 of Table 5, IBRD commitments are less
+effective in countries where Chinese aid is given in abundance.
+
+52
+
+However, when we account for the
+
+endogeneity of Chinese aid (in Table 6), the difference in effectiveness of IBRD commitments is no
+longer significant at conventional levels. Taken together, claims that Chinese aid systematically impairs
+the effectiveness of Western aid are not supported by our findings.
+
+6. Conclusions
+China has become a major source of global development finance across the developing world, but the
+nature and consequences of its aid activities are poorly understood. The absence of rigorous evidence
+on the economic growth impacts of Chinese development finance represents a major blind spot in the
+aid effectiveness literature. This paper seeks to address the gap by estimating the average economic
+growth effects of Chinese aid and benchmarking China’s performance against three other prominent
+sources of development finance: The World Bank, the United States, and OECD-DAC donors as a
+whole.
+
+Our results show that Chinese aid boosts economic growth in recipient countries. Relying on recent
+identification strategies proposed in the aid effectiveness literature, we also benchmark the
+effectiveness of Chinese aid vis-à-vis the World Bank, the United States, and all members of the
+OECD’s Development Assistance Committee (DAC). Our results indicate that Chinese, U.S. and
+OECD-DAC aid produce similar economic growth impacts. We also find no evidence to support the
+idea that Western aid is less effective at accelerating economic growth in countries that also have
+significant access to Chinese aid. On the whole, we consider this body of evidence to be encouraging
+and think it should allay some of the longstanding fears that policymakers and policy analysts have
+expressed about China acting as “rogue donor” that undermines the effectiveness of Western
+assistance (e.g., Naím 2007). While there are a variety of potential second order effects of Chinese
+aid, the best evidence available indicates that these flows do not inhibit the economic growth effects of
+Western assistance.
+
+52
+
+This latter result should be interpreted with great caution given the low F statistics of instrument relevance.
+26
+
+Our paper also calls attention to the importance of analyzing donor heterogeneity and financial flow
+type heterogeneity in studies of aid effectiveness. Whereas we find evidence that Chinese, U.S. and
+OECD DAC assistance increases economic growth in recipient countries, we find no such evidence for
+the World Bank.
+
+53
+
+Also, unlike most studies of aid effectiveness, we decompose growth impacts
+
+according to the type of financial flows that host countries received. We find strong evidence that
+ODA—aid in the strictest sense of the term that is oriented towards development objectives and is
+offered on highly concessional terms—strongly and consistently registers positive effects on short-term
+economic growth in recipient countries. However, we do not find any robust evidence that OOF—less
+concessional and non-concessional sources of official financing and officially financed activities with
+non-developmental objectives—improves economic growth outcomes. This pattern, which seems to
+hold true irrespective of the source of funding, has different implications for China and Western
+suppliers of official finance. Only about 23 percent of China’s overseas development program is
+financed with aid in the strictest sense of the term (meeting the definition of ODA outlined by the
+OECD). Therefore, if China were to reorient more of it overseas spending towards ODA, low- and
+middle- income countries would potentially be in a position to reap larger economic growth dividends,
+at least in the short-run. Western donors, by comparison, have less scope to achieve large economic
+growth impacts—within existing budgetary constraints—because they already provide most of their
+support through highly concessional and developmentally-oriented projects (ODA).
+
+In future research, we plan to evaluate potential mechanisms that might account for these empirical
+patterns. First, we plan to decompose our donor country-level estimates of aid effectiveness by
+agency. The effectiveness of U.S. aid might differ according to which agency provides financial
+support. The Millennium Challenge Corporation (MCC) is legislatively authorized to provide assistance
+only to low-income and lower-middle income countries that demonstrate a commitment to ruling
+54
+
+justly, investing in their people, and promoting economic freedom.
+
+By contrast, USAID is subject to a
+
+wide array of geostrategic, diplomatic and commercial pressures that influence its aid allocation
+
+53
+
+These results are consistent with evidence on the growth impacts of Chinese, IDA, and IBRD projects at the subnational level
+(Dreher and Lohmann 2015; Dreher et al. 2016).
+54
+
+The U.S. Government has made access to MCC assistance conditional upon a country's performance on third-party measures
+of good governance. This “aid selectivity” model has been shown to be effective, to some extent, in spurring reforms in countries
+that are potentially eligible for such assistance (Öhler et al. 2012; Parks and Rice 2013; Parks and Davis 2017). Also, given that
+the quality of governance is an important determinant of economic growth (e.g., Aidt 2009) and the MCC systematically favors
+well-governed countries, one might expect MCC funds to be more conducive to growth.
+27
+
+behavior (Lebovic 1988; Lai 2003; Lai and Morey 2006); so, to the extent that aid-giving motivations
+impinge upon aid effectiveness, assistance from USAID might be less effective than MCC assistance at
+accelerating recipient-country growth (Headey 2008; Bearce and Tirone 2010; Minoiu and Reddy
+2010; Dreher et al. forthcoming,b).
+
+55
+
+Ideally, we would also disaggregate Chinese development
+
+finance by agency (e.g., the Ministry of Commerce, Export-Import Bank of China, China Development
+Bank); however, our data are not sufficiently fine-grained to allow such comparisons at this time. We
+therefore plan to compare the effectiveness of Chinese ODA and U.S. ODA from MCC and USAID.
+
+Second, the degree to which aid is targeted to address the heterogeneous needs of recipient
+countries might differ. We therefore plan to follow the analysis in Asmus et al. (2017), who introduce
+indicators that measure the alignment between sector-specific needs of recipient countries and the
+sectoral composition of aid from donor countries as a conditioning factor for the effectiveness of aid.
+Asmus et al. (2017) show that well-targeted aid—in in the sense that the composition of aid matches the
+specific needs of recipients at different points in time—enhances the growth effects of aid (or reduces
+any growth-impairing effects). We plan to follow their approach and calculate targeting indices for the
+different donor (agencies) in our sample.
+
+A third possibility is that our aid effectiveness estimates vary across different types of recipient
+countries. The growth effects of Chinese aid could vary across countries with and without debt
+sustainability problems (Onjala forthcoming).
+
+56
+
+Chinese aid effectiveness could also vary across
+
+well-governed and poorly-governed countries (Burnside and Dollar 2000; Angeles and Neanidis 2009;
+Baliamoune-Lutz and Mavrotas 2009; Denizer et al. 2013).
+
+57
+
+A related hypothesis suggests that aid
+
+from China and Western sources might be differentially effective across countries with high and low
+
+55
+
+The sectoral composition of aid also varies significantly across U.S. agencies. Whereas the MCC invests heavily in
+infrastructure and productive sectors, USAID tends to be more engaged in the social, environmental, and governance sectors.
+These differences might also lead to heterogeneous growth responses in U.S. recipient countries.
+56
+
+However, even if we were able to identify differential effects across countries with and without debt sustainability problems, it
+is unlikely that we will be able to detect long-run growth effects through the debt accumulation channel in the absence of a
+longer time-series that provides measurements of Chinese aid prior to 2000. As such, we will likely not be able to rule out the
+possibility that Chinese development finance undermines debt sustainability in recipient (borrower) countries over longer
+periods of time and eventually slow economic growth (Onjala forthcoming).
+57
+
+Others have argued that China is better positioned than Western countries to transact with poorly governed countries
+because its employs financial modalities, such as commodity-backed loans, that reduce the risks of financial misappropriation,
+loan repayment delinquency, and default (e.g., Bräutigam 2011).
+
+28
+
+levels of public investment efficiency (Dabla-Norris et al. 2012). If the economic growth effects of
+Chinese aid that we document in this study vanish or diminish in countries with low levels of public
+investment efficiency, such evidence would help explain why so many pundits and policymakers claim
+that China has a track record of funding “white elephant” projects.
+
+Finally, given that we measure Chinese development finance over a relatively short span of time
+(2000-2014), we cannot systematically rule out the possibility that Chinese development finance has
+longer-run effects on economic growth that we are not able to detect. A relatively long time-series of
+Chinese aid measurements prior to 2000 would help solve this problem.
+
+29
+
+References
+Ahlquist, John S. 2006. Economic Policy, Institutions, and Capital Flows: Portfolio and Direct
+Investment Flows in Developing Dountries. International Studies Quarterly 50 (3): 681–704.
+Ahmed, Faisal Z. 2016. Does Foreign Aid Harm Political Rights? Evidence from U.S. Aid. Quarterly
+Journal of Political Science 11 (2): 183–217.
+Aidt, Toke S. 2009. Corruption, Institutions, and Economic Development. Oxford Review of Economic
+Policy 25 (2): 271–291.
+Alden, Christopher, Daniel Large, and Ricardo Soares de Oliveira (eds.). 2008. China Returns to Africa:
+a Rising Power and a Continent Embrace. New York, NY: Columbia University Press.
+Angeles, Luis, and Kyriakos C. Neanidis. 2009. Aid Effectiveness: The Role of the Local Elite. Journal of
+Development Economics 90 (1): 120–134.
+Annen, Kurt, and Stephen Kosempel. 2017. Why Aid-to-GDP Ratios. Working paper.
+Asmus, Gerda, Axel Dreher, and Peter Nunnenkamp. 2017. Is Targeted Aid More Effective?
+Sector-Specific Needs, the Composition of Aid and its Effects on Growth. Working Paper.
+Baliamoune-Lutz, Mina, and George Mavrotas. 2009. Aid Effectiveness: Looking at the Aid–Social
+Capital–Growth Nexus. Review of Development Economics 13 (3): 510–525.
+Banks, Arthur S., and Kenneth A. Wilson. 2016. Cross-National Time-Series Data Archive. Databanks
+International, Jerusalem, Israel. Available at: http://www.cntsdata.com.
+Bartke, Wolfgang. 1989. The Economic Aid of the PR China to Developing and Socialist Countries, 2nd
+ed. Munich, Germany: K. G. Saur.
+BBC. 2009. China's Global Reach: Lending more than the World Bank. BBC World Service, 2009.
+Available at: http://www.bbc.co.uk/news/mobile/business-16092634.
+Bearce, David H., and Daniel C. Tirone. 2010. Foreign Aid Effectiveness and the Strategic Goals of
+Donor Governments. The Journal of Politics 72 (3): 837–851.
+BenYishay, Ariel, Bradley Parks, Daniel Runfola, and Rachel Trichler. 2016. Forest Cover Impacts of
+Chinese Development Projects in Ecologically Sensitive Areas. AidData Working Paper #32.
+AidData, Williamsburg, VA.
+Blair, Rob, and Philip Roessler. 2016. China and the African State: Evidence from Surveys, Survey
+Experiments and Behavioral Games in Liberia. USAID Research and Innovation Grants Working
+Papers Series. USAID, Washington, DC.
+Brant, Philippa. 2015. The Geopolitics of Chinese Aid: Mapping Beijing’s Funding in the Pacific.
+Foreign
+Affairs,
+March
+4.
+Available
+at:
+https://www.foreignaffairs.com/articles/china/2015-03-04/geopolitics-chinese-aid.
+Bräutigam, Deborah. 2009. The Dragon’s Gift: the Real Story of China in Africa. Oxford, UK: Oxford
+University Press.
+Bräutigam, Deborah. 2011. Testimony on China’s Growing Role in Africa before the United States
+Senate Committee on Foreign Relations Subcommittee on African Affairs. Available at:
+https://www.foreign.senate.gov/imo/media/doc/Deborah_Brautigam_Testimony.pdf.
+Brazys, Samuel, Johan A. Elkink, and Gina Kelly. 2017. Bad Neighbors? How Co-Located Chinese and
+World Bank Development Projects Impact Local Corruption in Tanzania. The Review of
+International Organizations 12 (2): 227–253.
+Brech, Viktor, and Niklas Potrafke. 2014. Donor Ideology and Types of Foreign Aid. Journal of
+Comparative Economics 42 (1): 61–75.
+Bulow, Jeremy. 2002. First World Governments and Third World Debt. Brookings Papers on Economic
+Activity, no. 1: 229–55.
+30
+
+Bun, Maurice, and Teresa D. Harrison. 2014. OLS and IV Estimation of Regression Models Including
+Endogenous Interaction Terms. University of Amsterdam discussion paper No. 2014-02.
+Bunte, Jonas B., Harsh Desai, Kanio Gbala, Bradley Parks, and Daniel Runfola. 2017. Natural Resource
+Sector FDI and Growth in Post-Conflict Settings: Subnational Evidence from Liberia. AidData
+Working Paper #34. AidData, Williamsburg, VA.
+Burnside, Craig, and David Dollar. 2000. Aid, Policies, and Growth. American Economic Review 90 (4):
+847–868.
+Busse, Matthias, Ceren Erdogan, and Henning Mühlen. 2016. China's Impact on Africa—The Role of
+Trade, FDI and Aid. Kyklos 69 (2): 228–262.
+Calderón, César, and Luis Servén. 2010a. Infrastructure and Economic Development in Sub-Saharan
+Africa. Journal of African Economies 19 (1): 13–87.
+Calderón, César, and Luis Servén. 2010b. Infrastructure in Latin America. In José A. Ocampo and
+Jaime Ros (eds.), The Oxford Handbook of Latin American Economies. New York, NY: Oxford
+University Press: 659–690.
+Campbell, Ivan, Thomas Wheeler, Larry Attree, Dell M. Butler, and Bernardo Mariani. 2012. China and
+Conflict-Affected States: Between Principle and Pragmatism. Saferworld, London, UK.
+Carmody, Padraig. 2016. The New Scramble for Africa. New York, NY: Polity Press.
+Christian, Paul, and Christopher Barrett. 2017. Revisiting the Effect of Food Aid on Conflict: A
+Methodological Caution. Policy Research Working Paper No. 8171. World Bank, Washington, DC.
+Available at: http://hdl.handle.net/10986/27978.
+Christensen, Benedicte Vibe. 2010. China in Africa A Macroeconomic Perspective. CGD Working
+Paper 230. Washington, DC: Center for Global Development.
+Claessens, Stijn, Enrica Detragiache, Ravi Kanbur, and Peter Wickbam. 1996. Analytical Aspects of the
+Debt Problems of Heavily Indebted Countries. Policy Research Working Paper No. 1618. World
+Bank, Washington, DC.
+Clemens, Michael A., Steven Radelet, Rikhil R. Bhavnani, and Samuel Bazzi. 2012. Counting Chickens
+when they Hatch: Timing and the Effects of Aid on Growth. The Economic Journal 122 (561): 590–
+617.
+Collier, Paul. 2007. The Bottom Billion. New York, NY: Oxford University Press.
+Cordella, Tito, and Hulya Ulku. 2007. Grants vs. Loans. IMF Staff Papers 54 (1): 139–162.
+Crouigneau, Francoise, and Richard Hiault. 2006. Wolfowitz Slams China Banks on Africa Lending.
+Financial Times, October 24.
+Custer, Samantha, Zachary Rice, Takaaki Masaki, Rebecca Latourell, and Bradley Parks. 2015. Listening
+to Leaders: Which Development Partners Do They Prefer and Why. AidData, Williamsburg, VA.
+Dabla-Norris, Era, Jim Brumby, Annette Kyobe, Zac Mills, and Chris Papageorgiou. 2012. Investing in
+Public Investment: An Index of Public Investment Efficiency. Journal of Economic Growth 17 (3):
+235–266.
+Deininger, Klaus, and John Okidi. 2003. Growth and Poverty Reduction in Uganda, 1999–2000: Panel
+Data Evidence. Development Policy Review 21 (4): 481–509.
+Denizer, Cevdet, Daniel Kaufmann, and Aart Kraay. 2013. Good Countries or Good Projects? Macro
+and Micro Correlates of World Bank Project Outcomes. Journal of Development Economics 105:
+288–302.
+Dollar, David. 2008. Supply Meets Demand: Chinese Infrastructure Financing in Africa. World Bank
+Blog.
+Available
+at:
+http://blogs.worldbank.org/eastasiapacific/supply-meets-demand-chinese-infrastructure-financing
+-in-africa.
+
+31
+
+Doucouliagos, Hristos, and Martin Paldam. 2009. The Aid Effectiveness Literature: The Sad Results of
+40 Years of Research. Journal of Economic Surveys 23 (3): 433–461.
+Doucouliagos, Hristos. Forthcoming. The Politics of International Aid. In Roger Congleton, Bernard
+Grofman, and Stefan Voigt (eds.), Oxford Handbook of Public Choice.
+Dovern, Jonas, and Peter Nunnenkamp. 2007. Aid and Growth Accelerations: An Alternative Approach
+to Assessing the Effectiveness of Aid. Kyklos 60 (3): 359–383.
+Dreher, Axel, and Andreas Fuchs. 2015. Rogue Aid? An Empirical Analysis of China's Aid Allocation.
+Canadian Journal of Economics 48 (3): 988–1023.
+Dreher, Axel, and Sarah Langlotz. 2017. Aid and Growth: New Evidence Using an Excludable
+Instrument. Heidelberg University Discussion Paper No. 635.
+Dreher, Axel, and Steffen Lohmann. 2015. Aid and Growth at the Regional Level. Oxford Review of
+Economic Policy 31 (3-4): 420–446.
+Dreher, Axel, Andreas Fuchs, Bradley Parks, Austin M. Strange, and Michael J. Tierney. Forthcoming,a.
+Apples and Dragon Fruits: The Determinants of Aid and other Forms of State Financing from China
+to Africa. International Studies Quarterly.
+Dreher, Axel, Andreas Fuchs, Roland Hodler, Bradley Parks, Paul A. Raschky, and Michael J. Tierney.
+2016. Aid on Demand: African Leaders and the Geography of China's Foreign Assistance. AidData
+Working Paper 3 Revised. AidData, Williamsburg, VA.
+Dreher, Axel, Peter Nunnenkamp and Rainer Thiele. 2011. Are ‘New’ Donors Different? Comparing the
+Allocation of Bilateral Aid between Non-DAC and DAC Donor Countries. World Development 39
+(11): 1950-1968.
+Dreher, Axel, Valentin Lang, and Sebastian Ziaja. 2017. Foreign Aid in Areas of Limited Statehood.
+CESifo Working Paper 6340.
+Dreher, Axel, Vera Z. Eichenauer, and Kai Gehring. Forthcoming,b. Geopolitics, Aid and Growth: The
+Impact of U.N. Security Council Membership on the Effectiveness of Aid. World Bank Economic
+Review.
+Fischer, Stanley. 1993. The Role of Macroeconomic Factors in Growth. Journal of Monetary Economics
+32 (3): 485–512.
+Fuchs, Andreas, and Angelika Müller. 2017. Aid Donors. Paper presented at the Annual Meeting of the
+European Public Choice Society, Budapest, Hungary, April 19–22.
+Galiani, Sebastian, Stephen Knack, Lixin C. Xu, and Ben Zou. 2017. The Effect of Aid on Growth:
+Evidence from a quasi-Experiment. Journal of Economic Growth 22 (1): 1–33.
+Ghose, Siddhartha. 2017. Tracking Funding for the Ebola Epidemic in Sierra Leone. AidData and the
+U.S. Global Development Lab.
+Greenhill, Romilly. 2013. The Age of Choice: Cambodia in the New Aid Landscape. London, UK:
+Overseas Development Institute.
+Headey, Derek. 2008. Geopolitics and the Effect of Foreign Aid on Economic Growth: 1970–2001.
+Journal of International Development 20 (2): 161–180.
+Hendrix, Cullen, and Marcus Noland. 2014. Confronting the Curse: The Economics and Geopolitics of
+Natural Resource Governance. Washington, DC: Peterson Institute for International Economics.
+Hernandez, Diego. 2017. Are “New” Donors Challenging World Bank Conditionality. World
+Development 96 (C): 529–549.
+Hicks, Robert, Bradley Parks, Timmons Roberts, and Michael Tierney. 2008. Greening Aid?
+Understanding the Environmental Impact of Development Assistance. Oxford, UK: Oxford
+University Press.
+
+32
+
+Hsiang, Solomon, and Nitin Sekar. 2016. Does Legalization Reduce Black Market Activity? Evidence
+from a Global Ivory Experiment and Elephant Poaching Data. NBER Working Paper 22314.
+National Bureau of Economic Research, Cambridge, MA.
+Ioannidis, John P. A., Tom D. Stanley, and Hristos Doucouliagos. Forthcoming. The Power of Bias in
+Economics Research. The Economic Journal.
+International Development Association (IDA). 2015. Management’s Discussion & Analysis and Financial
+Statements.
+June
+30,
+2015.
+Washington
+DC:
+World
+Bank.
+Accessed
+at https://ida.worldbank.org/sites/default/files/images/ida_financial_statements_jun_15.pdf
+Isaksson, Ann-Sofie, and Andreas Kotsadam. 2016. Chinese Aid and Local Corruption. AidData
+Working Paper #33. AidData, Williamsburg, VA.
+Iyoha, Milton A. 1999. External Debt and Economic Growth in Sub-Saharan African Countries: An
+Econometric Study. African Economic Research Consortium Research Paper.
+Kapur, Devesh, John P. Lewis, and Richard C. Webb. 1997. The World Bank: Its First Half-Century, Vol.
+1. Washington, DC: Brookings Institution Press.
+Kersting, Erasmus, and Christopher Kilby. 2014. Aid and Democracy Redux. European Economic
+Review 67: 125–143.
+Khandker, Shahidur R., Douglas F. Barnes, and Hussain A. Samad. 2013. Welfare Impacts of Rural
+Electrification: A Panel Data Analysis from Vietnam. Economic Development and Cultural Change
+61 (3): 659–692.
+Khandker, Shahidur R., Hussain A. Samad, Rubaba Ali, and Douglas F. Barnes. 2014. Who Benefits
+Most from Rural Electrification? Evidence in India. Policy Research Working Paper 6095. World
+Bank, Washington, DC.
+Khomba, Daniel C., and Alex Trew. 2017. Aid and Growth in Malawi. AidData Working Paper #42.
+AidData, Williamsburg, VA.
+Kilama, Eric G. 2016. Evidences on Donors Competition in Africa: Traditional Donors versus China.
+Journal of International Development 28 (4): 528–551.
+Kilby, Christopher. 2017. What We Don’t Know: Incorporating Data Uncertainty into Aid Allocation
+Models. Working Paper.
+Kitano, Naohiro. 2016. Estimating China’s Foreign Aid II: 2014 Update. JICA-RI Working Paper #131.
+Kumar, Manmohan, and Jaejoon Woo. 2010. Public Debt and Growth. IMF Working Paper WP/10/174.
+IMF, Washington, DC.
+Lai, Brian, and Daniel S. Morey. 2006. Impact of Regime Type on the Influence of U.S. Foreign Aid.
+Foreign Policy Analysis 2 (4): 385–404.
+Lai, Brian. 2003. Examining the Goals of U.S. Foreign Assistance in the Post-Cold War Period,
+1991-1996. Journal of Peace Research 40 (1): 103–128.
+Lancaster, Carol. 2007. The Chinese Aid System. Center for Global Development Essay. June 2007.
+Center for Global Development, Washington, DC.
+Lang, Valentin. 2016. The Economics of the Democratic Deficit: The Effect of IMF Programs on
+Inequality. Heidelberg University Discussion Paper 617.
+Lebovic, James H. 1988. National Interests and U.S. Foreign Aid: The Carter and Reagan Years. Journal
+of Peace Research 25 (2): 115–135.
+Li, Xiaojun. 2017. Does Conditionality Still Work? China’s Development Assistance and Democracy in
+Africa. Chinese Political Science Review 2 (2): 201-220.
+McGreal, Chris. 2007. Chinese Aid to Africa May Do More Harm than Good, Warns Benn. The
+Guardian, February 9.
+Minasyan, Anna, Peter Nunnenkamp, and Katharina Richert. Forthcoming. Does Aid Effectiveness
+Depend on the Quality of Donors. World Development 100: 16–30.
+33
+
+Minoiu, Camelia, and Sanjay G. Reddy. 2010. Development Aid and Economic Growth: A Positive
+Long-Run Relation. The Quarterly Review of Economics and Finance 50 (1): 27–39.
+Minor, Allison, Pranay Sinha, Brooke Russel, and Charles Perla. 2014. Defining & Measuring
+Development Assistance from GCC Countries: A Methodological Note. AidData, Williamsburg, VA.
+Morgan, Pippa, and Yu Zheng. 2017. Tracing the Legacy: China’s Historical Aid and Contemporary
+Investment in Africa. Working Paper.
+Muchapondwa, Edwin, Daniel Nielson, Bradley Parks, Austin M. Strange, and Michael J. Tierney. 2016.
+‘Ground-Truthing’ Chinese Development Finance in Africa: Field Evidence from South Africa and
+Uganda. Journal of Development Studies 52 (6): 780–796.
+Naím, Moisés. 2007. Rogue Aid. Foreign Policy 159 (Mar/Apr 2007): 95-96.
+Nizalova, Olena Y., and Irina Murtazashvili. 2016. Exogenous Treatment and Endogenous Factors:
+Vanishing of Omitted Variable Bias on the Interaction Term. Journal of Econometric Methods 5 (1):
+71–77.
+Nunn, Nathan, and Nancy Qian. 2014. U.S. Food Aid and Civil Conflict. American Economic Review
+104 (6): 1630–1666.
+Odedokun, Matthew. 2004. Multilateral and Bilateral Loans versus Grants: Issues and Evidence. The
+World Economy 27 (2): 239–263.
+Öhler, Hannes, Peter Nunnenkamp, and Axel Dreher. 2012. Does Conditionality Work? A Test for an
+Innovative U.S. Aid Scheme. European Economic Review 56 (1): 138–153.
+Onjala, Joseph. Forthcoming. China's Development Loans and the Threat of Debt Crisis in Kenya.
+Development Policy Review.
+Ouattara, Bazoumana, and Eric Strobl. 2008. Aid, Policy and Growth: Does Aid Modality Matter?
+Review of World Economics 144 (2): 347-365.
+Parks, Bradley, and Caroline Davis. 2017. When Do Governments Trade Domestic Reforms for External
+Rewards? Explaining Policy Responses to the Millennium Challenge Corporation’s Eligibility
+Standards. Working Paper.
+Parks, Bradley, and Zachary J. Rice. 2013. Does the 'MCC Effect' Exist? Results from the 2012 MCA
+Stakeholder Survey. MCA Monitor Report. Center for Global Development, Washington, DC.
+Pattillo, Catherine, Helene Poirson, and Luca A. Ricci. 2003. Through What Channels Does External
+Debt Affect Growth. Brookings Trade Forum. Brookings Institution Press, Washington, DC.
+Pehnelt, Gernot. 2007. The Political Economy of China’s Aid Policy in Africa. Jena Economic Research
+Papers # 051. University of Jena, Jena, Germany.
+Perlez, Jane, and Yufan Huang. 2017. Behind China’s $1 Trillion Plan to Shake Up the Economic Order.
+New
+York
+Times,
+May
+13.
+Available
+at:
+https://www.nytimes.com/2017/05/13/business/china-railway-one-belt-one-road-1-trillion-plan.ht
+ml.
+Poplak, Richard. 2016. The new scramble for Africa: how China became the partner of choice. The
+Guardian
+22
+December
+2016.
+Accessed
+at
+https://www.theguardian.com/global-development-professionals-network/2016/dec/22/the-new-s
+cramble-for-africa-how-china-became-the-partner-of-choice.
+Rajan, Raghuram G., and Arvind Subramanian. 2008. Aid and Growth: What does the Cross-Country
+Evidence really Show. The Review of Economics and Statistics 90 (4): 643–665.
+Rodella-Boitreaud, Aude-Sophie, and Natascha Wagner. 2011. 'Natural' Disaster, Conflict and Aid
+Allocation. Graduate Institute of International and Development Studies Working Paper No.
+09/2011. Geneva, Switzerland: Graduate Institute of International and Development Studies.
+
+34
+
+Soulé-Kohndou, Folashadé. 2016. Passive Agents? Bureaucratic Agency in Africa-China Negotiations:
+A Case Study of Benin. LSE Global South Unit Working Paper No. 3/2016. London School of
+Economics and Political Science, London, UK.
+State Council. 2011. White Paper on China’s Foreign Aid. Xinhua/Information Office of the State
+Council,
+People’s
+Republic
+of
+China,
+Beijing,
+China.
+Available
+at:
+http://gov.cn/english/official/.2011-04/21/content 1849913.htm (accessed August 2011)
+State Council. 2014. China’s Foreign Aid. Whitepaper. Xinhua/Information Office of the State Council,
+People’s
+Republic
+of
+China,
+Beijing,
+China.
+Available
+at:
+https://web.archive.org/web/20170309163007/http://news.xinhuanet.com/english/china/2014-07
+/10/c_133474011.htm (accessed August 2014).
+Strange, Austin M., Axel Dreher, Andreas Fuchs, Bradley Parks, and Michael J. Tierney. 2017a. Tracking
+Underreported Financial Flows: China’s Development Finance and the Aid–Conflict Nexus
+Revisited. Journal of Conflict Resolution 61 (5): 935–963.
+Strange, Austin M., Bradley Parks, Michael J. Tierney, Andreas Fuchs, Axel Dreher, and Vijaya
+Ramachandran. 2013. China's Development Finance to Africa: A Media-Based Approach to Data
+Collection. CGD Working Paper 323. Center for Global Development, Washington, DC.
+Strange, Austin M., Siddhartha Ghose, Brooke Russel, Mengfan Cheng, and Bradley Parks. 2017b.
+AidData’s Methodology for Tracking Underreported Financial Flows. Version 1.3. AidData,
+Williamsburg, VA.
+Swedlund, Haley J. 2017. Is China eroding the bargaining power of traditional donors in
+Africa? International Affairs 93(2):389–408.
+Temple, Jonathan, and Nicolas van de Sijpe. 2017. Foreign Aid and Domestic Absorption. Journal of
+International Economics 108: 431–443.
+Tierney, Michael J., Daniel L. Nielson, Darren G. Hawkins, J. Timmons Roberts, Michael G. Findley,
+Ryan M. Powers, Bradley Parks, Sven E. Wilson, and Robert L. Hicks. 2011. More Dollars than Sense:
+Refining Our Kknowledge of Development Finance Using AidData. World Development 39 (11):
+1891-1906.
+The Economist. 2009. An (Iron) Fistful of Help: Development Aid from Authoritarian Regimes. The
+Economist, June 6.
+Volkerink, Bjørn, and Jakob de Haan. 2001. Fragmented Government Effects on Fiscal Policy: New
+Evidence. Public Choice 109 (3): 221–242.
+Wade, Abdoulaye. 2008. Time for the West to Practice What It Preaches. Financial Times, 23 January
+2008.
+Walz, Julie, and Vijaya Ramachandran. 2011. Brave New World: A Literature Review of Emerging
+Donors and the Changing Nature of Foreign Assistance. CGD Working Paper 273. Center for
+Global Development, Washington, DC.
+Werker, Eric, Faisal Z. Ahmed, and Charles Cohen. 2009. How is Foreign Aid Spent? Evidence from a
+Natural Experiment. American Economic Journal: Macroeconomics 1 (2): 225–244.
+Werker, Eric. 2012. The Political Economy of Bilateral Foreign Aid. In Gerard Caprio (ed.), Handbook of
+Safeguarding Global Financial Stability: Political, Social, Cultural, and Economic Theories and
+Models. U.K. Academic Press: 47–58.
+Woods, Ngaire. 2008. Whose Aid? Whose Influence? China, Emerging Donors and the Silent
+Revolution in Development Assistance. International Affairs 84 (6): 1205–1221.
+
+35
+
+Tables and Figures
+Table 1: Growth effects of Chinese aid (baseline)
+
+Number of OOF/vague projects (t-2)
+
+(1)
+
+(2)
+
+(3)
+
+(4)
+
+OLS
+
+OLS
+
+OLS
+
+OLS
+
+(5)
+
+(6)
+
+(7)
+
+(8)
+
+2SLS
+
+2SLS
+
+2SLS
+
+2SLS
+
+(10)
+
+(11)
+
+(12)
+
+2SLS
+
+2SLS
+
+2SLS
+
+2SLS
+
+0.198**
+
+0.129
+
+0.753
+
+(2.57)
+
+(0.19)
+
+(1.04)
+
+Chinese ODA projects (t-2)
+
+0.132**
+
+0.694*
+
+0.821**
+
+(2.12)
+
+(1.93)
+
+(2.07)
+
+(log) Chinese OOF/vague amounts (t-2)
+
+0.047*
+
+0.023
+
+0.132
+
+(1.85)
+
+(0.19)
+
+(1.04)
+
+(log) Chinese ODA amounts (t-2)
+
+0.041
+
+0.578*
+
+(1.61)
+(log) Population (t-1)
+
+(9)
+
+0.634*
+
+(1.75)
+
+6.531**
+
+5.949**
+
+6.207**
+
+6.454**
+
+6.529**
+
+3.486
+
+6.369**
+
+5.511*
+
+(2.27)
+
+(2.10)
+
+(2.10)
+
+(2.26)
+
+(2.28)
+
+(1.08)
+
+(2.13)
+
+(1.78)
+
+(1.81)
+8.582***
+
+4.674
+
+7.404**
+
+7.540**
+
+(2.65)
+
+(1.43)
+
+(2.25)
+
+(2.24)
+
+-0.150
+
+-0.158
+
+-0.147
+
+-0.031
+
+(1.19)
+
+(1.05)
+
+(1.29)
+
+(0.18)
+
+0.033***
+
+0.027***
+
+0.035***
+
+0.034***
+
+(6.08)
+
+(5.04)
+
+(6.71)
+
+(3.59)
+
+-0.079
+
+-0.087*
+
+-0.071
+
+-0.115
+
+(1.48)
+
+(1.69)
+
+(1.45)
+
+(1.63)
+
+Money/GDP (t-1)
+
+0.000
+
+0.000
+
+0.000
+
+-0.000
+
+(1.51)
+
+(0.31)
+
+(1.47)
+
+(0.97)
+
+Trade Openness (t-1)
+
+0.037***
+
+0.034***
+
+0.037***
+
+0.027**
+
+Assassinations (t-1)
+Government surplus (% of GDP, t-1)
+Inflation (t-1)
+
+(3.51)
+
+(3.17)
+
+(3.50)
+
+(2.47)
+
+First year
+
+2002
+
+2002
+
+2002
+
+2002
+
+2002
+
+2002
+
+2002
+
+2002
+
+2002
+
+2002
+
+2002
+
+2002
+
+Last year
+
+2016
+
+2016
+
+2016
+
+2016
+
+2016
+
+2016
+
+2016
+
+2016
+
+2016
+
+2016
+
+2016
+
+2016
+
+Number of observations
+
+2078
+
+2078
+
+2078
+
+2078
+
+2076
+
+2076
+
+2076
+
+2076
+
+1546
+
+1546
+
+1546
+
+1546
+
+Number of countries
+
+153
+
+153
+
+153
+
+153
+
+151
+
+151
+
+151
+
+151
+
+112
+
+112
+
+112
+
+112
+
+Cragg-Donald F
+
+70.60
+
+88.15
+
+164.46
+
+18.51
+
+51.34
+
+58.02
+
+126.42
+
+15.96
+
+Kleibergen-Paap F
+
+31.47
+
+62.58
+
+35.91
+
+19.80
+
+54.24
+
+48.22
+
+45.58
+
+18.19
+
+0.09
+
+0.05
+
+0.09
+
+-0.16
+
+0.14
+
+0.07
+
+0.16
+
+-0.23
+
+R squared (within)
+
+0.09
+
+0.09
+
+0.09
+
+0.09
+
+Notes: t-values in parentheses. *** (**, *) indicate statistical significance at the 1% (5%, 10%) level.
+
+36
+
+Table 2: Growth effects of Chinese and Western aid (budgets instruments)
+
+Number of OOF/vague projects (t-2)
+
+(1)
+2SLS
+0.386
+(0.48)
+
+Chinese ODA projects (t-2)
+
+(2)
+2SLS
+
+(3)
+2SLS
+
+(4)
+2SLS
+
+(5)
+2SLS
+
+(6)
+2SLS
+
+(7)
+2SLS
+
+(8)
+2SLS
+
+(9)
+2SLS
+
+1.452***
+(2.99)
+
+(log) Chinese OOF/vague amounts (t-2)
+
+0.069
+(0.47)
+
+(log) Chinese ODA amounts (t-2)
+
+1.359**
+(2.36)
+
+(log) DAC OOF disbursements (t-2)
+
+1.528
+(1.24)
+
+(log) DAC ODA commitments (t-2)
+
+2.050**
+(2.31)
+
+(log) U.S. OOF disbursements (t-2)
+
+-1.458
+(0.14)
+
+(log) U.S. ODA commitments (t-2)
+
+3.276**
+(2.12)
+
+(log) IBRD commitments (t-2)
+
+-0.307
+(0.95)
+
+(log) IDA commitments (t-2)
+(log) Population (t-1)
+First year
+Last year
+Number of observations
+Number of countries
+Cragg-Donald F
+Kleibergen-Paap F
+R squared (within)
+Prob > chi2
+
+(10)
+2SLS
+
+5.200
+(1.63)
+2003
+2016
+1927
+150
+49.62
+17.80
+0.09
+
+-1.154
+(0.31)
+2003
+2016
+1927
+150
+54.08
+36.12
+-0.15
+
+4.585
+(1.40)
+2003
+2016
+1927
+150
+120.26
+32.36
+0.09
+
+2.718
+(0.61)
+2003
+2016
+1927
+150
+9.55
+12.73
+-1.41
+
+2.304
+(0.99)
+1978
+2016
+4990
+157
+34.15
+14.96
+-0.01
+0.49
+
+1.816
+(1.20)
+1978
+2016
+4995
+157
+183.31
+9.18
+0.04
+0.44
+
+-0.020
+(0.01)
+1978
+2016
+4996
+157
+0.62
+2.49
+0.03
+0.84
+
+-0.644
+(0.32)
+1978
+2016
+4996
+157
+31.18
+7.86
+-0.13
+0.10
+
+-1.312
+(0.33)
+1997
+2016
+2828
+155
+21.91
+8.07
+0.03
+0.06
+
+-0.260
+(0.26)
+0.134
+(0.04)
+1993
+2016
+3395
+158
+37.51
+14.13
+0.05
+0.14
+
+Notes: t-values in parentheses. *** (**, *) indicate statistical significance at the 1% (5%, 10%) level. Prob > chi2 corresponds to testing the hypothesis that the effect of Chinese ODA/OOF on growth
+equals those of DAC donors or those of the United States, respectively.
+
+37
+
+Table 3: Growth effects of Chinese and Western aid (budget instruments, various lags)
+
+t-1
+t-2
+t-3
+t-4
+t-5
+t-6
+
+(1)
+
+(2)
+
+(3)
+
+(4)
+
+(5)
+
+(6)
+
+(7)
+
+(8)
+
+(9)
+
+(10)
+
+Chinese
+OOF
+projects
+
+Chinese
+ODA
+projects
+
+(log)
+Chinese
+OOF
+amounts
+
+(log)
+Chinese
+ODA
+amounts
+
+(log)
+DAC
+OOF
+disb.
+
+(log)
+DAC
+ODA
+com.
+
+(log)
+U.S.
+OOF
+disb.
+
+(log)
+U.S.
+ODA
+com.
+
+(log)
+IBRD
+com.
+
+(log)
+IDA
+com.
+
+0.683
+
+1.195**
+
+0.122
+
+1.148**
+
+1.273
+
+2.084**
+
+-7.405
+
+3.432**
+
+0.056
+
+0.326
+
+(0.92)
+
+(2.41)
+
+(0.93)
+
+(2.01)
+
+(1.05)
+
+(2.32)
+
+(0.75)
+
+(2.06)
+
+(0.19)
+
+(0.29)
+
+0.386
+
+1.452***
+
+0.069
+
+1.359**
+
+1.528
+
+2.050**
+
+-1.458
+
+3.276**
+
+-0.307
+
+-0.260
+
+(0.48)
+
+(2.99)
+
+(0.47)
+
+(2.36)
+
+(1.24)
+
+(2.31)
+
+(0.14)
+
+(2.12)
+
+(0.95)
+
+(0.26)
+
+-0.249
+
+0.769*
+
+-0.046
+
+0.725
+
+-0.592
+
+1.951**
+
+-32.120
+
+3.472**
+
+-0.514
+
+0.150
+
+(0.31)
+
+(1.66)
+
+(0.31)
+
+(1.48)
+
+(0.57)
+
+(2.20)
+
+(1.54)
+
+(2.49)
+
+(1.52)
+
+(0.14)
+
+-0.268
+
+0.645
+
+-0.050
+
+0.551
+
+-2.357**
+
+1.910**
+
+-46.410
+
+4.392***
+
+-0.627*
+
+0.521
+
+(0.37)
+
+(1.50)
+
+(0.38)
+
+(1.39)
+
+(2.14)
+
+(2.10)
+
+(1.41)
+
+(3.10)
+
+(1.78)
+
+(0.46)
+
+-0.538
+
+0.240
+
+-0.092
+
+0.209
+
+-2.239**
+
+1.815**
+
+-39.778
+
+4.470***
+
+-0.577*
+
+-0.207
+
+(0.79)
+
+(0.70)
+
+(0.81)
+
+(0.68)
+
+(2.12)
+
+(2.06)
+
+(1.38)
+
+(3.51)
+
+(1.72)
+
+(0.16)
+
+-0.542
+
+-0.055
+
+-0.100
+
+-0.055
+
+-2.021**
+
+1.740**
+
+-17.007
+
+3.434***
+
+-0.464
+
+-0.033
+
+(1.05)
+
+(0.17)
+
+(1.06)
+
+(0.17)
+
+(2.05)
+
+(2.13)
+
+(0.93)
+
+(3.07)
+
+(1.29)
+
+(0.02)
+
+Notes: Each cell represents a separate regression. All regressions include (log) Population (t-1) and country- and year-fixed effects as in Table 2. The table displays t-values in parentheses. *** (**, *)
+indicate statistical significance at the 1% (5%, 10%) level.
+
+38
+
+Table 4: Growth effects of Chinese and Western aid (budget instruments, broad aid sectors)
+
+Economic Infrastructure & Services
+Social Infrastructure & Services
+Production Sectors
+(log) Population (t-1)
+First year
+Last year
+Number of observations
+Number of countries
+Cragg-Donald F
+Kleibergen-Paap F
+R squared (within)
+
+(1)
+(2)
+(3)
+Number of ODA projects
+2.858*
+(1.79)
+3.176***
+(3.48)
+18.421
+(1.63)
+3.821
+-4.231
+4.413
+(1.22)
+(0.98)
+(1.06)
+2003
+2003
+2003
+2016
+2016
+2016
+1927
+1927
+1927
+150
+150
+150
+46.55
+67.88
+10.76
+13.25
+40.27
+5.35
+0.01
+-0.29
+-2.49
+
+(4)
+(5)
+(6)
+(log) Chinese ODA amounts
+0.568*
+(1.94)
+3.630**
+(2.27)
+3.923
+(1.49)
+4.255
+5.528
+2.827
+(1.29)
+(0.86)
+(0.79)
+2003
+2003
+2003
+2016
+2016
+2016
+1927
+1927
+1927
+150
+150
+150
+39.41
+4.65
+20.95
+8.38
+4.94
+4.58
+-0.01
+-5.97
+-1.26
+
+(7)
+(8)
+(9)
+(log) DAC ODA commitments
+0.901**
+(2.23)
+1.460**
+(2.37)
+2.173**
+(2.25)
+1.909
+0.349
+1.788
+(1.18)
+(0.25)
+(1.07)
+1978
+1978
+1978
+2016
+2016
+2016
+4872
+4872
+4872
+149
+149
+149
+185.87
+232.49
+80.31
+64.17
+21.47
+15.04
+0.04
+0.04
+-0.04
+
+(10)
+(11)
+(12)
+(log) U.S. ODA commitments
+1.534**
+(2.31)
+1.448***
+(2.71)
+0.757
+(0.98)
+0.731
+-1.114
+0.037
+(0.48)
+(0.64)
+(0.02)
+1978
+1978
+1978
+2016
+2016
+2016
+4872
+4872
+4872
+149
+149
+149
+158.14
+286.75
+119.16
+63.97
+68.81
+47.36
+0.03
+0.04
+0.06
+
+Notes: t-values in parentheses. *** (**, *) indicate statistical significance at the 1% (5%, 10%) level. Sector definitions follow the OECD: “Social Infrastructure & Services” includes health, education,
+governance, and water supply and sanitation projects; “Economic Infrastructure & Services” includes transportation projects (e.g., roads, railways, and airports), energy production and distribution
+projects, and information and communication technology (ICT) projects (e.g., broadband internet and mobile phone infrastructure); “Production Sector” includes agriculture, fishing, forestry, mining,
+industry, trade, and tourism projects.
+
+39
+
+Table 5: Growth effects of Western aid for Chinese aid darlings (based on actual number of Chinese projects)
+
+(log) DAC OOF disbursements (t-2)
+
+(1)
+
+(2)
+
+(3)
+
+(4)
+
+(5)
+
+(5’)
+
+(6)
+
+(6’)
+
+2SLS
+
+2SLS
+
+2SLS
+
+2SLS
+
+2SLS
+
+2SLS
+
+2SLS
+
+2SLS
+
+-0.893
+
+-0.615*
+
+(1.63)
+
+(1.70)
+0.750
+
+-0.644
+
+2.604*
+(1.90)
+
+(log) DAC ODA commitments (t-2)
+
+1.481
+(1.61)
+
+(log) U.S. OOF disbursements (t-2)
+
+-0.936
+(0.05)
+
+(log) U.S. ODA commitments (t-2)
+
+2.401
+(1.52)
+
+(log) IBRD commitments (t-2)
+(log) IDA commitments (t-2)
+(log) Population (t-1)
+First year
+
+(0.79)
+
+(0.20)
+
+3.432
+
+0.621
+
+-0.923
+
+-1.069
+
+-4.979
+
+0.942
+
+-4.527*
+
+7.740
+
+(1.14)
+
+(0.40)
+
+(0.56)
+
+(0.61)
+
+(1.06)
+
+(0.17)
+
+(1.65)
+
+(1.00)
+
+1978
+
+1978
+
+1978
+
+1978
+
+1997
+
+2002
+
+1993
+
+2002
+
+Last year
+
+2016
+
+2016
+
+2016
+
+2016
+
+2016
+
+2016
+
+2016
+
+2016
+
+Number of observations
+
+3801
+
+3807
+
+3807
+
+3807
+
+2102
+
+1206
+
+2519
+
+1206
+
+Number of countries
+
+112
+
+112
+
+112
+
+112
+
+111
+
+118
+
+111
+
+118
+
+Cragg-Donald F
+
+33.34
+
+140.69
+
+0.30
+
+21.04
+
+12.03
+
+19.95
+
+30.26
+
+4.07
+
+Kleibergen-Paap F
+
+12.36
+
+6.14
+
+1.62
+
+4.04
+
+6.39
+
+9.69
+
+15.02
+
+4.95
+
+R squared (within)
+
+-0.16
+
+0.06
+
+0.06
+
+-0.03
+
+-0.19
+
+-0.11
+
+0.07
+
+0.06
+
+Prob > chi2
+
+0.18
+
+0.29
+
+0.97
+
+0.40
+
+0.04
+
+0.21
+
+0.13
+
+0.89
+
+Notes: t-values in parentheses. *** (**, *) indicate statistical significance at the 1% (5%, 10%) level. Prob > chi2 corresponds to testing the hypothesis that the effect of DAC or U.S. aid in “Chinese aid
+darlings” is different from the effect in countries that are not “Chinese aid darlings.”
+
+40
+
+Table 6: Growth effects of Western aid for Chinese aid darlings (based on predicted number of Chinese projects)
+
+(log) DAC OOF disbursements (t-2)
+
+(1)
+
+(2)
+
+(3)
+
+(4)
+
+(5)
+
+(5’)
+
+(6)
+
+(6’)
+
+2SLS
+
+2SLS
+
+2SLS
+
+2SLS
+
+2SLS
+
+2SLS
+
+2SLS
+
+2SLS
+
+-0.631
+
+-0.546
+
+(1.20)
+
+(1.44)
+1.266
+
+1.738
+
+4.137***
+(2.64)
+
+(log) DAC ODA commitments (t-2)
+
+0.779
+(1.01)
+
+(log) U.S. OOF disbursements (t-2)
+
+-3.049
+(0.09)
+
+(log) U.S. ODA commitments (t-2)
+
+2.672
+(0.90)
+
+(log) IBRD commitments (t-2)
+(log) IDA commitments (t-2)
+(log) Population (t-1)
+
+(1.30)
+
+(0.44)
+
+6.053
+
+-2.100
+
+-3.101
+
+-3.130
+
+-2.911
+
+-0.325
+
+-5.740**
+
+-2.651
+
+(1.33)
+
+(1.15)
+
+(0.82)
+
+(1.58)
+
+(0.59)
+
+(0.06)
+
+(2.01)
+
+(0.20)
+
+First year
+
+1978
+
+1978
+
+1978
+
+1978
+
+1997
+
+2005
+
+1993
+
+2005
+
+Last year
+
+2016
+
+2016
+
+2016
+
+2016
+
+2016
+
+2016
+
+2016
+
+2016
+
+Number of observations
+
+3402
+
+3408
+
+3408
+
+3408
+
+1911
+
+1209
+
+2284
+
+1209
+
+Number of countries
+
+99
+
+99
+
+99
+
+99
+
+99
+
+112
+
+99
+
+112
+
+Cragg-Donald F
+
+36.31
+
+117.27
+
+0.10
+
+8.00
+
+10.36
+
+11.43
+
+28.53
+
+1.72
+
+Kleibergen-Paap F
+
+11.12
+
+6.28
+
+0.78
+
+1.28
+
+4.00
+
+10.52
+
+14.41
+
+2.32
+
+R squared (within)
+
+-0.60
+
+0.11
+
+-0.09
+
+-0.04
+
+-0.07
+
+-0.07
+
+0.07
+
+0.02
+
+Prob > chi2
+
+0.01
+
+0.14
+
+0.95
+
+0.69
+
+0.24
+
+0.42
+
+0.03
+
+0.60
+
+Notes: t-values in parentheses. *** (**, *) indicate statistical significance at the 1% (5%, 10%) level. Prob > chi2 corresponds to testing the hypothesis that the effect of DAC or U.S. aid in countries that
+are predicted to be “Chinese aid darlings” is different from the effect in countries that are not predicted to be “Chinese aid darlings.”
+
+41
+
+Share of each status in total number of projects
+0
+20
+40
+60
+80
+100
+
+Figure 1: Proportion of Chinese official development projects by status (2000-2014)
+
+62
+
+61
+
+54
+
+61
+
+61
+
+64
+
+65
+
+62
+
+64
+
+61
+
+57
+
+56
+
+50
+
+39
+
+49
+
+22
+
+5
+14
+
+18
+
+00
+
+4
+20
+
+16
+
+01
+
+24
+
+9
+
+9
+
+18
+
+17
+
+8
+15
+
+10
+
+9
+17
+
+16
+
+15
+
+13
+
+16
+20
+
+10
+17
+14
+
+16
+
+19
+
+21
+19
+19
+
+16
+12
+
+02
+
+15
+
+18
+
+7
+
+03
+
+14
+
+13
+
+12
+
+9
+
+04
+
+05
+
+13
+
+12
+
+9
+
+8
+
+06
+
+Pipeline: Pledge
+Implementation
+
+07
+
+08
+
+09
+
+10
+
+11
+
+12
+
+13
+
+Pipeline: Commitment
+Completion
+
+42
+
+16
+
+11
+
+14
+
+0
+
+0
+
+100
+
+20,000
+
+Number of projects
+200
+
+300
+
+Amount in millions of 2009 US$
+40,000
+60,000
+
+400
+
+80,000
+
+Figure 2: Variation in flow types over time (2000-2014)
+
+'00 '01 '02 '03 '04 '05 '06 '07 '08 '09 '10 '11 '12 '13 '14
+ODA-like
+OOF-like
+
+'00 '01 '02 '03 '04 '05 '06 '07 '08 '09 '10 '11 '12 '13 '14
+
+Vague (OF)
+
+ODA-like
+OOF-like
+
+43
+
+Vague (OF)
+
+Figure 3: Largest sectors by financial value and project numbers
+
+44
+
+Figure 4: World maps of China’s development assistance (2000-2014, project numbers)
+
+Legend:
+150 - 200
+100 - 150
+75 - 100
+50 - 75
+25 - 50
+10 - 25
+1 - 10
+0
+No data
+
+Figure 5: World maps of China’s development assistance (2000-2014, financial amount)
+
+Legend (USD, million):
+20000 - 40000
+10000 - 20000
+5000 - 10000
+1000 - 5000
+500 - 1000
+10 - 500
+<10
+0
+No data
+
+45
+
+Appendix A: The Tracking Underreported Financial Flows (TUFF)
+Methodology
+TUFF data collection and quality assurance procedures are documented in their entirety in Strange et
+al. (2017b). Here we provide a brief summary. The TUFF methodology is divided into three stages: two
+stages of primary data collection (project identification and source triangulation) and a third stage to
+review and revise individual project records (quality assurance).
+
+In the first stage of primary data collection, researchers identify potential projects at the
+donor/lender-recipient/borrower-year unit of analysis through a standardized set of search queries in
+Factiva, a Dow Jones-owned media database that draws on approximately 33,000 media sources
+worldwide in 28 languages, including newspapers and radio and television transcripts. A machine
+learning algorithm is then used to identify the subset of articles retrieved through these Factiva queries
+that are most likely to contain information about officially-financed projects for the donor/lender of
+interest.
+
+58
+
+Researchers then review each of the Factiva records that the machine learning algorithm
+
+has classified as “relevant” and make case-by-case determinations about whether those records
+contain information about an officially financed project by the donor/lender of interest. In parallel,
+researchers retrieve all individual projects that are financed by the donor/lender of interest and
+recorded in (a) the aid and debt information management systems of recipient/borrower countries, (b)
+IMF country reports, and (c) the websites of Chinese embassies and Chinese Economic and
+Commercial Counselor Offices (ECCOs).
+
+Once a potential project has been identified during the first stage of data collection, it is entered into
+our data management platform with a unique identification number and assigned to a different
+researcher for a second stage of record review and augmentation. During this second stage, the
+researcher performs a set of targeted online searches to validate, invalidate, and/or enrich the
+project-level information that was retrieved in the first stage. These searches are conducted in English,
+Chinese and recipient/borrower country languages by trained language experts and native speakers
+58
+
+The machine learning tool that is used relies upon large amounts of training data (i.e., past articles that were identified via
+Factiva and later classified by researchers as containing or not containing information about projects financed by the official
+donor/lender of interest) to “teach” the algorithm to accurately classify hundreds of thousands of articles into “relevant” and
+“irrelevant” categories. Use of this tool significantly reduces the amount of time that researchers would otherwise spend
+reviewing articles that contain no information about projects financed by the official donor/lender of interest (“false positives”).
+46
+
+in order to improve record accuracy and completeness. The researcher also seeks to collect
+supplementary information from government sources (e.g., annual reports published by the lender or
+granting agency), field reports published by NGOs and implementing entities (e.g., private
+contractors), scholarly research (e.g., case studies of particular projects, doctoral dissertations on the
+development finance activities of a particular donor/lender in a particular country), and experts with
+information or knowledge about specific projects that is not in the public domain or is not easily
+identifiable (e.g., photographic evidence of a project’s current status). This process of project-level
+investigation and triangulation is designed to reduce the risk of over-reliance on individual sources,
+such as media reports, that might be inaccurate or incomplete.
+
+The third stage of the TUFF methodology involves the systematic implementation of data quality
+assurance procedures to maximize the reliability and completeness of project records. First, a set of
+de-duplication procedures is implemented in order to minimize the risk of double counting. Second,
+to account for the fact that idiosyncratic coding decisions made by individual researchers can result in
+inconsistencies across project records, a set of automated data checks are undertaken to limit
+discretion and eliminate illogical and inconsistent codings.
+
+59
+
+Third, each project record in the dataset
+
+is vetted by a program manager—who oversees the team of research assistants—or a senior research
+assistant appointed by the program manager to identify potential errors, missing data, or incorrect
+categorizations. Fourth, the dataset then undergoes another layer of review that focuses specifically on
+projects with low “health of record” scores and large-scale projects (as indicated by the financial value
+60
+
+of the transaction).
+
+Finally, the dataset as a whole is subjected to several rounds of careful scrutiny by
+
+AidData staff and external peer reviewers.
+
+61
+
+Internal and external reviewers not only seek to identify
+
+59
+
+For example, China Development Bank (CDB) offers finance on commercial, rather than concessional, terms, so an automated
+decision rule disallows CDB finance from ever being categorized as Official Development Assistance (ODA). Likewise, the China
+Export-Import Bank offers loans and export credits at commercial and concessional rates, but does not offer grants or
+interest-free loans, so an automated decision rule disallows any project financed by the China Export-Import Bank to ever be
+categorized as a grant or interest-free loan.
+60
+
+“Health of record” scores are calculated in order to systematically identify projects that might benefit from additional sourcing
+or investigation. More specifically, for all projects in the dataset, source triangulation and data completeness scores are
+calculated. Whereas the source triangulation indicator captures the number and diversity of information sources supporting a
+given project record, the data completeness indicator measures the extent to which fields/variables for a given project record
+are populated with missing or vague information.
+
+61
+
+More than 30 external and internal reviewers were involved in this process for the version of the dataset used in this paper.
+Also, feedback provided by users of a dynamic online platform (at china.aiddata.org) is reviewed and, where appropriate, used
+to update project records. For example, a PhD student helped AidData to vet and augment project records in the Democratic
+Republic of the Congo with information she directly gathered through extensive fieldwork in that country. In another instance,
+Chinese Ministry of Health officials and Chinese university faculty identified missing information about in-kind, medical supply
+47
+
+errors of omission and commission, but also flag inconsistencies that should be addressed and
+additional sources that should be consulted.
+
+62
+
+donations made during recurring visits from Chinese medical teams. When a credible source of information about these
+donations was furnished, new project records were added to the dataset.
+62
+
+Among other things, these reviewers (a) generate descriptive statistics with the dataset and compare them to official and
+third-party estimates to identify anomalies or suspicious results; and (b) review individual project records to suggest potential
+ways to address errors, biases, and gaps.
+48
+
+Appendix B: Additional Tables and Figures in Section 2
+Appendix B1: Flow type and flow class (number of projects)
+
+Grant
+
+ODA-like
+OOF-like
+Vague (Official Finance)
+
+310
+
+Loan (excluding debt rescheduling)
+
+ODA-like
+OOF-like
+Vague (Official Finance)
+
+310
+
+2014
+
+416
+274
+
+Free-standing technical assistance
+
+ODA-like
+OOF-like
+Vague (Official Finance)
+
+Export credits
+
+ODA-like
+OOF-like
+Vague (Official Finance)
+
+Debt forgiveness
+
+ODA-like
+OOF-like
+Vague (Official Finance)
+
+Scholarships/training in the donor country
+
+ODA-like
+OOF-like
+Vague (Official Finance)
+ODA-like
+OOF-like
+Vague (Official Finance)
+
+4
+
+Vague (undetermined)
+
+ODA-like
+OOF-like
+Vague (Official Finance)
+
+16
+
+Debt rescheduling
+
+Strategic/Supplier Credit
+
+ODA-like
+OOF-like
+Vague (Official Finance)
+
+483
+34
+
+127
+
+75
+
+132
+11
+
+6
+81
+
+11
+
+0
+
+500
+
+49
+
+1,000
+Number of projects
+
+1,500
+
+2,000
+
+Appendix B2: Most important world regions
+Rank
+1
+2
+3
+4
+5
+6
+7
+8
+
+World region
+Africa
+Central and Eastern Europe
+Latin America
+South Asia
+Southeast Asia
+Central and North Asia
+Middle East
+The Pacific
+
+Total official finance
+m$
+#
+118,074
+56,718
+53,389
+48,763
+39,237
+28,491
+3,083
+2,813
+
+34%
+16%
+15%
+14%
+11%
+8%
+1%
+1%
+
+2,345
+171
+317
+423
+507
+183
+93
+265
+
+m$
+54%
+4%
+7%
+10%
+12%
+4%
+2%
+6%
+
+46,052
+2,751
+9,877
+7,987
+5,951
+4,391
+409
+2,157
+
+ODA-like
+#
+58%
+3%
+12%
+10%
+7%
+6%
+1%
+3%
+
+1,855
+62
+165
+294
+362
+109
+66
+227
+
+59%
+2%
+5%
+9%
+12%
+3%
+2%
+7%
+
+Appendix B3: Most important recipient countries (number of projects)
+Rank
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+…
+18
+…
+43
+43
+43
+…
+49
+…
+64
+…
+136
+136
+136
+
+World region
+Cambodia
+Pakistan
+Zimbabwe
+Angola
+Sudan
+Tanzania
+Ghana
+Kenya
+Ethiopia
+Sri Lanka
+
+Recipient country
+Southeast Asia
+South Asia
+Africa
+Africa
+Africa
+Africa
+Africa
+Africa
+Africa
+South Asia
+
+#
+168
+121
+120
+110
+108
+101
+95
+89
+88
+86
+
+Papua New Guinea
+
+The Pacific
+
+68
+
+Belarus
+Kyrgyz Republic
+Uzbekistan
+
+Central and Eastern Europe
+Central and North Asia
+Central and North Asia
+
+33
+33
+33
+
+Bolivia
+
+Latin America and the Caribbean
+
+31
+
+Yemen
+
+Middle East
+
+24
+
+Sao Tome & Principe
+United Arab Emirates
+Australia
+
+Africa
+Middle East
+The Pacific
+
+1
+1
+1
+
+50
+
+Appendix B4: Largest 25 officially-financed Chinese projects by financial amount (in millions of constant 2009 U.S.$)
+Rank
+
+Recipient country
+
+Year
+
+Title (shortened)
+
+Flow class
+
+Flow type
+
+1
+
+Russia
+
+2009
+
+OOF-like
+
+Loan
+
+20,356
+
+2
+
+Russia
+
+2009
+
+Part 1: CDB loan to Russian Roseneft and Transneft
+Development
+Bank and Transneft
+Part 2: CDB loan to
+Russian Roseneft
+
+Amount
+
+OOF-like
+
+Loan
+
+13,571
+
+3
+
+Laos
+
+2012
+
+EXIM Bank loan for construction of Kunming-Vientiane high-speed railway link
+
+OOF-like
+
+Loan
+
+7,625
+
+4
+
+Cuba
+
+2011
+
+China forgives U.S.$ 6 billion worth of Cuban Debt
+
+ODA-like
+
+Debt
+
+6,660
+5,428
+
+5
+
+Turkmenistan
+
+2009
+
+China Provides 4 Billion USD for South Yolotan—Osman Field Development
+
+OOF-like
+
+forgiveness
+Loan
+
+6
+
+Turkmenistan
+
+2011
+
+China Provides 4.1 Billion USD for Ioujno-Elotenshoie Field Development
+
+OOF-like
+
+Loan
+
+4,551
+
+7
+
+Venezuela
+
+2011
+
+ICBC loans Venezuela oil firm 4 billion USD for construction of housing projects
+
+OOF-like
+
+Loan
+
+4,440
+
+8
+
+Brazil
+
+2010
+
+China Development Bank extends $3.5 billion USD loan to Petrobras from $5 billion line of credit
+
+OOF-like
+
+Loan
+
+4,402
+
+9
+
+Venezuela
+
+2013
+
+CDB funds $4 billion PDVSA and CNPC joint venture Sinovensa in Orinoco belt
+
+OOF-like
+
+Loan
+
+4,087
+
+10
+
+Pakistan
+
+2014
+
+Part III: China's financial package loan includes preferential buyer credit for Karachi Nuclear Power Plant's K-2/K-3
+
+OOF-like
+
+Export
+
+4,001
+
+11
+
+Ukraine
+
+2012
+
+China EXIM Bank agrees USD3B for Ukraine Agricultural Projects
+
+OOF-like
+
+credits
+Loan
+
+3,177
+
+12
+
+Belarus
+
+2013
+
+China Exim Bank and CDB loan 3 billion USD in total for China-Belarus Industrial Park
+
+OOF-like
+
+Loan
+
+3,050
+
+13
+
+Ethiopia
+
+2013
+
+Chinese Banks Loan 3.3 Billion USD for Addis Ababa-Djibouti Railway Project
+
+Vague (OF)
+
+Loan
+
+2,847
+
+14
+
+Bahamas
+
+2011
+
+China EXIM Bank loans $2.45 billion to Bahamas for the Baha Mar Resort
+
+OOF-like
+
+Loan
+
+2,719
+
+15
+
+Ethiopia
+
+2011
+
+China loans 2,400 million USD for Rail Line From Sebeta to Adama in Ethiopia
+
+Vague (OF)
+
+Loan
+
+2,664
+
+16
+
+Pakistan
+
+2014
+
+China pledges loan of 233.4177 billion rupees to Pakistan for Karachi-Lahore highway
+
+Vague (OF)
+
+Loan
+
+2,309
+
+17
+
+Pakistan
+
+2014
+
+Part II: China's financial package loan includes buyer credit for Karachi Nuclear Power Plant's K-2/K-3
+
+OOF-like
+
+Export
+
+2,250
+
+18
+
+South Africa
+
+2013
+
+ICBC signs funding support agreement for South African renewable energy projects
+
+OOF-like
+
+credits
+Loan
+
+2,237
+
+19
+
+Angola
+
+2011
+
+CDB loans $2 billion USD to oil company Sonangol in Angola
+
+OOF-like
+
+Loan
+
+2,220
+
+20
+
+Ecuador
+
+2011
+
+Ecuador Signs $2B loan with CDB for renewable energy purposes
+
+OOF-like
+
+Loan
+
+2,220
+
+21
+
+Iran
+
+2014
+
+CMC and SUPOWER signed agreement on the railway electrification program
+
+Vague (OF)
+
+Loan
+
+2,143
+
+22
+
+Cote D'Ivoire
+
+2012
+
+Chinese company building railway in Ivory Coast from Man to San Pedro
+
+ODA-like
+
+Loan
+
+2,118
+
+23
+
+Argentina
+
+2014
+
+China commits 2.1 Billion USD loan for rehabilitation of Belgrano Cargas railway
+
+OOF-like
+
+Loan
+
+2,100
+
+24
+
+Angola
+
+2014
+
+CDB provided $2 billion USD loan to Sonangol
+
+OOF-like
+
+Loan
+
+2,000
+
+25
+
+Pakistan
+
+2011
+
+Loans from Silk Road Fund, EXIM, and CDB for Korrak hydropower project/ Korat Dam in Pakistan
+
+OOF-like
+
+Loan
+
+1,831
+
+51
+
+Appendix B5: Largest 25 development projects by sector (in millions of constant 2009 U.S.$)
+Sector (in alphabetic order)
+
+Recipient
+
+Year
+
+Title (shortened)
+
+Flow class
+
+Flow type
+
+Action Relating to Debt
+
+Cuba
+
+2011
+
+China forgives U.S.$ 6 billion worth of Cuban Debt
+
+ODA-like
+
+Debt
+
+6,660
+
+Agriculture, Forestry and Fishing
+
+Ukraine
+
+2012
+
+China EXIM Bank agrees USD3B for Ukraine Agricultural Projects
+
+OOF-like
+
+forgivenes
+Loan
+
+3,177
+
+Banking and Financial Services
+
+South Africa
+
+2009
+
+Chinese banks sign $1 billion loan facility for South Africa's Standard Bank
+
+OOF-like
+
+sLoan
+
+1,357
+
+Business and Other Services
+
+Belarus
+
+2013
+
+China Exim Bank and CDB loan for China-Belarus Industrial Park
+
+OOF-like
+
+Loan
+
+3,050
+
+Communications
+
+India
+
+2010
+
+Reliance Industries in India Ordered Equipment from Shanghai Electric
+
+OOF-like
+
+Loan
+
+1,383
+
+Developmental Food Aid etc.
+
+Somalia
+
+2011
+
+China Grants 16 million USD for Humanitarian Interventions in Somalia
+
+ODA-like
+
+Grant
+
+18
+
+Education
+
+Angola
+
+2006
+
+China constructs several institutes in Angola for $93.2 million
+
+OOF-like
+
+Loan
+
+171
+
+Emergency Response
+
+Pakistan
+
+2007
+
+Grant for repatriation of Afghan refugees from Pakistan
+
+ODA-like
+
+Grant
+
+651
+
+Energy Generation and Supply
+
+Russia
+
+2009
+
+Rosneft takes out loan from China Development Bank
+
+OOF-like
+
+Loan
+
+20,356
+
+General Budget Support
+
+Sudan
+
+2012
+
+$1.5 billion loan from China Development Bank
+
+OOF-like
+
+Loan
+
+1,589
+
+General Environmental Protection
+
+Jamaica
+
+2010
+
+China ExIm bank loans Jamaica to repair and protect the shoreline of Palisadoes
+
+Vague
+
+Loan
+
+73
+
+Government and Civil Society
+
+Ecuador
+
+2012
+
+China commits a loan of $240 million to Ecuador to set up security service ECU 911
+
+(OF)
+Vague
+
+Loan
+
+254
+
+Health
+
+Trinidad & Tobago
+
+2013
+
+Trinidad and Tobago Children's Hospital with concessional loan
+
+(OF)
+OOF-like
+
+Loan
+
+153
+
+Industry, Mining, Construction
+
+Turkmenistan
+
+2009
+
+China Provides 4 Billion USD for South Yolotan_„_Osman Field Development
+
+OOF-like
+
+Loan
+
+5,428
+
+Non-food commodity assistance
+
+Pakistan
+
+2010
+
+China donates 40000 wheel chairs to Pakistani charity Bait ul Maal
+
+ODA-like
+
+Grant
+
+37
+
+Other Multisector
+
+Ecuador
+
+2011
+
+Ecuador Signs $2B loan with CDB for renewable energy purposes
+
+OOF-like
+
+Loan
+
+2,220
+
+Other Social infrastructure and
+
+Venezuela
+
+2011
+
+ICBC loans Venezuela oil firm 4 billion USD for construction of housing projects
+
+OOF-like
+
+Loan
+
+4,440
+
+services
+Population Policies etc.
+
+Zimbabwe
+
+2012
+
+China provides 4.5 million RMB loan for neonatal equipment in Zimbabwe
+
+Vague
+
+Loan
+
+1
+
+Support to NGOs and GOs
+
+Zimbabwe
+
+2010
+
+Zimbabwe miners' association received 10 million USD grant from China
+
+(OF)
+ODA-like
+
+Grant
+
+13
+
+Trade and Tourism
+
+Bahamas
+
+2011
+
+China EXIM Bank loans $2.45 billion to Bahamas for the Baha Mar Resort
+
+OOF-like
+
+Loan
+
+2,719
+
+Transport and Storage
+
+Laos
+
+2012
+
+EXIM Bank loan for construction of Kunming-Vientiane high-speed railway link
+
+OOF-like
+
+Loan
+
+7,625
+
+Unallocated / Unspecified
+
+Ethiopia
+
+2006
+
+China loans Ethiopia 500 million USD for unspecified development projects
+
+Vague
+
+Loan
+
+920
+
+Water Supply and Sanitation
+
+Cameroon
+
+2009
+
+China loans 366 billion CFA to Cameroon for water distribution project
+
+(OF)
+ODA-like
+
+Loan
+
+1,052
+
+Women in Development
+
+Chad
+
+2012
+
+Grant to Construct Women's Center
+
+ODA-like
+
+Grant
+
+12
+
+52
+
+Amount
+
+Appendix B6: Average project size by country (in millions of constant 2009 U.S.$)
+Rank
+1
+2
+3
+4
+5
+6
+7
+8
+9
+11
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+…
+
+Recipient country
+Russia
+Turkmenistan
+Cuba
+Brazil
+Venezuela
+India
+Argentina
+South Africa
+Ecuador
+Kazakhstan
+Iran
+Bahamas
+Montenegro
+Ukraine
+Turkey
+Bosnia-Herzegovina
+Belarus
+Chile
+Pakistan
+Laos
+…
+
+Amount
+3,052
+1,525
+1,356
+1,218
+1,122
+796
+773
+628
+622
+591
+430
+360
+340
+314
+301
+287
+283
+279
+276
+267
+…
+
+Note: For obvious reasons, this table excludes projects without information on their respective financial value.
+
+Appendix B7: Most important recipient countries (financial value, in millions of constant 2009 U.S.$)
+Rank
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+…
+37
+…
+58
+…
+
+Recipient country
+Russia
+Pakistan
+Angola
+Ethiopia
+Sri Lanka
+Laos
+Venezuela
+Turkmenistan
+Sudan
+Ecuador
+
+World region
+Central and Eastern Europe
+South Asia
+Africa
+Africa
+South Asia
+Southeast Asia
+Latin America and the Caribbean
+Central and North Asia
+Africa
+Latin America and the Caribbean
+
+Amount
+36,623
+24,325
+16,556
+14,834
+12,680
+12,016
+11,219
+10,676
+10,237
+9,953
+
+Iran
+
+Middle East
+
+2,148
+
+Fiji
+
+The Pacific
+
+1,039
+
+53
+
+.5
+
+Appendix B8: Share of projects with unknown financial amount by year (2000-2014)
+0.48
+0.43 0.43
+
+.4
+
+Share of projects with unknown size
+
+0.41
+
+0.45
+0.42
+
+0.38
+
+0.37
+0.35
+0.33
+
+0.33
+
+0.33
+
+0.27
+
+0.20
+
+0
+
+.1
+
+.2
+
+.3
+
+0.30
+
+'00 '01 '02 '03 '04 '05 '06 '07 '08 '09 '10 '11 '12 '13 '14
+
+Appendix B9: Average project size by flow type and share of missing financial value
+Rank
+
+Flow type
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+Export credits
+Loan (excluding debt rescheduling)
+Strategic/Supplier Credit
+Debt forgiveness
+Debt rescheduling
+Vague (undetermined)
+Grant
+Free-standing technical assistance
+Scholarships/training in the donor country
+
+Average project size
+(in U.S.$ million)
+333
+304
+206
+175
+44
+41
+9
+8
+1
+
+54
+
+Missing financial amount
+(share of projects in %)
+6
+8
+0
+12
+25
+34
+40
+92
+92
+
+Appendix C: Additional Tables and Figures in Section 3
+Appendix C1: Parallel trends plots for instrument using the interaction of Chinese steel
+production and the probability of receiving Chinese aid
+
+Note: The upper Panel shows how Chinese steel production varies over time. The middle Panel shows average aid within the
+group that is below the median of the probability of receiving aid and the group that is above the median over time. The lower
+Panel shows the average real GDP per capita growth rate within these two groups over time. For the construction of the averages
+we use observations from the sample of column 3 in Table 1.
+
+55
+
+Appendix C2: Growth effects of Chinese aid (including exports and FDI)
+
+Number of OOF/vague projects (t-2)
+
+(1)
+2SLS
+-0.448
+(0.54)
+
+Chinese ODA projects (t-2)
+
+(2)
+2SLS
+
+(3)
+2SLS
+
+1.882***
+(2.96)
+
+(log) Chinese OOF/vague amounts (t-2)
+
+-0.072
+(0.54)
+
+(log) Chinese ODA amounts (t-2)
+(log) Population (t-1)
+Chinese Exports*prob. Aid (t-3)
+Chinese FDI*prob. Aid (t-3)
+First year
+Last year
+Number of observations
+Number of countries
+Cragg-Donald F
+Kleibergen-Paap F
+R squared (within)
+
+(4)
+2SLS
+
+-1.059
+(0.63)
+0.944
+(1.24)
+5.626*
+(1.87)
+2002
+2016
+2076
+151
+40.05
+17.46
+0.07
+
+-3.688**
+(2.14)
+0.774
+(1.01)
+0.496
+(0.13)
+2002
+2016
+2076
+151
+28.18
+23.52
+-0.30
+
+-1.303
+(0.91)
+1.029
+(1.46)
+6.198**
+(2.06)
+2002
+2016
+2076
+151
+117.24
+27.59
+0.08
+
+Notes: t-values in parentheses. *** (**, *) indicate statistical significance at the 1% (5%, 10%) level.
+
+56
+
+1.804*
+(1.82)
+-6.583**
+(2.03)
+1.949*
+(1.70)
+6.110
+(1.19)
+2002
+2016
+2076
+151
+4.46
+4.74
+-2.62
+
+Appendix C3: Growth effects of Chinese and Western aid (budget instruments, broad aid sectors)
+
+Economic Infrastructure & Services
+Social Infrastructure & Services
+Production Sectors
+(log) Population (t-1)
+First year
+Last year
+Number of observations
+Number of countries
+Cragg-Donald F
+Kleibergen-Paap F
+R squared (within)
+
+(1)
+(2)
+(3)
+Number of ODA projects
+2.858*
+(1.79)
+3.176***
+(3.48)
+18.421
+(1.63)
+3.821
+-4.231
+4.413
+(1.22)
+(0.98)
+(1.06)
+2003
+2003
+2003
+2016
+2016
+2016
+1927
+1927
+1927
+150
+150
+150
+46.55
+67.88
+10.76
+13.25
+40.27
+5.35
+0.01
+-0.29
+-2.49
+
+(4)
+(5)
+(6)
+(log) Chinese ODA amounts
+0.568*
+(1.94)
+3.630**
+(2.27)
+3.923
+(1.49)
+4.255
+5.528
+2.827
+(1.29)
+(0.86)
+(0.79)
+2003
+2003
+2003
+2016
+2016
+2016
+1927
+1927
+1927
+150
+150
+150
+39.41
+4.65
+20.95
+8.38
+4.94
+4.58
+-0.01
+-5.97
+-1.26
+
+Notes: t-values in parentheses. *** (**, *) indicate statistical significance at the 1% (5%, 10%) level.
+
+57
+
+(7)
+(8)
+(9)
+(log) DAC ODA commitments
+1.074
+(0.47)
+-44.693
+(0.10)
+4.987
+(1.45)
+2.351
+27.061
+-6.854
+(0.44)
+(0.11)
+(0.72)
+2003
+2003
+2003
+2016
+2016
+2016
+1869
+1869
+1869
+141
+141
+141
+6.18
+0.05
+8.54
+3.28
+0.01
+3.09
+0.02
+-32.75
+-0.51
+
+(10)
+(11)
+(12)
+(log) U.S. ODA commitments
+-0.207
+(0.15)
+-4.834
+(0.40)
+1.792
+(1.04)
+4.675
+15.594
+-0.272
+(0.80)
+(0.52)
+(0.05)
+2003
+2003
+2003
+2016
+2016
+2016
+1869
+1869
+1869
+141
+141
+141
+18.16
+0.86
+20.54
+13.96
+0.20
+14.74
+0.08
+-0.45
+0.01
+
+Appendix D: Alternative Instruments for Western Aid
+This appendix replicates our analysis of the growth effects of aid with recently proposed instruments
+for Western aid donors. While these IVs are arguably more exogenous than our interacted aid budget
+instrument applied in the paper, they come with the disadvantage that the resulting LATEs are not
+comparable across donors.
+
+Our instrumental variables for U.S. and OECD-DAC development aid follow Ahmed (2016) and Dreher
+and Langlotz (2017), exploiting variation in the composition of the government and legislative
+institutions. To the extent that government and legislative fractionalization lead to larger government
+budgets, and larger government budgets lead to an increase in the budget share devoted to foreign
+aid, fractionalization serves as a powerful instrument.
+
+63
+
+Specifically, we use legislative fractionalization
+
+in the United States’ House of Representatives to instrument U.S. aid, and government fractionalization
+in donor countries to instrument OECD-DAC aid. We again introduce variation at the recipient-country
+level by interacting fractionalization with the probability of receiving aid, measured as the share of
+years in the study period during which a country receives aid from the respective donor. The
+corresponding first-stage regression equation for U.S. aid reads as follows:
+
+𝐴𝑖𝑑!"#,!,!!! =γ! 𝐿𝑒𝑔𝐹𝑟𝑎𝑐!!! ∗ 𝑝!"#,! +γ! 𝑝𝑜𝑝!,!!! + γ! 𝜂! + γ! 𝜇! + 𝑢!,!!! ,
+
+(3)
+
+where our instrument for AidUSA,i,t-2 is the interaction of U.S. legislative fractionalization 𝐿𝑒𝑔𝐹𝑟𝑎𝑐!!! ,
+which varies across time, and the probability of receiving U.S. aid pUSA,i, which varies across recipient
+countries. In the case of OECD-DAC, we aggregate our instrument over the 28 member countries j,
+which is why we obtain the following slightly different first-stage regression equation:
+
+𝐴𝑖𝑑!"#,!,!!! =γ!
+
+! 𝐺𝑜𝑣𝐹𝑟𝑎𝑐!,!!! ∗
+
+! 𝑝!,!
+
++γ! 𝑝𝑜𝑝!,!!! + γ! 𝜂! + γ! 𝜇! + 𝑢!,!!! .
+
+(4)
+
+Our instrument for AidDAC,i,t-τ is the interaction of the sum over each donor country’s government
+fractionalization 𝐺𝑜𝑣𝐹𝑟𝑎𝑐!,!!! , which varies across time, and the sum over each donor of the respective
+63
+
+Among others, Volkerink and de Haan (2001) show that legislature fragmentation increases government expenditures; Brech
+and Potrafke (2014) demonstrate that overall expenditures as a share of GDP significantly determine aid budgets.
+58
+
+64
+
+probability of receiving aid pj,i, which varies across recipient countries.
+
+To the extent that variables
+
+correlated with fractionalization do not affect recipients’ rates of growth differently in regular and
+irregular recipients of aid, controlled for recipient-country- and year-fixed effects, the resulting
+instrument is excludable (see Dreher and Langlotz 2017 for a detailed discussion).
+
+Our instruments for World Bank aid build on Galiani et al. (2017) and use a binary variable for whether
+a recipient has passed the IDA’s threshold for concessional aid eligibility 𝐶𝑟𝑜𝑠𝑠𝑖𝑛𝑔!,!!! .
+
+65
+
+After a
+
+country surpasses this income, it loses eligibility for IDA grants. Galiani et al. (2017) find that aggregate
+aid from DAC donors decreases after recipients pass the income threshold. However, the World Bank
+itself may substitute the reduction in IDA funding with increases in IBRD loans. We thus expect the
+binary variable to be negatively correlated with the amount of IDA grants. We have no clear
+expectation regarding the direction of its correlation with the amount of IBRD loans that a country
+receives. We interact this variable with the probability of receiving IBRD (IDA) aid pWB,i, in keeping with
+Dreher and Lohmann (2015). Arguably, countries that did not receive aid prior to passing the
+threshold will not experience any downfall, while countries receiving aid in most or all years will be ‘hit
+harder.’
+
+66
+
+The corresponding first-stage regression equation for World Bank aid reads as follows:
+
+𝐴𝑖𝑑!",!,!!! =γ! 𝐶𝑟𝑜𝑠𝑠𝑖𝑛𝑔!!! ∗ 𝑝!",! + γ! 𝑝𝑜𝑝!,!!! +γ! 𝜂! + γ! 𝜇! + 𝑢!,!!! .
+
+(5)
+
+Table D1 presents the results. They are consistent across Western donors. We find that neither
+OECD-DAC nor United States nor World Bank aid promotes economic growth in recipient countries.
+
+67
+
+The corresponding coefficients do not reach statistical significance in any specification. However, the
+first-stage F statistic is comparably low for U.S. OOF and IBRD and IDA commitments, which likely
+biases these results. What is more, as highlighted above, the estimates are hardly comparable across
+64
+
+Note that this approach is identical to estimating a dyadic donor-recipient zero-stage regression, then aggregating across
+donors for each recipient in a year t, and using the aggregate as instrument for aid in the Two-Stage Least Squares regression
+(Dreher and Langlotz 2017). Following Dreher and Langlotz (2017) we replace government fractionalization with legislature
+fractionalization for the United States and Canada (given that government fractionalization is always zero there).
+
+65
+
+As Galiani et al. (2017) explain, the IDA graduation process begins only three years after a country crosses the threshold. We
+use a five-year lag to allow for sufficient time between graduation and the decrease in new commitments to take effect.
+66
+
+Note that the power of the instrument is insufficiently low when we use the level of the threshold without interaction.
+
+67
+
+Galiani et al. (2017) exploit the IDA eligibility cutoff to estimate the causal effect of aggregate aid from all bilateral and
+multilateral donors on economic growth. They find that, in the aggregate, aid increases economic growth. By contrast, we use
+the IDA eligibility cutoff as an instrument for World Bank aid only. Therefore, our findings do not necessarily contradict the
+findings of Galiani et al. (2017).
+59
+
+donors due to the different LATEs resulting from the use of different instruments. To address this
+problem, Table 2 applies an alternative approach, relying on aid budgets interacted with a recipient’s
+probability of receiving aid to predict year-to-year changes in aid (see Temple and Van de Sijpe 2017
+for a similar empirical strategy). In any case, the insignificant results we obtain for Western aid based
+on the alternative LATEs strengthen our conclusion regarding the lack of any evidence pointing to the
+inferiority of Chinese aid compared to Western aid.
+
+60
+
+Appendix D1: Growth effects of Western aid (alternative instruments)
+
+(log) DAC OOF disbursements (t-2)
+
+(1)
+
+(2)
+
+(3)
+
+(4)
+
+(5)
+
+(6)
+
+2SLS
+
+2SLS
+
+2SLS
+
+2SLS
+
+2SLS
+
+2SLS
+
+1.455
+(1.21)
+
+(log) DAC ODA commitments (t-2)
+
+0.198
+(0.23)
+
+(log) U.S. OOF disbursements (t-2)
+
+2.985
+(0.76)
+
+(log) U.S. ODA commitments (t-2)
+
+0.520
+(0.85)
+
+(log) IBRD commitments (t-2)
+
+-0.292
+(0.96)
+
+(log) IDA commitments (t-2)
+
+0.722
+(0.61)
+
+(log) Population (t-1)
+First year
+
+2.191
+
+0.132
+
+-0.580
+
+-0.685
+
+0.669
+
+0.392
+
+(1.04)
+
+(0.08)
+
+(0.45)
+
+(0.55)
+
+(0.48)
+
+(0.21)
+
+1978
+
+1978
+
+1972
+
+1972
+
+1975
+
+1975
+
+Last year
+
+2016
+
+2016
+
+2016
+
+2016
+
+2016
+
+2016
+
+Number of observations
+
+4990
+
+4995
+
+5465
+
+5464
+
+4700
+
+4699
+
+Number of countries
+
+157
+
+157
+
+155
+
+155
+
+158
+
+158
+
+Cragg-Donald F
+
+67.95
+
+92.98
+
+8.99
+
+117.91
+
+7.75
+
+13.93
+
+Kleibergen-Paap F
+
+14.60
+
+14.45
+
+4.24
+
+14.27
+
+4.01
+
+6.67
+
+R squared (within)
+
+-0.01
+
+0.07
+
+-0.05
+
+0.07
+
+0.02
+
+0.06
+
+Notes: t-values in parentheses.
+
+61
+
+
