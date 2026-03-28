@@ -2,7 +2,131 @@
 title: "Analysis"
 execute:
   echo: false
+  cache: true
+fig-width: 9
+fig-height: 3.5
 ---
+
+<style>
+.panel-tabset { max-width: 1240px; }
+</style>
+
+```{r}
+#| include: false
+#| cache: false
+Sys.setenv(RETICULATE_PYTHON = "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3")
+```
+
+```{python}
+#| label: polygon-map
+#| cache: true
+import json, pathlib
+from collections import defaultdict
+import geopandas as gpd
+import folium
+from branca.element import Element
+
+GPKG = pathlib.Path("../../datasets/aid_data_geospatial.gpkg")
+
+AFRICA_ISO = {
+    "DZA","AGO","BEN","BWA","BFA","BDI","CPV","CMR","CAF","TCD","COM","COD",
+    "COG","CIV","DJI","EGY","GNQ","ERI","SWZ","ETH","GAB","GMB","GHA","GIN",
+    "GNB","KEN","LSO","LBR","LBY","MDG","MWI","MLI","MRT","MUS","MAR","MOZ",
+    "NAM","NER","NGA","RWA","STP","SEN","SLE","SOM","ZAF","SSD","SDN","TZA",
+    "TGO","TUN","UGA","ZMB","ZWE",
+}
+
+gdf = gpd.read_file(GPKG)
+africa = gdf[gdf["Recipient.ISO-3"].isin(AFRICA_ISO)].copy()
+africa["geometry"] = africa["geometry"].simplify(tolerance=0.05, preserve_topology=True)
+africa = africa.to_crs(epsg=4326)
+
+by_year = defaultdict(list)
+for _, row in africa.iterrows():
+    year = row["Commitment.Year"]
+    if year != year:
+        continue
+    by_year[int(year)].append({
+        "type": "Feature",
+        "geometry": row["geometry"].__geo_interface__,
+        "properties": {
+            "Title":     row["Title"],
+            "Recipient": row["Recipient"],
+            "Sector":    row["Sector.Name"],
+            "Amount":    row["Amount.(Constant.USD.2021)"],
+            "Year":      int(year),
+        },
+    })
+
+min_year = min(by_year)
+max_year = max(by_year)
+
+m = folium.Map(location=[5, 20], zoom_start=3, tiles="CartoDB positron")
+map_var = m.get_name()
+
+slider_element = Element(f"""
+<div id="slider-box" style="
+    position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%);
+    background: #F5F5F5; color: #2E3440;
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    padding: 6px 16px 7px; border-radius: 5px; z-index: 9999;
+    border: 1px solid #E0E0E0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.10); text-align: center;">
+  <span id="year-label" style="font-size:12px; font-weight:600; color:#4C566A; margin-right:10px; letter-spacing:0.04em;">{min_year}</span>
+  <input id="year-slider" type="range"
+         min="{min_year}" max="{max_year}" value="{min_year}" step="1"
+         style="width: 180px; cursor: pointer; vertical-align: middle; accent-color: #C0392B;">
+</div>
+<script>
+window.addEventListener("load", function () {{
+  var yearData = {json.dumps(dict(by_year))};
+  var map = window["{map_var}"];
+  var loaded = {{}};
+  var style = {{fillColor:"#c0392b",color:"#922b21",weight:0.5,fillOpacity:0.35}};
+  function onEach(f, layer) {{
+    var p = f.properties;
+    layer.bindTooltip(
+      "<b>" + (p.Title||"") + "</b><br>Recipient: " + (p.Recipient||"") +
+      "<br>Sector: " + (p.Sector||"") +
+      "<br>Amount (USD 2021): " + (p.Amount ? "$"+p.Amount.toLocaleString() : "N/A") +
+      "<br>Year: " + p.Year
+    );
+  }}
+  function showUpTo(year) {{
+    for (var y = {min_year}; y <= year; y++) {{
+      if (!loaded[y] && yearData[y]) {{
+        loaded[y] = L.geoJSON(
+          {{type:"FeatureCollection",features:yearData[y]}},
+          {{style:style,onEachFeature:onEach}}
+        ).addTo(map);
+      }}
+    }}
+    Object.keys(loaded).forEach(function(y) {{
+      if (parseInt(y) > year) {{ map.removeLayer(loaded[y]); delete loaded[y]; }}
+    }});
+    document.getElementById("year-label").textContent = year;
+  }}
+  showUpTo({min_year});
+  document.getElementById("year-slider").addEventListener("input", function() {{
+    showUpTo(parseInt(this.value));
+  }});
+}});
+</script>
+""")
+
+_ = m.get_root().html.add_child(slider_element)
+m.save("chinadev_map.html")
+```
+
+```{r}
+#| label: polygon-map-render
+#| cache: false
+htmltools::tagList(
+  htmltools::tags$iframe(src="chinadev_map.html", width="100%", height="700px",
+                         style="border:none; display:block;"),
+  htmltools::tags$div(style = "height: 2.5rem;")
+)
+```
 
 ```{r}
 #| include: false
@@ -53,8 +177,6 @@ Does the average loan commitment grow over time?
 
 ```{r}
 #| results: asis
-#| fig-width: 7
-#| fig-height: 3
 reg(
   data    = clg_dev,
   y_value = "Amount_Constant_USD_2023",
@@ -68,8 +190,6 @@ Do infrastructure projects receive larger loans than non-infrastructure projects
 
 ```{r}
 #| results: asis
-#| fig-width: 7
-#| fig-height: 3
 reg(
   data    = clg_dev,
   y_value = "Amount_Constant_USD_2023",
@@ -83,8 +203,6 @@ Is Chinese lending becoming less concessional over time?
 
 ```{r}
 #| results: asis
-#| fig-width: 7
-#| fig-height: 3
 reg(
   data    = clg_dev |> filter(!is.na(Grant_Element_IMF)),
   y_value = "Grant_Element_IMF",
@@ -98,8 +216,6 @@ Do infrastructure projects carry longer maturities?
 
 ```{r}
 #| results: asis
-#| fig-width: 7
-#| fig-height: 3
 reg(
   data    = clg_dev |> filter(!is.na(Maturity)),
   y_value = "Maturity",
@@ -113,8 +229,6 @@ Are fixed interest rates rising or falling as China scales up lending?
 
 ```{r}
 #| results: asis
-#| fig-width: 7
-#| fig-height: 3
 reg(
   data    = clg_dev |> filter(!is.na(Fixed_Interest_Rate)),
   y_value = "Fixed_Interest_Rate",
@@ -128,8 +242,6 @@ Were loans committed during the COVID period larger or smaller?
 
 ```{r}
 #| results: asis
-#| fig-width: 7
-#| fig-height: 3
 reg(
   data    = clg_dev,
   y_value = "Amount_Constant_USD_2023",
@@ -143,8 +255,6 @@ Are co-financed loans larger than solo Chinese loans?
 
 ```{r}
 #| results: asis
-#| fig-width: 7
-#| fig-height: 3
 reg(
   data    = clg_dev,
   y_value = "Amount_Constant_USD_2023",
@@ -158,8 +268,6 @@ Do infrastructure loans come with longer grace periods?
 
 ```{r}
 #| results: asis
-#| fig-width: 7
-#| fig-height: 3
 reg(
   data    = clg_dev |> filter(!is.na(Grace_Period)),
   y_value = "Grace_Period",
@@ -173,8 +281,6 @@ Are infrastructure loans more or less concessional than non-infrastructure loans
 
 ```{r}
 #| results: asis
-#| fig-width: 7
-#| fig-height: 3
 reg(
   data    = clg_dev |> filter(!is.na(Grant_Element_IMF)),
   y_value = "Grant_Element_IMF",
@@ -188,8 +294,6 @@ Are loan maturities getting longer or shorter as China's program matures?
 
 ```{r}
 #| results: asis
-#| fig-width: 7
-#| fig-height: 3
 reg(
   data    = clg_dev |> filter(!is.na(Maturity)),
   y_value = "Maturity",
@@ -203,8 +307,6 @@ Are infrastructure loans priced differently from non-infrastructure loans?
 
 ```{r}
 #| results: asis
-#| fig-width: 7
-#| fig-height: 3
 reg(
   data    = clg_dev |> filter(!is.na(Fixed_Interest_Rate)),
   y_value = "Fixed_Interest_Rate",
@@ -218,8 +320,6 @@ Are interest-free loans larger or smaller?
 
 ```{r}
 #| results: asis
-#| fig-width: 7
-#| fig-height: 3
 reg(
   data    = clg_dev,
   y_value = "Amount_Constant_USD_2023",
@@ -233,8 +333,6 @@ Did COVID-era loans carry more favorable terms?
 
 ```{r}
 #| results: asis
-#| fig-width: 7
-#| fig-height: 3
 reg(
   data    = clg_dev |> filter(!is.na(Grant_Element_IMF)),
   y_value = "Grant_Element_IMF",
@@ -248,8 +346,6 @@ Are project-financed deals larger than standard loans?
 
 ```{r}
 #| results: asis
-#| fig-width: 7
-#| fig-height: 3
 reg(
   data    = clg_dev,
   y_value = "Amount_Constant_USD_2023",

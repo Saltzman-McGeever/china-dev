@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-f89b036ef7e42ed225485bf839ca96fe.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -104,6 +104,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -148,8 +177,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#regression-analysis-public-opinion-on-development-funds" id="toc-regression-analysis-public-opinion-on-development-funds" class="nav-link" data-scroll-target="#regression-analysis-public-opinion-on-development-funds">Regression Analysis: Public Opinion on Development Funds</a></li>
+  <li><a href="#loan-size-over-time" id="toc-loan-size-over-time" class="nav-link active" data-scroll-target="#loan-size-over-time">1. Loan Size over Time</a></li>
+  <li><a href="#infrastructure-premium" id="toc-infrastructure-premium" class="nav-link" data-scroll-target="#infrastructure-premium">2. Infrastructure Premium</a></li>
+  <li><a href="#concessionality-over-time" id="toc-concessionality-over-time" class="nav-link" data-scroll-target="#concessionality-over-time">3. Concessionality over Time</a></li>
+  <li><a href="#loan-maturity-and-infrastructure" id="toc-loan-maturity-and-infrastructure" class="nav-link" data-scroll-target="#loan-maturity-and-infrastructure">4. Loan Maturity and Infrastructure</a></li>
+  <li><a href="#interest-rates-over-time" id="toc-interest-rates-over-time" class="nav-link" data-scroll-target="#interest-rates-over-time">5. Interest Rates over Time</a></li>
+  <li><a href="#covid-and-loan-size" id="toc-covid-and-loan-size" class="nav-link" data-scroll-target="#covid-and-loan-size">6. COVID and Loan Size</a></li>
+  <li><a href="#co-financing-and-loan-size" id="toc-co-financing-and-loan-size" class="nav-link" data-scroll-target="#co-financing-and-loan-size">7. Co-financing and Loan Size</a></li>
+  <li><a href="#grace-periods-and-infrastructure" id="toc-grace-periods-and-infrastructure" class="nav-link" data-scroll-target="#grace-periods-and-infrastructure">8. Grace Periods and Infrastructure</a></li>
+  <li><a href="#concessionality-and-infrastructure" id="toc-concessionality-and-infrastructure" class="nav-link" data-scroll-target="#concessionality-and-infrastructure">9. Concessionality and Infrastructure</a></li>
+  <li><a href="#maturities-over-time" id="toc-maturities-over-time" class="nav-link" data-scroll-target="#maturities-over-time">10. Maturities over Time</a></li>
+  <li><a href="#interest-rates-and-infrastructure" id="toc-interest-rates-and-infrastructure" class="nav-link" data-scroll-target="#interest-rates-and-infrastructure">11. Interest Rates and Infrastructure</a></li>
+  <li><a href="#interest-free-loans-and-loan-size" id="toc-interest-free-loans-and-loan-size" class="nav-link" data-scroll-target="#interest-free-loans-and-loan-size">12. Interest-Free Loans and Loan Size</a></li>
+  <li><a href="#covid-and-concessionality" id="toc-covid-and-concessionality" class="nav-link" data-scroll-target="#covid-and-concessionality">13. COVID and Concessionality</a></li>
+  <li><a href="#project-finance-and-loan-size" id="toc-project-finance-and-loan-size" class="nav-link" data-scroll-target="#project-finance-and-loan-size">14. Project Finance and Loan Size</a></li>
   </ul>
 </nav>
     </div>
@@ -158,7 +199,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Analysis</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Analysis</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -175,55 +216,881 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>This page contains statistical analysis of Chinese development projects.</p>
-</section>
-<section id="regression-analysis-public-opinion-on-development-funds" class="level2">
-<h2 class="anchored" data-anchor-id="regression-analysis-public-opinion-on-development-funds">Regression Analysis: Public Opinion on Development Funds</h2>
-<div id="a502a147" class="cell" data-execution_count="2">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> regress <span class="im">import</span> regress</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate development funds by country (in billions USD)</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>country_funds <span class="op">=</span> merged_data.groupby(<span class="st">'Country_of_Activity'</span>)[<span class="st">'Amount_Constant_USD_2023'</span>].<span class="bu">sum</span>().reset_index()</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>country_funds.columns <span class="op">=</span> [<span class="st">'Country'</span>, <span class="st">'Total_Funds'</span>]</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>country_funds[<span class="st">'One Billion Dev-Dollars'</span>] <span class="op">=</span> country_funds[<span class="st">'Total_Funds'</span>] <span class="op">/</span> <span class="fl">1e9</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Get average public opinion by country</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>country_opinion <span class="op">=</span> merged_data.groupby(<span class="st">'Country_of_Activity'</span>)[<span class="st">'net_positive_adj'</span>].mean().reset_index()</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>country_opinion.columns <span class="op">=</span> [<span class="st">'Country'</span>, <span class="st">'Net Positive Opinion'</span>]</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge funds and opinion data</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>regression_data <span class="op">=</span> pd.merge(country_funds, country_opinion, on<span class="op">=</span><span class="st">'Country'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Run regression with forest plot</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> regress(regression_data,</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                  y_value<span class="op">=</span><span class="st">'Net Positive Opinion'</span>,</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                  x_value<span class="op">=</span><span class="st">'One Billion Dev-Dollars'</span>,</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                  label<span class="op">=</span><span class="st">'Public Opinion on Development Funds'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>===========================================================================================
-                              coef    std err          t      P&gt;|t|      [0.025      0.975]
--------------------------------------------------------------------------------------------
-const                      21.0605      3.150      6.686      0.000      14.829      27.292
-One Billion Dev-Dollars     1.2391      0.512      2.418      0.017       0.225       2.253
-===========================================================================================
-
-R²: 0.0424
-Adj. R²: 0.0352
-N: 134
-</code></pre>
+<style>
+.panel-tabset { max-width: 1240px; }
+</style>
+<div class="cell">
+<div class="cell-output-display">
+<iframe src="chinadev_map.html" width="100%" height="700px" style="border:none; display:block;"></iframe>
+<div style="height: 2.5rem;"></div>
 </div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="analysis_files/figure-html/cell-3-output-2.png" width="757" height="182" class="figure-img"></p>
-</figure>
+</div>
+<section id="loan-size-over-time" class="level2">
+<h2 class="anchored" data-anchor-id="loan-size-over-time">1. Loan Size over Time</h2>
+<p>Does the average loan commitment grow over time?</p>
+<div style="overflow-x: auto; overflow-y: hidden; font-size: 1.01em;">
+<p><span class="math inline">\(\displaystyle \text{Amount\_Constant\_USD\_2023}_i = \beta_{1}\,\text{Commitment\_Year}_i + \varepsilon_i\)</span></p>
+</div>
+<details>
+<summary style="cursor:pointer;font-size:0.85em;color:#4C566A">
+Variable definitions
+</summary>
+<table class="table table-striped table-condensed" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Role
+</th>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Outcome
+</td>
+<td style="text-align:left;width: 14em; ">
+Amount_Constant_USD_2023
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field captures the monetary value of the official commitment (or pledge) issued by the funding agency in constant 2023 U.S. dollars. To calculate this value, AidData first converts the financial commitment (or pledge) amount in its original currency of denomination to nominal U.S. dollars at the average exchange rate in effect during the commitment (or pledge) year, and then converts this amount to constant 2023 U.S. dollars using the OECD’s deflation methodology to adjust for inflation and ensure comparability over time and space. See Box 1 and Appendix D in the TUFF 4.0 methodology for additional details regarding deflation procedures.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Predictor
+</td>
+<td style="text-align:left;width: 14em; ">
+Commitment_Year
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field captures the year in which an official financial commitment (or official commitment to provide in-kind support) was codified through the signing of a formal agreement by an official sector donor/lender in China and one or more entities in a host country or a set of host countries. Whenever possible, this field is based on the precise calendar day when the official commitment was issued, which is captured in the Commitment_Date field. In the event an official commitment was made for a project/activity that entered implementation, but the official commitment year is not identifiable, AidData records the first year of project/activity implementation as a proxy for the official commitment year. In the event an official commitment was made for a project/activity that has not yet reached implementation, and the official commitment year is not identifiable, AidData records the year in which the underlying commercial contract (supported by the official commitment) was issued. If this information is unavailable, AidData records the first year in which an informal pledge was made as a proxy for the official commitment year. For projects/activities with a status designation of Pipeline: Pledge (i.e.&nbsp;cases in which an official commitment was not made), AidData records the year in which the informal pledge was made.
+</td>
+</tr>
+</tbody>
+</table>
+</details>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Forest Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Marginal Effects</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-3-1.forest.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-3-1.mfx.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="infrastructure-premium" class="level2">
+<h2 class="anchored" data-anchor-id="infrastructure-premium">2. Infrastructure Premium</h2>
+<p>Do infrastructure projects receive larger loans than non-infrastructure projects?</p>
+<div style="overflow-x: auto; overflow-y: hidden; font-size: 1.01em;">
+<p><span class="math inline">\(\displaystyle \text{Amount\_Constant\_USD\_2023}_i = \beta_{1}\,\text{infrastructure\_dummy}_i + \varepsilon_i\)</span></p>
+</div>
+<details>
+<summary style="cursor:pointer;font-size:0.85em;color:#4C566A">
+Variable definitions
+</summary>
+<table class="table table-striped table-condensed" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Role
+</th>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Outcome
+</td>
+<td style="text-align:left;width: 14em; ">
+Amount_Constant_USD_2023
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field captures the monetary value of the official commitment (or pledge) issued by the funding agency in constant 2023 U.S. dollars. To calculate this value, AidData first converts the financial commitment (or pledge) amount in its original currency of denomination to nominal U.S. dollars at the average exchange rate in effect during the commitment (or pledge) year, and then converts this amount to constant 2023 U.S. dollars using the OECD’s deflation methodology to adjust for inflation and ensure comparability over time and space. See Box 1 and Appendix D in the TUFF 4.0 methodology for additional details regarding deflation procedures.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Predictor
+</td>
+<td style="text-align:left;width: 14em; ">
+infrastructure_dummy
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field provides a marker of whether a project/activity is an infrastructure project. In this dataset, infrastructure projects refer to those that involve physical construction activities (e.g., roads, railways, pipelines, transmission lines, fiber optic networks). More specifically, they include those that involve (1) building a new physical structure, (2) rehabilitating or adding onto an existing physical structure, and/or (3) maintaining an existing physical structure. AidData does not include projects/activities that involve the provision of cash, technical assistance, scholarships, equipment, or supplies in its definition of infrastructure projects. The field is set to “Yes” if a project/activity can be classified as an infrastructure project.
+</td>
+</tr>
+</tbody>
+</table>
+</details>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Forest Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Marginal Effects</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-4-1.forest.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-4-1.mfx.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="concessionality-over-time" class="level2">
+<h2 class="anchored" data-anchor-id="concessionality-over-time">3. Concessionality over Time</h2>
+<p>Is Chinese lending becoming less concessional over time?</p>
+<div style="overflow-x: auto; overflow-y: hidden; font-size: 1.01em;">
+<p><span class="math inline">\(\displaystyle \text{Grant\_Element\_IMF}_i = \beta_{1}\,\text{Commitment\_Year}_i + \varepsilon_i\)</span></p>
+</div>
+<details>
+<summary style="cursor:pointer;font-size:0.85em;color:#4C566A">
+Variable definitions
+</summary>
+<table class="table table-striped table-condensed" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Role
+</th>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Outcome
+</td>
+<td style="text-align:left;width: 14em; ">
+Grant_Element_IMF
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field captures the grant element of the loan according to the current (post-2013) World Bank/IMF methodology, at the time that the original loan agreement was signed. To calculate the grant element of a loan, which is a measure that varies from 0 percent to 100 percent, AidData calculates the discounted cost (or “net present value”) of the future debt service payments that will be made by the borrower. This calculation requires information about the loan’s face value, maturity length, grace period, and interest rate. When AidData has access to the loan’s face value, maturity length, grace period, and interest rate, it uses the IMF’s post-2013 grant element calculator (assuming a fixed, 5 percent discount rate, two repayments per year, and equal principal repayments). In theory, a grant element calculator can generate values above 100% or below 0%. However, AidData bounds grant element values so that they cannot assume values that exceed 100% or negative values (since negative values imply lending terms that are “less favorable than market terms,” which does not logically make sense if market terms are risk-adjusted prices agreed to by willing buyers and sellers of credit).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Predictor
+</td>
+<td style="text-align:left;width: 14em; ">
+Commitment_Year
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field captures the year in which an official financial commitment (or official commitment to provide in-kind support) was codified through the signing of a formal agreement by an official sector donor/lender in China and one or more entities in a host country or a set of host countries. Whenever possible, this field is based on the precise calendar day when the official commitment was issued, which is captured in the Commitment_Date field. In the event an official commitment was made for a project/activity that entered implementation, but the official commitment year is not identifiable, AidData records the first year of project/activity implementation as a proxy for the official commitment year. In the event an official commitment was made for a project/activity that has not yet reached implementation, and the official commitment year is not identifiable, AidData records the year in which the underlying commercial contract (supported by the official commitment) was issued. If this information is unavailable, AidData records the first year in which an informal pledge was made as a proxy for the official commitment year. For projects/activities with a status designation of Pipeline: Pledge (i.e.&nbsp;cases in which an official commitment was not made), AidData records the year in which the informal pledge was made.
+</td>
+</tr>
+</tbody>
+</table>
+</details>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Forest Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Marginal Effects</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-5-1.forest.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-5-1.mfx.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="loan-maturity-and-infrastructure" class="level2">
+<h2 class="anchored" data-anchor-id="loan-maturity-and-infrastructure">4. Loan Maturity and Infrastructure</h2>
+<p>Do infrastructure projects carry longer maturities?</p>
+<div style="overflow-x: auto; overflow-y: hidden; font-size: 1.01em;">
+<p><span class="math inline">\(\displaystyle \text{Maturity}_i = \beta_{1}\,\text{infrastructure\_dummy}_i + \varepsilon_i\)</span></p>
+</div>
+<details>
+<summary style="cursor:pointer;font-size:0.85em;color:#4C566A">
+Variable definitions
+</summary>
+<table class="table table-striped table-condensed" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Role
+</th>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Outcome
+</td>
+<td style="text-align:left;width: 14em; ">
+Maturity
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field captures the total number of years it will take the borrower to repay a loan, as specified in the original loan agreement. These de jure maturity values are inclusive of grace periods. Users should keep in mind that the rescheduling of a loan can result in a de facto maturity that is substantially different from its de jure maturity. In cases when a loan’s maturity is modified after an official commitment is issued, AidData captures the maturity modification through a separate record in the dataset that is given a flow type designation of “Debt rescheduling.”
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Predictor
+</td>
+<td style="text-align:left;width: 14em; ">
+infrastructure_dummy
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field provides a marker of whether a project/activity is an infrastructure project. In this dataset, infrastructure projects refer to those that involve physical construction activities (e.g., roads, railways, pipelines, transmission lines, fiber optic networks). More specifically, they include those that involve (1) building a new physical structure, (2) rehabilitating or adding onto an existing physical structure, and/or (3) maintaining an existing physical structure. AidData does not include projects/activities that involve the provision of cash, technical assistance, scholarships, equipment, or supplies in its definition of infrastructure projects. The field is set to “Yes” if a project/activity can be classified as an infrastructure project.
+</td>
+</tr>
+</tbody>
+</table>
+</details>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">Forest Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">Marginal Effects</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-6-1.forest.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-6-1.mfx.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="interest-rates-over-time" class="level2">
+<h2 class="anchored" data-anchor-id="interest-rates-over-time">5. Interest Rates over Time</h2>
+<p>Are fixed interest rates rising or falling as China scales up lending?</p>
+<div style="overflow-x: auto; overflow-y: hidden; font-size: 1.01em;">
+<p><span class="math inline">\(\displaystyle \text{Fixed\_Interest\_Rate}_i = \beta_{1}\,\text{Commitment\_Year}_i + \varepsilon_i\)</span></p>
+</div>
+<details>
+<summary style="cursor:pointer;font-size:0.85em;color:#4C566A">
+Variable definitions
+</summary>
+<table class="table table-striped table-condensed" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Role
+</th>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Outcome
+</td>
+<td style="text-align:left;width: 14em; ">
+Fixed_Interest_Rate
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field captures the rate of interest (in percentage terms) that applies to a loan that uses a fixed interest rate structure, as specified in the original loan agreement. Users should keep in mind that the rescheduling of a loan can result in a de facto interest rate that is substantially different from its de jure interest rate. In cases when a loan’s interest rate is modified after an official commitment is issued, AidData captures the interest rate modification through a separate record in the dataset that is given a flow type designation of “Debt rescheduling.”
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Predictor
+</td>
+<td style="text-align:left;width: 14em; ">
+Commitment_Year
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field captures the year in which an official financial commitment (or official commitment to provide in-kind support) was codified through the signing of a formal agreement by an official sector donor/lender in China and one or more entities in a host country or a set of host countries. Whenever possible, this field is based on the precise calendar day when the official commitment was issued, which is captured in the Commitment_Date field. In the event an official commitment was made for a project/activity that entered implementation, but the official commitment year is not identifiable, AidData records the first year of project/activity implementation as a proxy for the official commitment year. In the event an official commitment was made for a project/activity that has not yet reached implementation, and the official commitment year is not identifiable, AidData records the year in which the underlying commercial contract (supported by the official commitment) was issued. If this information is unavailable, AidData records the first year in which an informal pledge was made as a proxy for the official commitment year. For projects/activities with a status designation of Pipeline: Pledge (i.e.&nbsp;cases in which an official commitment was not made), AidData records the year in which the informal pledge was made.
+</td>
+</tr>
+</tbody>
+</table>
+</details>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true" href="">Forest Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false" href="">Marginal Effects</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-7-1.forest.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-7-1.mfx.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="covid-and-loan-size" class="level2">
+<h2 class="anchored" data-anchor-id="covid-and-loan-size">6. COVID and Loan Size</h2>
+<p>Were loans committed during the COVID period larger or smaller?</p>
+<div style="overflow-x: auto; overflow-y: hidden; font-size: 1.01em;">
+<p><span class="math inline">\(\displaystyle \text{Amount\_Constant\_USD\_2023}_i = \beta_{1}\,\text{covid\_dummy}_i + \varepsilon_i\)</span></p>
+</div>
+<details>
+<summary style="cursor:pointer;font-size:0.85em;color:#4C566A">
+Variable definitions
+</summary>
+<table class="table table-striped table-condensed" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Role
+</th>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Outcome
+</td>
+<td style="text-align:left;width: 14em; ">
+Amount_Constant_USD_2023
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field captures the monetary value of the official commitment (or pledge) issued by the funding agency in constant 2023 U.S. dollars. To calculate this value, AidData first converts the financial commitment (or pledge) amount in its original currency of denomination to nominal U.S. dollars at the average exchange rate in effect during the commitment (or pledge) year, and then converts this amount to constant 2023 U.S. dollars using the OECD’s deflation methodology to adjust for inflation and ensure comparability over time and space. See Box 1 and Appendix D in the TUFF 4.0 methodology for additional details regarding deflation procedures.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Predictor
+</td>
+<td style="text-align:left;width: 14em; ">
+covid_dummy
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field provides a marker of whether it is known that the project/activity is part of China’s global COVID-19 response efforts. The field is set to “Yes” if the purpose of the project/activity is related to COVID-19 control, including providing information, education and communication as well as activities or materials enabling testing, prevention, immunization, treatment, or care.
+</td>
+</tr>
+</tbody>
+</table>
+</details>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true" href="">Forest Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false" href="">Marginal Effects</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-8-1.forest.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-8-1.mfx.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="co-financing-and-loan-size" class="level2">
+<h2 class="anchored" data-anchor-id="co-financing-and-loan-size">7. Co-financing and Loan Size</h2>
+<p>Are co-financed loans larger than solo Chinese loans?</p>
+<div style="overflow-x: auto; overflow-y: hidden; font-size: 1.01em;">
+<p><span class="math inline">\(\displaystyle \text{Amount\_Constant\_USD\_2023}_i = \beta_{1}\,\text{cofinanced\_dummy}_i + \varepsilon_i\)</span></p>
+</div>
+<details>
+<summary style="cursor:pointer;font-size:0.85em;color:#4C566A">
+Variable definitions
+</summary>
+<table class="table table-striped table-condensed" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Role
+</th>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Outcome
+</td>
+<td style="text-align:left;width: 14em; ">
+Amount_Constant_USD_2023
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field captures the monetary value of the official commitment (or pledge) issued by the funding agency in constant 2023 U.S. dollars. To calculate this value, AidData first converts the financial commitment (or pledge) amount in its original currency of denomination to nominal U.S. dollars at the average exchange rate in effect during the commitment (or pledge) year, and then converts this amount to constant 2023 U.S. dollars using the OECD’s deflation methodology to adjust for inflation and ensure comparability over time and space. See Box 1 and Appendix D in the TUFF 4.0 methodology for additional details regarding deflation procedures.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Predictor
+</td>
+<td style="text-align:left;width: 14em; ">
+cofinanced_dummy
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This marker indicates whether a separate funding agency (belonging to the financier country or another country) provided funding for the project/activity.
+</td>
+</tr>
+</tbody>
+</table>
+</details>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true" href="">Forest Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false" href="">Marginal Effects</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-9-1.forest.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-9-1.mfx.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="grace-periods-and-infrastructure" class="level2">
+<h2 class="anchored" data-anchor-id="grace-periods-and-infrastructure">8. Grace Periods and Infrastructure</h2>
+<p>Do infrastructure loans come with longer grace periods?</p>
+<div style="overflow-x: auto; overflow-y: hidden; font-size: 1.01em;">
+<p><span class="math inline">\(\displaystyle \text{Grace\_Period}_i = \beta_{1}\,\text{infrastructure\_dummy}_i + \varepsilon_i\)</span></p>
+</div>
+<details>
+<summary style="cursor:pointer;font-size:0.85em;color:#4C566A">
+Variable definitions
+</summary>
+<table class="table table-striped table-condensed" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Role
+</th>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Outcome
+</td>
+<td style="text-align:left;width: 14em; ">
+Grace_Period
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field captures the number of years for which the borrower (receiving agency) is not expected to make principal repayments to the creditor (funding agency), as specified in the original loan agreement. Users should keep in mind that the rescheduling of a loan can result in a de facto grace period that is substantially different from its de jure grace period (especially for short-term loans that are rolled over year over year). In cases when a loan’s grace period is modified after an official commitment is issued, AidData captures the grace period modification through a separate record in the dataset that is given a flow type designation of “Debt rescheduling.”
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Predictor
+</td>
+<td style="text-align:left;width: 14em; ">
+infrastructure_dummy
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field provides a marker of whether a project/activity is an infrastructure project. In this dataset, infrastructure projects refer to those that involve physical construction activities (e.g., roads, railways, pipelines, transmission lines, fiber optic networks). More specifically, they include those that involve (1) building a new physical structure, (2) rehabilitating or adding onto an existing physical structure, and/or (3) maintaining an existing physical structure. AidData does not include projects/activities that involve the provision of cash, technical assistance, scholarships, equipment, or supplies in its definition of infrastructure projects. The field is set to “Yes” if a project/activity can be classified as an infrastructure project.
+</td>
+</tr>
+</tbody>
+</table>
+</details>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true" href="">Forest Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false" href="">Marginal Effects</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-10-1.forest.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div id="tabset-8-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-2-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-10-1.mfx.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="concessionality-and-infrastructure" class="level2">
+<h2 class="anchored" data-anchor-id="concessionality-and-infrastructure">9. Concessionality and Infrastructure</h2>
+<p>Are infrastructure loans more or less concessional than non-infrastructure loans?</p>
+<div style="overflow-x: auto; overflow-y: hidden; font-size: 1.01em;">
+<p><span class="math inline">\(\displaystyle \text{Grant\_Element\_IMF}_i = \beta_{1}\,\text{infrastructure\_dummy}_i + \varepsilon_i\)</span></p>
+</div>
+<details>
+<summary style="cursor:pointer;font-size:0.85em;color:#4C566A">
+Variable definitions
+</summary>
+<table class="table table-striped table-condensed" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Role
+</th>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Outcome
+</td>
+<td style="text-align:left;width: 14em; ">
+Grant_Element_IMF
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field captures the grant element of the loan according to the current (post-2013) World Bank/IMF methodology, at the time that the original loan agreement was signed. To calculate the grant element of a loan, which is a measure that varies from 0 percent to 100 percent, AidData calculates the discounted cost (or “net present value”) of the future debt service payments that will be made by the borrower. This calculation requires information about the loan’s face value, maturity length, grace period, and interest rate. When AidData has access to the loan’s face value, maturity length, grace period, and interest rate, it uses the IMF’s post-2013 grant element calculator (assuming a fixed, 5 percent discount rate, two repayments per year, and equal principal repayments). In theory, a grant element calculator can generate values above 100% or below 0%. However, AidData bounds grant element values so that they cannot assume values that exceed 100% or negative values (since negative values imply lending terms that are “less favorable than market terms,” which does not logically make sense if market terms are risk-adjusted prices agreed to by willing buyers and sellers of credit).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Predictor
+</td>
+<td style="text-align:left;width: 14em; ">
+infrastructure_dummy
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field provides a marker of whether a project/activity is an infrastructure project. In this dataset, infrastructure projects refer to those that involve physical construction activities (e.g., roads, railways, pipelines, transmission lines, fiber optic networks). More specifically, they include those that involve (1) building a new physical structure, (2) rehabilitating or adding onto an existing physical structure, and/or (3) maintaining an existing physical structure. AidData does not include projects/activities that involve the provision of cash, technical assistance, scholarships, equipment, or supplies in its definition of infrastructure projects. The field is set to “Yes” if a project/activity can be classified as an infrastructure project.
+</td>
+</tr>
+</tbody>
+</table>
+</details>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true" href="">Forest Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false" href="">Marginal Effects</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-9-1-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-11-1.forest.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div id="tabset-9-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-2-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-11-1.mfx.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="maturities-over-time" class="level2">
+<h2 class="anchored" data-anchor-id="maturities-over-time">10. Maturities over Time</h2>
+<p>Are loan maturities getting longer or shorter as China’s program matures?</p>
+<div style="overflow-x: auto; overflow-y: hidden; font-size: 1.01em;">
+<p><span class="math inline">\(\displaystyle \text{Maturity}_i = \beta_{1}\,\text{Commitment\_Year}_i + \varepsilon_i\)</span></p>
+</div>
+<details>
+<summary style="cursor:pointer;font-size:0.85em;color:#4C566A">
+Variable definitions
+</summary>
+<table class="table table-striped table-condensed" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Role
+</th>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Outcome
+</td>
+<td style="text-align:left;width: 14em; ">
+Maturity
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field captures the total number of years it will take the borrower to repay a loan, as specified in the original loan agreement. These de jure maturity values are inclusive of grace periods. Users should keep in mind that the rescheduling of a loan can result in a de facto maturity that is substantially different from its de jure maturity. In cases when a loan’s maturity is modified after an official commitment is issued, AidData captures the maturity modification through a separate record in the dataset that is given a flow type designation of “Debt rescheduling.”
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Predictor
+</td>
+<td style="text-align:left;width: 14em; ">
+Commitment_Year
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field captures the year in which an official financial commitment (or official commitment to provide in-kind support) was codified through the signing of a formal agreement by an official sector donor/lender in China and one or more entities in a host country or a set of host countries. Whenever possible, this field is based on the precise calendar day when the official commitment was issued, which is captured in the Commitment_Date field. In the event an official commitment was made for a project/activity that entered implementation, but the official commitment year is not identifiable, AidData records the first year of project/activity implementation as a proxy for the official commitment year. In the event an official commitment was made for a project/activity that has not yet reached implementation, and the official commitment year is not identifiable, AidData records the year in which the underlying commercial contract (supported by the official commitment) was issued. If this information is unavailable, AidData records the first year in which an informal pledge was made as a proxy for the official commitment year. For projects/activities with a status designation of Pipeline: Pledge (i.e.&nbsp;cases in which an official commitment was not made), AidData records the year in which the informal pledge was made.
+</td>
+</tr>
+</tbody>
+</table>
+</details>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-10-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-1" role="tab" aria-controls="tabset-10-1" aria-selected="true" href="">Forest Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-10-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-2" role="tab" aria-controls="tabset-10-2" aria-selected="false" href="">Marginal Effects</a></li></ul>
+<div class="tab-content">
+<div id="tabset-10-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-10-1-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-12-1.forest.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div id="tabset-10-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-10-2-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-12-1.mfx.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="interest-rates-and-infrastructure" class="level2">
+<h2 class="anchored" data-anchor-id="interest-rates-and-infrastructure">11. Interest Rates and Infrastructure</h2>
+<p>Are infrastructure loans priced differently from non-infrastructure loans?</p>
+<div style="overflow-x: auto; overflow-y: hidden; font-size: 1.01em;">
+<p><span class="math inline">\(\displaystyle \text{Fixed\_Interest\_Rate}_i = \beta_{1}\,\text{infrastructure\_dummy}_i + \varepsilon_i\)</span></p>
+</div>
+<details>
+<summary style="cursor:pointer;font-size:0.85em;color:#4C566A">
+Variable definitions
+</summary>
+<table class="table table-striped table-condensed" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Role
+</th>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Outcome
+</td>
+<td style="text-align:left;width: 14em; ">
+Fixed_Interest_Rate
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field captures the rate of interest (in percentage terms) that applies to a loan that uses a fixed interest rate structure, as specified in the original loan agreement. Users should keep in mind that the rescheduling of a loan can result in a de facto interest rate that is substantially different from its de jure interest rate. In cases when a loan’s interest rate is modified after an official commitment is issued, AidData captures the interest rate modification through a separate record in the dataset that is given a flow type designation of “Debt rescheduling.”
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Predictor
+</td>
+<td style="text-align:left;width: 14em; ">
+infrastructure_dummy
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field provides a marker of whether a project/activity is an infrastructure project. In this dataset, infrastructure projects refer to those that involve physical construction activities (e.g., roads, railways, pipelines, transmission lines, fiber optic networks). More specifically, they include those that involve (1) building a new physical structure, (2) rehabilitating or adding onto an existing physical structure, and/or (3) maintaining an existing physical structure. AidData does not include projects/activities that involve the provision of cash, technical assistance, scholarships, equipment, or supplies in its definition of infrastructure projects. The field is set to “Yes” if a project/activity can be classified as an infrastructure project.
+</td>
+</tr>
+</tbody>
+</table>
+</details>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-11-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-1" role="tab" aria-controls="tabset-11-1" aria-selected="true" href="">Forest Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-11-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-2" role="tab" aria-controls="tabset-11-2" aria-selected="false" href="">Marginal Effects</a></li></ul>
+<div class="tab-content">
+<div id="tabset-11-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-11-1-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-13-1.forest.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div id="tabset-11-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-11-2-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-13-1.mfx.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="interest-free-loans-and-loan-size" class="level2">
+<h2 class="anchored" data-anchor-id="interest-free-loans-and-loan-size">12. Interest-Free Loans and Loan Size</h2>
+<p>Are interest-free loans larger or smaller?</p>
+<div style="overflow-x: auto; overflow-y: hidden; font-size: 1.01em;">
+<p><span class="math inline">\(\displaystyle \text{Amount\_Constant\_USD\_2023}_i = \beta_{1}\,\text{interest\_free\_dummy}_i + \varepsilon_i\)</span></p>
+</div>
+<details>
+<summary style="cursor:pointer;font-size:0.85em;color:#4C566A">
+Variable definitions
+</summary>
+<table class="table table-striped table-condensed" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Role
+</th>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Outcome
+</td>
+<td style="text-align:left;width: 14em; ">
+Amount_Constant_USD_2023
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field captures the monetary value of the official commitment (or pledge) issued by the funding agency in constant 2023 U.S. dollars. To calculate this value, AidData first converts the financial commitment (or pledge) amount in its original currency of denomination to nominal U.S. dollars at the average exchange rate in effect during the commitment (or pledge) year, and then converts this amount to constant 2023 U.S. dollars using the OECD’s deflation methodology to adjust for inflation and ensure comparability over time and space. See Box 1 and Appendix D in the TUFF 4.0 methodology for additional details regarding deflation procedures.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Predictor
+</td>
+<td style="text-align:left;width: 14em; ">
+interest_free_dummy
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field provides a marker of whether it is known that the loan record is classifiable as an Interest-Free Loan, which is a loan that is issued to a borrower without any interest accruing. The borrower is only responsible for repaying the loan’s principal amount. The field is set to “Yes” if the loan record is classifiable as an Interest-Free Loan.
+</td>
+</tr>
+</tbody>
+</table>
+</details>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-12-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-1" role="tab" aria-controls="tabset-12-1" aria-selected="true" href="">Forest Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-12-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-2" role="tab" aria-controls="tabset-12-2" aria-selected="false" href="">Marginal Effects</a></li></ul>
+<div class="tab-content">
+<div id="tabset-12-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-12-1-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-14-1.forest.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div id="tabset-12-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-12-2-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-14-1.mfx.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="covid-and-concessionality" class="level2">
+<h2 class="anchored" data-anchor-id="covid-and-concessionality">13. COVID and Concessionality</h2>
+<p>Did COVID-era loans carry more favorable terms?</p>
+<div style="overflow-x: auto; overflow-y: hidden; font-size: 1.01em;">
+<p><span class="math inline">\(\displaystyle \text{Grant\_Element\_IMF}_i = \beta_{1}\,\text{covid\_dummy}_i + \varepsilon_i\)</span></p>
+</div>
+<details>
+<summary style="cursor:pointer;font-size:0.85em;color:#4C566A">
+Variable definitions
+</summary>
+<table class="table table-striped table-condensed" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Role
+</th>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Outcome
+</td>
+<td style="text-align:left;width: 14em; ">
+Grant_Element_IMF
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field captures the grant element of the loan according to the current (post-2013) World Bank/IMF methodology, at the time that the original loan agreement was signed. To calculate the grant element of a loan, which is a measure that varies from 0 percent to 100 percent, AidData calculates the discounted cost (or “net present value”) of the future debt service payments that will be made by the borrower. This calculation requires information about the loan’s face value, maturity length, grace period, and interest rate. When AidData has access to the loan’s face value, maturity length, grace period, and interest rate, it uses the IMF’s post-2013 grant element calculator (assuming a fixed, 5 percent discount rate, two repayments per year, and equal principal repayments). In theory, a grant element calculator can generate values above 100% or below 0%. However, AidData bounds grant element values so that they cannot assume values that exceed 100% or negative values (since negative values imply lending terms that are “less favorable than market terms,” which does not logically make sense if market terms are risk-adjusted prices agreed to by willing buyers and sellers of credit).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Predictor
+</td>
+<td style="text-align:left;width: 14em; ">
+covid_dummy
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field provides a marker of whether it is known that the project/activity is part of China’s global COVID-19 response efforts. The field is set to “Yes” if the purpose of the project/activity is related to COVID-19 control, including providing information, education and communication as well as activities or materials enabling testing, prevention, immunization, treatment, or care.
+</td>
+</tr>
+</tbody>
+</table>
+</details>
+<pre><code>Warning in predict.lm(m, newdata = grid, interval = "confidence"): prediction
+from rank-deficient fit; attr(*, "non-estim") has doubtful cases</code></pre>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-13-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-1" role="tab" aria-controls="tabset-13-1" aria-selected="true" href="">Forest Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-13-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-2" role="tab" aria-controls="tabset-13-2" aria-selected="false" href="">Marginal Effects</a></li></ul>
+<div class="tab-content">
+<div id="tabset-13-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-13-1-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-15-1.forest.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div id="tabset-13-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-13-2-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-15-1.mfx.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="project-finance-and-loan-size" class="level2">
+<h2 class="anchored" data-anchor-id="project-finance-and-loan-size">14. Project Finance and Loan Size</h2>
+<p>Are project-financed deals larger than standard loans?</p>
+<div style="overflow-x: auto; overflow-y: hidden; font-size: 1.01em;">
+<p><span class="math inline">\(\displaystyle \text{Amount\_Constant\_USD\_2023}_i = \beta_{1}\,\text{project\_finance\_dummy}_i + \varepsilon_i\)</span></p>
+</div>
+<details>
+<summary style="cursor:pointer;font-size:0.85em;color:#4C566A">
+Variable definitions
+</summary>
+<table class="table table-striped table-condensed" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Role
+</th>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Outcome
+</td>
+<td style="text-align:left;width: 14em; ">
+Amount_Constant_USD_2023
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field captures the monetary value of the official commitment (or pledge) issued by the funding agency in constant 2023 U.S. dollars. To calculate this value, AidData first converts the financial commitment (or pledge) amount in its original currency of denomination to nominal U.S. dollars at the average exchange rate in effect during the commitment (or pledge) year, and then converts this amount to constant 2023 U.S. dollars using the OECD’s deflation methodology to adjust for inflation and ensure comparability over time and space. See Box 1 and Appendix D in the TUFF 4.0 methodology for additional details regarding deflation procedures.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6em; font-weight: bold;">
+Predictor
+</td>
+<td style="text-align:left;width: 14em; ">
+project_finance_dummy
+</td>
+<td style="text-align:left;color: rgba(76, 86, 106, 255) !important;">
+This field provides a marker of whether it is known that the loan record involves a Non-Recourse or Limited-Recourse Project Finance transaction. When a project is financed with a limited-recourse or non-recourse structure, the loan that is used to finance the acquisition, construction, and/or maintenance of an asset—such as a toll road, a seaport, or an electricity grid—is exclusively repaid with the cash flow generated by the asset (e.g., toll revenue, container fees, or electricity sales), and the creditor either has no claim (“recourse”) or a limited claim to any other assets as a basis for recovering the debt. In a standard, limited-recourse or non-recourse project finance transaction, a creditor lends to an independent legal entity that is established for the express purpose of developing, owning, and operating a specific project. This entity is often called a special purpose vehicle (SPV) because it is only allowed to engage in activities that relate to a specific purpose (project), and it is legally prohibited from incurring debts or obligations that are not related to that purpose (project). The field is set to “Yes” if the loan record involves a Non-Recourse or Limited-Recourse Project Finance transaction.
+</td>
+</tr>
+</tbody>
+</table>
+</details>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-14-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-14-1" role="tab" aria-controls="tabset-14-1" aria-selected="true" href="">Forest Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-14-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-14-2" role="tab" aria-controls="tabset-14-2" aria-selected="false" href="">Marginal Effects</a></li></ul>
+<div class="tab-content">
+<div id="tabset-14-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-14-1-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-16-1.forest.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div id="tabset-14-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-14-2-tab">
+<p><img src="analysis_files/figure-html/unnamed-chunk-16-1.mfx.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 </div>
@@ -685,54 +1552,360 @@ N: 134
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Analysis"</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the python directory to the path</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># When running from quarto/, go up to Analysis/, then into python/</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>python_dir <span class="op">=</span> Path(<span class="st">'../python'</span>).resolve()</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">str</span>(python_dir) <span class="kw">not</span> <span class="kw">in</span> sys.path:</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    sys.path.insert(<span class="dv">0</span>, <span class="bu">str</span>(python_dir))</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Now import after path is set</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> merge_data <span class="im">import</span> merged_data</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overview</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>This page contains statistical analysis of Chinese development projects.</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Regression Analysis: Public Opinion on Development Funds</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> regress <span class="im">import</span> regress</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate development funds by country (in billions USD)</span></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>country_funds <span class="op">=</span> merged_data.groupby(<span class="st">'Country_of_Activity'</span>)[<span class="st">'Amount_Constant_USD_2023'</span>].<span class="bu">sum</span>().reset_index()</span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>country_funds.columns <span class="op">=</span> [<span class="st">'Country'</span>, <span class="st">'Total_Funds'</span>]</span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>country_funds[<span class="st">'One Billion Dev-Dollars'</span>] <span class="op">=</span> country_funds[<span class="st">'Total_Funds'</span>] <span class="op">/</span> <span class="fl">1e9</span></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Get average public opinion by country</span></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>country_opinion <span class="op">=</span> merged_data.groupby(<span class="st">'Country_of_Activity'</span>)[<span class="st">'net_positive_adj'</span>].mean().reset_index()</span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>country_opinion.columns <span class="op">=</span> [<span class="st">'Country'</span>, <span class="st">'Net Positive Opinion'</span>]</span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge funds and opinion data</span></span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>regression_data <span class="op">=</span> pd.merge(country_funds, country_opinion, on<span class="op">=</span><span class="st">'Country'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Run regression with forest plot</span></span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> regress(regression_data,</span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>                  y_value<span class="op">=</span><span class="st">'Net Positive Opinion'</span>,</span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>                  x_value<span class="op">=</span><span class="st">'One Billion Dev-Dollars'</span>,</span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>                  label<span class="op">=</span><span class="st">'Public Opinion on Development Funds'</span>)</span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Analysis"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: false</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">  cache: true</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="an">fig-width:</span><span class="co"> 9</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="an">fig-height:</span><span class="co"> 3.5</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">style</span><span class="dt">&gt;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">.panel-tabset</span> { <span class="kw">max-width</span><span class="ch">:</span> <span class="dv">1240</span><span class="dt">px</span><span class="op">;</span> }</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">style</span><span class="dt">&gt;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: false</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="at">RETICULATE_PYTHON =</span> <span class="st">"/Library/Frameworks/Python.framework/Versions/3.12/bin/python3"</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: polygon-map</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json, pathlib</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> defaultdict</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> folium</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> branca.element <span class="im">import</span> Element</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>GPKG <span class="op">=</span> pathlib.Path(<span class="st">"../../datasets/aid_data_geospatial.gpkg"</span>)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>AFRICA_ISO <span class="op">=</span> {</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="st">"DZA"</span>,<span class="st">"AGO"</span>,<span class="st">"BEN"</span>,<span class="st">"BWA"</span>,<span class="st">"BFA"</span>,<span class="st">"BDI"</span>,<span class="st">"CPV"</span>,<span class="st">"CMR"</span>,<span class="st">"CAF"</span>,<span class="st">"TCD"</span>,<span class="st">"COM"</span>,<span class="st">"COD"</span>,</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    <span class="st">"COG"</span>,<span class="st">"CIV"</span>,<span class="st">"DJI"</span>,<span class="st">"EGY"</span>,<span class="st">"GNQ"</span>,<span class="st">"ERI"</span>,<span class="st">"SWZ"</span>,<span class="st">"ETH"</span>,<span class="st">"GAB"</span>,<span class="st">"GMB"</span>,<span class="st">"GHA"</span>,<span class="st">"GIN"</span>,</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="st">"GNB"</span>,<span class="st">"KEN"</span>,<span class="st">"LSO"</span>,<span class="st">"LBR"</span>,<span class="st">"LBY"</span>,<span class="st">"MDG"</span>,<span class="st">"MWI"</span>,<span class="st">"MLI"</span>,<span class="st">"MRT"</span>,<span class="st">"MUS"</span>,<span class="st">"MAR"</span>,<span class="st">"MOZ"</span>,</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="st">"NAM"</span>,<span class="st">"NER"</span>,<span class="st">"NGA"</span>,<span class="st">"RWA"</span>,<span class="st">"STP"</span>,<span class="st">"SEN"</span>,<span class="st">"SLE"</span>,<span class="st">"SOM"</span>,<span class="st">"ZAF"</span>,<span class="st">"SSD"</span>,<span class="st">"SDN"</span>,<span class="st">"TZA"</span>,</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="st">"TGO"</span>,<span class="st">"TUN"</span>,<span class="st">"UGA"</span>,<span class="st">"ZMB"</span>,<span class="st">"ZWE"</span>,</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>gdf <span class="op">=</span> gpd.read_file(GPKG)</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>africa <span class="op">=</span> gdf[gdf[<span class="st">"Recipient.ISO-3"</span>].isin(AFRICA_ISO)].copy()</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>africa[<span class="st">"geometry"</span>] <span class="op">=</span> africa[<span class="st">"geometry"</span>].simplify(tolerance<span class="op">=</span><span class="fl">0.05</span>, preserve_topology<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>africa <span class="op">=</span> africa.to_crs(epsg<span class="op">=</span><span class="dv">4326</span>)</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>by_year <span class="op">=</span> defaultdict(<span class="bu">list</span>)</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _, row <span class="kw">in</span> africa.iterrows():</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    year <span class="op">=</span> row[<span class="st">"Commitment.Year"</span>]</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> year <span class="op">!=</span> year:</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    by_year[<span class="bu">int</span>(year)].append({</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>        <span class="st">"type"</span>: <span class="st">"Feature"</span>,</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>        <span class="st">"geometry"</span>: row[<span class="st">"geometry"</span>].__geo_interface__,</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>        <span class="st">"properties"</span>: {</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Title"</span>:     row[<span class="st">"Title"</span>],</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Recipient"</span>: row[<span class="st">"Recipient"</span>],</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Sector"</span>:    row[<span class="st">"Sector.Name"</span>],</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Amount"</span>:    row[<span class="st">"Amount.(Constant.USD.2021)"</span>],</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Year"</span>:      <span class="bu">int</span>(year),</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>        },</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>min_year <span class="op">=</span> <span class="bu">min</span>(by_year)</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>max_year <span class="op">=</span> <span class="bu">max</span>(by_year)</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> folium.Map(location<span class="op">=</span>[<span class="dv">5</span>, <span class="dv">20</span>], zoom_start<span class="op">=</span><span class="dv">3</span>, tiles<span class="op">=</span><span class="st">"CartoDB positron"</span>)</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>map_var <span class="op">=</span> m.get_name()</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>slider_element <span class="op">=</span> Element(<span class="ss">f"""</span></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="ss">&lt;div id="slider-box" style="</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="ss">    position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%);</span></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="ss">    background: #F5F5F5; color: #2E3440;</span></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="ss">    font-family: 'Source Sans Pro', Arial, sans-serif;</span></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="ss">    padding: 6px 16px 7px; border-radius: 5px; z-index: 9999;</span></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="ss">    border: 1px solid #E0E0E0;</span></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="ss">    box-shadow: 0 1px 4px rgba(0,0,0,0.10); text-align: center;"&gt;</span></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="ss">  &lt;span id="year-label" style="font-size:12px; font-weight:600; color:#4C566A; margin-right:10px; letter-spacing:0.04em;"&gt;</span><span class="sc">{</span>min_year<span class="sc">}</span><span class="ss">&lt;/span&gt;</span></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="ss">  &lt;input id="year-slider" type="range"</span></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a><span class="ss">         min="</span><span class="sc">{</span>min_year<span class="sc">}</span><span class="ss">" max="</span><span class="sc">{</span>max_year<span class="sc">}</span><span class="ss">" value="</span><span class="sc">{</span>min_year<span class="sc">}</span><span class="ss">" step="1"</span></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a><span class="ss">         style="width: 180px; cursor: pointer; vertical-align: middle; accent-color: #C0392B;"&gt;</span></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a><span class="ss">&lt;/div&gt;</span></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a><span class="ss">&lt;script&gt;</span></span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a><span class="ss">window.addEventListener("load", function () </span><span class="ch">{{</span></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a><span class="ss">  var yearData = </span><span class="sc">{</span>json<span class="sc">.</span>dumps(<span class="bu">dict</span>(by_year))<span class="sc">}</span><span class="ss">;</span></span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a><span class="ss">  var map = window["</span><span class="sc">{</span>map_var<span class="sc">}</span><span class="ss">"];</span></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a><span class="ss">  var loaded = </span><span class="ch">{{}}</span><span class="ss">;</span></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a><span class="ss">  var style = </span><span class="ch">{{</span><span class="ss">fillColor:"#c0392b",color:"#922b21",weight:0.5,fillOpacity:0.35</span><span class="ch">}}</span><span class="ss">;</span></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a><span class="ss">  function onEach(f, layer) </span><span class="ch">{{</span></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a><span class="ss">    var p = f.properties;</span></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a><span class="ss">    layer.bindTooltip(</span></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a><span class="ss">      "&lt;b&gt;" + (p.Title||"") + "&lt;/b&gt;&lt;br&gt;Recipient: " + (p.Recipient||"") +</span></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a><span class="ss">      "&lt;br&gt;Sector: " + (p.Sector||"") +</span></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a><span class="ss">      "&lt;br&gt;Amount (USD 2021): " + (p.Amount ? "$"+p.Amount.toLocaleString() : "N/A") +</span></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a><span class="ss">      "&lt;br&gt;Year: " + p.Year</span></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a><span class="ss">    );</span></span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a><span class="ss">  </span><span class="ch">}}</span></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a><span class="ss">  function showUpTo(year) </span><span class="ch">{{</span></span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a><span class="ss">    for (var y = </span><span class="sc">{</span>min_year<span class="sc">}</span><span class="ss">; y &lt;= year; y++) </span><span class="ch">{{</span></span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a><span class="ss">      if (!loaded[y] &amp;&amp; yearData[y]) </span><span class="ch">{{</span></span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a><span class="ss">        loaded[y] = L.geoJSON(</span></span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a><span class="ss">          </span><span class="ch">{{</span><span class="ss">type:"FeatureCollection",features:yearData[y]</span><span class="ch">}}</span><span class="ss">,</span></span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a><span class="ss">          </span><span class="ch">{{</span><span class="ss">style:style,onEachFeature:onEach</span><span class="ch">}}</span></span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a><span class="ss">        ).addTo(map);</span></span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a><span class="ss">      </span><span class="ch">}}</span></span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a><span class="ss">    </span><span class="ch">}}</span></span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a><span class="ss">    Object.keys(loaded).forEach(function(y) </span><span class="ch">{{</span></span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a><span class="ss">      if (parseInt(y) &gt; year) </span><span class="ch">{{</span><span class="ss"> map.removeLayer(loaded[y]); delete loaded[y]; </span><span class="ch">}}</span></span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a><span class="ss">    </span><span class="ch">}}</span><span class="ss">);</span></span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a><span class="ss">    document.getElementById("year-label").textContent = year;</span></span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a><span class="ss">  </span><span class="ch">}}</span></span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a><span class="ss">  showUpTo(</span><span class="sc">{</span>min_year<span class="sc">}</span><span class="ss">);</span></span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a><span class="ss">  document.getElementById("year-slider").addEventListener("input", function() </span><span class="ch">{{</span></span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a><span class="ss">    showUpTo(parseInt(this.value));</span></span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a><span class="ss">  </span><span class="ch">}}</span><span class="ss">);</span></span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a><span class="ch">}}</span><span class="ss">);</span></span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a><span class="ss">&lt;/script&gt;</span></span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a><span class="ss">"""</span>)</span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> m.get_root().html.add_child(slider_element)</span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>m.save(<span class="st">"chinadev_map.html"</span>)</span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: polygon-map-render</span></span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: false</span></span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">tagList</span>(</span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>  htmltools<span class="sc">::</span>tags<span class="sc">$</span><span class="fu">iframe</span>(<span class="at">src=</span><span class="st">"chinadev_map.html"</span>, <span class="at">width=</span><span class="st">"100%"</span>, <span class="at">height=</span><span class="st">"700px"</span>,</span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>                         <span class="at">style=</span><span class="st">"border:none; display:block;"</span>),</span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>  htmltools<span class="sc">::</span>tags<span class="sc">$</span><span class="fu">div</span>(<span class="at">style =</span> <span class="st">"height: 2.5rem;"</span>)</span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(targets)</span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sandwich)</span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"analysis"</span>, <span class="st">"R"</span>, <span class="st">"regress.R"</span>))</span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_config_set</span>(<span class="at">store =</span> <span class="fu">here</span>(<span class="st">"_targets"</span>))</span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_load</span>(clg_dev)</span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_load</span>(clg_codebook)</span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a><span class="co"># Derived variables (NA treated as 0 for binary indicators)</span></span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a>flag <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">as.integer</span>(<span class="sc">!</span><span class="fu">is.na</span>(x) <span class="sc">&amp;</span> x <span class="sc">==</span> <span class="st">"Yes"</span>)</span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a>clg_dev <span class="ot">&lt;-</span> clg_dev <span class="sc">|&gt;</span></span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a>    <span class="at">infrastructure_dummy  =</span> <span class="fu">flag</span>(Infrastructure),</span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a>    <span class="at">distress_dummy        =</span> <span class="fu">flag</span>(Financial_Distress),</span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>    <span class="at">covid_dummy           =</span> <span class="fu">flag</span>(COVID),</span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a>    <span class="at">cofinanced_dummy      =</span> <span class="fu">as.integer</span>(Cofinanced <span class="sc">==</span> <span class="st">"Yes"</span>),</span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a>    <span class="at">interest_free_dummy   =</span> <span class="fu">flag</span>(Interest_Free_Loan),</span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a>    <span class="at">project_finance_dummy =</span> <span class="fu">flag</span>(Project_Finance),</span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>    <span class="at">collateralized_dummy  =</span> <span class="fu">flag</span>(Collateralized)</span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a><span class="co"># Map derived dummy names to their codebook source variable</span></span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a>dummy_map <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a>  <span class="at">infrastructure_dummy  =</span> <span class="st">"Infrastructure"</span>,</span>
+<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a>  <span class="at">distress_dummy        =</span> <span class="st">"Financial_Distress"</span>,</span>
+<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a>  <span class="at">covid_dummy           =</span> <span class="st">"COVID"</span>,</span>
+<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a>  <span class="at">cofinanced_dummy      =</span> <span class="st">"Cofinanced"</span>,</span>
+<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a>  <span class="at">interest_free_dummy   =</span> <span class="st">"Interest_Free_Loan"</span>,</span>
+<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a>  <span class="at">project_finance_dummy =</span> <span class="st">"Project_Finance"</span>,</span>
+<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a>  <span class="at">collateralized_dummy  =</span> <span class="st">"Collateralized"</span></span>
+<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a><span class="co"># Wrapper so all regressions inherit codebook + map automatically</span></span>
+<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="cf">function</span>(...) <span class="fu">regress</span>(..., <span class="at">codebook =</span> clg_codebook, <span class="at">var_map =</span> dummy_map)</span>
+<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. Loan Size over Time</span></span>
+<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a>Does the average loan commitment grow over time?</span>
+<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
+<span id="cb2-190"><a href="#cb2-190" aria-hidden="true" tabindex="-1"></a><span class="fu">reg</span>(</span>
+<span id="cb2-191"><a href="#cb2-191" aria-hidden="true" tabindex="-1"></a>  <span class="at">data    =</span> clg_dev,</span>
+<span id="cb2-192"><a href="#cb2-192" aria-hidden="true" tabindex="-1"></a>  <span class="at">y_value =</span> <span class="st">"Amount_Constant_USD_2023"</span>,</span>
+<span id="cb2-193"><a href="#cb2-193" aria-hidden="true" tabindex="-1"></a>  <span class="at">x_value =</span> <span class="st">"Commitment_Year"</span></span>
+<span id="cb2-194"><a href="#cb2-194" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-195"><a href="#cb2-195" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-196"><a href="#cb2-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-197"><a href="#cb2-197" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. Infrastructure Premium</span></span>
+<span id="cb2-198"><a href="#cb2-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-199"><a href="#cb2-199" aria-hidden="true" tabindex="-1"></a>Do infrastructure projects receive larger loans than non-infrastructure projects?</span>
+<span id="cb2-200"><a href="#cb2-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-203"><a href="#cb2-203" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-204"><a href="#cb2-204" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
+<span id="cb2-205"><a href="#cb2-205" aria-hidden="true" tabindex="-1"></a><span class="fu">reg</span>(</span>
+<span id="cb2-206"><a href="#cb2-206" aria-hidden="true" tabindex="-1"></a>  <span class="at">data    =</span> clg_dev,</span>
+<span id="cb2-207"><a href="#cb2-207" aria-hidden="true" tabindex="-1"></a>  <span class="at">y_value =</span> <span class="st">"Amount_Constant_USD_2023"</span>,</span>
+<span id="cb2-208"><a href="#cb2-208" aria-hidden="true" tabindex="-1"></a>  <span class="at">x_value =</span> <span class="st">"infrastructure_dummy"</span></span>
+<span id="cb2-209"><a href="#cb2-209" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-210"><a href="#cb2-210" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-211"><a href="#cb2-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-212"><a href="#cb2-212" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. Concessionality over Time</span></span>
+<span id="cb2-213"><a href="#cb2-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-214"><a href="#cb2-214" aria-hidden="true" tabindex="-1"></a>Is Chinese lending becoming less concessional over time?</span>
+<span id="cb2-215"><a href="#cb2-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-218"><a href="#cb2-218" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-219"><a href="#cb2-219" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
+<span id="cb2-220"><a href="#cb2-220" aria-hidden="true" tabindex="-1"></a><span class="fu">reg</span>(</span>
+<span id="cb2-221"><a href="#cb2-221" aria-hidden="true" tabindex="-1"></a>  <span class="at">data    =</span> clg_dev <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Grant_Element_IMF)),</span>
+<span id="cb2-222"><a href="#cb2-222" aria-hidden="true" tabindex="-1"></a>  <span class="at">y_value =</span> <span class="st">"Grant_Element_IMF"</span>,</span>
+<span id="cb2-223"><a href="#cb2-223" aria-hidden="true" tabindex="-1"></a>  <span class="at">x_value =</span> <span class="st">"Commitment_Year"</span></span>
+<span id="cb2-224"><a href="#cb2-224" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-225"><a href="#cb2-225" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-226"><a href="#cb2-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-227"><a href="#cb2-227" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4. Loan Maturity and Infrastructure</span></span>
+<span id="cb2-228"><a href="#cb2-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-229"><a href="#cb2-229" aria-hidden="true" tabindex="-1"></a>Do infrastructure projects carry longer maturities?</span>
+<span id="cb2-230"><a href="#cb2-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-233"><a href="#cb2-233" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-234"><a href="#cb2-234" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
+<span id="cb2-235"><a href="#cb2-235" aria-hidden="true" tabindex="-1"></a><span class="fu">reg</span>(</span>
+<span id="cb2-236"><a href="#cb2-236" aria-hidden="true" tabindex="-1"></a>  <span class="at">data    =</span> clg_dev <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Maturity)),</span>
+<span id="cb2-237"><a href="#cb2-237" aria-hidden="true" tabindex="-1"></a>  <span class="at">y_value =</span> <span class="st">"Maturity"</span>,</span>
+<span id="cb2-238"><a href="#cb2-238" aria-hidden="true" tabindex="-1"></a>  <span class="at">x_value =</span> <span class="st">"infrastructure_dummy"</span></span>
+<span id="cb2-239"><a href="#cb2-239" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-240"><a href="#cb2-240" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-241"><a href="#cb2-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-242"><a href="#cb2-242" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5. Interest Rates over Time</span></span>
+<span id="cb2-243"><a href="#cb2-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-244"><a href="#cb2-244" aria-hidden="true" tabindex="-1"></a>Are fixed interest rates rising or falling as China scales up lending?</span>
+<span id="cb2-245"><a href="#cb2-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-248"><a href="#cb2-248" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-249"><a href="#cb2-249" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
+<span id="cb2-250"><a href="#cb2-250" aria-hidden="true" tabindex="-1"></a><span class="fu">reg</span>(</span>
+<span id="cb2-251"><a href="#cb2-251" aria-hidden="true" tabindex="-1"></a>  <span class="at">data    =</span> clg_dev <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Fixed_Interest_Rate)),</span>
+<span id="cb2-252"><a href="#cb2-252" aria-hidden="true" tabindex="-1"></a>  <span class="at">y_value =</span> <span class="st">"Fixed_Interest_Rate"</span>,</span>
+<span id="cb2-253"><a href="#cb2-253" aria-hidden="true" tabindex="-1"></a>  <span class="at">x_value =</span> <span class="st">"Commitment_Year"</span></span>
+<span id="cb2-254"><a href="#cb2-254" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-255"><a href="#cb2-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-256"><a href="#cb2-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-257"><a href="#cb2-257" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6. COVID and Loan Size</span></span>
+<span id="cb2-258"><a href="#cb2-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-259"><a href="#cb2-259" aria-hidden="true" tabindex="-1"></a>Were loans committed during the COVID period larger or smaller?</span>
+<span id="cb2-260"><a href="#cb2-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-263"><a href="#cb2-263" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-264"><a href="#cb2-264" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
+<span id="cb2-265"><a href="#cb2-265" aria-hidden="true" tabindex="-1"></a><span class="fu">reg</span>(</span>
+<span id="cb2-266"><a href="#cb2-266" aria-hidden="true" tabindex="-1"></a>  <span class="at">data    =</span> clg_dev,</span>
+<span id="cb2-267"><a href="#cb2-267" aria-hidden="true" tabindex="-1"></a>  <span class="at">y_value =</span> <span class="st">"Amount_Constant_USD_2023"</span>,</span>
+<span id="cb2-268"><a href="#cb2-268" aria-hidden="true" tabindex="-1"></a>  <span class="at">x_value =</span> <span class="st">"covid_dummy"</span></span>
+<span id="cb2-269"><a href="#cb2-269" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-270"><a href="#cb2-270" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-271"><a href="#cb2-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-272"><a href="#cb2-272" aria-hidden="true" tabindex="-1"></a><span class="fu">## 7. Co-financing and Loan Size</span></span>
+<span id="cb2-273"><a href="#cb2-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-274"><a href="#cb2-274" aria-hidden="true" tabindex="-1"></a>Are co-financed loans larger than solo Chinese loans?</span>
+<span id="cb2-275"><a href="#cb2-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-278"><a href="#cb2-278" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-279"><a href="#cb2-279" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
+<span id="cb2-280"><a href="#cb2-280" aria-hidden="true" tabindex="-1"></a><span class="fu">reg</span>(</span>
+<span id="cb2-281"><a href="#cb2-281" aria-hidden="true" tabindex="-1"></a>  <span class="at">data    =</span> clg_dev,</span>
+<span id="cb2-282"><a href="#cb2-282" aria-hidden="true" tabindex="-1"></a>  <span class="at">y_value =</span> <span class="st">"Amount_Constant_USD_2023"</span>,</span>
+<span id="cb2-283"><a href="#cb2-283" aria-hidden="true" tabindex="-1"></a>  <span class="at">x_value =</span> <span class="st">"cofinanced_dummy"</span></span>
+<span id="cb2-284"><a href="#cb2-284" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-285"><a href="#cb2-285" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-286"><a href="#cb2-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-287"><a href="#cb2-287" aria-hidden="true" tabindex="-1"></a><span class="fu">## 8. Grace Periods and Infrastructure</span></span>
+<span id="cb2-288"><a href="#cb2-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-289"><a href="#cb2-289" aria-hidden="true" tabindex="-1"></a>Do infrastructure loans come with longer grace periods?</span>
+<span id="cb2-290"><a href="#cb2-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-293"><a href="#cb2-293" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-294"><a href="#cb2-294" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
+<span id="cb2-295"><a href="#cb2-295" aria-hidden="true" tabindex="-1"></a><span class="fu">reg</span>(</span>
+<span id="cb2-296"><a href="#cb2-296" aria-hidden="true" tabindex="-1"></a>  <span class="at">data    =</span> clg_dev <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Grace_Period)),</span>
+<span id="cb2-297"><a href="#cb2-297" aria-hidden="true" tabindex="-1"></a>  <span class="at">y_value =</span> <span class="st">"Grace_Period"</span>,</span>
+<span id="cb2-298"><a href="#cb2-298" aria-hidden="true" tabindex="-1"></a>  <span class="at">x_value =</span> <span class="st">"infrastructure_dummy"</span></span>
+<span id="cb2-299"><a href="#cb2-299" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-300"><a href="#cb2-300" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-301"><a href="#cb2-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-302"><a href="#cb2-302" aria-hidden="true" tabindex="-1"></a><span class="fu">## 9. Concessionality and Infrastructure</span></span>
+<span id="cb2-303"><a href="#cb2-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-304"><a href="#cb2-304" aria-hidden="true" tabindex="-1"></a>Are infrastructure loans more or less concessional than non-infrastructure loans?</span>
+<span id="cb2-305"><a href="#cb2-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-308"><a href="#cb2-308" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-309"><a href="#cb2-309" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
+<span id="cb2-310"><a href="#cb2-310" aria-hidden="true" tabindex="-1"></a><span class="fu">reg</span>(</span>
+<span id="cb2-311"><a href="#cb2-311" aria-hidden="true" tabindex="-1"></a>  <span class="at">data    =</span> clg_dev <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Grant_Element_IMF)),</span>
+<span id="cb2-312"><a href="#cb2-312" aria-hidden="true" tabindex="-1"></a>  <span class="at">y_value =</span> <span class="st">"Grant_Element_IMF"</span>,</span>
+<span id="cb2-313"><a href="#cb2-313" aria-hidden="true" tabindex="-1"></a>  <span class="at">x_value =</span> <span class="st">"infrastructure_dummy"</span></span>
+<span id="cb2-314"><a href="#cb2-314" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-315"><a href="#cb2-315" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-316"><a href="#cb2-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-317"><a href="#cb2-317" aria-hidden="true" tabindex="-1"></a><span class="fu">## 10. Maturities over Time</span></span>
+<span id="cb2-318"><a href="#cb2-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-319"><a href="#cb2-319" aria-hidden="true" tabindex="-1"></a>Are loan maturities getting longer or shorter as China's program matures?</span>
+<span id="cb2-320"><a href="#cb2-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-323"><a href="#cb2-323" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-324"><a href="#cb2-324" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
+<span id="cb2-325"><a href="#cb2-325" aria-hidden="true" tabindex="-1"></a><span class="fu">reg</span>(</span>
+<span id="cb2-326"><a href="#cb2-326" aria-hidden="true" tabindex="-1"></a>  <span class="at">data    =</span> clg_dev <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Maturity)),</span>
+<span id="cb2-327"><a href="#cb2-327" aria-hidden="true" tabindex="-1"></a>  <span class="at">y_value =</span> <span class="st">"Maturity"</span>,</span>
+<span id="cb2-328"><a href="#cb2-328" aria-hidden="true" tabindex="-1"></a>  <span class="at">x_value =</span> <span class="st">"Commitment_Year"</span></span>
+<span id="cb2-329"><a href="#cb2-329" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-330"><a href="#cb2-330" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-331"><a href="#cb2-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-332"><a href="#cb2-332" aria-hidden="true" tabindex="-1"></a><span class="fu">## 11. Interest Rates and Infrastructure</span></span>
+<span id="cb2-333"><a href="#cb2-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-334"><a href="#cb2-334" aria-hidden="true" tabindex="-1"></a>Are infrastructure loans priced differently from non-infrastructure loans?</span>
+<span id="cb2-335"><a href="#cb2-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-338"><a href="#cb2-338" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-339"><a href="#cb2-339" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
+<span id="cb2-340"><a href="#cb2-340" aria-hidden="true" tabindex="-1"></a><span class="fu">reg</span>(</span>
+<span id="cb2-341"><a href="#cb2-341" aria-hidden="true" tabindex="-1"></a>  <span class="at">data    =</span> clg_dev <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Fixed_Interest_Rate)),</span>
+<span id="cb2-342"><a href="#cb2-342" aria-hidden="true" tabindex="-1"></a>  <span class="at">y_value =</span> <span class="st">"Fixed_Interest_Rate"</span>,</span>
+<span id="cb2-343"><a href="#cb2-343" aria-hidden="true" tabindex="-1"></a>  <span class="at">x_value =</span> <span class="st">"infrastructure_dummy"</span></span>
+<span id="cb2-344"><a href="#cb2-344" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-345"><a href="#cb2-345" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-346"><a href="#cb2-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-347"><a href="#cb2-347" aria-hidden="true" tabindex="-1"></a><span class="fu">## 12. Interest-Free Loans and Loan Size</span></span>
+<span id="cb2-348"><a href="#cb2-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-349"><a href="#cb2-349" aria-hidden="true" tabindex="-1"></a>Are interest-free loans larger or smaller?</span>
+<span id="cb2-350"><a href="#cb2-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-353"><a href="#cb2-353" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-354"><a href="#cb2-354" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
+<span id="cb2-355"><a href="#cb2-355" aria-hidden="true" tabindex="-1"></a><span class="fu">reg</span>(</span>
+<span id="cb2-356"><a href="#cb2-356" aria-hidden="true" tabindex="-1"></a>  <span class="at">data    =</span> clg_dev,</span>
+<span id="cb2-357"><a href="#cb2-357" aria-hidden="true" tabindex="-1"></a>  <span class="at">y_value =</span> <span class="st">"Amount_Constant_USD_2023"</span>,</span>
+<span id="cb2-358"><a href="#cb2-358" aria-hidden="true" tabindex="-1"></a>  <span class="at">x_value =</span> <span class="st">"interest_free_dummy"</span></span>
+<span id="cb2-359"><a href="#cb2-359" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-360"><a href="#cb2-360" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-361"><a href="#cb2-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-362"><a href="#cb2-362" aria-hidden="true" tabindex="-1"></a><span class="fu">## 13. COVID and Concessionality</span></span>
+<span id="cb2-363"><a href="#cb2-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-364"><a href="#cb2-364" aria-hidden="true" tabindex="-1"></a>Did COVID-era loans carry more favorable terms?</span>
+<span id="cb2-365"><a href="#cb2-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-368"><a href="#cb2-368" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-369"><a href="#cb2-369" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
+<span id="cb2-370"><a href="#cb2-370" aria-hidden="true" tabindex="-1"></a><span class="fu">reg</span>(</span>
+<span id="cb2-371"><a href="#cb2-371" aria-hidden="true" tabindex="-1"></a>  <span class="at">data    =</span> clg_dev <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Grant_Element_IMF)),</span>
+<span id="cb2-372"><a href="#cb2-372" aria-hidden="true" tabindex="-1"></a>  <span class="at">y_value =</span> <span class="st">"Grant_Element_IMF"</span>,</span>
+<span id="cb2-373"><a href="#cb2-373" aria-hidden="true" tabindex="-1"></a>  <span class="at">x_value =</span> <span class="st">"covid_dummy"</span></span>
+<span id="cb2-374"><a href="#cb2-374" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-375"><a href="#cb2-375" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-376"><a href="#cb2-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-377"><a href="#cb2-377" aria-hidden="true" tabindex="-1"></a><span class="fu">## 14. Project Finance and Loan Size</span></span>
+<span id="cb2-378"><a href="#cb2-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-379"><a href="#cb2-379" aria-hidden="true" tabindex="-1"></a>Are project-financed deals larger than standard loans?</span>
+<span id="cb2-380"><a href="#cb2-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-383"><a href="#cb2-383" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-384"><a href="#cb2-384" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
+<span id="cb2-385"><a href="#cb2-385" aria-hidden="true" tabindex="-1"></a><span class="fu">reg</span>(</span>
+<span id="cb2-386"><a href="#cb2-386" aria-hidden="true" tabindex="-1"></a>  <span class="at">data    =</span> clg_dev,</span>
+<span id="cb2-387"><a href="#cb2-387" aria-hidden="true" tabindex="-1"></a>  <span class="at">y_value =</span> <span class="st">"Amount_Constant_USD_2023"</span>,</span>
+<span id="cb2-388"><a href="#cb2-388" aria-hidden="true" tabindex="-1"></a>  <span class="at">x_value =</span> <span class="st">"project_finance_dummy"</span></span>
+<span id="cb2-389"><a href="#cb2-389" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-390"><a href="#cb2-390" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

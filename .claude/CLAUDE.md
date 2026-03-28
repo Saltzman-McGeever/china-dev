@@ -55,6 +55,24 @@ ChinaDev/
 
 ---
 
+## Style Guide (`analysis/R/style.R`)
+
+All visuals follow a single style guide. Read `style.R` before proposing any color, font, or layout changes.
+
+| Token | Value |
+|---|---|
+| Primary accent | `#C0392B` (red — China / significance) |
+| Background | `#F5F5F5` |
+| Text dark | `#2E3440` |
+| Text medium | `#4C566A` |
+| Grid / border | `#E0E0E0` |
+| Font | Source Sans Pro (Google Fonts), fallback Arial/sans-serif |
+
+- All other content is greyscale and minimal — red is reserved for significance or emphasis
+- Plotly defaults in `PLOTLY_STYLE` list; ggplot2 defaults in `theme_china()`
+
+---
+
 ## Token Efficiency Rules
 
 - **Never read** `datasets/AidDatas_CLG_Global_Dataset_v1.0.xlsx` directly — it is large and already handled by the targets pipeline
